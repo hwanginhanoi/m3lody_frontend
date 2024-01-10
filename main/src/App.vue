@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import MainPage from './components/MainPage.vue';
+import NavBar from "./components/NavBar.vue";
+import Header from "./components/Header.vue";
+
+// export default {
+//     components: {
+//         Header,
+//         NavBar,
+//         MainPage,
+//     },
+// };
+</script>
+
 <template>
     <div id="App">
         <NavBar />
@@ -8,20 +22,6 @@
 
     </div>
 </template>
-
-<script>
-import MainPage from './components/MainPage.vue';
-import NavBar from "./components/NavBar.vue";
-import Header from "./components/Header.vue";
-
-export default {
-    components: {
-        Header,
-        NavBar,
-        MainPage,
-    },
-};
-</script>
 
 <style>
 body {
