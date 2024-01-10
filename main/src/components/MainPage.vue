@@ -1,21 +1,19 @@
-<template>
-    <div class="main-page">
-    </div>
-</template>
-
 <script>
 export default {
     name: 'MainPage',
 };
 </script>
 
+
+<template>
+    <div class="main-page">
+        <p>This is main content</p>
+    </div>
+</template>
+
 <style scoped>
 .main-page {
-    width: 1440px;
-    height: 1024px;
-    padding: 260px;
-    background-color: white;
-
+    width: 100%;
+    background: bisque;
 }
 </style>
-
