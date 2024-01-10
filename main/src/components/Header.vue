@@ -1,7 +1,7 @@
-<script>
-export default {
-    name: 'Header',
-};
+<script setup lang="ts">
+// export default {
+//     name: 'Header',
+// };
 </script>
 
 <template>

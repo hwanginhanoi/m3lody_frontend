@@ -1,7 +1,7 @@
-<script>
-export default {
-    name: 'NavBar',
-};
+<script setup lang="ts">
+// export default {
+//     name: 'NavBar',
+// };
 </script>
 
 <template>

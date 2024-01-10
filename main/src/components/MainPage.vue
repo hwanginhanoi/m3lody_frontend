@@ -1,7 +1,7 @@
-<script>
-export default {
-    name: 'MainPage',
-};
+<script setup lang="ts">
+// export default {
+//     name: 'MainPage',
+// };
 </script>
 
 
