@@ -1,0 +1,19 @@
+<script setup lang="ts">
+// export default {
+//     name: 'MainPage',
+// };
+</script>
+
+
+<template>
+    <div class="main-page">
+        <p>This is main content</p>
+    </div>
+</template>
+
+<style scoped>
+.main-page {
+    width: 100%;
+    background: bisque;
+}
+</style>
