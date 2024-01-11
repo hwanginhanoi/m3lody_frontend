@@ -1,9 +1,6 @@
 <script setup lang="ts">
-// export default {
-//     name: 'MainPage',
-// };
-</script>
 
+</script>
 
 <template>
     <div class="main-page">
