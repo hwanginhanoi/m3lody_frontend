@@ -19,9 +19,8 @@
     left: 0;
     width: 280px;
     overflow: hidden;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    background: black;
-
+    background: rgba(21, 22, 23, 0.40);
+    background: lightblue;
 }
 p{
     color: white;

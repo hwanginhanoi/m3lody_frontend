@@ -29,6 +29,7 @@ body {
     display: flex;
     height: 100vh;
     flex-wrap: wrap;
+    background: black;
 }
 #container{
     display: flex;
