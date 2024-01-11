@@ -15,7 +15,7 @@
         </div>
         <div class="user-info">
             <button>Album ▼</button>
-            <img src="" alt="User Image">
+            <img src="../assets/vue.svg" alt="User Image">
             <span>Alexim</span>
         </div>
     </div>
