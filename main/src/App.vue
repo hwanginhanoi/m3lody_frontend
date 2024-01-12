@@ -1,40 +1,36 @@
 <script setup lang="ts">
-import MainPage from './components/MainPage.vue';
-import NavBar from "./components/NavBar.vue";
+import NavDrawer from "./components/NavDrawer.vue";
 import Header from "./components/Header.vue";
 
-// export default {
-//     components: {
-//         Header,
-//         NavBar,
-//         MainPage,
-//     },
-// };
 </script>
 
 <template>
-    <div id="App">
-        <NavBar />
-        <div id="container">
-            <Header />
-            <MainPage />
-        </div>
+    <v-layout class="rounded rounded-md">
+        <NavDrawer>
 
-    </div>
+        </NavDrawer>
+
+        <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+            Main Content
+        </v-main>
+        <Header >
+
+        </Header >
+
+    </v-layout>
 </template>
 
 <style>
-body {
-    margin: 0;
+#app {
     display: flex;
-    height: 100vh;
-    flex-wrap: wrap;
-}
-#container{
-    display: flex;
-    flex-direction: column;
-    background: bisque;
-
     width: 100vw;
+    min-height: 100vh;
 }
+
+#dark-mode-switch {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 </style>

@@ -1,19 +1,29 @@
 <script setup lang="ts">
-// export default {
-//     name: 'Header',
-// };
 </script>
 
 <template>
-    <div id="header">
-        <h1>This is Header</h1>
-    </div>
+    <v-app-bar title="Application bar">
+    </v-app-bar>
 </template>
 
 <style scoped>
-#header{
-    background: aqua;
-    width: 100%;
-    height: 100px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.portfolio h1, .portfolio p {
+    margin: 0;
+}
+
+.search-bar input {
+    padding: 10px;
+}
+
+.user-info img {
+    border-radius: 50%;
 }
 </style>
