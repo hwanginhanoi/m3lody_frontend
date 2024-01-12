@@ -12,19 +12,34 @@ import Header from "./components/Header.vue";
 // };
 </script>
 
-<template>
-    <div id="App">
-        <NavBar />
-        <div id="container">
-            <Header />
-            <MainPage />
-        </div>
+<!--<template>-->
+<!--    <div id="App">-->
+<!--        <NavBar />-->
+<!--        <div id="container">-->
+<!--            <Header />-->
+<!--            <MainPage />-->
+<!--        </div>-->
 
-    </div>
-</template>
+<!--    </div>-->
+  <template>
+    <v-layout class="rounded rounded-md">
+      <v-navigation-drawer>
+        <v-list>
+          <v-list-item title="Navigation drawer"></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-app-bar title="Application bar"></v-app-bar>
+
+      <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+        Main Content
+      </v-main>
+    </v-layout>
+  </template>
+<!--</template>-->
 
 <style>
-body {
+/* body {
     margin: 0;
     display: flex;
     height: 100vh;
@@ -37,5 +52,5 @@ body {
     background: bisque;
 
     width: 100vw;
-}
+} */
 </style>
