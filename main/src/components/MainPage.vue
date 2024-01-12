@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 </script>
-
 <template>
     <div class="main-page">
         <p>This is main content</p>
