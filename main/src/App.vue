@@ -1,31 +1,19 @@
 <script setup lang="ts">
-import MainPage from './components/MainPage.vue';
-import NavBar from "./components/NavBar.vue";
-import Header from "./components/Header.vue";
+import { useTheme } from 'vuetify'
 
-// export default {
-//     components: {
-//         Header,
-//         NavBar,
-//         MainPage,
-//     },
-// };
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
 
-<!--<template>-->
-<!--    <div id="App">-->
-<!--        <NavBar />-->
-<!--        <div id="container">-->
-<!--            <Header />-->
-<!--            <MainPage />-->
-<!--        </div>-->
-
-<!--    </div>-->
-  <template>
+<template>
     <v-layout class="rounded rounded-md">
       <v-navigation-drawer>
         <v-list>
           <v-list-item title="Navigation drawer"></v-list-item>
+          <v-btn @click="toggleTheme">toggle theme</v-btn>
         </v-list>
       </v-navigation-drawer>
 
@@ -35,8 +23,7 @@ import Header from "./components/Header.vue";
         Main Content
       </v-main>
     </v-layout>
-  </template>
-<!--</template>-->
+</template>
 
 <style>
 /* body {
