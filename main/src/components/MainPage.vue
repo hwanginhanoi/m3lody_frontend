@@ -8,8 +8,7 @@
 </template>
 
 <style scoped>
-.main-page {
-    width: 100%;
-    background: bisque;
-}
+    .v-main {
+        background: #0D0D0D
+    }
 </style>

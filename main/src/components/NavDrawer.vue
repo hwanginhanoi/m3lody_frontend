@@ -22,7 +22,6 @@ const isDarkTheme = computed({
         <v-img src="https://api.logo.com/api/v2/images?logo=logo_3944e7bb-b80e-45e5-adea-a7224f19746a&u=1705131932218&format=svg&margins=166&width=1000&height=750&fit=contain"
         ></v-img>
 
-        <v-divider></v-divider>
 
         <v-list density="compact" class="d-flex pa-2 flex-column h100">
             <v-list-item prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"></v-list-item>
