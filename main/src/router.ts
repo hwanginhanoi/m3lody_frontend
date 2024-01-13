@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
-    { path: '/', component: () => import('./views/Index.vue') },
+    { path: '/', redirect: '/index' },
+    { path: '/index', component: () => import('./views/Index.vue') },
 ];
 
 const router = createRouter({
