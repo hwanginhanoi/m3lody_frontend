@@ -2,9 +2,9 @@
 
 </script>
 <template>
-    <div class="main-page">
-        <p>This is main content</p>
-    </div>
+    <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
+        Main Content
+    </v-main>
 </template>
 
 <style scoped>

@@ -2,28 +2,22 @@
 </script>
 
 <template>
-    <v-app-bar title="Application bar">
+    <v-app-bar color="#0D0D0D">
+        <v-app-bar-title>
+            Application
+        </v-app-bar-title>
+        <v-text-field
+            label="Prepend inner"
+            prepend-inner-icon="mdi-map-marker"
+            variant="solo"
+        ></v-text-field>
+        <v-list-item
+            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+            title="Sandra Adams">
+        </v-list-item>
     </v-app-bar>
 </template>
 
 <style scoped>
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-}
 
-.portfolio h1, .portfolio p {
-    margin: 0;
-}
-
-.search-bar input {
-    padding: 10px;
-}
-
-.user-info img {
-    border-radius: 50%;
-}
 </style>

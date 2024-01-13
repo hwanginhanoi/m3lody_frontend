@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavDrawer from "./components/NavDrawer.vue";
 import Header from "./components/Header.vue";
+import MainPage from "./components/MainPage.vue";
 
 </script>
 
@@ -10,9 +11,9 @@ import Header from "./components/Header.vue";
 
         </NavDrawer>
 
-        <v-main class="d-flex align-center justify-center" style="min-height: 300px;">
-            Main Content
-        </v-main>
+        <MainPage>
+
+        </MainPage>
         <Header >
 
         </Header >
