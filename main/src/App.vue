@@ -1,24 +1,9 @@
 <script setup lang="ts">
-import NavDrawer from "./components/NavDrawer.vue";
-import Header from "./components/Header.vue";
-import MainPage from "./components/MainPage.vue";
 
 </script>
 
 <template>
-    <v-layout class="rounded rounded-md">
-        <NavDrawer>
-
-        </NavDrawer>
-
-        <MainPage>
-
-        </MainPage>
-        <Header >
-
-        </Header >
-
-    </v-layout>
+    <router-view />
 </template>
 
 <style>
