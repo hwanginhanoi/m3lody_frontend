@@ -2,14 +2,15 @@
 </script>
 
 <template>
-    <v-app-bar :elevation="0" color="#0D0D0D">
+    <v-app-bar :elevation="0" color="#0D0D0D" height="100">
         <v-app-bar-title>
             Application
         </v-app-bar-title>
         <v-text-field clearable=""
+                      class="custom-padding"
                       rounded
                       bg-color="#151718"
-                      label="Prepend inner"
+                      label="Search"
                       prepend-inner-icon="mdi-magnify"
                       variant="solo-filled"
         ></v-text-field>
@@ -21,5 +22,7 @@
 </template>
 
 <style scoped>
-
+    .custom-padding {
+        padding-top: 25px;
+    }
 </style>
