@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {useTheme} from 'vuetify'
-import {computed} from 'vue'
+import {useTheme, useDisplay} from 'vuetify'
+import {ref, computed} from 'vue'
 
 const theme = useTheme()
 
@@ -10,6 +10,8 @@ const isDarkTheme = computed({
         theme.global.name.value = value ? 'dark' : 'light'
     }
 })
+const rail = ref(false)
+const { mdAndUp } = useDisplay()
 </script>
 
 <template>
@@ -17,20 +19,24 @@ const isDarkTheme = computed({
         width="210"
         color="#151617"
         opacity='0.4'
+        :rail="mdAndUp ? rail : !rail"
         permanent="true"
     >
-        <v-img src="https://api.logo.com/api/v2/images?logo=logo_3944e7bb-b80e-45e5-adea-a7224f19746a&u=1705131932218&format=svg&margins=166&width=1000&height=750&fit=contain"
-        ></v-img>
-        <v-list density="compact" class="d-flex pa-2 flex-column h100 rounded-list">
-            <v-list-item prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-multiple" title="User" value="account"></v-list-item>
-            <v-list-item prepend-icon="mdi-eye" title="Watchlist" value="watchlist"></v-list-item>
-            <v-list-item prepend-icon="mdi-wallet" title="Wallet" value="wallet"></v-list-item>
+        <div class="d-flex">
+            <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-4"></v-app-bar-nav-icon>
+            <v-img v-if="mdAndUp ? !rail : rail" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            ></v-img>
+        </div>
+        <v-list density="compact" class="d-flex flex-column h100 rounded-list">
+            <v-list-item prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
+            <v-list-item prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
+            <v-list-item prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
+            <v-list-item prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
         </v-list>
 
 
         <template v-slot:append>
-            <div class="pa-2">
+            <div>
                 <v-list density="compact" class="d-flex flex-column">
                     <v-switch
                         v-model="isDarkTheme"
@@ -46,22 +52,22 @@ const isDarkTheme = computed({
             </div>
         </template>
     </v-navigation-drawer>
-
-
 </template>
 
 <style scoped>
+.rounded-list .v-list-item {
+    border-radius: 20px;
+    padding: 0 16px;
+}
+
 .rounded-list .v-list-item:hover,
 .rounded-list .v-list-item.v-list-item--active {
     border-radius: 20px;
     padding: 0 16px;
-    margin: 4px;
 }
 
 .v-list-item {
     margin: 4px 0;
 }
-
-
 </style>
 

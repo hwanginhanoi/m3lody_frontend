@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    let username : string = "Me may beo"
+    let username : string = "Jane Doe"
     let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
 </script>
 
