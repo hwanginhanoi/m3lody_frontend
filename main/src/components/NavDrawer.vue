@@ -25,11 +25,11 @@ const { mdAndUp } = useDisplay()
         permanent="true"
     >
         <div class="d-flex">
-            <v-app-bar-nav-icon v-if="mdAndUp" @click.stop="rail=!rail" class="ml-1 mt-4"></v-app-bar-nav-icon>
-            <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="rail2=!rail2" class="ml-1 mt-4"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            <v-app-bar-nav-icon v-if="mdAndUp" @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="rail2=!rail2" class="ml-1 mt-6"></v-app-bar-nav-icon>
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
             ></v-img>
-            <v-img v-if="!mdAndUp && !rail2" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            <v-img v-if="!mdAndUp && !rail2" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
@@ -52,7 +52,10 @@ const { mdAndUp } = useDisplay()
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-list-item rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout"></v-list-item>
+                    <v-btn variant="plain" v-if="mdAndUp && !rail" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
+                    <v-btn variant="plain" v-if="!mdAndUp && !rail2" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
+                    <v-btn variant="plain" v-if="mdAndUp && rail" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
+                    <v-btn variant="plain" v-if="!mdAndUp && rail2" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
                 </v-list>
             </div>
         </template>
