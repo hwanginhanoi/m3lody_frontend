@@ -6,6 +6,6 @@
 
 </template>
 
-<style>
+<style scoped>
 
 </style>

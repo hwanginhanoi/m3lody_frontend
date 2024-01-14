@@ -2,30 +2,26 @@
 import NavDrawer from "../components/NavDrawer.vue";
 import Header from "../components/Header.vue";
 
-let balance : number = 83189.44
-let prev_balance : number = 90000
+let balance: number = 83189.44
+let prev_balance: number = 90000
 let balance_dif = balance - prev_balance
 
 </script>
 
 <template>
-    <v-layout class="rounded rounded-md">
-        <v-main class="" style="min-height: 300px;">
-            <p class="current_balance">Current balance
-                <v-icon icon="mdi-eye"></v-icon>
-            </p>
+    <v-main class="" style="min-height: 300px;">
+        <p class="current_balance">Current balance
+            <v-icon icon="mdi-eye"></v-icon>
+        </p>
 
-            <p class="balance">
-                ${{balance}}
-            </p>
+        <p class="balance">
+            ${{ balance }}
+        </p>
 
-            <p :class="{ 'red-text': balance_dif < 0, 'green-text': balance_dif > 0 }">
-                {{balance_dif}}
-            </p>
-
-
-        </v-main>
-    </v-layout>
+        <p :class="{ 'red-text': balance_dif < 0, 'green-text': balance_dif > 0 }">
+            {{ balance_dif }}
+        </p>
+    </v-main>
 </template>
 
 <style>
