@@ -9,16 +9,19 @@ let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).t
 
 const crypto_currency = ref([
     {
+        abbr: 'ETH',
         asset: 'Etherium',
         price: 159,
         balance: 332,
     },
     {
+        abbr: 'ETC',
         asset: 'Bitcoin',
         price: 237,
         balance: 332,
     },
     {
+        abbr: 'XRP',
         asset: 'Ripple',
         price: 237,
         balance: 332,
@@ -70,13 +73,13 @@ function Icon(asset: string) {
 
             <tr
                 v-for="item in crypto_currency"
-                :key="item.asset"
+                :key="item.abbr"
             >
                 <td>
                     <v-img :src="Icon(item.asset)" alt="Crypto Icon" style="width: 22px; height: 24px;">
                     </v-img>
                 </td>
-                <td>{{ item.asset }}</td>
+                <td>{{ item.asset }} <span class="abbr">{{ item.abbr }}</span></td>
                 <td>{{ item.price }}</td>
                 <td>{{ item.balance }}</td>
             </tr>
@@ -116,8 +119,18 @@ function Icon(asset: string) {
 }
 
 .table {
-    width: 400px;
+    width: 800px;
     margin: auto;
+}
+
+.abbr {
+    color: #A1A1A1;
+    font-family: Lufga, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 1px;
 }
 
 </style>
