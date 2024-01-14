@@ -11,6 +11,7 @@ const isDarkTheme = computed({
     }
 })
 const rail = ref(false)
+const rail2 = ref(true)
 const { mdAndUp } = useDisplay()
 </script>
 
@@ -19,19 +20,22 @@ const { mdAndUp } = useDisplay()
         width="210"
         color="#151617"
         opacity='0.4'
-        :rail="mdAndUp ? rail : !rail"
+        :rail="mdAndUp ? rail : rail2"
         permanent="true"
     >
         <div class="d-flex">
-            <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-4"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp ? !rail : rail" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            <v-app-bar-nav-icon v-if="mdAndUp" @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="rail2=!rail2" class="ml-1 mt-6"></v-app-bar-nav-icon>
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
+            ></v-img>
+            <v-img v-if="!mdAndUp && !rail2" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
-            <v-list-item prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
         </v-list>
 
 
@@ -47,7 +51,10 @@ const { mdAndUp } = useDisplay()
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-list-item prepend-icon="mdi-logout" title="Logout" value="logout"></v-list-item>
+                    <v-btn variant="plain" v-if="mdAndUp && !rail" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
+                    <v-btn variant="plain" v-if="!mdAndUp && !rail2" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
+                    <v-btn variant="plain" v-if="mdAndUp && rail" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
+                    <v-btn variant="plain" v-if="!mdAndUp && rail2" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
                 </v-list>
             </div>
         </template>
@@ -56,13 +63,11 @@ const { mdAndUp } = useDisplay()
 
 <style scoped>
 .rounded-list .v-list-item {
-    border-radius: 20px;
     padding: 0 16px;
 }
 
 .rounded-list .v-list-item:hover,
 .rounded-list .v-list-item.v-list-item--active {
-    border-radius: 20px;
     padding: 0 16px;
 }
 
