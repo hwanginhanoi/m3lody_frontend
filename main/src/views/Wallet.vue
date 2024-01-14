@@ -1,11 +1,40 @@
 <script setup lang="ts">
-import NavDrawer from "../components/NavDrawer.vue";
-import Header from "../components/Header.vue";
+
+import {ref} from "vue";
 
 let balance: number = 83189.44
 let prev_balance: number = 90000
 let balance_dif = balance - prev_balance
+let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).toFixed(2)
 
+const crypto_currency = ref([
+    {
+        asset: 'Etherium',
+        price: 159,
+        balance: 332,
+    },
+    {
+        asset: 'Bitcoin',
+        price: 237,
+        balance: 332,
+    },
+    {
+        asset: 'Ripple',
+        price: 237,
+        balance: 332,
+    },
+])
+
+function Icon(asset: string) {
+    switch (asset.toLowerCase()) {
+        case 'etherium':
+            return 'src/assets/cryptocurrency/eth.svg';
+        case 'bitcoin':
+            return 'src/assets/cryptocurrency/btc.svg';
+        case 'ripple':
+            return 'src/assets/cryptocurrency/xrp.svg';
+    }
+}
 </script>
 
 <template>
@@ -19,8 +48,40 @@ let balance_dif = balance - prev_balance
         </p>
 
         <p :class="{ 'red-text': balance_dif < 0, 'green-text': balance_dif > 0 }">
-            {{ balance_dif }}
+            {{ balance_dif }} ({{balance_dif_percentage}})
         </p>
+
+        <v-table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th class="text-left">
+                    Asset
+                </th>
+                <th class="text-left">
+                    Price
+                </th>
+                <th class="text-left">
+                    Balance
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr
+                v-for="item in crypto_currency"
+                :key="item.asset"
+            >
+                <td>
+                    <v-img :src="Icon(item.asset)" alt="Crypto Icon" style="width: 22px; height: 24px;">
+                    </v-img>
+                </td>
+                <td>{{ item.asset }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.balance }}</td>
+            </tr>
+            </tbody>
+        </v-table>
     </v-main>
 </template>
 
@@ -52,6 +113,11 @@ let balance_dif = balance - prev_balance
 
 .green-text {
     color: green;
+}
+
+.table {
+    width: 400px;
+    margin: auto;
 }
 
 </style>
