@@ -10,12 +10,12 @@ let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).t
 const crypto_currency = ref([
     {
         abbr: 'ETH',
-        asset: 'Etherium',
+        asset: 'Ethereum',
         price: 159,
         balance: 332,
     },
     {
-        abbr: 'ETC',
+        abbr: 'BTC',
         asset: 'Bitcoin',
         price: 237,
         balance: 332,
@@ -26,16 +26,24 @@ const crypto_currency = ref([
         price: 237,
         balance: 332,
     },
+    {
+        abbr: 'USDT',
+        asset: 'Tether',
+        price: 237,
+        balance: 332,
+    },
 ])
 
-function Icon(asset: string) {
-    switch (asset.toLowerCase()) {
-        case 'etherium':
+function Icon(abbr: string) {
+    switch (abbr.toLowerCase()) {
+        case 'eth':
             return 'src/assets/cryptocurrency/eth.svg';
-        case 'bitcoin':
+        case 'btc':
             return 'src/assets/cryptocurrency/btc.svg';
-        case 'ripple':
+        case 'xrp':
             return 'src/assets/cryptocurrency/xrp.svg';
+        case 'usdt':
+            return 'src/assets/cryptocurrency/usdt.svg';
     }
 }
 </script>
@@ -76,7 +84,7 @@ function Icon(asset: string) {
                 :key="item.abbr"
             >
                 <td>
-                    <v-img :src="Icon(item.asset)" alt="Crypto Icon" style="width: 22px; height: 24px;">
+                    <v-img :src="Icon(item.abbr)" alt="Crypto Icon" style="width: 22px; height: 24px;">
                     </v-img>
                 </td>
                 <td>{{ item.asset }} <span class="abbr">{{ item.abbr }}</span></td>
