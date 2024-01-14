@@ -10,10 +10,6 @@ let balance_dif = balance - prev_balance
 
 <template>
     <v-layout class="rounded rounded-md">
-        <NavDrawer>
-
-        </NavDrawer>
-
         <v-main class="" style="min-height: 300px;">
             <p class="current_balance">Current balance
                 <v-icon icon="mdi-eye"></v-icon>
@@ -29,11 +25,6 @@ let balance_dif = balance - prev_balance
 
 
         </v-main>
-
-        <Header >
-
-        </Header >
-
     </v-layout>
 </template>
 
