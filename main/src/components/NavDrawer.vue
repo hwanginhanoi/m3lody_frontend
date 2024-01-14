@@ -10,7 +10,9 @@ const isDarkTheme = computed({
         theme.global.name.value = value ? 'dark' : 'light'
     }
 })
+
 const rail = ref(false)
+const rail2 = ref(true)
 const { mdAndUp } = useDisplay()
 </script>
 
@@ -19,12 +21,15 @@ const { mdAndUp } = useDisplay()
         width="210"
         color="#151617"
         opacity='0.4'
-        :rail="mdAndUp ? rail : !rail"
+        :rail="mdAndUp ? rail : rail2"
         permanent="true"
     >
         <div class="d-flex">
-            <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-4"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp ? !rail : rail" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            <v-app-bar-nav-icon v-if="mdAndUp" @click.stop="rail=!rail" class="ml-1 mt-4"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="rail2=!rail2" class="ml-1 mt-4"></v-app-bar-nav-icon>
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
+            ></v-img>
+            <v-img v-if="!mdAndUp && !rail2" src="src/assets/trade-dark.png" max-height="30" class="mt-6"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
