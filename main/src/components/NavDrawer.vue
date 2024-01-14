@@ -32,10 +32,10 @@ const { mdAndUp } = useDisplay()
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
+            <v-list-item to="/index" rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
             <v-list-item rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
             <v-list-item rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
-            <v-list-item rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
+            <v-list-item to="/wallet" rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
         </v-list>
 
 
