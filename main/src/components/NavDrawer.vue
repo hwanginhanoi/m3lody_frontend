@@ -33,10 +33,10 @@ const { mdAndUp } = useDisplay()
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
-            <v-list-item prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
-            <v-list-item prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
+            <v-list-item rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
         </v-list>
 
 
@@ -52,7 +52,7 @@ const { mdAndUp } = useDisplay()
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-list-item prepend-icon="mdi-logout" title="Logout" value="logout"></v-list-item>
+                    <v-list-item rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout"></v-list-item>
                 </v-list>
             </div>
         </template>
@@ -61,13 +61,11 @@ const { mdAndUp } = useDisplay()
 
 <style scoped>
 .rounded-list .v-list-item {
-    border-radius: 20px;
     padding: 0 16px;
 }
 
 .rounded-list .v-list-item:hover,
 .rounded-list .v-list-item.v-list-item--active {
-    border-radius: 20px;
     padding: 0 16px;
 }
 
