@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import NavDrawer from "../components/NavDrawer.vue";
 import Header from "../components/Header.vue";
-import MainPage from "../components/MainPage.vue";
 
 </script>
 
@@ -11,9 +10,9 @@ import MainPage from "../components/MainPage.vue";
 
         </NavDrawer>
 
-        <MainPage>
+        <v-main class="" style="min-height: 300px;">
+        </v-main>
 
-        </MainPage>
         <Header >
 
         </Header >
@@ -22,16 +21,7 @@ import MainPage from "../components/MainPage.vue";
 </template>
 
 <style>
-#app {
-    display: flex;
-    width: 100vw;
-    min-height: 100vh;
+.v-main {
+    background: #0D0D0D
 }
-
-#dark-mode-switch {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
 </style>

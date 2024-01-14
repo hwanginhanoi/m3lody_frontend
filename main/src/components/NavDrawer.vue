@@ -10,7 +10,6 @@ const isDarkTheme = computed({
         theme.global.name.value = value ? 'dark' : 'light'
     }
 })
-
 const rail = ref(false)
 const rail2 = ref(true)
 const { mdAndUp } = useDisplay()
