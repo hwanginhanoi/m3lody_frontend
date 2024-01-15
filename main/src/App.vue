@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-import Header from "./components/Header.vue";
 import NavDrawer from "./components/NavDrawer.vue";
 </script>
 
@@ -12,11 +10,6 @@ import NavDrawer from "./components/NavDrawer.vue";
 
        <router-view>
        </router-view>
-
-        <Header >
-
-        </Header >
-
     </v-layout>
 </template>
 
