@@ -13,7 +13,7 @@ const isPasswordVisible = ref(false)
 
 <template>
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
-        <VCard
+        <v-card
             class="auth-card pa-4 pt-7"
             max-width="448"
         >
@@ -21,21 +21,21 @@ const isPasswordVisible = ref(false)
             <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8 mb-8 "
             ></v-img>
 
-            <VCardText class="pt-2">
-                <h5 class="text-h5 font-weight-semibold mb-1">
+            <v-card-text class="pt-2">
+                <h5 class="text-h5 mb-1">
                     Welcome to Trad3
                 </h5>
                 <p class="mb-0">
                     Please sign-in to your account and start the adventure
                 </p>
-            </VCardText>
+            </v-card-text>
 
-            <VCardText>
-                <VForm @submit.prevent="() => {}">
-                    <VRow>
+            <v-card-text>
+                <v-form @submit.prevent="() => {}">
+                    <v-row>
                         <!-- email -->
-                        <VCol cols="12">
-                            <VTextField
+                        <v-col cols="12">
+                            <v-text-field
                                 v-model="form.email"
                                 label="Email"
                                 type="email"
@@ -44,11 +44,11 @@ const isPasswordVisible = ref(false)
                                 variant="outlined"
                                 color="#77ED91"
                             />
-                        </VCol>
+                        </v-col>
 
                         <!-- password -->
-                        <VCol cols="12">
-                            <VTextField
+                        <v-col cols="12">
+                            <v-text-field
                                 color="#77ED91"
                                 variant="outlined"
                                 rounded
@@ -63,21 +63,21 @@ const isPasswordVisible = ref(false)
 
                             <!-- remember me checkbox -->
                             <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
-                                <VCheckbox
+                                <v-checkbox
+                                    color="#77ED91"
                                     v-model="form.remember"
                                     label="Remember me"
                                 />
 
-                                <a
-                                    class="ms-2 mb-1"
-                                    href="javascript:void(0)"
-                                >
-                                    Forgot Password?
-                                </a>
+                                <RouterLink
+                                    class="text-primary ms-2 hyperlink"
+                                    to="/register"
+                                ><span class="hyperlink">Forgot password</span>
+                                </RouterLink>
                             </div>
 
                             <!-- login button -->
-                            <VBtn
+                            <v-btn
                                 block
                                 type="submit"
                                 to="/index"
@@ -85,43 +85,48 @@ const isPasswordVisible = ref(false)
                                 color="#77ED91"
                             >
                                 Login
-                            </VBtn>
-                        </VCol>
+                            </v-btn>
+                        </v-col>
 
                         <!-- create account -->
-                        <VCol
+                        <v-col
                             cols="12"
                             class="text-center text-base"
                         >
                             <span>New on our platform?</span>
                             <RouterLink
-                                class="text-primary ms-2"
+                                class="text-primary ms-2 hyperlink"
                                 to="/register"
-                            >
-                                Create an account
+                            ><span class="hyperlink">Create an account</span>
                             </RouterLink>
-                        </VCol>
+                        </v-col>
 
-                        <VCol
+                        <v-col
                             cols="12"
                             class="d-flex align-center"
                         >
-                            <VDivider />
+                            <v-divider/>
                             <span class="mx-4">or</span>
-                            <VDivider />
-                        </VCol>
+                            <v-divider/>
+                        </v-col>
 
                         <!-- auth providers -->
-                        <VCol
+                        <v-col
                             cols="12"
                             class="text-center"
                         >
-                            <AuthProvider />
-                        </VCol>
-                    </VRow>
-                </VForm>
-            </VCardText>
-        </VCard>
+                            <AuthProvider/>
+                        </v-col>
+                        <v-col class="text-center">
+                            <span style="color: #A1A1A1">Built with Vue and Vuetify  </span>
+                            <v-icon color="#A1A1A1" icon="mdi-language-typescript"></v-icon>
+                            <v-icon color="#A1A1A1" icon="mdi-vuejs"></v-icon>
+                            <v-icon color="#A1A1A1" icon="mdi-vuetify"></v-icon>
+                        </v-col>
+                    </v-row>
+                </v-form>
+            </v-card-text>
+        </v-card>
     </div>
 </template>
 
@@ -134,6 +139,10 @@ const isPasswordVisible = ref(false)
 
 .auth-card {
     z-index: 1 !important;
+}
+
+.hyperlink {
+    color: #77ED91
 }
 
 </style>

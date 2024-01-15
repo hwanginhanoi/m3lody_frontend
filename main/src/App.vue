@@ -5,7 +5,6 @@ import NavDrawer from "./components/NavDrawer.vue";
 </script>
 
 <template>
-    <!-- Conditionally render v-layout only if the route path is not "login" -->
     <v-layout v-if="$route.path !== '/login'" class="rounded rounded-md">
         <NavDrawer></NavDrawer>
         <router-view></router-view>
@@ -13,7 +12,6 @@ import NavDrawer from "./components/NavDrawer.vue";
     </v-layout>
     <v-layout v-else>
         <router-view></router-view>
-        <!-- Add any other components you want to render for the login path -->
     </v-layout>
 </template>
 
