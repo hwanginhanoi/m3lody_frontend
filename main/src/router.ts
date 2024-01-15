@@ -8,6 +8,7 @@ const routes = [
     { path: '/marketplace', component: () => import('./views/Marketplace.vue') },
     { path: '/watchlist', component: () => import('./views/Watchlist.vue') },
     { path: '/exchange', component: () => import('./views/Exchange.vue') },
+    { path: '/login', component: () => import('./views/Login.vue') },
 ];
 
 const router = createRouter({

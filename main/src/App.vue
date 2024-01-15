@@ -5,20 +5,18 @@ import NavDrawer from "./components/NavDrawer.vue";
 </script>
 
 <template>
-    <v-layout class="rounded rounded-md">
-        <NavDrawer>
-
-        </NavDrawer>
-
-       <router-view>
-       </router-view>
-
-        <Header >
-
-        </Header >
-
+    <!-- Conditionally render v-layout only if the route path is not "login" -->
+    <v-layout v-if="$route.path !== '/login'" class="rounded rounded-md">
+        <NavDrawer></NavDrawer>
+        <router-view></router-view>
+        <Header></Header>
+    </v-layout>
+    <v-layout v-else>
+        <router-view></router-view>
+        <!-- Add any other components you want to render for the login path -->
     </v-layout>
 </template>
+
 
 <style>
 #app {
