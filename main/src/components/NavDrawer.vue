@@ -62,16 +62,6 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
                     </v-switch>
                     <v-btn variant="plain" v-if="mdAndUp && !rail" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
                     <v-btn variant="plain" v-if="mdAndUp && rail" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
-                    <v-btn variant="plain" v-if="mdAndUp && !rail" rounded="xl" prepend-icon="mdi-logout" title="Logout"
-                           value="logout">Logout
-                    </v-btn>
-                    <v-btn variant="plain" v-if="!mdAndUp && !rail2" rounded="xl" prepend-icon="mdi-logout"
-                           title="Logout" value="logout">Logout
-                    </v-btn>
-                    <v-btn variant="plain" v-if="mdAndUp && rail" prepend-icon="mdi-logout" title="Logout"
-                           value="logout"></v-btn>
-                    <v-btn variant="plain" v-if="!mdAndUp && rail2" prepend-icon="mdi-logout" title="Logout"
-                           value="logout"></v-btn>
                 </v-list>
             </div>
         </template>
