@@ -25,6 +25,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         color="#151617"
         opacity='0.4'
         :rail="mdAndUp ? rail : false"
+        permanent="true"
     >
         <div class="d-flex">
             <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
@@ -99,7 +100,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         </template>
     </v-navigation-drawer>
 
-    <v-app-bar elevation="0" color="#0D0D0D" height="100">
+    <v-app-bar elevation="0" color="#0D0D0D" height="85">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
         <v-app-bar-title>
             Application
