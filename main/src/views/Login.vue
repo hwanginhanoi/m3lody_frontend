@@ -14,7 +14,7 @@ const isPasswordVisible = ref(false)
 <template>
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
         <v-card
-            class="auth-card pa-4 pt-7"
+            class="auth-card pa-4 pt-7 rounded-xl"
             max-width="448"
         >
 
@@ -118,7 +118,7 @@ const isPasswordVisible = ref(false)
                             <AuthProvider/>
                         </v-col>
                         <v-col class="text-center">
-                            <span style="color: #A1A1A1">Built with Vue and Vuetify  </span>
+                            <span style="color: #A1A1A1">Built with Vue and Vuetify | </span>
                             <v-icon color="#A1A1A1" icon="mdi-language-typescript"></v-icon>
                             <v-icon color="#A1A1A1" icon="mdi-vuejs"></v-icon>
                             <v-icon color="#A1A1A1" icon="mdi-vuetify"></v-icon>
