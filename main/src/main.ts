@@ -3,6 +3,7 @@ import './style.css'
 import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router';
+import VueApexCharts from "vue3-apexcharts";
 
 
 // Vuetify
@@ -15,4 +16,4 @@ const vuetify = createVuetify({
     },
 })
 
-createApp(App).use(vuetify).use(router).mount('#app');
+createApp(App).use(vuetify).use(router).use(VueApexCharts).mount('#app');
