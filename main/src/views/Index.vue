@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
 import AnalyticAward from "../components/AnalyticAward.vue";
 import AnalyticTransaction from "../components/AnalyticTransaction.vue";
 </script>
 
 <template>
-    <v-main>
+    <v-main :style="{background: $vuetify.theme.global.current.colors.background}">
         <v-row>
             <v-col cols="12" md="4">
                 <v-card>
