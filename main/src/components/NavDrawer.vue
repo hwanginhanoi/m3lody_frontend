@@ -33,17 +33,17 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item to="/index" rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
+            <v-list-item to="/index" rounded="pill" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
                          class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/account" rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account"
+            <v-list-item to="/account" rounded="pill" prepend-icon="mdi-account-multiple" title="User" value="account"
                          class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/watchlist" rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
+            <v-list-item to="/watchlist" rounded="pill" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
                          class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/wallet" rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
+            <v-list-item to="/wallet" rounded="pill" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
                          class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/marketplace" rounded="lg" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
+            <v-list-item to="/marketplace" rounded="pill" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
                          class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/exchange" rounded="lg" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
+            <v-list-item to="/exchange" rounded="pill" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
                          class="py-4 mb-2"></v-list-item>
         </v-list>
 
