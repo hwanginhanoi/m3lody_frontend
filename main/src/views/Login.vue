@@ -10,10 +10,10 @@ const form = ref({
 
 const isPasswordVisible = ref(false)
 
-const particlesLoaded = async container => {
+const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
-</script>
+</script>4
 
 <template>
     <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json" />
