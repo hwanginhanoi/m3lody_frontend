@@ -3,7 +3,7 @@ import NavDrawer from "./components/NavDrawer.vue";
 </script>
 
 <template>
-    <v-layout v-if="$route.path !== '/login'z" class="rounded rounded-md">
+    <v-layout v-if="$route.path !== '/login'" class="rounded rounded-md">
         <NavDrawer></NavDrawer>
         <router-view></router-view>
     </v-layout>

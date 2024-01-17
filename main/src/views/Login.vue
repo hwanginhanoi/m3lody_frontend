@@ -18,7 +18,7 @@ const isPasswordVisible = ref(false)
             max-width="448"
         >
 
-            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8 mb-8 "
+            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-3 mb-4 "
             ></v-img>
 
             <v-card-text class="pt-2">
@@ -62,7 +62,7 @@ const isPasswordVisible = ref(false)
                             />
 
                             <!-- remember me checkbox -->
-                            <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
+                            <div class="d-flex align-center justify-space-between flex-wrap">
                                 <v-checkbox
                                     color="#77ED91"
                                     v-model="form.remember"

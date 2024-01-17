@@ -5,14 +5,14 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
 
 <template>
     <v-main :style="{background: $vuetify.theme.global.current.colors.background}"  >
-        <v-row class="ma-6">
+        <v-row class="ma-6 match-height" >
             <v-col cols="12" md="4">
-                <v-card rounded="xl">
+                <v-card>
                     <AnalyticAward></AnalyticAward>
                 </v-card>
             </v-col>
             <v-col cols="12" md="8">
-                <v-card rounded="xl">
+                <v-card>
                     <AnalyticTransaction></AnalyticTransaction>
                 </v-card>
             </v-col>
@@ -20,6 +20,9 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
                 <v-card>
                     ewffewfew
                 </v-card>
+            </v-col>
+            <v-col>
+                ewfew
             </v-col>
         </v-row>
         <v-row class="ma-6">
@@ -32,4 +35,9 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
 </template>
 
 <style scoped>
+.match-height.v-row {
+    .v-card {
+        block-size: 100%;
+    }
+}
 </style>
