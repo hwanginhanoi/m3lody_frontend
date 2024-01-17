@@ -4,5 +4,10 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import router from './plugins/router.ts';
 import vuetify from "./plugins/vuetify.ts";
+import Particles from "@tsparticles/vue3";
+import { loadFull } from "tsparticles"
 
-createApp(App).use(vuetify).use(router).mount('#app');
+createApp(App).use(vuetify).use(router).use(Particles, {
+  init: async engine => {
+    await loadFull(engine);
+  }}).mount('#app');

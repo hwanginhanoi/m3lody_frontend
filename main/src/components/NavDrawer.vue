@@ -29,13 +29,11 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     >
         <div class="d-flex">
             <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8 mr-5"
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8 mr-2"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
-                         class="py-2 mb-2 mr-5 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
