@@ -4,15 +4,15 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
 </script>
 
 <template>
-    <v-main :style="{background: $vuetify.theme.global.current.colors.background}">
-        <v-row>
+    <v-main :style="{background: $vuetify.theme.global.current.colors.background}"  >
+        <v-row class="ma-6">
             <v-col cols="12" md="4">
-                <v-card>
+                <v-card rounded="xl">
                     <AnalyticAward></AnalyticAward>
                 </v-card>
             </v-col>
             <v-col cols="12" md="8">
-                <v-card>
+                <v-card rounded="xl">
                     <AnalyticTransaction></AnalyticTransaction>
                 </v-card>
             </v-col>
@@ -22,9 +22,14 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
                 </v-card>
             </v-col>
         </v-row>
+        <v-row class="ma-6">
+            <v-col>
+
+            </v-col>
+        </v-row>
+
     </v-main>
 </template>
 
 <style scoped>
-
 </style>

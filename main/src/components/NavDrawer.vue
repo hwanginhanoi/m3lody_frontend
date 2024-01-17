@@ -29,7 +29,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     >
         <div class="d-flex">
             <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8 mr-5"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
