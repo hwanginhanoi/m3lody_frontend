@@ -19,7 +19,7 @@ const form = ref({
 
 <template>
     <v-main class="bg-green d-flex align-center justify-center">
-        <v-card class="bg-dark pa-10"
+        <v-card class="bg-dark pa-10 backgroundgra"
                 width="100%"
                 height="100%"
 
@@ -28,7 +28,7 @@ const form = ref({
             <v-card-text class="pt-2">
                 <v-row>
                     <v-col cols="2">
-                        <v-img src="https://randomuser.me/api/portraits/women/85.jpg" width="120" class="rounded-xl border"></v-img>
+                        <v-img src="https://randomuser.me/api/portraits/women/85.jpg" width="120" class="rounded-xl "></v-img>
                     </v-col>
 
                     <v-col class="d-flex align-center">
@@ -45,6 +45,9 @@ const form = ref({
 
                     </v-col>
                 </v-row>
+                <br>
+                <br>
+                <hr>
             </v-card-text>
             <v-card-text>
                 <v-row>
@@ -184,5 +187,7 @@ const form = ref({
 </template>
 
 <style scoped>
-
+.backgroundgra{
+    /* background: linear-gradient(to right, rgb(0, 0, 0), green); */
+}
 </style>
