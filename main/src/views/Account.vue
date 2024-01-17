@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import { useDisplay } from "vuetify";
 
 const form = ref({
     firstname: '',
@@ -15,27 +16,35 @@ const form = ref({
     email: '',
     phonenumber: ''
 })
+const {mdAndUp} = useDisplay();
+const getCols = () => {
+  if (display.is('smAndDown')) {
+    return 12; // Full width on small screens
+  } else {
+    return 2; // Half width on larger screens
+  }
+};
 </script>
 
 <template>
-    <v-main class="bg-green d-flex align-center justify-center">
-        <v-card class="bg-dark pa-10 backgroundgra"
-                width="100%"
-                height="100%"
+    <v-main class=" d-flex align-center justify-center h">
+        <v-card class="bg-dark pa-10 backgroundgra my-16 rounded-xl" elevation="20"
+                width="90%"
+
 
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
             <v-card-text class="pt-2">
-                <v-row>
-                    <v-col cols="2">
-                        <v-img src="https://randomuser.me/api/portraits/women/85.jpg" width="120" class="rounded-xl "></v-img>
+                <v-row class="" >
+                    <v-col class="backgroundgrade d-flex justify-center">
+                        <v-img src="https://randomuser.me/api/portraits/women/6.jpg" min-width="140" max-width="200" class="rounded-xl border-xl"></v-img>
                     </v-col>
 
                     <v-col class="d-flex align-center">
                         <v-row>
                             <v-col cols="12">
-                                <v-btn class="ml-2" color="green" max-width="300">Upload New Photot</v-btn>
-                                <v-btn class="ml-2" color="white" max-width="150">Reset</v-btn>
+                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photot</v-btn>
+                                <v-btn class="ml-2 mt-4" color="white" max-width="150">Reset</v-btn>
                             </v-col>
                             <v-col class="ml-9">
                                 <p>Allowed PNG, JPG. Max size is 800k</p>
@@ -51,9 +60,9 @@ const form = ref({
             </v-card-text>
             <v-card-text>
                 <v-row>
-                    <v-col >
+                    <v-col  :cols="mdAndUp?'':12">
                         <v-row>
-                            <v-col  cols="12">
+                            <v-col >
                                 <v-text-field
                                     v-model="form.firstname"
                                     label="First Name"
@@ -187,7 +196,9 @@ const form = ref({
 </template>
 
 <style scoped>
-.backgroundgra{
-    /* background: linear-gradient(to right, rgb(0, 0, 0), green); */
-}
+    .backgroundgrade{
+        max-width: 300px;
+        min-width: 100px;
+        justify-content: center;
+    }
 </style>
