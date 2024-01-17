@@ -34,18 +34,8 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/marketplace rounded-button" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
+                         class="py-2 mb-2 mr-5 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
-                         class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-=======
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
@@ -57,7 +47,6 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
->>>>>>> Stashed changes
         </v-list>
 
 
@@ -92,21 +81,12 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
             ></v-img>
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-<<<<<<< Updated upstream
-            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-2 mb-2 mr-5"></v-list-item>
-            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace" class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange" class="py-2 mb-2 mr-5 rounded-button"></v-list-item>
-=======
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-2 mb-4 mr-2 customPrepend"></v-list-item>
             <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
->>>>>>> Stashed changes
         </v-list>
 
 
