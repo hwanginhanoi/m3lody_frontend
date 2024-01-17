@@ -34,7 +34,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
-                         class="py-2 mb-2 mr-2 rounded-button customPrepend"></v-list-item>
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
