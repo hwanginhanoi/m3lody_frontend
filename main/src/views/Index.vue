@@ -7,9 +7,9 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
     <v-main :style="{background: $vuetify.theme.global.current.colors.background}"  >
         <v-row class="ma-6 match-height" >
             <v-col cols="12" md="4">
-                <v-card>
+                <v-c>
                     <AnalyticAward></AnalyticAward>
-                </v-card>
+                </v-c>
             </v-col>
             <v-col cols="12" md="8">
                 <v-card>
@@ -27,7 +27,6 @@ import AnalyticTransaction from "../components/AnalyticTransaction.vue";
         </v-row>
         <v-row class="ma-6">
             <v-col>
-
             </v-col>
         </v-row>
 
