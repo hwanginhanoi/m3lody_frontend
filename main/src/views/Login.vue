@@ -13,7 +13,7 @@ const isPasswordVisible = ref(false)
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
-</script>4
+</script>
 
 <template>
     <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json" />
@@ -23,7 +23,7 @@ const particlesLoaded = async (container: any) => {
             :options="{
                     background: {
                         color: {
-                            value: '#0d47a1'
+                            value: '#77ED91'
                         }
                     },
                     fpsLimit: 120,
@@ -56,10 +56,10 @@ const particlesLoaded = async (container: any) => {
                     },
                     particles: {
                         color: {
-                            value: '#ffffff'
+                            value: '#000000'
                         },
                         links: {
-                            color: '#ffffff',
+                            color: '#000000',
                             distance: 150,
                             enable: true,
                             opacity: 0.5,
