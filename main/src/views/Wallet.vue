@@ -1,21 +1,10 @@
 <script setup lang="ts">
-import {computed, ref} from "vue";
 
-import VueApexCharts from "vue3-apexcharts";
-import {useTheme} from "vuetify";
+import {ref} from "vue";
 
 let balance: number = 83189.44
 let prev_balance: number = 90000
 let balance_dif = balance - prev_balance
-let str_balance_dif = ""
-if (balance_dif < 0) {
-  str_balance_dif = "-$"+Math.abs(parseFloat(balance_dif.toFixed(2)))
-}
-else
-{
-  str_balance_dif = "$"+Math.abs(parseFloat(balance_dif.toFixed(2)))
-}
-
 let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).toFixed(2)
 
 const crypto_currency = ref([
@@ -42,101 +31,8 @@ const crypto_currency = ref([
         asset: 'Tether',
         price: 237,
         balance: 332,
-      },
-  ])
-
-
-
-
-const vuetifyTheme = useTheme()
-
-const currentTheme = computed(() => vuetifyTheme.current.value.colors)
-
-const series = [{
-  name: 'Tether',
-  data: [44]
-}, {
-  name: 'BTC',
-  data: [53]
-}, {
-  name: 'Doge Coin',
-  data: [12]
-}]
-
-const chartOptions = computed(() => {
-  const backgroundColor = currentTheme.value['track-bg']
-
-  return {
-
-    chart: {
-      type: 'bar',
-      height: '10%',
-      width: '10px',
-      stacked: true,
-      stackType: '100%',
-      toolbar: {
-        show: false,
-      },
-
     },
-
-    plotOptions: {
-      bar: {
-        horizontal: true,
-        columnWidth: '10%'
-      },
-    },
-    grid: {
-      xaxis: {
-        lines: {show: false,}
-      },
-      borderColor: '#0D0D0D',
-    },
-    stroke: {
-      width: 3,
-      colors: ['#000000']
-    },
-    title: {
-      text: 'Crypto You Own'
-    },
-    xaxis: {
-
-      labels: {
-        show: false,
-      },
-      axisBorder: {
-        show: false,
-      },
-      axisTicks: {
-        show: false,
-      },
-
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-      axisBorder: {
-        show: false,
-      }
-    },
-    tooltip: {
-      enable: false,
-      },
-
-    fill: {
-      opacity: 1
-
-    },
-    legend: {
-      position: 'top',
-      horizontalAlign: 'left',
-      offsetX: 0
-    }
-  }
-})
-
-
+])
 
 function Icon(abbr: string) {
     switch (abbr.toLowerCase()) {
@@ -159,22 +55,13 @@ function Icon(abbr: string) {
         </p>
 
         <p class="balance">
-          ${{ balance }}
-
+            ${{ balance }}
         </p>
 
-        <p :class="{ 'red-text': balance_dif < 0, 'green-text': balance_dif > 0 }" >
-          {{str_balance_dif }} ({{balance_dif_percentage}})
+        <p :class="{ 'red-text': balance_dif < 0, 'green-text': balance_dif > 0 }">
+            {{ balance_dif }} ({{balance_dif_percentage}})
         </p>
 
-      <VueApexCharts
-          :options="chartOptions"
-          :series="series"
-          :height="130"
-          style="width: 97%"
-          class="my-1"
-
-      />
         <v-table class="table">
             <thead>
             <tr>
@@ -209,9 +96,6 @@ function Icon(abbr: string) {
     </v-main>
 </template>
 
-<script setup lang="ts">
-
-</script>
 <style>
 .current_balance {
     font-family: Lufga;
@@ -219,7 +103,6 @@ function Icon(abbr: string) {
     font-style: italic;
     font-weight: 300;
     line-height: normal;
-    padding-left: 30px;
 }
 
 .balance {
@@ -228,12 +111,11 @@ function Icon(abbr: string) {
     font-style: normal;
     font-weight: 500;
     line-height: 38px;
-    padding-left: 30px;
+    letter-spacing: 0.42px;
 }
 
 .red-text {
     color: red;
-    padding-left: 30px;
 }
 
 .green-text {
