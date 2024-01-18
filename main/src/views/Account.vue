@@ -37,12 +37,12 @@ const getCols = () => {
             <v-card-text class="pt-2">
                 <v-row class="" >
                     <v-col class="backgroundgrade d-flex justify-center">
-                        <v-img src="https://randomuser.me/api/portraits/women/6.jpg" min-width="140" max-width="200" class="rounded-xl border-xl"></v-img>
+                        <v-img src="https://randomuser.me/api/portraits/women/6.jpg" min-width="140" min-height="140" max-width="200" class=" " ></v-img>
                     </v-col>
 
                     <v-col class="d-flex align-center">
                         <v-row>
-                            <v-col cols="12">
+                            <v-col cols="12" class="pl-4">
                                 <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photot</v-btn>
                                 <v-btn class="ml-2 mt-4" color="white" max-width="150">Reset</v-btn>
                             </v-col>
