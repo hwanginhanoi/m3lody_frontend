@@ -17,7 +17,7 @@
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.10"
   },
-  "npdevDependencies": {
+  "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
