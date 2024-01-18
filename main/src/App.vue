@@ -1,24 +1,17 @@
 <script setup lang="ts">
-
-import Header from "./components/Header.vue";
 import NavDrawer from "./components/NavDrawer.vue";
 </script>
 
 <template>
-    <v-layout class="rounded rounded-md">
-        <NavDrawer>
-
-        </NavDrawer>
-
-       <router-view>
-       </router-view>
-
-        <Header >
-
-        </Header >
-
+    <v-layout v-if="$route.path !== '/login'" class="rounded rounded-md">
+        <NavDrawer></NavDrawer>
+        <router-view></router-view>
+    </v-layout>
+    <v-layout v-else>
+        <router-view></router-view>
     </v-layout>
 </template>
+
 
 <style>
 #app {

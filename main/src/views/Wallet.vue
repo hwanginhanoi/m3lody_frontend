@@ -213,10 +213,6 @@ function Icon(abbr: string) {
 
 </script>
 <style>
-.v-main {
-    background: #0D0D0D
-}
-
 .current_balance {
     font-family: Lufga;
     font-size: 12px;
