@@ -7,7 +7,7 @@ const theme = useTheme()
 const isDarkTheme = computed({
     get: () => theme.global.current.value.dark,
     set: (value) => {
-        theme.global.name.value = value ? 'dark' : 'light'
+        theme.global.name.value = value ? 'darkMode' : 'lightMode'
     }
 })
 const rail = ref(false)
@@ -20,31 +20,32 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
 
 <template>
     <v-navigation-drawer
+        floating
         v-if="mdAndUp"
-        width="210"
-        color="#151617"
+        width="260"
+        color="nav-drawer"
         opacity='0.4'
         :rail="mdAndUp ? rail : false"
         permanent="true"
     >
         <div class="d-flex">
             <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8"
+            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8 mr-2"
             ></v-img>
         </div>
-        <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item to="/index" rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
-                         class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/account" rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account"
-                         class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/watchlist" rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
-                         class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/wallet" rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
-                         class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/marketplace" rounded="lg" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
-                         class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/exchange" rounded="lg" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
-                         class="py-4 mb-2"></v-list-item>
+        <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
+            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
         </v-list>
 
 
@@ -70,21 +71,27 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         v-model="drawer"
         v-if="!mdAndUp"
-        width="210"
-        color="#151617"
+        width="260"
+        color="nav-drawer"
         opacity='0.4'
     >
         <div class="d-flex">
             <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8"
             ></v-img>
         </div>
-        <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item to="/index" rounded="lg" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/account" rounded="lg" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/watchlist" rounded="lg" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/wallet" rounded="lg" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/marketplace" rounded="lg" prepend-icon="mdi-store" title="Marketplace" value="marketplace" class="py-4 mb-2"></v-list-item>
-            <v-list-item to="/exchange" rounded="lg" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange" class="py-4 mb-2"></v-list-item>
+        <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
+            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
         </v-list>
 
 
@@ -106,7 +113,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         </template>
     </v-navigation-drawer>
 
-    <v-app-bar elevation="0" color="#0D0D0D" height="85">
+    <v-app-bar elevation="0" color="background" height="85">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
         <v-app-bar-title>
             Application
@@ -115,7 +122,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
             clearable="true"
             class="pt-6"
             rounded
-            bg-color="#151718"
+            bg-color="background"
             label="Search"
             prepend-inner-icon="mdi-magnify"
             variant="solo-filled"
@@ -141,5 +148,22 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
 .v-list-item {
     margin: 4px 0;
 }
+
+.rounded-button {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.customPrepend :deep(.v-list-item__prepend .v-list-item__spacer) {
+    width: 15px;
+}
+
+.v-list-item {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 </style>
 

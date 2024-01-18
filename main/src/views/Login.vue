@@ -9,16 +9,96 @@ const form = ref({
 })
 
 const isPasswordVisible = ref(false)
+
+const particlesLoaded = async (container: any) => {
+    console.log("Particles container loaded", container);
+};
 </script>
 
 <template>
+    <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json" />
+    <vue-particles
+            id="tsparticles"
+            :particlesLoaded="particlesLoaded"
+            :options="{
+                    background: {
+                        color: {
+                            value: '#77ED91'
+                        }
+                    },
+                    fpsLimit: 120,
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: 'repulse'
+                            },
+                        },
+                        modes: {
+                            bubble: {
+                                distance: 400,
+                                duration: 2,
+                                opacity: 0.8,
+                                size: 40
+                            },
+                            push: {
+                                quantity: 4
+                            },
+                            repulse: {
+                                distance: 200,
+                                duration: 0.4
+                            }
+                        }
+                    },
+                    particles: {
+                        color: {
+                            value: '#000000'
+                        },
+                        links: {
+                            color: '#000000',
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.5,
+                            width: 1
+                        },
+                        move: {
+                            direction: 'none',
+                            enable: true,
+                            outModes: 'bounce',
+                            random: false,
+                            speed: 6,
+                            straight: false
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                            },
+                            value: 80
+                        },
+                        opacity: {
+                            value: 0.5
+                        },
+                        shape: {
+                            type: 'circle'
+                        },
+                        size: {
+                            value: { min: 1, max: 5 }
+                        }
+                    },
+                    detectRetina: true
+                }"
+        />
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
         <v-card
             class="auth-card pa-4 pt-7 rounded-xl"
             max-width="448"
         >
 
-            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8 mb-8 "
+            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-3 mb-4 "
             ></v-img>
 
             <v-card-text class="pt-2">
@@ -62,7 +142,7 @@ const isPasswordVisible = ref(false)
                             />
 
                             <!-- remember me checkbox -->
-                            <div class="d-flex align-center justify-space-between flex-wrap mt-1 mb-4">
+                            <div class="d-flex align-center justify-space-between flex-wrap">
                                 <v-checkbox
                                     color="#77ED91"
                                     v-model="form.remember"
@@ -134,7 +214,7 @@ const isPasswordVisible = ref(false)
 .auth-wrapper {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: #77ED91;
+    /* background-color: #77ED91; */
 }
 
 .auth-card {

@@ -9,6 +9,7 @@ const routes = [
     { path: '/watchlist', component: () => import('../views/Watchlist.vue') },
     { path: '/exchange', component: () => import('../views/Exchange.vue') },
     { path: '/login', component: () => import('../views/Login.vue') },
+    { path: '/register', component: () => import('../views/Register.vue') },
     { path: '/:pathMatch(.*)*', component: () => import('../views/[[ Error 404 ]].vue') },
 ];
 //
