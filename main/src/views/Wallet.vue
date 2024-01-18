@@ -64,8 +64,7 @@ const series = [{
 }]
 
 const chartOptions = computed(() => {
-  const backgroundColor = currentTheme.value['track-bg']
-
+    
   return {
 
     chart: {
