@@ -8,6 +8,6 @@ import Particles from "@tsparticles/vue3";
 import { loadFull } from "tsparticles"
 
 createApp(App).use(vuetify).use(router).use(Particles, {
-  init: async engine => {
+  init: async (engine: any) => {
     await loadFull(engine);
   }}).mount('#app');

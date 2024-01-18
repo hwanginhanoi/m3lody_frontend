@@ -20,6 +20,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
 
 <template>
     <v-navigation-drawer
+        floating
         v-if="mdAndUp"
         width="210"
         color="nav-drawer"
