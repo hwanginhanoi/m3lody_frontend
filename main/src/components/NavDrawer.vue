@@ -22,7 +22,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         floating
         v-if="mdAndUp"
-        width="260"
+        width="230"
         color="nav-drawer"
         opacity='0.4'
         :rail="mdAndUp ? rail : false"
@@ -71,7 +71,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         v-model="drawer"
         v-if="!mdAndUp"
-        width="260"
+        width="230"
         color="nav-drawer"
         opacity='0.4'
     >
