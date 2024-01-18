@@ -22,7 +22,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         floating
         v-if="mdAndUp"
-        width="210"
+        width="260"
         color="nav-drawer"
         opacity='0.4'
         :rail="mdAndUp ? rail : false"
@@ -71,7 +71,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         v-model="drawer"
         v-if="!mdAndUp"
-        width="210"
+        width="260"
         color="nav-drawer"
         opacity='0.4'
     >
@@ -79,13 +79,19 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
             <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8"
             ></v-img>
         </div>
-        <v-list density="compact" class="d-flex flex-column h100 rounded-list">
-            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet" class="py-2 mb-4 mr-2 customPrepend"></v-list-item>
-            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange" class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+        <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
+            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
         </v-list>
 
 
