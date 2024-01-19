@@ -30,7 +30,7 @@ const paymentDetails = ref({
     cvv: ''
 })
 const {mdAndUp} = useDisplay();
-const tab = ref('1');
+const tab = ref(1);
 </script>
 
 <template>
@@ -217,10 +217,13 @@ const tab = ref('1');
                 <v-window-item
                     v-for="n in 3"
                     :key="n"
-                    :value="2">
-                    <v-container class="d-flex justify-center ">
+                    :value="2"
+                    class="w-100 border-0"
 
-                        <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
+                >
+                    <v-container class="d-flex justify-center fixborder border-0">
+
+                        <v-card class=" pa-10 backgroundgra my-16 rounded-xl border-0" elevation="20"
                                 width="900%"
                         >
                             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
@@ -385,5 +388,9 @@ const tab = ref('1');
         max-width: 300px;
         min-width: 100px;
         justify-content: center;
+    }
+
+    .fixborder{
+        min-width: 100vh;
     }
 </style>
