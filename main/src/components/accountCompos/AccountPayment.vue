@@ -58,7 +58,7 @@ const paymentDetails = ref({
                         <v-row>
                             <v-col>
                                 <v-text-field
-                                    v-model="paymentDetails.ccv"
+                                    v-model="paymentDetails.cvv"
                                     label="Confirm Password"
                                     type="text"
                                     clearable=""
@@ -67,7 +67,7 @@ const paymentDetails = ref({
                                     color="#d777ed"
                                 ></v-text-field>
                                 <v-text-field
-                                    v-model="paymentDetails.ccv"
+                                    v-model="paymentDetails.cvv"
                                     label="Expiration Date"
                                     type="text"
                                     clearable=""
