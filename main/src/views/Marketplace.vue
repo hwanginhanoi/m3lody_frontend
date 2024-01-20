@@ -5,6 +5,15 @@ const cards = [
     { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
     { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
     { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
 
 ];
 </script>
