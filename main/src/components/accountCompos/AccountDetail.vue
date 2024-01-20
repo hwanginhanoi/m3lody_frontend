@@ -186,5 +186,13 @@ const {mdAndUp} = useDisplay();
 </template>
 
 <style scoped>
+.backgroundgrade{
+    max-width: 300px;
+    min-width: 100px;
+    justify-content: center;
+}
 
+.fixborder{
+    min-width: 100vh;
+}
 </style>
