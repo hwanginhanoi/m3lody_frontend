@@ -46,7 +46,8 @@
 
     const vuetifyTheme = useTheme()
 
-    const currentTheme = computed(() => vuetifyTheme.current.value.colors)
+    let currentTheme = computed(() => vuetifyTheme.current.value.colors)
+    let colorValue = currentTheme.value.background
 
     const series = [{
         name: 'Tether',
@@ -59,7 +60,7 @@
         data: [12]
     }]
 
-    const chartOptions = computed(() => {
+    let chartOptions = computed(() => {
 
         return {
             chart: {
@@ -84,11 +85,11 @@
                 xaxis: {
                     lines: {show: false,}
                 },
-                borderColor: '#0D0D0D',
+                borderColor: currentTheme,
             },
             stroke: {
                 width: 3,
-                colors: ['#000000']
+                colors: [colorValue],
             },
             title: {
                 text: 'Crypto You Own'
