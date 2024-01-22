@@ -2,6 +2,20 @@
 import {ref} from "vue";
 
 const tab = ref(1);
+
+const balance = ref(
+    [
+        {
+            asset: "ETH",
+            balance: 23,
+        },
+        {
+            asset: "BTC",
+            balance: 33,
+        }
+    ]
+);
+
 </script>
 
 <template>
@@ -19,24 +33,24 @@ const tab = ref(1);
             <v-window-item :value="1" align="center" >
                 <v-card class="ma-5" style="max-width: 600px; margin: auto">
                        <v-row>
-                           <v-col class="text-left">
+                           <v-col class="ma-5" cols="12" md="6" lg="4" xl="3">
                                Spend
                            </v-col>
-                           <v-col class="text-right">
-                               Cash balance
+                           <v-col class="ma-5" cols="12" md="6" lg="4" xl="3">
+                               Cash balance:
                            </v-col>
                        </v-row>
                        <v-row>
-                           <v-col class="text-left">
+                           <v-col class="ma-5" cols="12" md="6" lg="4" xl="3">
                                <v-text-field variant="plain">
                                </v-text-field>
                            </v-col>
-                           <v-col class="text-right">
+                           <v-col class="ma-5" cols="12" md="6" lg="4" xl="3">
                                <v-select
                                    variant="plain"
                                    label="Select"
                                    chips
-                                   :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                                   :items="['ETH', 'BTC']"
                                ></v-select>
                            </v-col>
                        </v-row>
