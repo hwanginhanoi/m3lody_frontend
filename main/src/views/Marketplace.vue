@@ -1,11 +1,39 @@
 <script setup lang="ts">
+import NFT from '../components/NFT.vue';
 
+const cards = [
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+
+];
 </script>
 
 <template>
-
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
+        <v-container>
+            <v-row>
+                <NFT v-for="card in cards" :key="card.id" :card="card" />
+            </v-row>
+        </v-container>
+    </v-main>
 </template>
 
 <style scoped>
-
+.rounded-card {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
+}
 </style>
+
+

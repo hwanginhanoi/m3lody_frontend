@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import {useTheme, useDisplay} from 'vuetify'
 import {ref, computed} from 'vue'
+import { useRoute } from 'vue-router'
 
 const theme = useTheme()
+const route = useRoute()
+
+const currentRoute = computed(() => route.name)
 
 const isDarkTheme = computed({
     get: () => theme.global.current.value.dark,
@@ -22,7 +26,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         floating
         v-if="mdAndUp"
-        width="260"
+        width="230"
         color="nav-drawer"
         opacity='0.4'
         :rail="mdAndUp ? rail : false"
@@ -71,7 +75,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-navigation-drawer
         v-model="drawer"
         v-if="!mdAndUp"
-        width="260"
+        width="230"
         color="nav-drawer"
         opacity='0.4'
     >
@@ -116,7 +120,7 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
     <v-app-bar elevation="0" color="background" height="85">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
         <v-app-bar-title>
-            Application
+            {{ currentRoute }}
         </v-app-bar-title>
         <v-text-field
             clearable="true"
