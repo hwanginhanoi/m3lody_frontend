@@ -12,7 +12,7 @@ const {mdAndUp} = useDisplay();
 </script>
 
 <template>
-    <v-container class="d-flex justify-center fixborder">
+    <v-container class="d-flex justify-center">
 
         <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
                 width="90%"
@@ -90,7 +90,4 @@ const {mdAndUp} = useDisplay();
     justify-content: center;
 }
 
-.fixborder{
-    min-width: 100vh;
-}
 </style>

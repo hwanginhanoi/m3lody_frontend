@@ -16,11 +16,25 @@ const cards = [
     { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
 
 ];
+
+const categories = ["All categories", "Art", "Gaming"]
+const chains = ["All chains","ETH","BTC"]
+
 </script>
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
         <v-container>
+            <v-row>
+                <v-col cols="3">
+                    <v-select variant="solo" rounded="lg" elevation="4" :items="categories" model-value="All categories">
+                    </v-select>
+                </v-col>
+                <v-col cols="2">
+                    <v-select variant="solo" rounded="lg" elevation="4" :items="chains">
+                    </v-select>
+                </v-col>
+            </v-row>
             <v-row>
                 <NFT v-for="card in cards" :key="card.id" :card="card" />
             </v-row>
