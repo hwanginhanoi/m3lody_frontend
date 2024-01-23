@@ -2,12 +2,12 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
     { path: '/', redirect: '/index' },
-    { path: '/index', component: () => import('../views/Index.vue') },
-    { path: '/wallet', component: () => import('../views/Wallet.vue') },
-    { path: '/account', component: () => import('../views/Account.vue') },
-    { path: '/marketplace', component: () => import('../views/Marketplace.vue') },
-    { path: '/watchlist', component: () => import('../views/Watchlist.vue') },
-    { path: '/exchange', component: () => import('../views/Exchange.vue') },
+    { path: '/index', components: { default: () => import('../views/Index.vue'), nav: () => import('../components/NavDrawer.vue') }},
+    { path: '/wallet', components: { default: () => import('../views/Wallet.vue'), nav: () => import('../components/NavDrawer.vue') }},
+    { path: '/account', components: { default: () => import('../views/Account.vue'), nav: () => import('../components/NavDrawer.vue') }},
+    { path: '/marketplace', components: { default: () => import('../views/Marketplace.vue'), nav: () => import('../components/NavDrawer.vue') }},
+    { path: '/watchlist', components: { default: () => import('../views/Watchlist.vue'), nav: () => import('../components/NavDrawer.vue') }},
+    { path: '/exchange', components: { default: () => import('../views/Exchange.vue'), nav: () => import('../components/NavDrawer.vue') }},
     { path: '/login', component: () => import('../views/Login.vue') },
     { path: '/register', component: () => import('../views/Register.vue') },
     { path: '/:pathMatch(.*)*', component: () => import('../views/[[ Error 404 ]].vue') },

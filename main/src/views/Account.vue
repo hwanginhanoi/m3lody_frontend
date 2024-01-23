@@ -8,8 +8,8 @@ const tab = ref(1);
 </script>
 
 <template>
-    <v-main >
-        <v-card class="" min-height="100%">
+    <v-main>
+        <v-card class="" min-height="100%" color="background">
             <v-tabs
                 v-model="tab"
                 color="deep-purple-accent-4"

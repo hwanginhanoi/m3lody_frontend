@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import NavDrawer from "./components/NavDrawer.vue";
+
 </script>
 
 <template>
-    <v-layout v-if="$route.path !== '/login'" class="rounded rounded-md">
-        <NavDrawer></NavDrawer>
-        <router-view></router-view>
-    </v-layout>
-    <v-layout v-else>
+    <v-layout>
+        <router-view name="nav"></router-view>
         <router-view></router-view>
     </v-layout>
 </template>

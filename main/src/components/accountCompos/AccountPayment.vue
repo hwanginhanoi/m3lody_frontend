@@ -7,7 +7,10 @@ const paymentDetails = ref({
     cardnumber: '',
     cardholdername: '',
     expirationdate: '',
-    cvv: ''
+    cvv: '',
+    billingaddress:'',
+
+
 })
 </script>
 
@@ -58,8 +61,8 @@ const paymentDetails = ref({
                         <v-row>
                             <v-col>
                                 <v-text-field
-                                    v-model="paymentDetails.cvv"
-                                    label="Confirm Password"
+                                    v-model="paymentDetails.expirationdate"
+                                    label="Expiration Date"
                                     type="text"
                                     clearable=""
                                     rounded
@@ -67,8 +70,8 @@ const paymentDetails = ref({
                                     color="#d777ed"
                                 ></v-text-field>
                                 <v-text-field
-                                    v-model="paymentDetails.cvv"
-                                    label="Expiration Date"
+                                    v-model="paymentDetails.billingaddress"
+                                    label="Billing Address"
                                     type="text"
                                     clearable=""
                                     rounded
