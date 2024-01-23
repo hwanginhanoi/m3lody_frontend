@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import NavDrawer from "./components/NavDrawer.vue";
 
 </script>
 
