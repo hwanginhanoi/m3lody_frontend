@@ -2,15 +2,15 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
     { path: '/', redirect: '/index' },
-    { path: '/index', component: () => import('../views/Index.vue') },
-    { path: '/wallet', component: () => import('../views/Wallet.vue') },
-    { path: '/account', component: () => import('../views/Account.vue') },
-    { path: '/marketplace', component: () => import('../views/Marketplace.vue') },
-    { path: '/watchlist', component: () => import('../views/Watchlist.vue') },
-    { path: '/exchange', component: () => import('../views/Exchange.vue') },
+    { path: '/index', name: 'Dashboard', component: () => import('../views/Index.vue') },
+    { path: '/wallet', name: 'Wallet',component: () => import('../views/Wallet.vue') },
+    { path: '/account', name: 'User', component: () => import('../views/Account.vue') },
+    { path: '/marketplace', name: 'Marketplace', component: () => import('../views/Marketplace.vue') },
+    { path: '/watchlist', name: 'Watchlist', component: () => import('../views/Watchlist.vue') },
+    { path: '/exchange', name: 'Exchange', component: () => import('../views/Exchange.vue') },
     { path: '/login', component: () => import('../views/Login.vue') },
     { path: '/register', component: () => import('../views/Register.vue') },
-    { path: '/product', component: () => import('../views/Product.vue') },
+    { path: '/product', name: 'Product', component: () => import('../views/Product.vue') },
     { path: '/:pathMatch(.*)*', component: () => import('../views/[[ Error 404 ]].vue') },
 ];
 //
