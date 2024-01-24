@@ -1,149 +1,149 @@
 <script setup lang="ts">
-    import {computed, ref} from "vue";
+import {computed, ref} from "vue";
 
-    import VueApexCharts from "vue3-apexcharts";
-    import {useTheme} from "vuetify";
+import VueApexCharts from "vue3-apexcharts";
+import {useTheme} from "vuetify";
 
-    let balance: number = 83189.44
-    let prev_balance: number = 90000
-    let balance_dif = balance - prev_balance
-    let str_balance_dif = ""
-    if (balance_dif < 0) {
-        str_balance_dif = "-$" + Math.abs(parseFloat(balance_dif.toFixed(2)))
-    } else {
-        str_balance_dif = "$" + Math.abs(parseFloat(balance_dif.toFixed(2)))
-    }
+let balance: number = 83189.44
+let prev_balance: number = 90000
+let balance_dif = balance - prev_balance
+let str_balance_dif = ""
+if (balance_dif < 0) {
+    str_balance_dif = "-$" + Math.abs(parseFloat(balance_dif.toFixed(2)))
+} else {
+    str_balance_dif = "$" + Math.abs(parseFloat(balance_dif.toFixed(2)))
+}
 
-    let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).toFixed(2)
+let balance_dif_percentage = (((balance - prev_balance) / prev_balance) * 100).toFixed(2)
 
-    const crypto_currency = ref([
-        {
-            abbr: 'ETH',
-            asset: 'Ethereum',
-            price: 159,
-            balance: 332,
+const crypto_currency = ref([
+    {
+        abbr: 'ETH',
+        asset: 'Ethereum',
+        price: 159,
+        balance: 332,
+    },
+    {
+        abbr: 'BTC',
+        asset: 'Bitcoin',
+        price: 237,
+        balance: 332,
+    },
+    {
+        abbr: 'XRP',
+        asset: 'Ripple',
+        price: 237,
+        balance: 332,
+    },
+    {
+        abbr: 'USDT',
+        asset: 'Tether',
+        price: 237,
+        balance: 332,
+    },
+])
+
+
+const vuetifyTheme = useTheme()
+
+let currentTheme = computed(() => vuetifyTheme.current.value.colors)
+let colorValue = currentTheme.value.background
+
+const series = [{
+    name: 'Tether',
+    data: [44]
+}, {
+    name: 'BTC',
+    data: [53]
+}, {
+    name: 'Doge Coin',
+    data: [12]
+}]
+
+let chartOptions = computed(() => {
+
+    return {
+        chart: {
+            type: 'bar',
+            height: '10%',
+            width: '10px',
+            stacked: true,
+            stackType: '100%',
+            toolbar: {
+                show: false,
+            },
+
         },
-        {
-            abbr: 'BTC',
-            asset: 'Bitcoin',
-            price: 237,
-            balance: 332,
+
+        plotOptions: {
+            bar: {
+                horizontal: true,
+                columnWidth: '10%'
+            },
         },
-        {
-            abbr: 'XRP',
-            asset: 'Ripple',
-            price: 237,
-            balance: 332,
-        },
-        {
-            abbr: 'USDT',
-            asset: 'Tether',
-            price: 237,
-            balance: 332,
-        },
-    ])
-
-
-    const vuetifyTheme = useTheme()
-
-    let currentTheme = computed(() => vuetifyTheme.current.value.colors)
-    let colorValue = currentTheme.value.background
-
-    const series = [{
-        name: 'Tether',
-        data: [44]
-    }, {
-        name: 'BTC',
-        data: [53]
-    }, {
-        name: 'Doge Coin',
-        data: [12]
-    }]
-
-    let chartOptions = computed(() => {
-
-        return {
-            chart: {
-                type: 'bar',
-                height: '10%',
-                width: '10px',
-                stacked: true,
-                stackType: '100%',
-                toolbar: {
-                    show: false,
-                },
-
-            },
-
-            plotOptions: {
-                bar: {
-                    horizontal: true,
-                    columnWidth: '10%'
-                },
-            },
-            grid: {
-                xaxis: {
-                    lines: {show: false,}
-                },
-                borderColor: currentTheme,
-            },
-            stroke: {
-                width: 3,
-                colors: [colorValue],
-            },
-            title: {
-                text: 'Crypto You Own'
-            },
+        grid: {
             xaxis: {
-
-                labels: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false,
-                },
-
+                lines: {show: false,}
             },
-            yaxis: {
-                labels: {
-                    show: false,
-                },
-                axisBorder: {
-                    show: false,
-                }
+            borderColor: currentTheme,
+        },
+        stroke: {
+            width: 3,
+            colors: [colorValue],
+        },
+        title: {
+            text: 'Crypto You Own'
+        },
+        xaxis: {
+
+            labels: {
+                show: false,
             },
-            tooltip: {
-                enable: false,
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false,
             },
 
-            fill: {
-                opacity: 1
-
+        },
+        yaxis: {
+            labels: {
+                show: false,
             },
-            legend: {
-                position: 'top',
-                horizontalAlign: 'left',
-                offsetX: 0
+            axisBorder: {
+                show: false,
             }
-        }
-    })
+        },
+        tooltip: {
+            enable: false,
+        },
 
+        fill: {
+            opacity: 1
 
-    function Icon(abbr: string) {
-        switch (abbr.toLowerCase()) {
-            case 'eth':
-                return 'src/assets/cryptocurrency/eth.svg';
-            case 'btc':
-                return 'src/assets/cryptocurrency/btc.svg';
-            case 'xrp':
-                return 'src/assets/cryptocurrency/xrp.svg';
-            case 'usdt':
-                return 'src/assets/cryptocurrency/usdt.svg';
+        },
+        legend: {
+            position: 'top',
+            horizontalAlign: 'left',
+            offsetX: 0
         }
     }
+})
+
+
+function Icon(abbr: string) {
+    switch (abbr.toLowerCase()) {
+        case 'eth':
+            return 'src/assets/cryptocurrency/eth.svg';
+        case 'btc':
+            return 'src/assets/cryptocurrency/btc.svg';
+        case 'xrp':
+            return 'src/assets/cryptocurrency/xrp.svg';
+        case 'usdt':
+            return 'src/assets/cryptocurrency/usdt.svg';
+    }
+}
 </script>
 
 <template>
