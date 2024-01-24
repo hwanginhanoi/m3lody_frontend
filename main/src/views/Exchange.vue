@@ -152,7 +152,7 @@ const items = [
                                     label="Spend"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -171,7 +171,7 @@ const items = [
                                     label="Receive"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#1aff1a"
                                 ></v-text-field>
