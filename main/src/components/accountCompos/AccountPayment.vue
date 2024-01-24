@@ -16,7 +16,7 @@ const paymentDetails = ref({
 
 <template>
     <v-container class="pa-3">
-        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="15"
+        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
                 width="99%"
         >
             <v-card-text class="pt-2"><h3>Payment Details</h3></v-card-text>
