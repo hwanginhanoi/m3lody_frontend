@@ -11,7 +11,8 @@ const darkMode: ThemeDefinition = {
         success: '#2DC24E',
         warning: '#F92C2C',
         error: '#b00020',
-        'nav-drawer': '#151617',
+        'navdrawer': '#151617',
+        'navbtn': '#242627',
     },
 }
 
@@ -25,7 +26,8 @@ const lightMode: ThemeDefinition = {
         success: '#2DC24E',
         warning: '#F92C2C',
         error: '#b00020',
-        'nav-drawer': '#EEEEEE',
+        'navdrawer': '#EEEEEE',
+        'navbtn': '#242627',
     },
 }
 

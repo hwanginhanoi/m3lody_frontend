@@ -44,7 +44,7 @@ const chains = ["All chains","ETH","BTC"]
 
 <style scoped>
 .rounded-card {
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
 }

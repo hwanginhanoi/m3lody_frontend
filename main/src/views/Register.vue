@@ -94,7 +94,7 @@ const particlesLoaded = async (container: any) => {
     />
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
         <v-card
-            class="auth-card pa-4 pt-7 rounded-xl"
+            class="auth-card pa-4 pt-7 rounded-lg"
             max-width="448"
         >
 
@@ -119,7 +119,7 @@ const particlesLoaded = async (container: any) => {
                                 label="Email"
                                 type="email"
                                 clearable=""
-                                rounded
+                                rounded="lg"
                                 variant="outlined"
                                 color="#77ED91"
                             />
@@ -128,7 +128,7 @@ const particlesLoaded = async (container: any) => {
                             <v-text-field
                                 color="#77ED91"
                                 variant="outlined"
-                                rounded
+                                rounded="lg"
                                 clearable=""
                                 v-model="form.password"
                                 label="Password"
@@ -142,7 +142,7 @@ const particlesLoaded = async (container: any) => {
                             <v-text-field
                                 color="#77ED91"
                                 variant="outlined"
-                                rounded
+                                rounded="lg"
                                 clearable=""
                                 label="Re-enter password"
                                 placeholder="············"
@@ -155,7 +155,7 @@ const particlesLoaded = async (container: any) => {
                                 block
                                 type="submit"
                                 to="/index"
-                                rounded
+                                rounded="lg"
                                 color="#77ED91"
                             >
                                 Register

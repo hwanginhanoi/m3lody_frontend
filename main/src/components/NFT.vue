@@ -25,7 +25,7 @@ defineProps(['card']);
 
 <style scoped>
 .rounded-card {
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
     transition: transform 0.3s ease;

@@ -125,13 +125,17 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         <v-text-field
             clearable="true"
             class="pt-6"
-            rounded
+            rounded="lg"
             bg-color="background"
             label="Search"
             prepend-inner-icon="mdi-magnify"
             variant="solo-filled"
             style="max-width: 250px;"
         ></v-text-field>
+        <v-btn icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+        </v-btn>
+        <v-btn icon="mdi-bell" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+        </v-btn>
         <v-list-item
             :prepend-avatar= avatar
             :title= username>
@@ -154,8 +158,8 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
 }
 
 .rounded-button {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .customPrepend :deep(.v-list-item__prepend .v-list-item__spacer) {
