@@ -12,11 +12,9 @@ const {mdAndUp} = useDisplay();
 </script>
 
 <template>
-    <v-container class="d-flex justify-center">
-
-        <v-card class=" pa-10 background rounded-lg" elevation="5"
-                width="95%"
-                min-height="100%"
+    <v-container class="pa-3">
+        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="15"
+                width="99%"
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
             <v-card-text class="pt-2">
@@ -29,7 +27,7 @@ const {mdAndUp} = useDisplay();
                                     label="Current Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -38,7 +36,7 @@ const {mdAndUp} = useDisplay();
                                     label="New Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -54,7 +52,7 @@ const {mdAndUp} = useDisplay();
                                     label="Confirm Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
