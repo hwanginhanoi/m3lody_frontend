@@ -55,11 +55,11 @@ const items = [
                 <v-card class="ma-5" style="max-width: 800px; margin: auto">
                     <v-row style="align-content: center" height="25vh">
                         <v-col class="d-flex justify-center pl-10 pr-10 pt-15">
-                            <v-text-field class=" w-75 ma-2" variant="outlined" label="Spend">
+                            <v-text-field class=" w-75 ma-2" variant="solo" label="Spend">
 
                             </v-text-field>
                             <v-select
-                                variant="outlined"
+                                variant="solo"
                                 class="w-25 ma-2"
                                 :items="items"
                                 item-title="text"
@@ -84,7 +84,7 @@ const items = [
                     </v-row>
                     <v-row style="align-content: center" height="25vh">
                         <v-col class="d-flex justify-center pb-10 pl-10 pr-10">
-                            <v-text-field class=" w-75 ma-2" label="Receive" variant="outlined"></v-text-field>
+                            <v-text-field class=" w-75 ma-2" label="Receive" variant="solo"></v-text-field>
                             <v-select
                                 variant="outlined"
                                 :items="['USDT', 'BTC', 'ETH' ]"
