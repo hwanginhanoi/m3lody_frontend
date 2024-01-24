@@ -17,18 +17,39 @@ const balance = ref(
     ]
 );
 
-const items = ['USDT', 'BTC', 'ETH'];
-const logo = ["src/assets/cryptocurrency/eth.svg","src/assets/cryptocurrency/eth.usdt","src/assets/cryptocurrency/eth.btc"];
+const coin = ['USDT', 'BTC', 'ETH'];
+const logo = ["src/assets/cryptocurrency/eth.svg", "src/assets/cryptocurrency/eth.svg", "src/assets/cryptocurrency/usdt.svg"];
+const test = ['mdi-cash-multiple', 'mdi-abacus', 'mdi-account'];
 
-const itemsWithIcons = items.map((item, index) => ({
-    text: item,
-    icon: logo[index]
-}));
+const items = [
+    {
+        id: 0,
+        text: "USDT",
+        logo: "src/assets/cryptocurrency/usdt.svg"
+    },
+    {
+        id: 1,
+        text: "BTC",
+        logo: "src/assets/cryptocurrency/btc.svg"
+    },
+    {
+        id: 2,
+        text: "ETH",
+        logo: "src/assets/cryptocurrency/eth.svg"
+    }
+];
+
+const getItemIcon = (text: string) => {
+    const item = select.find(i => i.text === text);
+    return item ? item.logo : null;
+};
 </script>
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <v-img><slot name="image"></slot></v-img>
+        <v-img>
+            <slot name="image"></slot>
+        </v-img>
         <v-tabs
             v-model="tab"
             color="deep-purple-accent-4"
@@ -40,31 +61,33 @@ const itemsWithIcons = items.map((item, index) => ({
         </v-tabs>
         <v-window v-model="tab">
             <v-window-item :value="1" align="center" class="space">
-                <v-card class="ma-5" style="max-width: 600px; margin: auto">
+                <v-card class="ma-5" style="max-width: 800px; margin: auto">
                     <v-row style="align-content: center" height="25vh">
                         <v-col class="d-flex justify-center pl-10 pr-10 pt-15">
                             <v-text-field class=" w-75 ma-2" variant="outlined" label="Spend">
 
                             </v-text-field>
                             <v-select
-                                variant="outline"
+                                variant="outlined"
                                 class="w-25 ma-2"
-                                :items = "['name','hello']"
-
+                                :items="items"
+                                item-title="text"
+                                item-value="id"
                             >
-
-                                <template v-for="item in itemsWithIcons" :key="item.logo">
-                                    <v-list>
-                                        <v-list-item>
-
-
-                                                <v-list-item-title v-text="item.text"></v-list-item-title>
-
-                                        </v-list-item>
-                                    </v-list>
+                                <template #selection="{ item, props}">
+                                    <v-list-item v-bind="props">
+                                        <template #title>
+                                            <span><img style="max-width: 25px" :src="item.raw.logo"/> {{ item.raw.text }}</span>
+                                        </template>
+                                    </v-list-item>
                                 </template>
-
-
+                                <template #item="{ item, props }">
+                                    <v-list-item v-bind="props">
+                                        <template #title>
+                                            <span><img style="max-width: 25px" :src="item.raw.logo"/> {{ item.raw.text }}</span>
+                                        </template>
+                                    </v-list-item>
+                                </template>
                             </v-select>
                         </v-col>
                     </v-row>
