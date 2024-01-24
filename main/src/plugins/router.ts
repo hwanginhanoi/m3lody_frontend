@@ -67,7 +67,10 @@ const routes = [
     {
         path: '/product',
         name: 'Product',
-        component: () => import('../views/Product.vue')
+        components: {
+            default: () => import('../views/Product.vue'),
+            nav: () => import('../components/NavDrawer.vue')
+        }
     },
     {
         path: '/:pathMatch(.*)*',

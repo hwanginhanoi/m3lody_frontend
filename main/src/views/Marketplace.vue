@@ -31,7 +31,7 @@ const chains = ["All chains","ETH","BTC"]
                     </v-select>
                 </v-col>
                 <v-col cols="2">
-                    <v-select variant="solo" rounded="lg" elevation="4" :items="chains">
+                    <v-select variant="solo" rounded="lg" elevation="4" :items="chains" model-value="All chains">
                     </v-select>
                 </v-col>
             </v-row>

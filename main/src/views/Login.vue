@@ -1,4 +1,4 @@
-    <script setup lang="ts">
+<script setup lang="ts">
 import AuthProvider from '../components/AuthProvider.vue'
 import {ref} from "vue";
 
@@ -16,11 +16,11 @@ const particlesLoaded = async (container: any) => {
 </script>
 
 <template>
-    <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json" />
+    <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json"/>
     <vue-particles
-            id="tsparticles"
-            :particlesLoaded="particlesLoaded"
-            :options="{
+        id="tsparticles"
+        :particlesLoaded="particlesLoaded"
+        :options="{
                     background: {
                         color: {
                             value: '#77ED91'
@@ -48,10 +48,10 @@ const particlesLoaded = async (container: any) => {
                             push: {
                                 quantity: 4
                             },
-                            repulse: {
-                                distance: 200,
-                                duration: 0.4
-                            }
+                                repulse: {
+                                    distance: 200,
+                                    duration: 0.4
+                                }
                         }
                     },
                     particles: {
@@ -91,7 +91,7 @@ const particlesLoaded = async (container: any) => {
                     },
                     detectRetina: true
                 }"
-        />
+    />
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
         <v-card
             class="auth-card pa-4 pt-7 rounded-xl"
@@ -113,7 +113,6 @@ const particlesLoaded = async (container: any) => {
             <v-card-text>
                 <v-form @submit.prevent="() => {}">
                     <v-row>
-                        <!-- email -->
                         <v-col cols="12">
                             <v-text-field
                                 v-model="form.email"
@@ -125,8 +124,6 @@ const particlesLoaded = async (container: any) => {
                                 color="#77ED91"
                             />
                         </v-col>
-
-                        <!-- password -->
                         <v-col cols="12">
                             <v-text-field
                                 color="#77ED91"
@@ -155,8 +152,6 @@ const particlesLoaded = async (container: any) => {
                                 ><span class="hyperlink">Forgot password</span>
                                 </RouterLink>
                             </div>
-
-                            <!-- login button -->
                             <v-btn
                                 block
                                 type="submit"
@@ -167,8 +162,6 @@ const particlesLoaded = async (container: any) => {
                                 Login
                             </v-btn>
                         </v-col>
-
-                        <!-- create account -->
                         <v-col
                             cols="12"
                             class="text-center text-base"
@@ -189,8 +182,6 @@ const particlesLoaded = async (container: any) => {
                             <span class="mx-4">or</span>
                             <v-divider/>
                         </v-col>
-
-                        <!-- auth providers -->
                         <v-col
                             cols="12"
                             class="text-center"
