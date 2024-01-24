@@ -17,6 +17,7 @@ const form = ref({
     phonenumber: ''
 })
 const {mdAndUp} = useDisplay();
+const userImage = ref("https://randomuser.me/api/portraits/men/1.jpg")
 
 </script>
 
@@ -29,7 +30,7 @@ const {mdAndUp} = useDisplay();
             <v-card-text class="pt-2">
                 <v-row class="" >
                     <v-col class="backgroundgrade d-flex justify-center">
-                        <v-img src="https://randomuser.me/api/portraits/women/6.jpg" min-width="140" min-height="140" max-width="180" class="rounded-lg" ></v-img>
+                        <v-img :src="userImage" min-width="140" min-height="140" max-width="180" class="rounded-lg" ></v-img>
                     </v-col>
 
                     <v-col class="d-flex align-center">
