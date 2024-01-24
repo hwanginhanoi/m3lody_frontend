@@ -14,7 +14,7 @@ const {mdAndUp} = useDisplay();
 <template>
     <v-container class="d-flex justify-center">
 
-        <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
+        <v-card class=" pa-10 background my-16 rounded-xl" elevation="5"
                 width="90%"
                 min-height="100%"
         >
