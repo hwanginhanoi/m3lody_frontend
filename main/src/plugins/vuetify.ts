@@ -27,7 +27,7 @@ const lightMode: ThemeDefinition = {
         warning: '#F92C2C',
         error: '#b00020',
         'navdrawer': '#EEEEEE',
-        'navbtn': '#242627',
+        'navbtn': '#f5f5f5',
     },
 }
 

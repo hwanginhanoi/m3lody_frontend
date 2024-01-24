@@ -20,6 +20,9 @@ const { mdAndUp } = useDisplay()
 
 let username : string = "Jane Doe"
 let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
+
+const menu = ref(false )
+
 </script>
 
 <template>
@@ -136,10 +139,53 @@ let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
         </v-btn>
         <v-btn icon="mdi-bell" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
         </v-btn>
-        <v-list-item
-            :prepend-avatar= avatar
-            :title= username>
-        </v-list-item>
+        <v-menu
+            v-model="menu"
+            :close-on-content-click="false"
+            location="bottom"
+        >
+            <template v-slot:activator="{ props }">
+                <v-btn icon="mdi-account"
+                       v-bind="props"
+                       height="56px"
+                       width="56"
+                       class="ml-2 "
+                       rounded="lg"
+                       elevation="2"
+                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                </v-btn>
+            </template>
+
+            <v-card min-width="300" rounded="lg">
+                <v-list>
+                    <v-list-item
+                        :prepend-avatar="avatar"
+                        :title="username"
+                    >
+                    </v-list-item>
+                </v-list>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+
+                    <v-btn
+                        variant="text"
+                        @click="menu = false"
+                    >
+                        Cancel
+                    </v-btn>
+                    <v-btn
+                        color="primary"
+                        variant="text"
+                        @click="menu = false"
+                    >
+                        Save
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-menu>
     </v-app-bar>
 </template>
 
