@@ -22,9 +22,9 @@ const userImage = ref("https://randomuser.me/api/portraits/men/1.jpg")
 </script>
 
 <template>
-    <v-container class="pa-0 py-3">
+    <v-container class="pa-2">
         <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
-                width="100%"
+                width="99%"
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
             <v-card-text class="pt-2">
