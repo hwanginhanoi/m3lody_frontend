@@ -24,6 +24,7 @@ const tab = ref(1);
                     v-for="n in 3"
                     :key="n"
                     :value="1"
+                    class=""
                 >
                     <AccountDetail/>
                 </v-window-item>
