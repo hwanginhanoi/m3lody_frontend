@@ -135,14 +135,37 @@ const menu = ref(false )
             variant="solo-filled"
             style="max-width: 250px;"
         ></v-text-field>
-        <v-btn icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-        </v-btn>
+
+        <v-dialog width="30%">
+            <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                </v-btn>
+            </template>
+
+            <template v-slot:default="{ isActive }">
+                <v-card title="Dialog" rounded="lg">
+                    <v-card-text>
+                    </v-card-text>
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+
+                        <v-btn
+                            text="Close Dialog"
+                            @click="isActive.value = false"
+                        ></v-btn>
+                    </v-card-actions>
+                </v-card>
+            </template>
+        </v-dialog>
         <v-btn icon="mdi-bell" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
         </v-btn>
         <v-menu
             v-model="menu"
             :close-on-content-click="false"
             location="bottom"
+            open-on-hover=""
+            open-delay="0"
         >
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
@@ -156,7 +179,7 @@ const menu = ref(false )
                 </v-btn>
             </template>
 
-            <v-card min-width="300" rounded="lg">
+            <v-card min-width="250" rounded="lg" class="mt-2">
                 <v-list>
                     <v-list-item
                         :prepend-avatar="avatar"
@@ -164,26 +187,9 @@ const menu = ref(false )
                     >
                     </v-list-item>
                 </v-list>
-
                 <v-divider></v-divider>
 
-                <v-card-actions>
-                    <v-spacer></v-spacer>
 
-                    <v-btn
-                        variant="text"
-                        @click="menu = false"
-                    >
-                        Cancel
-                    </v-btn>
-                    <v-btn
-                        color="primary"
-                        variant="text"
-                        @click="menu = false"
-                    >
-                        Save
-                    </v-btn>
-                </v-card-actions>
             </v-card>
         </v-menu>
     </v-app-bar>
