@@ -21,6 +21,8 @@ let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 const menu = ref(false)
 const wallet = ref(false)
 
+let wallet2 = { coin: 500, usd: 100 }
+
 </script>
 
 <template>
@@ -68,7 +70,7 @@ const wallet = ref(false)
 
     <v-app-bar elevation="0" color="nav-drawer" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
-        <v-btn to="/index" variant="plain" class="mr-2"><img src="../assets/trade-dark.png" height="30"></v-btn>
+        <v-btn to="/index" variant="plain" class="mr-2" v-ripple="false"><img src="../assets/trade-dark.png" height="30"></v-btn>
         <v-divider vertical length="50" class="border-opacity-50 mt-4"></v-divider>
         <v-btn to="/marketplace" class="ml-2">Marketplace</v-btn>
         <v-btn to="/create">Create</v-btn>
@@ -87,20 +89,22 @@ const wallet = ref(false)
             v-model="wallet"
             :close-on-content-click="false"
             location="bottom"
+            open-on-hover=""
+            open-delay="0"
         >
             <template v-slot:activator="{ props }">
                 <v-btn prepend-icon="mdi-wallet"
                        v-bind="props"
                        height="56px"
-                       width="180px"
+                       width="200px"
                        class="ml-2"
                        rounded="lg"
                        elevation="2"
-                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                       >
-                    <div>hello</div>
+                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                >
+                    <div>{{ wallet2.coin }} ETH</div>
                     <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
-                    <div>hello</div>
+                    <div>{{ wallet2.usd }} USD</div>
                 </v-btn>
 <!--                <v-card-text>hello</v-card-text>-->
             </template>
@@ -121,7 +125,8 @@ const wallet = ref(false)
 
         <v-dialog width="30%">
             <template v-slot:activator="{ props }">
-                <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
+                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                 </v-btn>
             </template>
 
@@ -163,12 +168,29 @@ const wallet = ref(false)
             <v-card min-width="250" rounded="lg" class="mt-2">
                 <v-list>
                     <v-list-item
+                        to="/account"
                         :prepend-avatar="avatar"
                         :title="username"
+                        active-class="no-active"
                     >
                     </v-list-item>
+                    <v-list-item to="/setting" prepend-icon="mdi-cog" title="Settings"></v-list-item>
+                    <v-divider class="border-opacity-50"></v-divider>
+                    <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
+                    <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
+                    <v-divider class="border-opacity-50"></v-divider>
+                        <v-switch
+                            v-model="isDarkTheme"
+                            hide-details
+                            false-icon="mdi-white-balance-sunny"
+                            true-icon="mdi-weather-night"
+                            id="dark-mode-switch"
+                            class="ml-2"
+                            :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
+                        >
+                        </v-switch>
+                    <v-list-item prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
-                <v-divider></v-divider>
             </v-card>
         </v-menu>
     </v-app-bar>
