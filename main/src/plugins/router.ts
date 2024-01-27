@@ -57,6 +57,33 @@ const routes = [
             }
     },
     {
+        path: '/create',
+        name: 'Create',
+        components:
+            {
+                default: () => import('../views/Create.vue'),
+                nav: () => import('../components/NavDrawer.vue')
+            }
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        components:
+            {
+                default: () => import('../views/Profile.vue'),
+                nav: () => import('../components/NavDrawer.vue')
+            }
+    },
+        {
+        path: '/transaction',
+        name: 'Transaction',
+        components:
+            {
+                default: () => import('../views/Transaction.vue'),
+                nav: () => import('../components/NavDrawer.vue')
+            }
+    },
+    {
         path: '/login',
         component: () => import('../views/Login.vue')
     },

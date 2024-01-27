@@ -71,8 +71,8 @@ let balance = {coin: 500, usd: 100}
 
     <v-app-bar elevation="0" color="nav-drawer" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
-        <v-btn id="no-background-hover" to="/index" variant="text" class="mr-2" v-ripple="false"><img
-            src="../assets/trade-dark.png" height="30"></v-btn>
+        <router-link to="/index" class="mx-4"><img
+            src="../assets/trade-dark.png" height="30"></router-link>
         <v-divider vertical length="50" class="border-opacity-50 mt-4"></v-divider>
         <v-btn to="/marketplace" class="ml-2">Marketplace</v-btn>
         <v-btn to="/create">Create</v-btn>
@@ -154,7 +154,7 @@ let balance = {coin: 500, usd: 100}
                 <v-divider>
                 </v-divider>
             </v-card>
-            
+
         </v-menu>
 
         <v-dialog width="30%">
@@ -201,13 +201,13 @@ let balance = {coin: 500, usd: 100}
             <v-card min-width="250" rounded="lg" class="mt-2 bg-transparent">
                 <v-list>
                     <v-list-item
-                        to="/account"
+                        to="/profile"
                         :prepend-avatar="avatar"
                         :title="username"
                         active-class="no-active"
                     >
                     </v-list-item>
-                    <v-list-item to="/setting" prepend-icon="mdi-cog" title="Settings"></v-list-item>
+                    <v-list-item to="/account" prepend-icon="mdi-cog" title="Settings"></v-list-item>
                     <v-divider class="border-opacity-50"></v-divider>
                     <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
                     <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
@@ -264,6 +264,10 @@ let balance = {coin: 500, usd: 100}
 }
 .textSize{
     font-size: 17px;
+}
+
+.customLogo :deep(.v-btn--active) {
+    background-color: transparent;
 }
 </style>
 
