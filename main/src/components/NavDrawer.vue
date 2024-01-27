@@ -109,7 +109,7 @@ let balance = {coin: 500, usd: 100}
                 <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2" width="500px" min-height="500px">
+            <v-card min-width="250" rounded="lg" class="mt-2" width="500px" min-height="100px">
                 <v-list height="" class="">
                     <v-list-item>
                         <v-row>
@@ -125,34 +125,41 @@ let balance = {coin: 500, usd: 100}
                         </v-row>
                         <v-row>
                             <v-col>
-                                <p>USD: <span class="text-light-green-lighten-1">$30 (nghèo vãi lồn)</span> </p>
+                                <p><span class="usdtext font-weight-bold">$30 USD</span> </p>
+                                <p class="mt-2 font">Wallet balance</p>
+                            </v-col>
+                            <v-col>
+                                <v-menu>
+
+                                </v-menu>
                             </v-col>
                         </v-row>
                         <br>
-                        <hr>
                     </v-list-item>
-                    <v-list-item height="250px" width="" class="d-flex justify-center">
-                        <v-list-item class="d-flex justify-center">
-                            <v-icon icon="mdi-wallet" size="50px"></v-icon>
-                        </v-list-item>
-                        <v-list-item class="d-flex justify-center">
-                            <v-card-text class="font-weight-bold textSize">Fund your wallet to purchase NFTs</v-card-text>
-                        </v-list-item>
-                        <v-list-item class="d-flex justify-center">
-                            <v-btn class="bg-green" width="230px">Add Funds With Cards</v-btn>
-                        </v-list-item>
-                        <v-list-item class="d-flex justify-center"  >
-                            <v-btn class="bg-purple" width="230px">Deposit</v-btn>
-                        </v-list-item>
 
-                    </v-list-item>
                     <v-list-item>
                         <v-btn></v-btn>
                     </v-list-item>
-
                 </v-list>
                 <v-divider>
                 </v-divider>
+            </v-card>
+            <v-card>
+                <v-list-item height="250px" width="" class="d-flex justify-center">
+                    <v-list-item class="d-flex justify-center">
+                        <v-icon icon="mdi-wallet" size="50px"></v-icon>
+                    </v-list-item>
+                    <v-list-item class="d-flex justify-center">
+                        <v-card-text class="font-weight-bold textSize">Fund your wallet to purchase NFTs</v-card-text>
+                    </v-list-item>
+                    <v-list-item class="d-flex justify-center">
+                        <v-btn class="bg-green" width="230px">Add Funds With Cards</v-btn>
+                    </v-list-item>
+                    <v-list-item class="d-flex justify-center"  >
+                        <v-btn class="bg-purple" width="230px">Deposit</v-btn>
+                    </v-list-item>
+
+                </v-list-item>
             </v-card>
 
         </v-menu>
@@ -264,6 +271,11 @@ let balance = {coin: 500, usd: 100}
 }
 .textSize{
     font-size: 17px;
+}
+
+.usdtext{
+    font-size: 30px;
+    color: lightgreen;
 }
 
 .customLogo :deep(.v-btn--active) {
