@@ -92,6 +92,13 @@ const routes = [
         component: () => import('../views/Register.vue')
     },
     {
+        path: '/list',
+        components: {
+            default: () => import('../views/List.vue'),
+            nav: () => import('../components/NavDrawer.vue')
+        }
+    },
+    {
         path: '/product',
         name: 'Product',
         components: {
