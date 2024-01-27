@@ -3,17 +3,17 @@ import NFT from '../components/NFT.vue';
 
 const cards = [
     { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
-    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
-    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
-    { id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
-    { id: 1, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 2, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 3, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 4, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 5, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 6, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 7, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 8, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 9, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
+    { id: 10, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img:"src/assets/test.png"},
+    { id: 11, title: 'Card 1', content: 'MMB', img:"src/assets/test1.jpeg"},
+    { id: 12, title: 'Card 1', content: 'MMB', img:"src/assets/test2.avif"},
 
 ];
 

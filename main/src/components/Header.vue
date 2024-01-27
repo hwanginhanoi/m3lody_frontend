@@ -20,9 +20,9 @@ let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 
 const menu = ref(false)
 const wallet = ref(false)
-const cart = ref(false)
 
 let balance = {coin: 500, usd: 100}
+let userID = ref("69-96-69-96")
 
 </script>
 
@@ -56,7 +56,7 @@ let balance = {coin: 500, usd: 100}
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
-                        inset="true"
+                        inset
                         false-icon="mdi-white-balance-sunny"
                         true-icon="mdi-weather-night"
                         id="dark-mode-switch"
@@ -78,7 +78,7 @@ let balance = {coin: 500, usd: 100}
         <v-btn to="/create">Create</v-btn>
         <v-spacer></v-spacer>
         <v-text-field
-            clearable="true"
+            clearable
             class="pt-6"
             rounded="lg"
             bg-color="background"
@@ -109,12 +109,12 @@ let balance = {coin: 500, usd: 100}
                 <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2" width="500px" min-height="100px">
-                <v-list height="" class="">
-                    <v-list-item>
+            <v-card min-width="250" rounded="lg" class="mt-2" width="390px" min-height="100px">
+                <v-list height="" class="" style="border: none">
+                    <v-list-item class="">
                         <v-row>
                             <v-col cols="9">
-                                <p>ID: helloworld69-96</p>
+                                <p>ID: {{userID}}</p>
                             </v-col>
                             <v-col>
                                 <div class="theborder text-center rounded-lg">
@@ -125,8 +125,8 @@ let balance = {coin: 500, usd: 100}
                         </v-row>
                         <v-row>
                             <v-col>
-                                <p><span class="usdtext font-weight-bold">$30 USD</span> </p>
-                                <p class="mt-2 font">Wallet balance</p>
+                                <p><span class="usdtext font-weight-bold">${{balance.usd}} </span> </p>
+                                <p class="mt-2 font-weight-light">Wallet balance</p>
                             </v-col>
                             <v-col>
                                 <v-menu>
@@ -135,17 +135,10 @@ let balance = {coin: 500, usd: 100}
                             </v-col>
                         </v-row>
                         <br>
-                    </v-list-item>
+                        <hr>
 
-                    <v-list-item>
-                        <v-btn></v-btn>
                     </v-list-item>
-                </v-list>
-                <v-divider>
-                </v-divider>
-            </v-card>
-            <v-card>
-                <v-list-item height="250px" width="" class="d-flex justify-center">
+                        <v-list-item height="280px" width="" class="d-flex justify-center">
                     <v-list-item class="d-flex justify-center">
                         <v-icon icon="mdi-wallet" size="50px"></v-icon>
                     </v-list-item>
@@ -153,15 +146,94 @@ let balance = {coin: 500, usd: 100}
                         <v-card-text class="font-weight-bold textSize">Fund your wallet to purchase NFTs</v-card-text>
                     </v-list-item>
                     <v-list-item class="d-flex justify-center">
-                        <v-btn class="bg-green" width="230px">Add Funds With Cards</v-btn>
+
+                        <v-dialog width="30%">
+                            <template v-slot:activator="{ props }">
+                                <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px" height="35px">Buy</v-btn>
+                            </template>
+
+                            <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
+                                <v-card title="Buy" rounded="lg">
+                                    <v-card-text>
+                                        <v-card class="ma-5" style="max-width: 600px; margin: auto;">
+                       <v-row>
+                           <v-col class="text-left">
+                               Spend
+                           </v-col>
+                           <v-col class="text-right">
+                               Cash balance
+                           </v-col>
+                       </v-row>
+                       <v-row class="">
+                           <v-col class="text-left" cols="8">
+                               <v-text-field
+                                    label="You pay"
+                                    type="text"
+                                    clearable=""
+                                    rounded="lg"
+                                    variant="flat"
+                                    color="#d777ed"
+                               >
+                               </v-text-field>
+                           </v-col>
+                           <v-col class="text-right">
+                               <v-select
+                                   variant="outlined"
+                                   label="Select"
+                                   chips
+                                   :items="['USD']"
+
+                               ></v-select>
+                           </v-col>
+                       </v-row>
+                           <v-row>
+                           <v-col class="text-left" cols="8">
+                               <v-text-field
+                                    label="You receive"
+                                    type="text"
+                                    clearable=""
+                                    rounded="lg"
+                                    variant="outlined"
+                                    color="#d777ed"
+
+                               >
+                               </v-text-field>
+                           </v-col>
+                           <v-col class="text-right">
+                               <v-select
+                                   variant="outlined"
+                                   label="Select"
+                                   chips
+                                   :items="['Lickma Coin']"
+
+                               ></v-select>
+                           </v-col>
+                       </v-row>
+                </v-card>
+                                    </v-card-text>
+
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn
+                                            text="Close Dialog"
+                                            @click="isActive.value = false"
+                                        ></v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </template>
+                        </v-dialog>
                     </v-list-item>
                     <v-list-item class="d-flex justify-center"  >
-                        <v-btn class="bg-purple" width="230px">Deposit</v-btn>
+                        <v-btn prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit</v-btn>
                     </v-list-item>
 
                 </v-list-item>
-            </v-card>
 
+
+                </v-list>
+                <v-divider>
+                </v-divider>
+            </v-card>
         </v-menu>
 
         <v-dialog width="30%">
@@ -270,7 +342,7 @@ let balance = {coin: 500, usd: 100}
     border: solid 1px white;
 }
 .textSize{
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .usdtext{
@@ -280,6 +352,10 @@ let balance = {coin: 500, usd: 100}
 
 .customLogo :deep(.v-btn--active) {
     background-color: transparent;
+}
+
+.vlistborder{
+    border-bottom: 1px solid white;
 }
 </style>
 

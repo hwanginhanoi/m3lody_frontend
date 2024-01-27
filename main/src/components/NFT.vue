@@ -5,7 +5,7 @@ defineProps(['card']);
 <template>
     <v-col cols="12" md="6" lg="3">
         <v-lazy :min-height="200" :options="{'threshold': 0.1}" transition="fade-transition">
-            <v-card class="rounded-card" elevation="4" to="/product">
+            <v-card class="rounded-card" elevation="4" :to="{ path: `/product/${card.id}`}">
                 <div :style="{ backgroundImage: `url('${card.img}')` }" class="card-image"></div>
                 <v-card-title >{{ card.title }}</v-card-title>
                 <v-row>

@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-
+import product from "../data.json"
 const routes = [
     {path: '/', redirect: '/index'},
     {
@@ -8,7 +8,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Index.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -17,7 +17,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Wallet.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -26,7 +26,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Account.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -35,7 +35,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Marketplace.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -44,7 +44,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Watchlist.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -53,7 +53,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Exchange.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -62,7 +62,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Create.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -71,7 +71,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Profile.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
         {
@@ -80,7 +80,7 @@ const routes = [
         components:
             {
                 default: () => import('../views/Transaction.vue'),
-                nav: () => import('../components/NavDrawer.vue')
+                nav: () => import('../components/Header.vue')
             }
     },
     {
@@ -94,79 +94,37 @@ const routes = [
     {
         path: '/list',
         components: {
-            default: () => import('../views/List.vue'),
-            nav: () => import('../components/NavDrawer.vue')
+            default: () => import('../views/Create.vue'),
+            nav: () => import('../components/Header.vue')
         }
     },
     {
-        path: '/product',
+        path: '/product/:id',
         name: 'Product',
         components: {
             default: () => import('../views/Product.vue'),
-            nav: () => import('../components/NavDrawer.vue')
+            nav: () => import('../components/Header.vue')
+        },
+        beforeRouteEnter(to) {
+            const id = parseInt(to.params.id);
+            const data = product;
+            const exists = data.some((item) => item.id === id)
+            if (!exists) return {
+                name: 'not-found',
+                params: {pathMatch: to.path.substring(1).split("/")},
+                query: to.query,
+                hash: to.hash,
+            }
         }
+
+
     },
     {
         path: '/:pathMatch(.*)*',
+        name: 'not-found',
         component: () => import('../views/[[ Error 404 ]].vue')
     },
 ];
-//
-// export const routes = [
-//     { path: '/', redirect: '/dashboard' },
-//     {
-//         path: '/',
-//         component: () => import('@/layouts/default.vue'),
-//         children: [
-//             {
-//                 path: 'dashboard',
-//                 component: () => import('@/pages/dashboard.vue'),
-//             },
-//             {
-//                 path: 'account-settings',
-//                 component: () => import('@/pages/account-settings.vue'),
-//             },
-//             {
-//                 path: 'typography',
-//                 component: () => import('@/pages/typography.vue'),
-//             },
-//             {
-//                 path: 'icons',
-//                 component: () => import('@/pages/icons.vue'),
-//             },
-//             {
-//                 path: 'cards',
-//                 component: () => import('@/pages/cards.vue'),
-//             },
-//             {
-//                 path: 'tables',
-//                 component: () => import('@/pages/tables.vue'),
-//             },
-//             {
-//                 path: 'form-layouts',
-//                 component: () => import('@/pages/form-layouts.vue'),
-//             },
-//         ],
-//     },
-//     {
-//         path: '/',
-//         component: () => import('@/layouts/blank.vue'),
-//         children: [
-//             {
-//                 path: 'login',
-//                 component: () => import('@/pages/login.vue'),
-//             },
-//             {
-//                 path: 'register',
-//                 component: () => import('@/pages/register.vue'),
-//             },
-//             {
-//                 path: '/:pathMatch(.*)*',
-//                 component: () => import('@/pages/[...error].vue'),
-//             },
-//         ],
-//     },
-// ]
 
 
 const router = createRouter({
