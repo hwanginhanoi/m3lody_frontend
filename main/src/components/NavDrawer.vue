@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import {useTheme, useDisplay} from 'vuetify'
 import {ref, computed} from 'vue'
-import { useRoute } from 'vue-router'
+import {useRoute} from 'vue-router'
 
 const theme = useTheme()
-const route = useRoute()
-
-const currentRoute = computed(() => route.name)
 
 const isDarkTheme = computed({
     get: () => theme.global.current.value.dark,
@@ -16,65 +13,17 @@ const isDarkTheme = computed({
 })
 const rail = ref(false)
 const drawer = ref(false)
-const { mdAndUp } = useDisplay()
+const {mdAndUp} = useDisplay()
 
-let username : string = "Jane Doe"
-let avatar : string = "https://randomuser.me/api/portraits/women/85.jpg"
+let username: string = "Jane Doe"
+let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 
-const menu = ref(false )
+const menu = ref(false)
+const wallet = ref(false)
 
 </script>
 
 <template>
-    <v-navigation-drawer
-        floating
-        v-if="mdAndUp"
-        width="230"
-        color="nav-drawer"
-        opacity='0.4'
-        :rail="mdAndUp ? rail : false"
-        permanent="true"
-    >
-        <div class="d-flex">
-            <v-app-bar-nav-icon @click.stop="rail=!rail" class="ml-1 mt-6"></v-app-bar-nav-icon>
-            <v-img v-if="mdAndUp && !rail" src="src/assets/trade-dark.png" max-height="30" class="mt-8 mr-2"
-            ></v-img>
-        </div>
-        <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
-            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-        </v-list>
-
-
-        <template v-slot:append>
-            <div>
-                <v-list density="compact" class="d-flex flex-column">
-                    <v-switch
-                        v-model="isDarkTheme"
-                        hide-details
-                        inset="true"
-                        false-icon="mdi-white-balance-sunny"
-                        true-icon="mdi-weather-night"
-                        id="dark-mode-switch"
-                        class="mx-auto">
-                    </v-switch>
-                    <v-btn variant="plain" v-if="mdAndUp && !rail" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
-                    <v-btn variant="plain" v-if="mdAndUp && rail" prepend-icon="mdi-logout" title="Logout" value="logout"></v-btn>
-                </v-list>
-            </div>
-        </template>
-    </v-navigation-drawer>
-
     <v-navigation-drawer
         v-model="drawer"
         v-if="!mdAndUp"
@@ -82,10 +31,6 @@ const menu = ref(false )
         color="nav-drawer"
         opacity='0.4'
     >
-        <div class="d-flex">
-            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-8"
-            ></v-img>
-        </div>
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
@@ -114,17 +59,20 @@ const menu = ref(false )
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout</v-btn>
+                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout
+                    </v-btn>
                 </v-list>
             </div>
         </template>
     </v-navigation-drawer>
 
-    <v-app-bar elevation="0" color="background" height="85">
+    <v-app-bar elevation="0" color="nav-drawer" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
-        <v-app-bar-title>
-            {{ currentRoute }}
-        </v-app-bar-title>
+        <v-btn to="/index" variant="plain" class="mr-2"><img src="../assets/trade-dark.png" height="30"></v-btn>
+        <v-divider vertical length="50" class="border-opacity-50 mt-4"></v-divider>
+        <v-btn to="/marketplace" class="ml-2">Marketplace</v-btn>
+        <v-btn to="/create">Create</v-btn>
+        <v-spacer></v-spacer>
         <v-text-field
             clearable="true"
             class="pt-6"
@@ -133,8 +81,40 @@ const menu = ref(false )
             label="Search"
             prepend-inner-icon="mdi-magnify"
             variant="solo-filled"
-            style="max-width: 250px;"
+            style="max-width: 300px;"
         ></v-text-field>
+        <v-menu
+            v-model="wallet"
+            :close-on-content-click="false"
+            location="bottom"
+        >
+            <template v-slot:activator="{ props }">
+                <v-btn prepend-icon="mdi-wallet"
+                       v-bind="props"
+                       height="56px"
+                       width="180px"
+                       class="ml-2"
+                       rounded="lg"
+                       elevation="2"
+                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                       >
+                    <div>hello</div>
+                    <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
+                    <div>hello</div>
+                </v-btn>
+            </template>
+
+            <v-card min-width="250" rounded="lg" class="mt-2">
+                <v-list>
+                    <v-list-item
+                        :prepend-avatar="avatar"
+                        :title="username"
+                    >
+                    </v-list-item>
+                </v-list>
+                <v-divider></v-divider>
+            </v-card>
+        </v-menu>
 
         <v-dialog width="30%">
             <template v-slot:activator="{ props }">
@@ -158,8 +138,6 @@ const menu = ref(false )
                 </v-card>
             </template>
         </v-dialog>
-        <v-btn icon="mdi-bell" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-        </v-btn>
         <v-menu
             v-model="menu"
             :close-on-content-click="false"
@@ -188,8 +166,6 @@ const menu = ref(false )
                     </v-list-item>
                 </v-list>
                 <v-divider></v-divider>
-
-
             </v-card>
         </v-menu>
     </v-app-bar>
