@@ -20,8 +20,9 @@ let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 
 const menu = ref(false)
 const wallet = ref(false)
+const cart = ref(false)
 
-let wallet2 = { coin: 500, usd: 100 }
+let balance = {coin: 500, usd: 100}
 
 </script>
 
@@ -70,7 +71,8 @@ let wallet2 = { coin: 500, usd: 100 }
 
     <v-app-bar elevation="0" color="nav-drawer" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
-        <v-btn to="/index" variant="plain" class="mr-2" v-ripple="false"><img src="../assets/trade-dark.png" height="30"></v-btn>
+        <v-btn id="no-background-hover" to="/index" variant="text" class="mr-2" v-ripple="false"><img
+            src="../assets/trade-dark.png" height="30"></v-btn>
         <v-divider vertical length="50" class="border-opacity-50 mt-4"></v-divider>
         <v-btn to="/marketplace" class="ml-2">Marketplace</v-btn>
         <v-btn to="/create">Create</v-btn>
@@ -89,8 +91,6 @@ let wallet2 = { coin: 500, usd: 100 }
             v-model="wallet"
             :close-on-content-click="false"
             location="bottom"
-            open-on-hover=""
-            open-delay="0"
         >
             <template v-slot:activator="{ props }">
                 <v-btn prepend-icon="mdi-wallet"
@@ -102,25 +102,59 @@ let wallet2 = { coin: 500, usd: 100 }
                        elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                 >
-                    <div>{{ wallet2.coin }} ETH</div>
+                    <div>{{ balance.coin }} ETH</div>
                     <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
-                    <div>{{ wallet2.usd }} USD</div>
+                    <div>{{ balance.usd }} USD</div>
                 </v-btn>
-<!--                <v-card-text>hello</v-card-text>-->
+                <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
             <v-card min-width="250" rounded="lg" class="mt-2" width="500px" min-height="500px">
-                <v-list>
-                    <v-list-item
-                        :prepend-avatar="avatar"
-                        :title="username"
-                    >
+                <v-list height="" class="">
+                    <v-list-item>
+                        <v-row>
+                            <v-col cols="9">
+                                <p>ID: helloworld69-96</p>
+                            </v-col>
+                            <v-col>
+                                <div class="theborder text-center rounded-lg">
+                                    <v-icon icon="mdi-currency-usd"></v-icon>
+
+                                </div>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col>
+                                <p>USD: <span class="text-light-green-lighten-1">$30 (nghèo vãi lồn)</span> </p>
+                            </v-col>
+                        </v-row>
+                        <br>
+                        <hr>
                     </v-list-item>
-                    <v-list-item>hello</v-list-item>
+                    <v-list-item height="250px" width="" class="d-flex justify-center">
+                        <v-list-item class="d-flex justify-center">
+                            <v-icon icon="mdi-wallet" size="50px"></v-icon>
+                        </v-list-item>
+                        <v-list-item class="d-flex justify-center">
+                            <v-card-text class="font-weight-bold textSize">Fund your wallet to purchase NFTs</v-card-text>
+                        </v-list-item>
+                        <v-list-item class="d-flex justify-center">
+                            <v-btn class="bg-green" width="230px">Add Funds With Cards</v-btn>
+                        </v-list-item>
+                        <v-list-item class="d-flex justify-center"  >
+                            <v-btn class="bg-purple" width="230px">Deposit</v-btn>
+                        </v-list-item>
+
+                    </v-list-item>
+                    <v-list-item>
+                        <v-btn></v-btn>
+                    </v-list-item>
+
                 </v-list>
                 <v-divider>
                 </v-divider>
             </v-card>
+            
         </v-menu>
 
         <v-dialog width="30%">
@@ -130,7 +164,7 @@ let wallet2 = { coin: 500, usd: 100 }
                 </v-btn>
             </template>
 
-            <template v-slot:default="{ isActive }">
+            <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                 <v-card title="Dialog" rounded="lg">
                     <v-card-text>
                     </v-card-text>
@@ -146,12 +180,11 @@ let wallet2 = { coin: 500, usd: 100 }
                 </v-card>
             </template>
         </v-dialog>
+
         <v-menu
             v-model="menu"
-            :close-on-content-click="false"
+            :close-on-content-click="true"
             location="bottom"
-            open-on-hover=""
-            open-delay="0"
         >
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
@@ -165,7 +198,7 @@ let wallet2 = { coin: 500, usd: 100 }
                 </v-btn>
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2">
+            <v-card min-width="250" rounded="lg" class="mt-2 bg-transparent">
                 <v-list>
                     <v-list-item
                         to="/account"
@@ -179,16 +212,16 @@ let wallet2 = { coin: 500, usd: 100 }
                     <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
                     <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
                     <v-divider class="border-opacity-50"></v-divider>
-                        <v-switch
-                            v-model="isDarkTheme"
-                            hide-details
-                            false-icon="mdi-white-balance-sunny"
-                            true-icon="mdi-weather-night"
-                            id="dark-mode-switch"
-                            class="ml-2"
-                            :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
-                        >
-                        </v-switch>
+                    <v-switch
+                        v-model="isDarkTheme"
+                        hide-details
+                        false-icon="mdi-white-balance-sunny"
+                        true-icon="mdi-weather-night"
+                        id="dark-mode-switch"
+                        class="ml-2"
+                        :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
+                    >
+                    </v-switch>
                     <v-list-item prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
             </v-card>
@@ -226,5 +259,11 @@ let wallet2 = { coin: 500, usd: 100 }
     line-height: normal;
 }
 
+.theborder {
+    border: solid 1px white;
+}
+.textSize{
+    font-size: 17px;
+}
 </style>
 
