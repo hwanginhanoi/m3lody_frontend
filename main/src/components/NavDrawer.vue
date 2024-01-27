@@ -102,17 +102,20 @@ const wallet = ref(false)
                     <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
                     <div>hello</div>
                 </v-btn>
+<!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2">
+            <v-card min-width="250" rounded="lg" class="mt-2" width="500px">
                 <v-list>
                     <v-list-item
                         :prepend-avatar="avatar"
                         :title="username"
                     >
                     </v-list-item>
+                    <v-list-item>hello</v-list-item>
                 </v-list>
-                <v-divider></v-divider>
+                <v-divider>
+                </v-divider>
             </v-card>
         </v-menu>
 
