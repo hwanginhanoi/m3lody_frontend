@@ -109,7 +109,7 @@ let wallet2 = { coin: 500, usd: 100 }
 <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2" width="500px">
+            <v-card min-width="250" rounded="lg" class="mt-2" width="500px" min-height="500px">
                 <v-list>
                     <v-list-item
                         :prepend-avatar="avatar"
