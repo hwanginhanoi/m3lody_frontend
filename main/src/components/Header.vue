@@ -147,14 +147,14 @@ let userID = ref("69-96-69-96")
                     </v-list-item>
                     <v-list-item class="d-flex justify-center">
 
-                        <v-dialog width="30%">
+                        <v-dialog width="40%">
                             <template v-slot:activator="{ props }">
                                 <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px" height="35px">Buy</v-btn>
                             </template>
 
                             <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                                 <v-card title="Buy" rounded="lg">
-                                    <v-card-text>
+                                    <v-card-text class="">
                                         <v-card class="ma-5" style="max-width: 600px; margin: auto;">
                        <v-row>
                            <v-col class="text-left">
@@ -163,31 +163,32 @@ let userID = ref("69-96-69-96")
                            <v-col class="text-right">
                                Cash balance
                            </v-col>
-                       </v-row>
-                       <v-row class="">
-                           <v-col class="text-left" cols="8">
-                               <v-text-field
+                       </v-row >
+                        <v-row>
+                            <v-col class="text-left " cols="8">
+                                <v-text-field
                                     label="You pay"
                                     type="text"
                                     clearable=""
                                     rounded="lg"
-                                    variant="flat"
+                                    variant="outlined"
                                     color="#d777ed"
-                               >
-                               </v-text-field>
-                           </v-col>
-                           <v-col class="text-right">
-                               <v-select
-                                   variant="outlined"
-                                   label="Select"
-                                   chips
-                                   :items="['USD']"
+                                >
+                                </v-text-field>
+                            </v-col>
+                            <v-col>
+                                <v-select
+                                    variant="outlined"
+                                    label="Select"
+                                    chips
+                                    :items="['USD']"
+                                ></v-select>
 
-                               ></v-select>
-                           </v-col>
-                       </v-row>
+                            </v-col>
+
+                        </v-row>
                            <v-row>
-                           <v-col class="text-left" cols="8">
+                           <v-col class="text-left " cols="8">
                                <v-text-field
                                     label="You receive"
                                     type="text"
