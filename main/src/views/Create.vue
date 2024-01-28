@@ -47,7 +47,7 @@ import PictureInput from 'vue-picture-input'
                     <v-select label="Type" variant="outlined" rounded="lg">
 
                     </v-select>
-                    <v-file-input>
+                    <v-file-input prepend-icon="mdi-music" label="Upload your music file" show-size accept="audio/*" style="min-width: 50%;">
 
                     </v-file-input>
                     <v-btn type="submit" rounded="lg">
