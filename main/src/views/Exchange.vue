@@ -147,21 +147,24 @@ const items = [
                     <v-card class="ma-5" style="max-width: 600px; margin: auto">
                         <v-row style="align-content: center" height="25vh">
                             <v-col class="d-flex justify-center pa-5">
-                                <v-text-field
-                                    class=" w-75 ma-2"
-                                    label="Spend"
-                                    type="text"
-                                    clearable=""
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                                <v-select
-                                    variant="outlined"
-                                    color="#d777ed"
-                                    :items="['ETH', 'BTC', 'USDT' ]"
-                                    class="w-25 ma-2"
-                                ></v-select>
+                                <div class="theborder">
+                                    <v-text-field
+                                        class=" w-75 ma-2"
+                                        label="Spend"
+                                        type="text"
+                                        clearable=""
+                                        rounded="lg"
+                                        variant="outlined"
+                                        color="#d777ed"
+                                    ></v-text-field>
+                                    <v-select
+                                        variant="outlined"
+                                        color="#d777ed"
+                                        :items="['ETH', 'BTC', 'USDT' ]"
+                                        class="w-25 ma-2"
+                                    ></v-select>
+
+                                </div>
                             </v-col>
                         </v-row>
                         <v-row style="align-content: center" height="25vh">
@@ -194,5 +197,8 @@ const items = [
 </template>
 
 <style scoped>
-
+.theborder{
+    border: 1px solid white;
+    border-radius: 10px;
+}
 </style>
