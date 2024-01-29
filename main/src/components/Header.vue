@@ -175,9 +175,9 @@ let show = ref(false);
                                                 <v-row no-gutters
                                                        class="mt-3"
                                                        style="height: 60px;
-                                                       background: #242627;
                                                        border-radius: 11px;
                                                        overflow: hidden; "
+                                                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                                                 >
                                                     <v-col class="text-left pl-5" cols="" >
                                                         <v-text-field
@@ -187,6 +187,7 @@ let show = ref(false);
                                                             rounded="lg"
                                                             variant="plain"
                                                             color="#d777ed"
+
                                                         >
                                                         </v-text-field>
                                                     </v-col>
@@ -196,7 +197,7 @@ let show = ref(false);
                                                             variant="flat"
                                                             model-value="USD"
                                                             :items="['USD']"
-                                                            style="display: flex; justify-content: center;"
+                                                            style="display: flex; justify-content: end;"
                                                             class=""
                                                             hide-details
                                                         ></v-select>
@@ -207,7 +208,9 @@ let show = ref(false);
                                                        style="height: 60px;
                                                        background: #242627;
                                                        border-radius: 11px;
-                                                       overflow: hidden; ">
+                                                       overflow: hidden; "
+                                                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                                                >
                                                     <v-col class="text-left pl-5" cols="">
                                                         <v-text-field
                                                             placeholder="You receive"
@@ -225,15 +228,77 @@ let show = ref(false);
                                                             chips
                                                             variant="flat"
                                                             model-value="USD"
-                                                            style="display: flex; justify-content: center;"
+                                                            style="display: flex; justify-content: end;"
                                                             :items="['USD']"
                                                             hide-details
+
 
 
                                                         ></v-select>
                                                     </v-col>
                                                 </v-row>
+                                                <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                                                    <v-row class="font-weight-light">
+                                                        <v-col cols="10" class="d-flex align-center" >
+                                                            <p class="smallText">You get <span class="font-weight-bold">{{userGet}} DickCoin</span> for <span class="font-weight-bold">{{userPay}} USD</span></p>
+                                                        </v-col>
+                                                        <v-col class="d-flex justify-end">
+                                                            <v-btn
+                                                                :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                                                                @click="show = !show"
+                                                                width="30px"
+                                                                height="30px"
+
+                                                            ></v-btn>
+                                                        </v-col>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-expand-transition class="w-100">
+                                                            <div v-show="show">
+                                                                <v-divider :thickness="4"></v-divider>
+
+                                                                <v-card-text>
+                                                                    <v-row >
+                                                                        <v-col cols="8" class="pa-2">
+                                                                            <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
+                                                                        </v-col>
+                                                                        <v-col class="text-right pa-2" >
+                                                                            <p class="font-weight-bold">100,00 US$</p>
+                                                                        </v-col>
+
+                                                                    </v-row>
+                                                                    <v-row>
+                                                                        <v-col cols="7" class="pa-2">
+                                                                            <p><span class="font-weight-bold">Network fee</span></p>
+                                                                        </v-col>
+                                                                        <v-col class=" text-right pa-2">
+                                                                            <p class="font-weight-bold">1,48 US$</p>
+                                                                        </v-col>
+                                                                    </v-row>
+                                                                    <v-row>
+                                                                        <v-col cols="6" class="pa-2">
+                                                                            <p><span class="font-weight-bold">Processing fee</span></p>
+                                                                        </v-col>
+                                                                        <v-col class="text-right pa-2">
+                                                                            <p>as low as <span class="font-weight-bold">2,10 US$</span> </p>
+                                                                        </v-col>
+                                                                    </v-row>
+
+                                                                </v-card-text>
+                                                            </div>
+                                                        </v-expand-transition>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col cols="12">
+                                                            <v-btn width="100%" class="bg-green">Confirm</v-btn>
+                                                        </v-col>
+                                                        <v-col><p class="text-center supersmalltext">By continuing you agree to our <span class="font-weight-bold">cookie policy</span></p></v-col>
+                                                    </v-row>
+
+                                                </v-card>
                                             </v-card>
+                                        </v-card-text>
+                                        <v-card-text>
                                         </v-card-text>
 
                                         <v-card-actions>
@@ -255,7 +320,7 @@ let show = ref(false);
                                 </template>
 
                                 <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
-                                    <v-card title="Buy" rounded="lg">
+                                    <v-card title="Deposit" rounded="lg">
                                         <v-card-text class="">
                                             <v-card class="" style="max-width: 600px; margin: auto;" flat>
                                                 <v-row>
@@ -269,9 +334,9 @@ let show = ref(false);
                                                 <v-row no-gutters
                                                        class="mt-3"
                                                        style="height: 60px;
-                                                       background: #242627;
                                                        border-radius: 11px;
                                                        overflow: hidden; "
+                                                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                                                 >
                                                     <v-col class="text-left pl-5" cols="" >
                                                         <v-text-field
@@ -281,6 +346,7 @@ let show = ref(false);
                                                             rounded="lg"
                                                             variant="plain"
                                                             color="#d777ed"
+
                                                         >
                                                         </v-text-field>
                                                     </v-col>
@@ -290,7 +356,7 @@ let show = ref(false);
                                                             variant="flat"
                                                             model-value="USD"
                                                             :items="['USD']"
-                                                            style="display: flex; justify-content: center;"
+                                                            style="display: flex; justify-content: end;"
                                                             class=""
                                                             hide-details
                                                         ></v-select>
@@ -301,7 +367,9 @@ let show = ref(false);
                                                        style="height: 60px;
                                                        background: #242627;
                                                        border-radius: 11px;
-                                                       overflow: hidden; ">
+                                                       overflow: hidden; "
+                                                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                                                >
                                                     <v-col class="text-left pl-5" cols="">
                                                         <v-text-field
                                                             placeholder="You receive"
@@ -319,20 +387,21 @@ let show = ref(false);
                                                             chips
                                                             variant="flat"
                                                             model-value="USD"
-                                                            style="display: flex; justify-content: center;"
+                                                            style="display: flex; justify-content: end;"
                                                             :items="['USD']"
                                                             hide-details
+
 
 
                                                         ></v-select>
                                                     </v-col>
                                                 </v-row>
-                                                <v-card width="100%"  class="bg-grey-darken-4 mt-3 pa-3">
+                                                <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                                                     <v-row class="font-weight-light">
                                                         <v-col cols="10" class="d-flex align-center" >
                                                             <p class="smallText">You get <span class="font-weight-bold">{{userGet}} DickCoin</span> for <span class="font-weight-bold">{{userPay}} USD</span></p>
                                                         </v-col>
-                                                        <v-col>
+                                                        <v-col class="d-flex justify-end">
                                                             <v-btn
                                                                 :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
                                                                 @click="show = !show"
@@ -345,31 +414,31 @@ let show = ref(false);
                                                     <v-row>
                                                         <v-expand-transition class="w-100">
                                                             <div v-show="show">
-                                                                <v-divider></v-divider>
+                                                                <v-divider :thickness="4"></v-divider>
 
                                                                 <v-card-text>
                                                                     <v-row >
-                                                                        <v-col cols="9">
+                                                                        <v-col cols="8" class="pa-2">
                                                                             <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
                                                                         </v-col>
-                                                                        <v-col class="text-right">
+                                                                        <v-col class="text-right pa-2" >
                                                                             <p class="font-weight-bold">100,00 US$</p>
                                                                         </v-col>
 
                                                                     </v-row>
                                                                     <v-row>
-                                                                        <v-col cols="9">
+                                                                        <v-col cols="7" class="pa-2">
                                                                             <p><span class="font-weight-bold">Network fee</span></p>
                                                                         </v-col>
-                                                                        <v-col class=" text-right">
+                                                                        <v-col class=" text-right pa-2">
                                                                             <p class="font-weight-bold">1,48 US$</p>
                                                                         </v-col>
                                                                     </v-row>
                                                                     <v-row>
-                                                                        <v-col cols="7">
+                                                                        <v-col cols="6" class="pa-2">
                                                                             <p><span class="font-weight-bold">Processing fee</span></p>
                                                                         </v-col>
-                                                                        <v-col class="text-right">
+                                                                        <v-col class="text-right pa-2">
                                                                             <p>as low as <span class="font-weight-bold">2,10 US$</span> </p>
                                                                         </v-col>
                                                                     </v-row>
