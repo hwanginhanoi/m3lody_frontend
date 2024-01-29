@@ -6,16 +6,81 @@ let userGet= ref(100);
 
 let show = ref(false);
 </script>
+import {ref} from "vue";
+
+let userPay = ref(100);
+let userGet= ref(100);
+
+let show = ref(false);
+<style scoped>
+.rounded-list .v-list-item {
+    padding: 0 16px;
+}
+
+.rounded-list .v-list-item:hover,
+.rounded-list .v-list-item.v-list-item--active {
+    padding: 0 16px;
+}
+
+.v-list-item {
+    margin: 4px 0;
+}
+
+.rounded-button {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.customPrepend :deep(.v-list-item__prepend .v-list-item__spacer) {
+    width: 15px;
+}
+
+.v-list-item {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.theborder {
+    border: solid 1px white;
+}
+
+.textSize {
+    font-size: 16px;
+}
+
+.smallText{
+    font-size: 14px;
+}
+
+.supersmalltext{
+    font-size: 12px;
+}
+
+.usdtext {
+    font-size: 30px;
+    color: lightgreen;
+}
+
+.customLogo :deep(.v-btn--active) {
+    background-color: transparent;
+}
+
+.vlistborder {
+    border-bottom: 1px solid white;
+}
+</style>
+
 <template>
-    <v-dialog width="25%" min-width="400px">
+    <v-dialog width="27%" min-width="400px">
         <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
-                   height="35px">Buy
+            <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
             </v-btn>
         </template>
 
         <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
-            <v-card title="Buy" rounded="lg">
+            <v-card title="Deposit" rounded="lg">
                 <v-card-text class="">
                     <v-card class="" style="max-width: 600px; margin: auto;" flat>
                         <v-row>
@@ -50,7 +115,7 @@ let show = ref(false);
                                     chips
                                     variant="flat"
                                     model-value="USD"
-                                    :items="['USD', 'lickma']"
+                                    :items="['USD']"
                                     style="display: flex; justify-content: end;"
                                     class=""
                                     hide-details
@@ -166,65 +231,3 @@ let show = ref(false);
         </template>
     </v-dialog>
 </template>
-
-
-
-<style scoped>
-.rounded-list .v-list-item {
-    padding: 0 16px;
-}
-
-.rounded-list .v-list-item:hover,
-.rounded-list .v-list-item.v-list-item--active {
-    padding: 0 16px;
-}
-
-.v-list-item {
-    margin: 4px 0;
-}
-
-.rounded-button {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.customPrepend :deep(.v-list-item__prepend .v-list-item__spacer) {
-    width: 15px;
-}
-
-.v-list-item {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.theborder {
-    border: solid 1px white;
-}
-
-.textSize {
-    font-size: 16px;
-}
-
-.smallText{
-    font-size: 14px;
-}
-
-.supersmalltext{
-    font-size: 12px;
-}
-
-.usdtext {
-    font-size: 30px;
-    color: lightgreen;
-}
-
-.customLogo :deep(.v-btn--active) {
-    background-color: transparent;
-}
-
-.vlistborder {
-    border-bottom: 1px solid white;
-}
-</style>
