@@ -24,6 +24,11 @@ const wallet = ref(false)
 let balance = {coin: 500, usd: 100}
 let userID = ref("69-96-69-96")
 
+let userPay = ref(100);
+let userGet= ref(100);
+
+let show = ref(false);
+
 </script>
 
 <template>
@@ -234,7 +239,7 @@ let userID = ref("69-96-69-96")
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-btn
-                                                text="Close Dialog"
+                                                text="Cancel"
                                                 @click="isActive.value = false"
                                             ></v-btn>
                                         </v-card-actions>
@@ -243,7 +248,7 @@ let userID = ref("69-96-69-96")
                             </v-dialog>
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
-                            <v-dialog width="25%" min-width="400px">
+                            <v-dialog width="27%" min-width="400px">
                                 <template v-slot:activator="{ props }">
                                     <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
                                     </v-btn>
@@ -322,13 +327,74 @@ let userID = ref("69-96-69-96")
                                                         ></v-select>
                                                     </v-col>
                                                 </v-row>
+                                                <v-card width="100%"  class="bg-grey-darken-4 mt-3 pa-3">
+                                                    <v-row class="font-weight-light">
+                                                        <v-col cols="10" class="d-flex align-center" >
+                                                            <p class="smallText">You get <span class="font-weight-bold">{{userGet}} DickCoin</span> for <span class="font-weight-bold">{{userPay}} USD</span></p>
+                                                        </v-col>
+                                                        <v-col>
+                                                            <v-btn
+                                                                :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                                                                @click="show = !show"
+                                                                width="30px"
+                                                                height="30px"
+
+                                                            ></v-btn>
+                                                        </v-col>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-expand-transition class="w-100">
+                                                            <div v-show="show">
+                                                                <v-divider></v-divider>
+
+                                                                <v-card-text>
+                                                                    <v-row >
+                                                                        <v-col cols="9">
+                                                                            <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
+                                                                        </v-col>
+                                                                        <v-col class="text-right">
+                                                                            <p class="font-weight-bold">100,00 US$</p>
+                                                                        </v-col>
+
+                                                                    </v-row>
+                                                                    <v-row>
+                                                                        <v-col cols="9">
+                                                                            <p><span class="font-weight-bold">Network fee</span></p>
+                                                                        </v-col>
+                                                                        <v-col class=" text-right">
+                                                                            <p class="font-weight-bold">1,48 US$</p>
+                                                                        </v-col>
+                                                                    </v-row>
+                                                                    <v-row>
+                                                                        <v-col cols="7">
+                                                                            <p><span class="font-weight-bold">Processing fee</span></p>
+                                                                        </v-col>
+                                                                        <v-col class="text-right">
+                                                                            <p>as low as <span class="font-weight-bold">2,10 US$</span> </p>
+                                                                        </v-col>
+                                                                    </v-row>
+
+                                                                </v-card-text>
+                                                            </div>
+                                                        </v-expand-transition>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col cols="12">
+                                                            <v-btn width="100%" class="bg-green">Confirm</v-btn>
+                                                        </v-col>
+                                                        <v-col><p class="text-center supersmalltext">By continuing you agree to our <span class="font-weight-bold">cookie policy</span></p></v-col>
+                                                    </v-row>
+
+                                                </v-card>
                                             </v-card>
+                                        </v-card-text>
+                                        <v-card-text>
                                         </v-card-text>
 
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-btn
-                                                text="Close Dialog"
+                                                text="Cancel"
                                                 @click="isActive.value = false"
                                             ></v-btn>
                                         </v-card-actions>
@@ -336,7 +402,6 @@ let userID = ref("69-96-69-96")
                                 </template>
                             </v-dialog>
                         </v-list-item>
-
                     </v-list-item>
 
 
@@ -454,6 +519,14 @@ let userID = ref("69-96-69-96")
 
 .textSize {
     font-size: 16px;
+}
+
+.smallText{
+    font-size: 14px;
+}
+
+.supersmalltext{
+    font-size: 12px;
 }
 
 .usdtext {
