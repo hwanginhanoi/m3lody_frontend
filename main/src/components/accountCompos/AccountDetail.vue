@@ -17,19 +17,20 @@ const form = ref({
     phonenumber: ''
 })
 const {mdAndUp} = useDisplay();
+const userImage = ref("https://randomuser.me/api/portraits/men/1.jpg")
 
 </script>
 
 <template>
-    <v-container class="d-flex justify-center ">
-        <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
-                width="90%"
+    <v-container class="pa-2">
+        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
+                width="99%"
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
             <v-card-text class="pt-2">
                 <v-row class="" >
                     <v-col class="backgroundgrade d-flex justify-center">
-                        <v-img src="https://randomuser.me/api/portraits/women/6.jpg" min-width="140" min-height="140" max-width="200" class=" " ></v-img>
+                        <v-img :src="userImage" min-width="140" min-height="140" max-width="180" class="rounded-lg" ></v-img>
                     </v-col>
 
                     <v-col class="d-flex align-center">
@@ -60,7 +61,7 @@ const {mdAndUp} = useDisplay();
                                     label="First Name"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -71,7 +72,7 @@ const {mdAndUp} = useDisplay();
                                     label="Email"
                                     type="email"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -82,7 +83,7 @@ const {mdAndUp} = useDisplay();
                                     label="Phone Number"
                                     type="number"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -93,7 +94,7 @@ const {mdAndUp} = useDisplay();
                                     label="State"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -104,7 +105,7 @@ const {mdAndUp} = useDisplay();
                                     label="Country"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -120,7 +121,7 @@ const {mdAndUp} = useDisplay();
                                     label="Last Name"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -131,7 +132,7 @@ const {mdAndUp} = useDisplay();
                                     label="Organization"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -142,7 +143,7 @@ const {mdAndUp} = useDisplay();
                                     label="Address"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -153,7 +154,7 @@ const {mdAndUp} = useDisplay();
                                     label="Zip Code"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -163,7 +164,7 @@ const {mdAndUp} = useDisplay();
                                     label="Select"
                                     :items="['English', 'Chinese', 'Vietnamese']"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-select>

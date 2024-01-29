@@ -12,11 +12,9 @@ const {mdAndUp} = useDisplay();
 </script>
 
 <template>
-    <v-container class="d-flex justify-center fixborder">
-
-        <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
-                width="90%"
-                min-height="100%"
+    <v-container class="pa-3">
+        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
+                width="99%"
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
             <v-card-text class="pt-2">
@@ -29,7 +27,7 @@ const {mdAndUp} = useDisplay();
                                     label="Current Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -38,7 +36,7 @@ const {mdAndUp} = useDisplay();
                                     label="New Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -54,7 +52,7 @@ const {mdAndUp} = useDisplay();
                                     label="Confirm Password"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -90,7 +88,4 @@ const {mdAndUp} = useDisplay();
     justify-content: center;
 }
 
-.fixborder{
-    min-width: 100vh;
-}
 </style>

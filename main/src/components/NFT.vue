@@ -5,7 +5,7 @@ defineProps(['card']);
 <template>
     <v-col cols="12" md="6" lg="3">
         <v-lazy :min-height="200" :options="{'threshold': 0.1}" transition="fade-transition">
-            <v-card class="rounded-card" elevation="4" href="https://google.com">
+            <v-card class="rounded-card" elevation="4" :to="{ path: `/product/${card.id}`}">
                 <div :style="{ backgroundImage: `url('${card.img}')` }" class="card-image"></div>
                 <v-card-title >{{ card.title }}</v-card-title>
                 <v-row>
@@ -25,7 +25,7 @@ defineProps(['card']);
 
 <style scoped>
 .rounded-card {
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
     transition: transform 0.3s ease;

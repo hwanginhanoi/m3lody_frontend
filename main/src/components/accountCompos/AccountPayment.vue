@@ -15,10 +15,9 @@ const paymentDetails = ref({
 </script>
 
 <template>
-    <v-container class="d-flex justify-center ">
-
-        <v-card class=" pa-10 backgroundgra my-16 rounded-xl" elevation="20"
-                width="90%"
+    <v-container class="pa-3">
+        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
+                width="99%"
         >
             <v-card-text class="pt-2"><h3>Payment Details</h3></v-card-text>
             <v-card-text class="pt-2">
@@ -31,7 +30,7 @@ const paymentDetails = ref({
                                     label="Card Holder Name"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -40,7 +39,7 @@ const paymentDetails = ref({
                                     label="Card Number"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -49,7 +48,7 @@ const paymentDetails = ref({
                                     label="CVV"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -65,7 +64,7 @@ const paymentDetails = ref({
                                     label="Expiration Date"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>
@@ -74,7 +73,7 @@ const paymentDetails = ref({
                                     label="Billing Address"
                                     type="text"
                                     clearable=""
-                                    rounded
+                                    rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
                                 ></v-text-field>

@@ -1,5 +1,14 @@
 <script setup lang="ts">
+    import {useRoute} from "vue-router";
+    import {onBeforeMount, ref} from "vue";
+    import item from "../data.json"
+    const product= ref()
+    const route = useRoute()
+    const {id} = route.params
 
+    onBeforeMount(()=> {
+      product.value = item.find(p => p.id === parseInt(id))
+    })
 </script>
 
 <template>
@@ -9,7 +18,7 @@
             <v-img src="src/assets/avatar.jpg" id="avatar" style="margin-left: 20px"/>
             <v-row>
                 <v-col>
-                    <v-card-text><h1>HICKDEAD by Raul Casillas</h1></v-card-text>
+                    <v-card-text><h1>{{product.name}}</h1></v-card-text>
                 </v-col>
 
                 <v-col class="v-col-auto">
