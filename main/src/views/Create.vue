@@ -28,6 +28,7 @@ import PictureInput from 'vue-picture-input'
                                 upload: '<h1>Bummer!</h1>',
                                 drag: 'Drag a 😺 GIF or GTFO'
                             }"
+                        radius="5"
                         @change="onChange">
                     </picture-input>
 
@@ -39,6 +40,9 @@ import PictureInput from 'vue-picture-input'
                     <v-text-field label="Supply" variant="outlined" rounded="lg" placeholder="1">
 
                     </v-text-field>
+                    <v-text-field label="Price" variant="outlined" rounded="lg" placeholder="Name your NFT" class="">
+                    </v-text-field>
+
 
                     <v-textarea label="Description" variant="outlined" rounded="lg"
                                 placeholder="Enter a description">
@@ -47,7 +51,14 @@ import PictureInput from 'vue-picture-input'
                     <v-select label="Type" variant="outlined" rounded="lg">
 
                     </v-select>
-                    <v-file-input prepend-icon="mdi-music" label="Upload your music file" rounded="lg" clearable show-size accept="audio/*" variant="outlined" style="min-width: 50%;">
+                    <v-file-input prepend-icon="mdi-music"
+                                  label="Upload your music file"
+                                  rounded="lg"
+                                  clearable
+                                  show-size
+                                  accept="audio/*"
+                                  variant="outlined"
+                                  style="min-width: 50%">
 
                     </v-file-input>
                     <v-btn type="submit" rounded="lg">
@@ -66,5 +77,9 @@ import PictureInput from 'vue-picture-input'
 
 .v-file-input {
     width: 35rem;
+}
+
+.v-text-field, v-textarea {
+    border-radius: 8px;
 }
 </style>
