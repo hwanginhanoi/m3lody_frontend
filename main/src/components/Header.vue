@@ -148,7 +148,7 @@ let userID = ref("69-96-69-96")
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
 
-                            <v-dialog width="40%">
+                            <v-dialog width="25%" min-width="400px">
                                 <template v-slot:activator="{ props }">
                                     <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
                                            height="35px">Buy
@@ -167,14 +167,14 @@ let userID = ref("69-96-69-96")
                                                         Cash balance
                                                     </v-col>
                                                 </v-row>
-                                                    <v-row no-gutters
-                                                           class="mt-3"
-                                                           style="height: 60px;
-                                                           background: #242627;
-                                                           border-radius: 11px;
-                                                           overflow: hidden; "
-                                                    >
-                                                    <v-col class="text-left pl-5" cols="9" >
+                                                <v-row no-gutters
+                                                       class="mt-3"
+                                                       style="height: 60px;
+                                                       background: #242627;
+                                                       border-radius: 11px;
+                                                       overflow: hidden; "
+                                                >
+                                                    <v-col class="text-left pl-5" cols="" >
                                                         <v-text-field
                                                             placeholder="You pay"
                                                             type="text"
@@ -185,36 +185,45 @@ let userID = ref("69-96-69-96")
                                                         >
                                                         </v-text-field>
                                                     </v-col>
-                                                    <v-col cols="3" class="pl-10 pr-4">
+                                                    <v-col cols="" class="pl-10">
                                                         <v-select
                                                             chips
-                                                            variant="plain"
+                                                            variant="flat"
                                                             model-value="USD"
                                                             :items="['USD']"
-                                                            style=""
+                                                            style="display: flex; justify-content: center;"
+                                                            class=""
+                                                            hide-details
                                                         ></v-select>
                                                     </v-col>
-
                                                 </v-row>
-                                                <v-row>
-                                                    <v-col class="text-left " cols="8">
+                                                <v-row no-gutters
+                                                       class="mt-3"
+                                                       style="height: 60px;
+                                                       background: #242627;
+                                                       border-radius: 11px;
+                                                       overflow: hidden; ">
+                                                    <v-col class="text-left pl-5" cols="">
                                                         <v-text-field
-                                                            label="You receive"
+                                                            placeholder="You receive"
                                                             type="text"
-                                                            clearable=""
+                                                            clearable
                                                             rounded="lg"
-                                                            variant="outlined"
+                                                            variant="plain"
                                                             color="#d777ed"
 
                                                         >
                                                         </v-text-field>
                                                     </v-col>
-                                                    <v-col class="text-right">
+                                                    <v-col cols="" class="pl-10">
                                                         <v-select
-                                                            variant="outlined"
-                                                            label="Select"
                                                             chips
-                                                            :items="['Lickma Coin']"
+                                                            variant="flat"
+                                                            model-value="USD"
+                                                            style="display: flex; justify-content: center;"
+                                                            :items="['USD']"
+                                                            hide-details
+
 
                                                         ></v-select>
                                                     </v-col>
@@ -234,8 +243,98 @@ let userID = ref("69-96-69-96")
                             </v-dialog>
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
-                            <v-btn prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
-                            </v-btn>
+                            <v-dialog width="25%" min-width="400px">
+                                <template v-slot:activator="{ props }">
+                                    <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
+                                    </v-btn>
+                                </template>
+
+                                <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
+                                    <v-card title="Buy" rounded="lg">
+                                        <v-card-text class="">
+                                            <v-card class="" style="max-width: 600px; margin: auto;" flat>
+                                                <v-row>
+                                                    <v-col class="text-left">
+                                                        Spend
+                                                    </v-col>
+                                                    <v-col class="text-right">
+                                                        Cash balance
+                                                    </v-col>
+                                                </v-row>
+                                                <v-row no-gutters
+                                                       class="mt-3"
+                                                       style="height: 60px;
+                                                       background: #242627;
+                                                       border-radius: 11px;
+                                                       overflow: hidden; "
+                                                >
+                                                    <v-col class="text-left pl-5" cols="" >
+                                                        <v-text-field
+                                                            placeholder="You pay"
+                                                            type="text"
+                                                            clearable
+                                                            rounded="lg"
+                                                            variant="plain"
+                                                            color="#d777ed"
+                                                        >
+                                                        </v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="" class="pl-10">
+                                                        <v-select
+                                                            chips
+                                                            variant="flat"
+                                                            model-value="USD"
+                                                            :items="['USD']"
+                                                            style="display: flex; justify-content: center;"
+                                                            class=""
+                                                            hide-details
+                                                        ></v-select>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-row no-gutters
+                                                       class="mt-3"
+                                                       style="height: 60px;
+                                                       background: #242627;
+                                                       border-radius: 11px;
+                                                       overflow: hidden; ">
+                                                    <v-col class="text-left pl-5" cols="">
+                                                        <v-text-field
+                                                            placeholder="You receive"
+                                                            type="text"
+                                                            clearable
+                                                            rounded="lg"
+                                                            variant="plain"
+                                                            color="#d777ed"
+
+                                                        >
+                                                        </v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="" class="pl-10">
+                                                        <v-select
+                                                            chips
+                                                            variant="flat"
+                                                            model-value="USD"
+                                                            style="display: flex; justify-content: center;"
+                                                            :items="['USD']"
+                                                            hide-details
+
+
+                                                        ></v-select>
+                                                    </v-col>
+                                                </v-row>
+                                            </v-card>
+                                        </v-card-text>
+
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-btn
+                                                text="Close Dialog"
+                                                @click="isActive.value = false"
+                                            ></v-btn>
+                                        </v-card-actions>
+                                    </v-card>
+                                </template>
+                            </v-dialog>
                         </v-list-item>
 
                     </v-list-item>
