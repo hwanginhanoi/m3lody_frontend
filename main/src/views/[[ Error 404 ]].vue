@@ -2,8 +2,18 @@
 </script>
 
 <template>
-<p>Error 404 not found</p>
+    <div style="margin: auto;">
+        <p class="font-weight-medium error_title">404</p>
+        <p class="error_subtitle" align="center">Page not found</p>
+    </div>
 </template>
 
 <style scoped>
+.error_title {
+    letter-spacing: 20px;
+    font-size: 150px;
+}
+.error_subtitle {
+    font-size: 30px;
+}
 </style>

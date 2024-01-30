@@ -26,6 +26,11 @@ const chains = ["All chains","ETH","BTC"]
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
         <v-container>
             <v-row>
+                <v-col cols="12">
+                    <h1>Drops</h1>
+                </v-col>
+            </v-row>
+            <v-row>
                 <v-col cols="3">
                     <v-select variant="solo" rounded="lg" elevation="4" :items="categories" model-value="All categories">
                     </v-select>
@@ -35,6 +40,7 @@ const chains = ["All chains","ETH","BTC"]
                     </v-select>
                 </v-col>
             </v-row>
+            <v-divider class="mb-5"></v-divider>
             <v-row>
                 <NFT v-for="card in cards" :key="card.id" :card="card" />
             </v-row>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useTheme, useDisplay} from 'vuetify'
 import {ref, computed} from 'vue'
-import Buy from  "./exchangeCompos/Buy.vue"
+import Buy from "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue";
 import {useRoute} from 'vue-router'
 
@@ -25,7 +25,6 @@ const wallet = ref(false)
 
 let balance = {coin: 500, usd: 100}
 let userID = ref("69-96-69-96")
-
 
 
 </script>
@@ -127,7 +126,7 @@ let userID = ref("69-96-69-96")
                                 </div>
                             </v-col>
                         </v-row>
-                        <v-row>
+                        <v-row class="mb-2">
                             <v-col>
                                 <p><span class="usdtext font-weight-bold">${{ balance.usd }} </span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
@@ -138,9 +137,9 @@ let userID = ref("69-96-69-96")
                                 </v-menu>
                             </v-col>
                         </v-row>
-                        <br>
-                        <hr>
+                        <v-divider>
 
+                        </v-divider>
                     </v-list-item>
                     <v-list-item height="280px" width="" class="d-flex justify-center">
                         <v-list-item class="d-flex justify-center">
@@ -157,8 +156,6 @@ let userID = ref("69-96-69-96")
                             <Deposit/>
                         </v-list-item>
                     </v-list-item>
-
-
                 </v-list>
                 <v-divider>
                 </v-divider>
@@ -216,10 +213,10 @@ let userID = ref("69-96-69-96")
                     >
                     </v-list-item>
                     <v-list-item to="/account" prepend-icon="mdi-cog" title="Settings"></v-list-item>
-                    <v-divider class="border-opacity-50"></v-divider>
+                    <v-divider></v-divider>
                     <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
                     <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
-                    <v-divider class="border-opacity-50"></v-divider>
+                    <v-divider></v-divider>
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
@@ -275,11 +272,11 @@ let userID = ref("69-96-69-96")
     font-size: 16px;
 }
 
-.smallText{
+.smallText {
     font-size: 14px;
 }
 
-.supersmalltext{
+.supersmalltext {
     font-size: 12px;
 }
 

@@ -1,14 +1,15 @@
 <script setup lang="ts">
-    import {useRoute} from "vue-router";
-    import {onBeforeMount, ref} from "vue";
-    import item from "../data.json"
-    const product= ref()
-    const route = useRoute()
-    const {id} = route.params
+import {useRoute} from "vue-router";
+import {onBeforeMount, ref} from "vue";
+import item from "../data.json"
 
-    onBeforeMount(()=> {
-      product.value = item.find(p => p.id === parseInt(id))
-    })
+const product = ref()
+const route = useRoute()
+const {id} = route.params
+
+onBeforeMount(() => {
+    product.value = item.find(p => p.id === parseInt(id))
+})
 </script>
 
 <template>
@@ -18,7 +19,7 @@
             <v-img src="src/assets/avatar.jpg" id="avatar" style="margin-left: 20px"/>
             <v-row>
                 <v-col>
-                    <v-card-text><h1>{{product.name}}</h1></v-card-text>
+                    <v-card-text><h1>{{ product.name }}</h1></v-card-text>
                 </v-col>
 
                 <v-col class="v-col-auto">
@@ -97,8 +98,8 @@
                             <p>Current price </p>
                             <v-row>
                                 <v-col class="v-col-auto align-self-end"><h1>0.0041 ETH</h1>
-                                    <p>$101.38</p></v-col>
-
+                                    <p>$101.38</p>
+                                </v-col>
                             </v-row>
                             <v-row>
                                 <v-col>
@@ -109,10 +110,7 @@
                                 </v-col>
                             </v-row>
                         </v-card-item>
-
                     </v-card>
-
-
                 </v-col>
             </v-row>
             <v-row></v-row>
