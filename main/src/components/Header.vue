@@ -112,7 +112,7 @@ let userID = ref("69-96-69-96")
                 <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2" width="390px" min-height="100px">
+            <v-card min-width="300" rounded="lg" class="mt-2" width="400px" min-height="100px">
                 <v-list height="" class="" style="border: none">
                     <v-list-item class="">
                         <v-row>
