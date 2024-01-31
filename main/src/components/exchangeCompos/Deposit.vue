@@ -167,7 +167,7 @@ let userID = ref("111000202030-69");
                         <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} DickCoin</span> to user with <span class="font-weight-bold">ID: {{userID}}</span></p>
+                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} HickCoin</span> to user with <span class="font-weight-bold">ID: {{userID}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -187,7 +187,7 @@ let userID = ref("111000202030-69");
                                         <v-card-text>
                                             <v-row >
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20 US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2" >
                                                     <p class="font-weight-bold">100,00 US$</p>

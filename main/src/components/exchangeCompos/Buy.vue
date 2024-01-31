@@ -29,8 +29,8 @@ let show = ref(false);
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
-                                                       border-radius: 11px;
-                                                       overflow: hidden; "
+                                      border-radius: 11px;
+                                      overflow: hidden; "
                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                         >
                             <v-col class="text-left pl-5" cols="">
@@ -95,7 +95,7 @@ let show = ref(false);
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ userGet }} DickCoin</span> for <span
+                                        class="font-weight-bold">{{ userGet }} HickCoin</span> for <span
                                         class="font-weight-bold">{{ userPay }} USD</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
@@ -115,7 +115,7 @@ let show = ref(false);
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20
+                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
