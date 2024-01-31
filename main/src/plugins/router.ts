@@ -124,6 +124,11 @@ const routes = [
         name: 'not-found',
         component: () => import('../views/[[ Error 404 ]].vue')
     },
+    {
+        path: '/test',
+        name: 'TEST',
+        component: () => import('../views/testslidecard.vue')
+    },
 ];
 
 

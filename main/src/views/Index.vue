@@ -29,22 +29,26 @@
 <!--</template>-->
 
 <template>
-    <swiper
-      :modules="modules"
-      :slides-per-view="4"
-      :space-between="50"
-      navigation
-      :pagination="{ clickable: true }"
-      :scrollbar="{ draggable: true }"
-      @swiper="onSwiper"
-    >
-      <swiper-slide class="bg-green w-25">Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      ...
-    </swiper>
+    <v-main>
+
+      <swiper
+        
+        :modules="modules"
+        :slidesPerView="3"
+        :spaceBetween="30"
+        :pagination="{
+          clickable: true,
+        }"
+        class="mySwiper w-100 h-50"
+  >
+    <swiper-slide class="tab w-25">Slide 1</swiper-slide>
+    <swiper-slide class="tab">Slide 2</swiper-slide><swiper-slide class="tab">Slide 3</swiper-slide>
+    <swiper-slide class="tab">Slide 4</swiper-slide><swiper-slide class="tab">Slide 5</swiper-slide>
+    <swiper-slide class="tab">Slide 6</swiper-slide><swiper-slide class="tab">Slide 7</swiper-slide>
+    <swiper-slide class="tab">Slide 8</swiper-slide><swiper-slide class="tab w-25">Slide 9</swiper-slide>
+  </swiper>
+</v-main>
+
 </template>
 
 <style scoped>
@@ -52,23 +56,23 @@
   .v-card {
     block-size: 100%;
   }
+  .tab{
+    width: 25%;
+    background: red;
+  }
 }
 </style>
 
 <script setup lang="ts">
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
+  import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-function onSwiper(swiper) {
-  console.log(swiper);
-}
-function onSlideChange() {
-  console.log("slide change");
-}
+import 'swiper/css';
+
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
+let modules = [Pagination];
 </script>
