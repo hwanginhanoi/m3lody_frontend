@@ -15,7 +15,7 @@ let data = [
     {
         image: "https://preview.redd.it/9zzel52xfcy81.jpg?width=640&crop=smart&auto=webp&s=b9315cc50f0929d7a3ff5a26c7f6147b37fd8a67",
         desciption: 'Nigga Dog',
-        price: 0.01,
+        price: 0.7,
     },
 ]
 
@@ -74,7 +74,7 @@ let sum = calcSum()
             >
         </v-col>
         <v-col class="v-col-2">
-            <v-btn class="text-center font-weight-black">Payment</v-btn>
+            <v-btn min-width="100px" class="text-center font-weight-black" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">Payment</v-btn>
         </v-col>
     </v-row>
 </template>

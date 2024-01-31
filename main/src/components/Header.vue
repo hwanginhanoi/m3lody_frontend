@@ -4,6 +4,7 @@ import {ref, computed} from 'vue'
 import Buy from  "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue";
 import {useRoute} from 'vue-router'
+import Cart from './Cart.vue';
 
 const theme = useTheme()
 
@@ -110,7 +111,6 @@ let userID = ref("69-96-69-96")
                     <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
                     <div>{{ balance.usd }} USD</div>
                 </v-btn>
-                <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
             <v-card min-width="250" rounded="lg" class="mt-2" width="390px" min-height="100px">
@@ -129,7 +129,7 @@ let userID = ref("69-96-69-96")
                         </v-row>
                         <v-row>
                             <v-col>
-                                <p><span class="usdtext font-weight-bold">${{ balance.usd }} </span></p>
+                                <p><span class="usdtext font-weight-bold">${{ balance.usd }} USD</span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
                             </v-col>
                             <v-col>
@@ -165,7 +165,7 @@ let userID = ref("69-96-69-96")
             </v-card>
         </v-menu>
 
-        <v-dialog width="30%">
+        <v-dialog width="50%" min-width="450px">
             <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
@@ -175,6 +175,7 @@ let userID = ref("69-96-69-96")
             <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                 <v-card title="Dialog" rounded="lg">
                     <v-card-text>
+                        <Cart/>
                     </v-card-text>
 
                     <v-card-actions>
