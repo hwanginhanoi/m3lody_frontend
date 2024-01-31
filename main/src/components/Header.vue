@@ -227,7 +227,7 @@ let userID = ref("69-96-69-96")
                         :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
                     >
                     </v-switch>
-                    <v-list-item prepend-icon="mdi-logout" title="Logout"></v-list-item>
+                    <v-list-item to="/login" prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>
