@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import product from "../data.json"
+// import product from "../data.json"
 const routes = [
     {path: '/', redirect: '/index'},
     {
@@ -105,17 +105,17 @@ const routes = [
             default: () => import('../views/Product.vue'),
             nav: () => import('../components/Header.vue')
         },
-        beforeRouteEnter(to) {
-            const id = parseInt(to.params.id);
-            const data = product;
-            const exists = data.some((item) => item.id === id)
-            if (!exists) return {
-                name: 'not-found',
-                params: {pathMatch: to.path.substring(1).split("/")},
-                query: to.query,
-                hash: to.hash,
-            }
-        }
+        // beforeRouteEnter(to) {
+        //     const id = parseInt(to.params.id);
+        //     const data = product;
+        //     const exists = data.some((item) => item.id === id)
+        //     if (!exists) return {
+        //         name: 'not-found',
+        //         params: {pathMatch: to.path.substring(1).split("/")},
+        //         query: to.query,
+        //         hash: to.hash,
+        //     }
+        // }
 
 
     },
