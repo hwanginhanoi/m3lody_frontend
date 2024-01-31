@@ -70,7 +70,7 @@ let userID = ref("111000202030-69");
 </style>
 
 <template>
-    <v-dialog width="27%" min-width="400px">
+    <v-dialog width="35%" min-width="450px">
         <template v-slot:activator="{ props }">
             <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
             </v-btn>
