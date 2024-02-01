@@ -7,7 +7,7 @@ let userGet = ref(100);
 let show = ref(false);
 </script>
 <template>
-    <v-dialog width="30%" min-width="450px">
+    <v-dialog width="25%" min-width="450px">
         <template v-slot:activator="{ props }">
             <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
                    height="35px">Buy

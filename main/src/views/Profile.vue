@@ -12,7 +12,7 @@ const tab = ref(1);
         <v-card>
             <v-img cover height="300" src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg"></v-img>
         </v-card>
-        <v-container class="w-75">
+        <v-container class="w-75 minwidth">
             <v-avatar size="130" style="margin-top: -5%">
                 <v-img :src="avatar"></v-img>
             </v-avatar>
@@ -42,7 +42,7 @@ const tab = ref(1);
                         </v-card-title>
                         <v-card-text>
                             <v-row>
-                                <v-col cols="12" md="6">
+                                <v-col cols="12" md="3">
                                     <v-card class="bg-green">
                                         <v-img src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg" width="300px"></v-img>
                                         <v-card-title>
@@ -53,7 +53,7 @@ const tab = ref(1);
                                         </v-card-text>
                                     </v-card>
                                 </v-col>
-                                <v-col cols="12" md="6">
+                                <v-col cols="12" md="3">
                                     <v-card class="bg-green">
                                         <v-img src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg" width="300px"></v-img>
                                         <v-card-title>
@@ -77,5 +77,7 @@ const tab = ref(1);
 </template>
 
 <style scoped>
-
+.minwidth{
+    min-width: 450px;
+}
 </style>
