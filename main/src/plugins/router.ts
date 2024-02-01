@@ -105,7 +105,7 @@ const routes = [
             default: () => import('../views/Product.vue'),
             nav: () => import('../components/Header.vue')
         },
-        beforeRouteEnter(to) {
+        beforeRouteEnter(to : any) {
             const id = parseInt(to.params.id);
             const data = product;
             const exists = data.some((item) => item.id === id)
@@ -116,18 +116,11 @@ const routes = [
                 hash: to.hash,
             }
         }
-
-
     },
     {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
         component: () => import('../views/[[ Error 404 ]].vue')
-    },
-    {
-        path: '/test',
-        name: 'TEST',
-        component: () => import('../views/testslidecard.vue')
     },
 ];
 
