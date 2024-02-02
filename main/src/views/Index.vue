@@ -113,7 +113,7 @@ let items = [
 
 <style scoped>
 .swiper {
-    width: 100vw;
+    width: 95vw;
     height: 50%;
 }
 
