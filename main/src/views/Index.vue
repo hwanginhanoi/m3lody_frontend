@@ -1,29 +1,55 @@
 <script setup lang="ts">
+// import required modules
 import {Swiper, SwiperSlide} from 'swiper/vue';
+import {Navigation, Pagination, Autoplay} from 'swiper/modules';
 
 // Import Swiper styles
-import 'swiper/css';
+import 'swiper/css/bundle';
 
-import 'swiper/css/pagination';
+let modules = [Navigation, Pagination, Autoplay];
 
+let header = [
+    {text: 'Rank', value: 'rank', align: 'center', width: '10%'},
+    {text: 'Collection', value: 'collection', align: 'center', width: '40%'},
+    {text: 'Floor Price', value: 'floorPrice', align: 'center', width: '20%'},
+    {text: 'Volume', value: 'volume', align: 'center', width: '20%'},
+];
 
-// import required modules
-import {Pagination} from 'swiper/modules';
+let headers = [
+    {text: 'Rank', value: 'rank'},
+    {text: 'Collection', value: 'collection'},
+    {text: 'Floor Price', value: 'floorPrice'},
+    {text: 'Volume', value: 'volume'},
+];
 
-let modules = [Pagination];
+let items = [
+    {rank: 1, collection: 'Collection 1', floorPrice: 0.1, volume: 0.5},
+    {rank: 2, collection: 'Collection 2', floorPrice: 0.2, volume: 0.6},
+    {rank: 3, collection: 'Collection 3', floorPrice: 0.3, volume: 0.7},
+    {rank: 4, collection: 'Collection 4', floorPrice: 0.4, volume: 0.8},
+    {rank: 5, collection: 'Collection 5', floorPrice: 0.5, volume: 0.9},
+    {rank: 6, collection: 'Collection 6', floorPrice: 0.6, volume: 1.0},
+    {rank: 7, collection: 'Collection 7', floorPrice: 0.7, volume: 1.1},
+    {rank: 8, collection: 'Collection 8', floorPrice: 0.8, volume: 1.2},
+    {rank: 9, collection: 'Collection 9', floorPrice: 0.9, volume: 1.3},
+    {rank: 10, collection: 'Collection 10', floorPrice: 1.0, volume: 1.4},
+]
 </script>
 
 <template>
-    <v-main>
-        <h1>Dashboard</h1>
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background, 'min-height': '100vh' }">
+        <v-container class="text-center">
+            <h1>Dashboard</h1>
+        </v-container>
         <swiper
-            :slidesPerView="5"
+            :slidesPerView="4"
             :spaceBetween="30"
-            :pagination="{
-                clickable: true,
-            }"
+            :pagination="{ clickable: true }"
+            navigation
             :modules="modules"
-            class="mySwiper ma-0 pa-7"
+            class="mySwiper ma-0 pa-7 mx-auto"
+            loop
+            autoplay
         >
             <swiper-slide>Slide 1</swiper-slide>
             <swiper-slide>Slide 2</swiper-slide>
@@ -35,6 +61,53 @@ let modules = [Pagination];
             <swiper-slide>Slide 8</swiper-slide>
             <swiper-slide>Slide 9</swiper-slide>
         </swiper>
+
+        <v-container>
+            <div class="d-flex justify-space-between">
+                <v-btn-toggle>
+                    <v-btn>
+                        Trending
+                    </v-btn>
+                    <v-btn>
+                        Top
+                    </v-btn>
+                </v-btn-toggle>
+                <v-btn-toggle>
+                    <v-btn>
+                        24h
+                    </v-btn>
+                    <v-btn>
+                        7d
+                    </v-btn>
+                    <v-btn>
+                        30d
+                    </v-btn>
+                </v-btn-toggle>
+            </div>
+        </v-container>
+        <v-container>
+            <v-data-table
+                :headers="headers"
+                :items="items"
+                :items-per-page="10"
+                class="elevation-1"
+                :fixed-header="true"
+                :hide-default-footer="true"
+            >
+                <template v-slot:item.rank="{ item }">
+                    {{ item.rank }}
+                </template>
+                <template v-slot:item.collection="{ item }">
+                    {{ item.collection }}
+                </template>
+                <template v-slot:item.floorPrice="{ item }">
+                    {{ item.floorPrice }} ETH
+                </template>
+                <template v-slot:item.volume="{ item }">
+                    {{ item.volume }} ETH
+                </template>
+            </v-data-table>
+        </v-container>
     </v-main>
 </template>
 

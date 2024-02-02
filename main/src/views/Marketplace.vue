@@ -19,7 +19,6 @@ const cards = [
 
 const categories = ["All categories", "Art", "Gaming"]
 const chains = ["All chains", "ETH", "BTC"]
-
 </script>
 
 <template>
