@@ -20,7 +20,7 @@ const tab = ref(1);
             <h1 >{{ username }}</h1>
             <p >ID: 69-96-69-96 &nbsp; <i style="color: #77ED91">Joined January 31</i></p>
             <br>
-            <v-tabs v-model="tab" style="">
+            <v-tabs v-model="tab">
                 <v-tab :value="1">
                     Collected
                 </v-tab>
