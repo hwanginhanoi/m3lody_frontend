@@ -37,32 +37,29 @@ let items = [
 </script>
 
 <template>
-    <v-main :style="{ background: $vuetify.theme.global.current.colors.background, 'min-height': '100vh' }">
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
         <v-container class="text-center">
             <h1>Dashboard</h1>
-        </v-container>
-        <swiper
-            :slidesPerView="4"
-            :spaceBetween="30"
-            :pagination="{ clickable: true }"
-            navigation
-            :modules="modules"
-            class="mySwiper ma-0 pa-7 mx-auto"
-            loop
-            autoplay
-        >
-            <swiper-slide>Slide 1</swiper-slide>
-            <swiper-slide>Slide 2</swiper-slide>
-            <swiper-slide>Slide 3</swiper-slide>
-            <swiper-slide>Slide 4</swiper-slide>
-            <swiper-slide>Slide 5</swiper-slide>
-            <swiper-slide>Slide 6</swiper-slide>
-            <swiper-slide>Slide 7</swiper-slide>
-            <swiper-slide>Slide 8</swiper-slide>
-            <swiper-slide>Slide 9</swiper-slide>
-        </swiper>
-
-        <v-container>
+            <swiper
+                :slidesPerView="4"
+                :spaceBetween="30"
+                :pagination="{ clickable: true }"
+                navigation
+                :modules="modules"
+                class="mySwiper ma-0 pa-7 mx-auto "
+                loop
+                autoplay
+            >
+                <swiper-slide class="">Slide 1</swiper-slide>
+                <swiper-slide class="">Slide 2</swiper-slide>
+                <swiper-slide class="">Slide 3</swiper-slide>
+                <swiper-slide class="">Slide 4</swiper-slide>
+                <swiper-slide class="">Slide 5</swiper-slide>
+                <swiper-slide class="">Slide 6</swiper-slide>
+                <swiper-slide class="">Slide 7</swiper-slide>
+                <swiper-slide class="">Slide 8</swiper-slide>
+                <swiper-slide class="">Slide 9</swiper-slide>
+            </swiper>
             <div class="d-flex justify-space-between">
                 <v-btn-toggle>
                     <v-btn>
@@ -84,8 +81,7 @@ let items = [
                     </v-btn>
                 </v-btn-toggle>
             </div>
-        </v-container>
-        <v-container>
+
             <v-data-table
                 :headers="headers"
                 :items="items"
@@ -108,13 +104,16 @@ let items = [
                 </template>
             </v-data-table>
         </v-container>
+
+        <v-container>
+        </v-container>
     </v-main>
 </template>
 
 <style scoped>
 .swiper {
-    width: 95vw;
-    height: 50%;
+    width: 90vw;
+    height: 50vh;
 }
 
 .swiper-slide {
