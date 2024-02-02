@@ -221,10 +221,7 @@ let userID = ref("69-96-69-96")
                     >
                     </v-list-item>
                     <v-list-item to="/account" prepend-icon="mdi-cog" title="Settings"></v-list-item>
-                    <v-divider></v-divider>
-                    <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
                     <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
-                    <v-divider></v-divider>
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
@@ -232,8 +229,10 @@ let userID = ref("69-96-69-96")
                         true-icon="mdi-weather-night"
                         id="dark-mode-switch"
                         class="ml-2"
-                        :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
                     >
+                        <template v-slot:label>
+                            <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
+                        </template>
                     </v-switch>
                     <v-list-item to="/login" prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
@@ -299,6 +298,10 @@ let userID = ref("69-96-69-96")
 
 .vlistborder {
     border-bottom: 1px solid white;
+}
+
+.switchLabel {
+    margin-left: 14px;
 }
 </style>
 
