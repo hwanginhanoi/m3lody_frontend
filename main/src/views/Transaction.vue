@@ -85,7 +85,7 @@ const getIconClass = (itemName: string) => {}
             <template v-slot:item="{ item }">
               <tr>
                 <td>
-                  <img style="width: 24px" :src="getIconClass(item.Name)" />
+                  <img alt="icon" style="width: 24px" :src="getIconClass(item.Name)" />
                   {{ item.Name }}
                 </td>
                 <td>{{ item.ItemID }}</td>
