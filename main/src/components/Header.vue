@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import {useTheme, useDisplay} from 'vuetify'
 import {ref, computed} from 'vue'
-import Buy from  "./exchangeCompos/Buy.vue"
+import Buy from "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue";
-import {useRoute} from 'vue-router'
 
 const theme = useTheme()
 
@@ -13,7 +12,7 @@ const isDarkTheme = computed({
         theme.global.name.value = value ? 'darkMode' : 'lightMode'
     }
 })
-const rail = ref(false)
+
 const drawer = ref(false)
 const {mdAndUp} = useDisplay()
 
@@ -27,7 +26,6 @@ let balance = {coin: 500, usd: 100}
 let userID = ref("69-96-69-96")
 
 
-
 </script>
 
 <template>
@@ -39,17 +37,27 @@ let userID = ref("69-96-69-96")
         opacity='0.4'
     >
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
+            <v-list-item
+                to="/profile"
+                :prepend-avatar="avatar"
+                :title="username"
+                value="profile"
+                class="py-2 mb-4 mr-2 rounded-button customPrepend"
+            >
+            </v-list-item>
             <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="User" value="account"
+            <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transaction" value="transaction"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="Watchlist"
+                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
+            <v-list-item to="/account" prepend-icon="mdi-account-multiple" title="Settings" value="settings"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist" value="watchlist"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/wallet" prepend-icon="mdi-wallet" title="Wallet" value="wallet"
+            <v-list-item to="/create" prepend-icon="mdi-music-note-plus" title="Create" value="create"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/marketplace" prepend-icon="mdi-store" title="Marketplace" value="marketplace"
-                         class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
-            <v-list-item to="/exchange" prepend-icon="mdi-cash-multiple" title="Exchange" value="exchange"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
         </v-list>
 
@@ -73,17 +81,17 @@ let userID = ref("69-96-69-96")
         </template>
     </v-navigation-drawer>
 
-    <v-app-bar elevation="0" color="nav-drawer" height="85" class="mx-auto">
+    <v-app-bar elevation="0" color="background" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
         <router-link to="/index" class="mx-4"><img
             src="../assets/trade-dark.png" height="30"></router-link>
-        <v-divider vertical length="50" class="border-opacity-50 mt-4"></v-divider>
-        <v-btn to="/marketplace" class="ml-2">Marketplace</v-btn>
-        <v-btn to="/create">Create</v-btn>
-        <v-spacer></v-spacer>
+        <v-divider v-if="mdAndUp" vertical length="50" class="border-opacity-50 mt-4"></v-divider>
+        <v-btn v-if="mdAndUp" to="/marketplace" class="ml-2">Marketplace</v-btn>
+        <v-btn v-if="mdAndUp" to="/create">Create</v-btn>
+        <v-spacer v-if="mdAndUp"></v-spacer>
         <v-text-field
             clearable
-            class="pt-6"
+            class="pt-6 mx-auto"
             rounded="lg"
             bg-color="background"
             label="Search"
@@ -100,20 +108,18 @@ let userID = ref("69-96-69-96")
                 <v-btn prepend-icon="mdi-wallet"
                        v-bind="props"
                        height="56px"
-                       width="200px"
                        class="ml-2"
                        rounded="lg"
                        elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                 >
-                    <div>{{ balance.coin }} ETH</div>
-                    <v-divider vertical length="100" class="border-opacity-50 mx-2"></v-divider>
-                    <div>{{ balance.usd }} USD</div>
+                    <div v-if="mdAndUp">{{ balance.coin }} ETH</div>
+                    <v-divider v-if="mdAndUp" vertical length="100" class="border-opacity-50 mx-2"></v-divider>
+                    <div v-if="mdAndUp">{{ balance.usd }} USD</div>
                 </v-btn>
-                <!--                <v-card-text>hello</v-card-text>-->
             </template>
 
-            <v-card min-width="250" rounded="lg" class="mt-2" width="390px" min-height="100px">
+            <v-card min-width="300px" rounded="lg" class="mt-2" width="400px" min-height="100px">
                 <v-list height="" class="" style="border: none">
                     <v-list-item class="">
                         <v-row>
@@ -127,7 +133,7 @@ let userID = ref("69-96-69-96")
                                 </div>
                             </v-col>
                         </v-row>
-                        <v-row>
+                        <v-row class="mb-2">
                             <v-col>
                                 <p><span class="usdtext font-weight-bold">${{ balance.usd }} </span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
@@ -138,9 +144,9 @@ let userID = ref("69-96-69-96")
                                 </v-menu>
                             </v-col>
                         </v-row>
-                        <br>
-                        <hr>
+                        <v-divider>
 
+                        </v-divider>
                     </v-list-item>
                     <v-list-item height="280px" width="" class="d-flex justify-center">
                         <v-list-item class="d-flex justify-center">
@@ -157,8 +163,6 @@ let userID = ref("69-96-69-96")
                             <Deposit/>
                         </v-list-item>
                     </v-list-item>
-
-
                 </v-list>
                 <v-divider>
                 </v-divider>
@@ -193,12 +197,13 @@ let userID = ref("69-96-69-96")
             v-model="menu"
             :close-on-content-click="true"
             location="bottom"
+            v-if="mdAndUp"
         >
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
                        v-bind="props"
                        height="56px"
-                       width="56"
+                       width="56px"
                        class="ml-2 "
                        rounded="lg"
                        elevation="2"
@@ -216,10 +221,7 @@ let userID = ref("69-96-69-96")
                     >
                     </v-list-item>
                     <v-list-item to="/account" prepend-icon="mdi-cog" title="Settings"></v-list-item>
-                    <v-divider class="border-opacity-50"></v-divider>
-                    <v-list-item to="/watchlist" prepend-icon="mdi-eye" title="Watchlist"></v-list-item>
                     <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transactions"></v-list-item>
-                    <v-divider class="border-opacity-50"></v-divider>
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
@@ -227,10 +229,12 @@ let userID = ref("69-96-69-96")
                         true-icon="mdi-weather-night"
                         id="dark-mode-switch"
                         class="ml-2"
-                        :label="isDarkTheme ? 'Dark Mode' : 'Light Mode'"
                     >
+                        <template v-slot:label>
+                            <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
+                        </template>
                     </v-switch>
-                    <v-list-item prepend-icon="mdi-logout" title="Logout"></v-list-item>
+                    <v-list-item to="/login" prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>
@@ -275,11 +279,11 @@ let userID = ref("69-96-69-96")
     font-size: 16px;
 }
 
-.smallText{
+.smallText {
     font-size: 14px;
 }
 
-.supersmalltext{
+.supersmalltext {
     font-size: 12px;
 }
 
@@ -294,6 +298,10 @@ let userID = ref("69-96-69-96")
 
 .vlistborder {
     border-bottom: 1px solid white;
+}
+
+.switchLabel {
+    margin-left: 14px;
 }
 </style>
 

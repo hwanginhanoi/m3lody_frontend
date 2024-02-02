@@ -12,15 +12,6 @@ const routes = [
             }
     },
     {
-        path: '/wallet',
-        name: 'Wallet',
-        components:
-            {
-                default: () => import('../views/Wallet.vue'),
-                nav: () => import('../components/Header.vue')
-            }
-    },
-    {
         path: '/account',
         name: 'Account',
         components:
@@ -35,15 +26,6 @@ const routes = [
         components:
             {
                 default: () => import('../views/Marketplace.vue'),
-                nav: () => import('../components/Header.vue')
-            }
-    },
-    {
-        path: '/watchlist',
-        name: 'Watchlist',
-        components:
-            {
-                default: () => import('../views/Watchlist.vue'),
                 nav: () => import('../components/Header.vue')
             }
     },
@@ -105,7 +87,7 @@ const routes = [
             default: () => import('../views/Product.vue'),
             nav: () => import('../components/Header.vue')
         },
-        beforeRouteEnter(to) {
+        beforeRouteEnter(to : any) {
             const id = parseInt(to.params.id);
             const data = product;
             const exists = data.some((item) => item.id === id)
@@ -116,8 +98,6 @@ const routes = [
                 hash: to.hash,
             }
         }
-
-
     },
     {
         path: '/:pathMatch(.*)*',

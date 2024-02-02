@@ -2,12 +2,12 @@
 import {ref} from "vue";
 
 let userPay = ref(100);
-let userGet= ref(100);
+let userGet = ref(100);
 
 let show = ref(false);
 </script>
 <template>
-    <v-dialog width="25%" min-width="400px">
+    <v-dialog width="25%" min-width="450px">
         <template v-slot:activator="{ props }">
             <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
                    height="35px">Buy
@@ -29,11 +29,11 @@ let show = ref(false);
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
-                                                       border-radius: 11px;
-                                                       overflow: hidden; "
+                                      border-radius: 11px;
+                                      overflow: hidden; "
                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                         >
-                            <v-col class="text-left pl-5" cols="" >
+                            <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You pay"
                                     type="text"
@@ -87,14 +87,16 @@ let show = ref(false);
                                     hide-details
 
 
-
                                 ></v-select>
                             </v-col>
                         </v-row>
-                        <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                        <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
+                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
-                                <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You get <span class="font-weight-bold">{{userGet}} DickCoin</span> for <span class="font-weight-bold">{{userPay}} USD</span></p>
+                                <v-col cols="10" class="d-flex align-center">
+                                    <p class="smallText">You get <span
+                                        class="font-weight-bold">{{ userGet }} HickCoin</span> for <span
+                                        class="font-weight-bold">{{ userPay }} USD</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -102,7 +104,6 @@ let show = ref(false);
                                         @click="show = !show"
                                         width="30px"
                                         height="30px"
-
                                     ></v-btn>
                                 </v-col>
                             </v-row>
@@ -112,11 +113,12 @@ let show = ref(false);
                                         <v-divider :thickness="4"></v-divider>
 
                                         <v-card-text>
-                                            <v-row >
+                                            <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20
+                                                        US$</p>
                                                 </v-col>
-                                                <v-col class="text-right pa-2" >
+                                                <v-col class="text-right pa-2">
                                                     <p class="font-weight-bold">100,00 US$</p>
                                                 </v-col>
 
@@ -134,7 +136,7 @@ let show = ref(false);
                                                     <p><span class="font-weight-bold">Processing fee</span></p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span> </p>
+                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span></p>
                                                 </v-col>
                                             </v-row>
 
@@ -144,9 +146,13 @@ let show = ref(false);
                             </v-row>
                             <v-row>
                                 <v-col cols="12">
-                                    <v-btn width="100%" class="bg-green">Confirm</v-btn>
+                                    <v-btn width="100%"
+                                           style="border-radius: 11px"
+                                           class="bg-green">Confirm
+                                    </v-btn>
                                 </v-col>
-                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span class="font-weight-bold">cookie policy</span></p></v-col>
+                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span
+                                    class="font-weight-bold">cookie policy</span></p></v-col>
                             </v-row>
 
                         </v-card>
@@ -166,7 +172,6 @@ let show = ref(false);
         </template>
     </v-dialog>
 </template>
-
 
 
 <style scoped>
@@ -207,11 +212,11 @@ let show = ref(false);
     font-size: 16px;
 }
 
-.smallText{
+.smallText {
     font-size: 14px;
 }
 
-.supersmalltext{
+.supersmalltext {
     font-size: 12px;
 }
 

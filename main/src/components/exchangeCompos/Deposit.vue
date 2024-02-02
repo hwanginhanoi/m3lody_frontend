@@ -2,16 +2,13 @@
 import {ref} from "vue";
 
 let userPay = ref(100);
-let userGet= ref(100);
+
+let userTransfer = ref(100);
 
 let show = ref(false);
+let userID = ref("111000202030-69");
 </script>
-import {ref} from "vue";
 
-let userPay = ref(100);
-let userGet= ref(100);
-
-let show = ref(false);
 <style scoped>
 .rounded-list .v-list-item {
     padding: 0 16px;
@@ -73,7 +70,7 @@ let show = ref(false);
 </style>
 
 <template>
-    <v-dialog width="27%" min-width="400px">
+    <v-dialog width="32%" min-width="450px">
         <template v-slot:activator="{ props }">
             <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
             </v-btn>
@@ -100,9 +97,8 @@ let show = ref(false);
                         >
                             <v-col class="text-left pl-5" cols="" >
                                 <v-text-field
-                                    placeholder="You pay"
+                                    placeholder="Amount"
                                     type="text"
-                                    clearable
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -125,16 +121,15 @@ let show = ref(false);
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
-                                                       background: #242627;
-                                                       border-radius: 11px;
-                                                       overflow: hidden; "
+                               background: #242627;
+                               border-radius: 11px;
+                               overflow: hidden; "
                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                         >
-                            <v-col class="text-left pl-5" cols="">
+                            <v-col class="text-left pl-5" cols="11">
                                 <v-text-field
-                                    placeholder="You receive"
+                                    placeholder="Target Wallet(ID)"
                                     type="text"
-                                    clearable
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -142,24 +137,35 @@ let show = ref(false);
                                 >
                                 </v-text-field>
                             </v-col>
-                            <v-col cols="" class="pl-10">
+                        </v-row>
+                        <v-row no-gutters
+                               class="mt-3"
+                               style="height: 60px;
+                               background: #242627;
+                               border-radius: 11px;
+                               overflow: hidden; "
+
+                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                        >
+                            <v-col class="d-flex justify-center align-center" cols="7">
+                                <p>Select Network:</p>
+                            </v-col>
+                            <v-col class="text-left pl-5" cols="4">
                                 <v-select
                                     chips
-                                    variant="flat"
-                                    model-value="USD"
-                                    style="display: flex; justify-content: end;"
-                                    :items="['USD']"
+                                    variant="plain"
+                                    model-value="None"
+                                    :items="['---', 'tsc']"
+                                    :style="{}"
+                                    class=""
                                     hide-details
-
-
-
                                 ></v-select>
                             </v-col>
                         </v-row>
                         <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You get <span class="font-weight-bold">{{userGet}} DickCoin</span> for <span class="font-weight-bold">{{userPay}} USD</span></p>
+                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} HickCoin</span> to user with <span class="font-weight-bold">ID: {{userID}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -179,7 +185,7 @@ let show = ref(false);
                                         <v-card-text>
                                             <v-row >
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 DickCoin</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20 US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2" >
                                                     <p class="font-weight-bold">100,00 US$</p>
