@@ -4,7 +4,7 @@
 <template>
     <div style="margin: auto;">
         <p class="font-weight-medium error_title">404</p>
-        <p class="error_subtitle" align="center">Page not found</p>
+        <p class="error_subtitle">Page not found</p>
     </div>
 </template>
 
