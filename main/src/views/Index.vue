@@ -37,30 +37,52 @@ let items = [
 </script>
 
 <template>
-    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
-        <v-container class="text-center">
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
+        <v-container class="text-center vmain">
             <h1>Dashboard</h1>
-            <swiper
-                :slidesPerView="4"
-                :spaceBetween="30"
-                :pagination="{ clickable: true }"
-                navigation
-                :modules="modules"
-                class="mySwiper ma-0 pa-7 mx-auto "
-                loop
-                autoplay
-            >
-                <swiper-slide class="">Slide 1</swiper-slide>
-                <swiper-slide class="">Slide 2</swiper-slide>
-                <swiper-slide class="">Slide 3</swiper-slide>
-                <swiper-slide class="">Slide 4</swiper-slide>
-                <swiper-slide class="">Slide 5</swiper-slide>
-                <swiper-slide class="">Slide 6</swiper-slide>
-                <swiper-slide class="">Slide 7</swiper-slide>
-                <swiper-slide class="">Slide 8</swiper-slide>
-                <swiper-slide class="">Slide 9</swiper-slide>
-            </swiper>
-            <div class="d-flex justify-space-between">
+            <div class="d-flex justify-center my-10">
+                <swiper
+                    :slidesPerView="4"
+                    :spaceBetween="30"
+                    :pagination="{ clickable: true }"
+                    navigation
+                    :modules="modules"
+                    centered-slides="true"
+                    class="mySwiper ma-0"
+                    loop
+                    autoplay
+                    :breakpoints="{
+                        '500': {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+    
+                        '640': {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        '768': {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                        '1024': {
+                            slidesPerView: 4,
+                            spaceBetween: 50,
+                        },
+                        }"
+                >
+                    <swiper-slide class="">Slide 1</swiper-slide>
+                    <swiper-slide class="">Slide 2</swiper-slide>
+                    <swiper-slide class="">Slide 3</swiper-slide>
+                    <swiper-slide class="">Slide 4</swiper-slide>
+                    <swiper-slide class="">Slide 5</swiper-slide>
+                    <swiper-slide class="">Slide 6</swiper-slide>
+                    <swiper-slide class="">Slide 7</swiper-slide>
+                    <swiper-slide class="">Slide 8</swiper-slide>
+                    <swiper-slide class="">Slide 9</swiper-slide>
+                </swiper>
+            </div>
+            <div class="d-flex justify-space-between my-10">
                 <v-btn-toggle>
                     <v-btn>
                         Trending
@@ -104,16 +126,17 @@ let items = [
                 </template>
             </v-data-table>
         </v-container>
-
-        <v-container>
-        </v-container>
     </v-main>
 </template>
 
 <style scoped>
 .swiper {
-    width: 90vw;
+    width: 95%;
+    max-width: 100vw;
     height: 50vh;
+}
+
+.vmain{
 }
 
 .swiper-slide {
