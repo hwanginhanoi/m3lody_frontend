@@ -6,6 +6,8 @@ import {Navigation, Pagination, Autoplay} from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css/bundle';
+import NFT from "../components/NFT.vue";
+import ImproveNFT from "../components/ImproveNFT.vue";
 
 let modules = [Navigation, Pagination, Autoplay];
 
@@ -34,24 +36,39 @@ let items = [
     {rank: 8, collection: 'Collection 8', floorPrice: 0.8, volume: 1.2},
     {rank: 9, collection: 'Collection 9', floorPrice: 0.9, volume: 1.3},
     {rank: 10, collection: 'Collection 10', floorPrice: 1.0, volume: 1.4},
-]
+];
+
+const cards = [
+    {id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
+    {id: 2, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
+    {id: 3, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
+    {id: 4, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
+    {id: 5, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
+    {id: 6, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
+    {id: 7, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
+    {id: 8, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
+    {id: 9, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
+    {id: 10, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
+    {id: 11, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
+    {id: 12, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
+
+];
 </script>
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
-        <v-container class="text-center vmain">
+        <v-container class="text-center vmain" style="padding-right: 1em; max-width: 95vw" >
             <h1>Dashboard</h1>
             <div class="d-flex justify-center my-10">
                 <swiper
-                    :slidesPerView="4"
-                    :spaceBetween="30"
+                    :slidesPerView="1"
+                    :spaceBetween="10"
                     :pagination="{ clickable: true }"
                     navigation
                     :modules="modules"
                     centered-slides="true"
                     class="mySwiper ma-0"
                     loop
-                    autoplay
                     :breakpoints="{
                         '500': {
                             slidesPerView: 1,
@@ -60,27 +77,22 @@ let items = [
     
                         '640': {
                             slidesPerView: 1,
-                            spaceBetween: 20,
+                            spaceBetween: 10,
                         },
                         '768': {
                             slidesPerView: 2,
-                            spaceBetween: 40,
+                            spaceBetween: 20,
                         },
                         '1024': {
-                            slidesPerView: 4,
-                            spaceBetween: 50,
+                            slidesPerView: 3,
+                            spaceBetween: 20,
                         },
                         }"
                 >
-                    <swiper-slide class="">Slide 1</swiper-slide>
-                    <swiper-slide class="">Slide 2</swiper-slide>
-                    <swiper-slide class="">Slide 3</swiper-slide>
-                    <swiper-slide class="">Slide 4</swiper-slide>
-                    <swiper-slide class="">Slide 5</swiper-slide>
-                    <swiper-slide class="">Slide 6</swiper-slide>
-                    <swiper-slide class="">Slide 7</swiper-slide>
-                    <swiper-slide class="">Slide 8</swiper-slide>
-                    <swiper-slide class="">Slide 9</swiper-slide>
+                    <swiper-slide class="" v-for="card in cards">
+                        <ImproveNFT :card="card"/>
+                    </swiper-slide>
+
                 </swiper>
             </div>
             <div class="d-flex justify-space-between my-10">
@@ -127,8 +139,8 @@ let items = [
                 </template>
             </v-data-table>
         </v-container>
-
         <Footer />
+
     </v-main>
 </template>
 
@@ -139,13 +151,10 @@ let items = [
     height: 50vh;
 }
 
-.vmain{
-}
+
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: green;
+
 
     /* Center slide text vertically */
     display: flex;
