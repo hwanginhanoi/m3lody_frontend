@@ -81,10 +81,16 @@ const cards = [
     width: 50px;
     color: white;
     line-height: 350px;
-    padding: 0px 5px;
-    background: rgba(189, 195, 199, 0.9);
+    padding: 0px 10px;
     border-radius: 5px;
-    transform: translatex(-10px);
+    transform: translatex(-5px);
+    transition: all 0.3s;
+
+}
+
+::v-deep .swiper-button-prev:hover::after {
+    background: rgba(189, 195, 199, 0.9);
+
 }
 
 ::v-deep .swiper-button-next::after {
@@ -92,13 +98,14 @@ const cards = [
     width: 50px;
     color: white;
     line-height: 350px;
-    padding: 0px 5px;
-    background: rgba(189, 195, 199, 0.9);
+    padding: 0px 10px;
     border-radius: 5px;
-    transform: translatex(10px);
+    transform: translatex(5px);
+    transition: all 0.3s;
 }
 
-::v-deep .swiper-button-next:hover {
-    color: green;
+::v-deep .swiper-button-next:hover::after {
+    background: rgba(189, 195, 199, 0.9);
+
 }
 </style>
