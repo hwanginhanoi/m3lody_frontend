@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // import required modules
+import {ref} from "vue";
 import {useDisplay} from "vuetify";
 // Import Swiper styles
 import 'swiper/css/bundle';

@@ -12,6 +12,16 @@ const routes = [
                 footer: () => import('../components/Footer.vue')
             }
     },
+        {
+        path: '/landing',
+        name: 'Landing',
+        components:
+            {
+                default: () => import('../views/Landing.vue'),
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
+            }
+    },
     {
         path: '/account',
         name: 'Account',
