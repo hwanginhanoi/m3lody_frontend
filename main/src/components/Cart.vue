@@ -14,7 +14,7 @@ let data = [
     },
     {
         image: "https://preview.redd.it/9zzel52xfcy81.jpg?width=640&crop=smart&auto=webp&s=b9315cc50f0929d7a3ff5a26c7f6147b37fd8a67",
-        desciption: 'Nigga Dog',
+        desciption: 'Ningen Dog',
         price: 0.7,
     },
 ]
