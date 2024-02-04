@@ -3,21 +3,17 @@ import {Swiper, SwiperSlide} from "swiper/vue";
 import ImproveNFT from "./ImproveNFT.vue";
 import {Navigation, Pagination, Autoplay} from 'swiper/modules';
 let modules = [Navigation, Pagination, Autoplay];
-const cards = [
-    {id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 2, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 3, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 4, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 5, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 6, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 7, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 8, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 9, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 10, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 11, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 12, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
+import cards from "../data.json";
 
-];
+function getRandomCards() {
+    let randomIndices = new Set();
+    while(randomIndices.size < 5) {
+        randomIndices.add(Math.floor(Math.random() * cards.length));
+    }
+    return Array.from(randomIndices).map(index => cards[index]);
+}
+
+let randomCards = getRandomCards();
 </script>
 <template>
     <div class="d-flex justify-center my-10">
@@ -50,7 +46,7 @@ const cards = [
                         },
                         }"
         >
-            <swiper-slide class="" v-for="card in cards">
+            <swiper-slide class="" v-for="card in randomCards">
                 <ImproveNFT :card="card"/>
             </swiper-slide>
 
