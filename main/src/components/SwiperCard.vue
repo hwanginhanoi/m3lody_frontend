@@ -71,4 +71,34 @@ const cards = [
     justify-content: center;
     align-items: center;
 }
+
+.swiper-pagination-bullet {
+    background: green;
+}
+
+::v-deep .swiper-button-prev::after {
+    font-size: 30px;
+    width: 50px;
+    color: white;
+    line-height: 350px;
+    padding: 0px 5px;
+    background: rgba(189, 195, 199, 0.9);
+    border-radius: 5px;
+    transform: translatex(-10px);
+}
+
+::v-deep .swiper-button-next::after {
+    font-size: 30px;
+    width: 50px;
+    color: white;
+    line-height: 350px;
+    padding: 0px 5px;
+    background: rgba(189, 195, 199, 0.9);
+    border-radius: 5px;
+    transform: translatex(10px);
+}
+
+::v-deep .swiper-button-next:hover {
+    color: green;
+}
 </style>
