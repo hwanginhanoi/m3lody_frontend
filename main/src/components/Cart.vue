@@ -20,7 +20,8 @@ let data = ref([
 ])
 
 function removeItem(itemToRemove) {
-    data.value = data.value.filter(item => item !== itemToRemove);
+    // data.value = data.value.filter(item => item !== itemToRemove);
+    data.value.splice(itemToRemove, 1)
 }
 
 let sum = computed(() => {
@@ -41,7 +42,7 @@ let sum = computed(() => {
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in data" :key="item.desciption">
+        <tr v-for="(item,index) in data" :key="item.desciption">
             <td>
                 <v-row>
                     <v-col>
@@ -62,7 +63,7 @@ let sum = computed(() => {
             <td>
                 <v-btn>
                     <v-icon icon="$delete"
-                    @click="removeItem(item)"
+                            @click="removeItem(index)"
                     ></v-icon>
                 </v-btn>
             </td>
