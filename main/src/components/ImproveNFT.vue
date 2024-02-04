@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import {useDisplay} from "vuetify";
-import { useRoute } from 'vue-router';
-import { defineProps, ref, computed } from 'vue';
+import {useRoute} from 'vue-router';
+import {defineProps, ref, computed} from 'vue';
+
 defineProps(['card']);
 let {mdAndUp, lgAndUp} = useDisplay();
 const route = useRoute();
 let width = computed(() => {
     if (route.path == "/marketplace") {
         return '';
-    }
-    else{
+    } else {
         return !lgAndUp.value ? '350px' : '75%';
     }
 });
@@ -18,21 +18,25 @@ console.log(route.path);
 <template>
 
     <v-card class="rounded-card pa-2" elevation="4"
-        :to="{ path: `/product/${card.id}`}"
-        :style="{ width: width }"
+            :to="{ path: `/product/${card.id}`}"
+            :style="{ width: width }"
     >
-    <div :style="{ backgroundImage: `url('${card.src}')` }" class="card-image"></div>
-    <v-card-title >{{ card.name }}</v-card-title>
-    <v-row>
-                    <v-col>
-                        <v-card-subtitle>Author</v-card-subtitle>
-                        <v-card-title>{{card.author}}</v-card-title>
-                    </v-col>
-                    <v-col>
-                        <v-card-subtitle>Price</v-card-subtitle>
-                        <v-card-title>{{card.price}}</v-card-title>
-                    </v-col>
-    </v-row>
+        <div :style="{ backgroundImage: `url('${card.src}')` }" class="card-image"></div>
+        <v-card-title>{{ card.name }}</v-card-title>
+        <v-row>
+            <v-col>
+                <v-card-subtitle>Author</v-card-subtitle>
+
+                <v-card-text class="overflow-hidden">
+                    <h3>{{ card.author }}</h3>
+                </v-card-text>
+
+            </v-col>
+            <v-col>
+                <v-card-subtitle>Price</v-card-subtitle>
+                <v-card-title>{{ card.price }}</v-card-title>
+            </v-col>
+        </v-row>
     </v-card>
 </template>
 
