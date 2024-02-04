@@ -2,7 +2,7 @@
 import ImproveNFT from "../components/ImproveNFT.vue";
 import data from "../data.json";
 
-const categories = ["All categories", "Art", "Gaming"]
+const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]
 const chains = ["All chains", "ETH", "BTC"]
 </script>
 
