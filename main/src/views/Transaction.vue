@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const items = [
   {
-    Name: "BOTcoin",
+    Name: "BOT",
     ItemID: "33",
     Price: "$42,298.37 ",
     "From": "0xf18A...6e4f",
     "To": "0x2Fec...Fx4",
-    "Date": "29/1/2024, 14:33:10 PM",
+    "Date": "30/1/2024, 14:55:10 PM",
   },
   {
     Name: "Ether",
@@ -14,31 +14,31 @@ const items = [
     Price: "$313,42 ",
     "From": "0xf18A...d34f",
     "To": "0x2Fec...Fx4",
-    "Date": "29/1/2024, 14:33:10 PM",
+    "Date": "30/1/2024, 14:33:10 PM",
   },
   {
-    Name: "VNcoin",
+    Name: "VN",
     ItemID: "01",
     Price: "$21,22",
     "From": "0x9F8A...6x7f",
     "To": "0x2FiF...Fx4E",
-    "Date": "30/1/2024, 14:33:10 PM",
+    "Date": "29/1/2024, 14:33:10 PM",
   },
   {
-    Name: "EURcoin",
+    Name: "EUR",
     ItemID: "27",
     Price: "$33,123 ",
     "From": "0xf9A...6E4f",
     "To": "0x2FEc...Fx4",
-    "Date": "29/1/2024, 20:35:10 PM",
+    "Date": "29/1/2024, 11:35:10 AM",
   },
   {
-    Name: "WS3coin",
+    Name: "WS3",
     ItemID: "12",
     Price: "$132,32",
     "From": "0xf78A...6xO4",
     "To": "0x2F4c...F38X",
-    "Date": "29/1/2024, 8:33:10 AM",
+    "Date": "28/1/2024, 8:33:10 AM",
   },
   {
     Name: "EXE",
@@ -46,37 +46,38 @@ const items = [
     Price: "$21 ",
     "From": "0xf28A...6dif",
     "To": "0X73ec...Fx4E",
-    "Date": "30/1/2024, 10:21:10 AM",
+    "Date": "28/1/2024, 7:21:10 AM",
   },
 ];
 const getIconClass = (itemName: string) => {}
-  
+
 </script>
 <template>
     <v-main
       :style="{ background: $vuetify.theme.global.current.colors.background }"
     >
+    <h1 style="margin-left: 63px; margin-top: 50px;"> Transaction </h1>
       <v-container>
         <v-row align="end">
-          <v-col cols="6"> </v-col>
-          <v-col cols="2">
+          <v-col cols="10"> </v-col>
+          <v-col cols="1">
             <v-btn
               prepend-icon=" mdi-pencil"
               align="end"
               color="blue-grey"
               block
-              rounded="xl"
+              rounded-lg="xl"
               >Report</v-btn
             >
           </v-col>
-          <v-col cols="3">
+          <v-col cols="1">
             <v-btn
               prepend-icon="mdi-plus"
               align="end"
               color="success"
               block
-              rounded="xl"
-              >GO TO COIN LIST</v-btn
+              rounded-lg="xl"
+              >NFT LIST</v-btn
             >
           </v-col>
         </v-row>
@@ -85,7 +86,7 @@ const getIconClass = (itemName: string) => {}
             <template v-slot:item="{ item }">
               <tr>
                 <td>
-                  <img alt="icon" style="width: 24px" :src="getIconClass(item.Name)" />
+                  <img style="width: 24px" :src="getIconClass(item.Name)" />
                   {{ item.Name }}
                 </td>
                 <td>{{ item.ItemID }}</td>
