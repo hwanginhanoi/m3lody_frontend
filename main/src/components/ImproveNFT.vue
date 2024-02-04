@@ -21,17 +21,17 @@ console.log(route.path);
         :to="{ path: `/product/${card.id}`}"
         :style="{ width: width }"
     >
-    <div :style="{ backgroundImage: `url('${card.img}')` }" class="card-image"></div>
-    <v-card-title >{{ card.title }}</v-card-title>
+    <div :style="{ backgroundImage: `url('${card.src}')` }" class="card-image"></div>
+    <v-card-title >{{ card.name }}</v-card-title>
     <v-row>
-        <v-col>
-            <v-card-subtitle>fefw</v-card-subtitle>
-            <v-card-title>feawf</v-card-title>
-        </v-col>
-        <v-col>
-            <v-card-subtitle>wfew</v-card-subtitle>
-            <v-card-title>feaw</v-card-title>
-        </v-col>
+                    <v-col>
+                        <v-card-subtitle>Author</v-card-subtitle>
+                        <v-card-title>{{card.author}}</v-card-title>
+                    </v-col>
+                    <v-col>
+                        <v-card-subtitle>Price</v-card-subtitle>
+                        <v-card-title>{{card.price}}</v-card-title>
+                    </v-col>
     </v-row>
     </v-card>
 </template>

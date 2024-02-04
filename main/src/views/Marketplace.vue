@@ -1,22 +1,6 @@
 <script setup lang="ts">
-import NFT from '../components/NFT.vue';
 import ImproveNFT from "../components/ImproveNFT.vue";
-
-const cards = [
-    {id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 2, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 3, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 4, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 5, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 6, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 7, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 8, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 9, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 10, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 11, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 12, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-
-];
+import data from "../data.json";
 
 const categories = ["All categories", "Art", "Gaming"]
 const chains = ["All chains", "ETH", "BTC"]
@@ -43,8 +27,8 @@ const chains = ["All chains", "ETH", "BTC"]
             </v-row>
             <v-divider class="mb-5"></v-divider>
             <v-row class="d-flex justify-center">
-                <v-col cols="10" md="6" lg="3" v-for="card in cards" class="">
-                    <ImproveNFT  :key="card.id" :card="card"/>
+                <v-col cols="10" md="6" lg="3" v-for="card in data" class="">
+                    <ImproveNFT :key="card.id" :card="card"/>
                 </v-col>
             </v-row>
 

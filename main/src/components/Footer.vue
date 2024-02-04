@@ -33,32 +33,47 @@ let {mdAndUp} = useDisplay();
                 <v-col cols="4" md="2">
                     <v-list>
                         <v-list-subheader :class="!mdAndUp? 'smallertext':''"><h2>About Us</h2></v-list-subheader>
-                        <v-list-item title="Our team"></v-list-item>
-                        <v-list-item title="Careers"></v-list-item>
-                        <v-list-item title="Contact"></v-list-item>
+                        <v-list-item>
+                            <router-link to="">Our team</router-link>
+                        </v-list-item>
+                        <v-list-item>
+                            <router-link to="">Careers</router-link>
+                        </v-list-item>
+                        <v-list-item>
+                            <router-link to="">Contact</router-link>
+                        </v-list-item>
                     </v-list>
                 </v-col>
                 <v-col cols="4" md="2">
                     <v-list>
                         <v-list-subheader :class="[(!mdAndUp ? 'smallertext' : ''), 'w-100']"><h2>Marketplace</h2>
                         </v-list-subheader>
-                        <v-list-item to="/marketplace" title="Buy" active-class="no-active"></v-list-item>
-                        <v-list-item to="/create" title="Create" active-class="no-active"></v-list-item>
-                        <v-list-item to="/" title="Sell" active-class="no-active"></v-list-item>
+                        <v-list-item>
+                            <router-link to="/marketplace">Buy</router-link>
+                        </v-list-item>
+                        <v-list-item>
+                            <router-link to="/create">Create</router-link>
+                        </v-list-item>
                     </v-list>
                 </v-col>
                 <v-col cols="4" md="2">
                     <v-list>
                         <v-list-subheader :class="!mdAndUp? 'smallertext':''"><h2>Account</h2></v-list-subheader>
-                        <v-list-item to="/profile" title="Profile" active-class="no-active"></v-list-item>
-                        <v-list-item to="/account" title="Settings" active-class="no-active"></v-list-item>
-                        <v-list-item to="/transaction" title="History" active-class="no-active"></v-list-item>
+                        <v-list-item>
+                            <router-link to="/profile">Profile</router-link>
+                        </v-list-item>
+                        <v-list-item>
+                            <router-link to="/account">Account</router-link>
+                        </v-list-item>
+                        <v-list-item>
+                            <router-link to="/transaction">History</router-link>
+                        </v-list-item>
                     </v-list>
                 </v-col>
             </v-row>
             <v-row class="justify-center">
                 <v-icon>mdi-copyright</v-icon>
-                    {{ new Date().getFullYear() }} — <strong>Trader Network, Inc</strong>
+                {{ new Date().getFullYear() }} — <strong>Trader Network, Inc</strong>
             </v-row>
         </v-container>
     </v-footer>
@@ -67,5 +82,9 @@ let {mdAndUp} = useDisplay();
 <style scoped>
 .smallertext {
     font-size: 11.4px;
+}
+
+a {
+    text-decoration: none;
 }
 </style>
