@@ -44,6 +44,7 @@ const chains = ["All chains", "ETH", "BTC"]
             <v-row>
                 <NFT v-for="card in cards" :key="card.id" :card="card"/>
             </v-row>
+
         </v-container>
     </v-main>
 </template>
