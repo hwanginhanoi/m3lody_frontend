@@ -62,7 +62,6 @@ let header = [
     {title: 'To', key: 'to', align: 'center'},
     {title: 'Date', key: 'date', align: 'center'},
 ]
-const getIconClass = (itemName: string) => {}
 
 </script>
 <template>
@@ -72,8 +71,8 @@ const getIconClass = (itemName: string) => {}
     <h1 style="margin-left: 63px; margin-top: 50px;"> Transaction </h1>
       <v-container style="margin-bottom: 160px">
         <v-row align="end">
-          <v-col cols="10"></v-col>
-          <v-col cols="1">
+        <v-spacer></v-spacer>
+          <v-col cols="auto">
             <v-btn
               prepend-icon=" mdi-pencil"
               align="end"
@@ -83,7 +82,7 @@ const getIconClass = (itemName: string) => {}
               >Report</v-btn
             >
           </v-col>
-          <v-col cols="1">
+          <v-col cols="auto">
             <v-btn
               prepend-icon="mdi-plus"
               align="end"
