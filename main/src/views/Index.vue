@@ -7,21 +7,26 @@ import SwiperCard from "../components/SwiperCard.vue";
 
 
 let header = [
-    {text: 'Rank', value: 'rank', align: 'center', width: '10%'},
-    {text: 'Collection', value: 'collection', align: 'center', width: '40%'},
-    {text: 'Floor Price', value: 'floorPrice', align: 'center', width: '20%'},
-    {text: 'Volume', value: 'volume', align: 'center', width: '20%'},
-];
+    {
+        title: 'Rank',
+        key: 'rank',
+        align: 'center'
+    },
+    {title: 'Image', key: 'image', align: 'center'},
+    {title: 'Collection', key: 'collection', align: 'center'},
+    {title: 'Floor Price', key: 'floorPrice', align: 'center'},
+    {title: 'Volume', key: 'volume', align: 'center'},
 
-let headers = [
-    {text: 'Rank', value: 'rank'},
-    {text: 'Collection', value: 'collection'},
-    {text: 'Floor Price', value: 'floorPrice'},
-    {text: 'Volume', value: 'volume'},
-];
+]
 
 let items = [
-    {rank: 1, collection: 'Collection 1', floorPrice: 0.1, volume: 0.5},
+    {
+        rank: 1,
+        image: "https://img.freepik.com/free-vector/hand-drawn-nft-style-ape-illustration_23-2149622021.jpg?size=338&ext=jpg&ga=GA1.1.1448711260.1707004800&semt=sph",
+        collection: 'Collection 1',
+        floorPrice: 0.1,
+        volume: 0.5
+    },
     {rank: 2, collection: 'Collection 2', floorPrice: 0.2, volume: 0.6},
     {rank: 3, collection: 'Collection 3', floorPrice: 0.3, volume: 0.7},
     {rank: 4, collection: 'Collection 4', floorPrice: 0.4, volume: 0.8},
@@ -37,8 +42,8 @@ let items = [
 </script>
 
 <template>
-    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
-        <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw" >
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
+        <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw">
             <h1>Dashboard</h1>
             <SwiperCard/>
             <div class="d-flex justify-space-between my-10">
@@ -64,7 +69,7 @@ let items = [
             </div>
 
             <v-data-table
-                :headers="headers"
+                :headers="header"
                 :items="items"
                 :items-per-page="10"
                 class="elevation-1"
@@ -74,8 +79,13 @@ let items = [
                 <template v-slot:item.rank="{ item }">
                     {{ item.rank }}
                 </template>
+                <template v-slot:item.image="{item}">
+                    <v-img :src="item.image" class="rounded-lg ma-7"></v-img>
+                </template>
                 <template v-slot:item.collection="{ item }">
+
                     {{ item.collection }}
+
                 </template>
                 <template v-slot:item.floorPrice="{ item }">
                     {{ item.floorPrice }} ETH
