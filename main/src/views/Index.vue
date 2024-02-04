@@ -10,11 +10,12 @@ let header = [
     {
         title: 'Rank',
         key: 'rank',
-        align: 'end'
+        align: 'center'
     },
+    {title: 'Image', key: 'image', align: 'center'},
     {title: 'Collection', key: 'collection', align: 'center'},
-    {title: 'Floor Price', key: 'floorPrice', align: 'start'},
-    {title: 'Volume', key: 'volume', align: 'start'},
+    {title: 'Floor Price', key: 'floorPrice', align: 'center'},
+    {title: 'Volume', key: 'volume', align: 'center'},
 
 ]
 
@@ -78,15 +79,13 @@ let items = [
                 <template v-slot:item.rank="{ item }">
                     {{ item.rank }}
                 </template>
+                <template v-slot:item.image="{item}">
+                    <v-img :src="item.image" class="rounded-lg ma-7"></v-img>
+                </template>
                 <template v-slot:item.collection="{ item }">
-                    <v-row class="w-auto">
-                        <v-col class="v-col-5">
-                            <v-img :src="item.image" class="rounded-lg ma-2"></v-img>
-                        </v-col>
-                        <v-col class="v-col-7 align-center d-flex float-lg-right"><p class="">
-                            {{ item.collection }}</p>
-                        </v-col>
-                    </v-row>
+
+                    {{ item.collection }}
+
                 </template>
                 <template v-slot:item.floorPrice="{ item }">
                     {{ item.floorPrice }} ETH
