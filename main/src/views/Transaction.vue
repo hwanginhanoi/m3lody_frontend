@@ -75,7 +75,6 @@ let header = [
           <v-col cols="auto">
             <v-btn
               prepend-icon=" mdi-pencil"
-              align="end"
               color="blue-grey"
               block
               rounded-lg="xl"
@@ -85,7 +84,6 @@ let header = [
           <v-col cols="auto">
             <v-btn
               prepend-icon="mdi-plus"
-              align="end"
               color="success"
               block
               rounded-lg="xl"
