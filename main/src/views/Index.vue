@@ -56,7 +56,7 @@ const cards = [
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
-        <v-container class="text-center vmain" style="padding-right: 1em; max-width: 95vw" >
+        <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw" >
             <h1>Dashboard</h1>
             <div class="d-flex justify-center my-10">
                 <swiper
@@ -65,26 +65,25 @@ const cards = [
                     :pagination="{ clickable: true }"
                     navigation
                     :modules="modules"
-                    centered-slides="true"
                     class="mySwiper ma-0"
                     loop
                     :breakpoints="{
                         '500': {
                             slidesPerView: 1,
-                            spaceBetween: 10,
+                            spaceBetween: 0,
                         },
     
                         '640': {
                             slidesPerView: 1,
-                            spaceBetween: 10,
+                            spaceBetween: 0,
                         },
                         '768': {
                             slidesPerView: 2,
-                            spaceBetween: 20,
+                            spaceBetween: 0,
                         },
-                        '1024': {
+                        '1200': {
                             slidesPerView: 3,
-                            spaceBetween: 20,
+                            spaceBetween: 0,
                         },
                         }"
                 >
@@ -143,26 +142,18 @@ const cards = [
 
 <style scoped>
 .swiper {
-    width: 95%;
+    width: 100%;
     max-width: 100vw;
-    height: 50vh;
+    height: 60vh;
 }
 
 
 
 .swiper-slide {
-
-
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 </style>
