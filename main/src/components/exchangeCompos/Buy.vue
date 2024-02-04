@@ -50,7 +50,6 @@ function calCoin(){
                                     v-model="form.userPay"
                                     type="number"
                                     @change="calCoin"
-                                    clearable
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -82,7 +81,7 @@ function calCoin(){
                                     placeholder="You receive"
                                     type="number"
                                     v-model="form.userReceive"
-                                    clearable
+                                    readonly="true"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
