@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import NFT from '../components/NFT.vue';
+import ImproveNFT from "../components/ImproveNFT.vue";
 
 const cards = [
     {id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
@@ -41,8 +42,10 @@ const chains = ["All chains", "ETH", "BTC"]
                 </v-col>
             </v-row>
             <v-divider class="mb-5"></v-divider>
-            <v-row>
-                <NFT v-for="card in cards" :key="card.id" :card="card"/>
+            <v-row >
+                <v-col cols="12" md="6" lg="3" v-for="card in cards">
+                    <ImproveNFT  :key="card.id" :card="card"/>
+                </v-col>
             </v-row>
 
         </v-container>

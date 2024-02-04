@@ -8,7 +8,7 @@ const tab = ref(1);
 </script>
 
 <template>
-    <v-main>
+    <v-main class="mb-16">
         <v-card>
             <v-img cover height="300" src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg"></v-img>
         </v-card>

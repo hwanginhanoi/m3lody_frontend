@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import {ref} from "vue";
-
-let userPay = ref(100);
-
-let userTransfer = ref(100);
-
 let show = ref(false);
-let userID = ref("111000202030-69");
+const form = ref({
+    userTransfer: '',
+    targetID: '',
+    transferCoin: '---',
+    network: '---',
+})
 </script>
 
 <style scoped>
@@ -98,6 +98,7 @@ let userID = ref("111000202030-69");
                             <v-col class="text-left pl-5" cols="" >
                                 <v-text-field
                                     placeholder="Amount"
+                                    v-model="form.userTransfer"
                                     type="text"
                                     rounded="lg"
                                     variant="plain"
@@ -110,7 +111,7 @@ let userID = ref("111000202030-69");
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
+                                    v-model="form.transferCoin"
                                     :items="['USD']"
                                     style="display: flex; justify-content: end;"
                                     class=""
@@ -129,6 +130,7 @@ let userID = ref("111000202030-69");
                             <v-col class="text-left pl-5" cols="11">
                                 <v-text-field
                                     placeholder="Target Wallet(ID)"
+                                    v-model="form.targetID"
                                     type="text"
                                     rounded="lg"
                                     variant="plain"
@@ -154,7 +156,7 @@ let userID = ref("111000202030-69");
                                 <v-select
                                     chips
                                     variant="plain"
-                                    model-value="None"
+                                    v-model="form.network"
                                     :items="['---', 'tsc']"
                                     :style="{}"
                                     class=""
@@ -165,7 +167,7 @@ let userID = ref("111000202030-69");
                         <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} HickCoin</span> to user with <span class="font-weight-bold">ID: {{userID}}</span></p>
+                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} {{form.transferCoin}}</span> to user with <span class="font-weight-bold">ID: {{form.targetID}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -185,7 +187,7 @@ let userID = ref("111000202030-69");
                                         <v-card-text>
                                             <v-row >
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">0,1286 {{form.transferCoin}}</span>@2.333,20 US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2" >
                                                     <p class="font-weight-bold">100,00 US$</p>
@@ -215,7 +217,9 @@ let userID = ref("111000202030-69");
                             </v-row>
                             <v-row>
                                 <v-col cols="12">
-                                    <v-btn width="100%" class="bg-green">Confirm</v-btn>
+                                    <v-btn width="100%" class="bg-green"
+                                   @click="isActive.value = false"
+                                    >Confirm</v-btn>
                                 </v-col>
                                 <v-col><p class="text-center supersmalltext">By continuing you agree to our <span class="font-weight-bold">cookie policy</span></p></v-col>
                             </v-row>

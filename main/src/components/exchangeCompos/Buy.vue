@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-let userPay = ref(100);
-let userGet = ref(100);
+// let userPay = ref(100);
+// let userGet = ref(100);
 
 let show = ref(false);
+const form = ref({
+    userPay: '',
+    userReceive: '',
+    payCoin: '---',
+    receiveCoin: '---',
+})
 </script>
 <template>
     <v-dialog width="25%" min-width="450px">
@@ -36,12 +42,12 @@ let show = ref(false);
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You pay"
-                                    type="text"
+                                    v-model="form.userPay"
+                                    type="number"
                                     clearable
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
-
                                 >
                                 </v-text-field>
                             </v-col>
@@ -49,7 +55,7 @@ let show = ref(false);
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
+                                    v-model="form.payCoin"
                                     :items="['USD', 'lickma']"
                                     style="display: flex; justify-content: end;"
                                     class=""
@@ -68,7 +74,9 @@ let show = ref(false);
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You receive"
-                                    type="text"
+                                    type="number"
+                                    v-model="form.userReceive"
+
                                     clearable
                                     rounded="lg"
                                     variant="plain"
@@ -81,7 +89,7 @@ let show = ref(false);
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
+                                    v-model="form.receiveCoin"
                                     style="display: flex; justify-content: end;"
                                     :items="['USD']"
                                     hide-details
@@ -95,8 +103,8 @@ let show = ref(false);
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ userGet }} HickCoin</span> for <span
-                                        class="font-weight-bold">{{ userPay }} USD</span></p>
+                                        class="font-weight-bold">{{ form.userReceive }} {{form.receiveCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.userPay }} {{form.payCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -115,7 +123,7 @@ let show = ref(false);
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20
+                                                    <p><span class="font-weight-bold">0,1286 {{form.payCoin}}</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
@@ -148,7 +156,10 @@ let show = ref(false);
                                 <v-col cols="12">
                                     <v-btn width="100%"
                                            style="border-radius: 11px"
-                                           class="bg-green">Confirm
+                                           class="bg-green"
+                                           @click="isActive.value = false"
+                                    >Confirm
+
                                     </v-btn>
                                 </v-col>
                                 <v-col><p class="text-center supersmalltext">By continuing you agree to our <span

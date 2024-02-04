@@ -180,7 +180,7 @@ let userID = ref("69-96-69-96")
             <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                 <v-card title="Dialog" rounded="lg">
                     <v-card-text>
-                        <Cart></Cart>
+                        <Cart/>
                     </v-card-text>
 
                     <v-card-actions>
