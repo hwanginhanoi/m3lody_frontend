@@ -4,7 +4,7 @@ let show = ref(false);
 const form = ref({
     userTransfer: '',
     targetID: '',
-    transferCoin: '---',
+    transferCoin: 'ETH',
     network: '---',
 })
 </script>
@@ -99,7 +99,7 @@ const form = ref({
                                 <v-text-field
                                     placeholder="Amount"
                                     v-model="form.userTransfer"
-                                    type="text"
+                                    type="number"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -167,7 +167,7 @@ const form = ref({
                         <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} {{form.transferCoin}}</span> to user with <span class="font-weight-bold">ID: {{form.targetID}}</span></p>
+                                    <p class="smallText">You transfer <span class="font-weight-bold">{{form.userTransfer? form.userTransfer:'...'}} {{form.transferCoin}}</span> to user with <span class="font-weight-bold">ID: {{form.targetID? form.targetID:'...'}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -187,10 +187,10 @@ const form = ref({
                                         <v-card-text>
                                             <v-row >
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 {{form.transferCoin}}</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">Amount transfer + network fee + processing fee</span></p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2" >
-                                                    <p class="font-weight-bold">100,00 US$</p>
+                                                    <p class="font-weight-bold">Total: ${{+form.userTransfer + 1.48 + 2.10}}</p>
                                                 </v-col>
 
                                             </v-row>
