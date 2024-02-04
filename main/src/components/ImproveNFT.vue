@@ -1,13 +1,26 @@
 <script setup lang="ts">
 import {useDisplay} from "vuetify";
-
+import { useRoute } from 'vue-router';
+import { defineProps, ref, computed } from 'vue';
 defineProps(['card']);
 let {mdAndUp, lgAndUp} = useDisplay();
-
+const route = useRoute();
+let width = computed(() => {
+    if (route.path == "/marketplace") {
+        return '';
+    }
+    else{
+        return !lgAndUp.value ? '350px' : '75%';
+    }
+});
+console.log(route.path);
 </script>
 <template>
 
-    <v-card class="rounded-card" elevation="4" :to="{ path: `/product/${card.id}`}" :style="{ width: !lgAndUp ? '350px' : '75%' }">
+    <v-card class="rounded-card" elevation="4"
+        :to="{ path: `/product/${card.id}`}"
+        :style="{ width: width }"
+    >
     <div :style="{ backgroundImage: `url('${card.img}')` }" class="card-image"></div>
     <v-card-title >{{ card.title }}</v-card-title>
     <v-row>

@@ -42,8 +42,8 @@ const chains = ["All chains", "ETH", "BTC"]
                 </v-col>
             </v-row>
             <v-divider class="mb-5"></v-divider>
-            <v-row >
-                <v-col cols="12" md="6" lg="3" v-for="card in cards">
+            <v-row class="d-flex justify-center">
+                <v-col cols="10" md="6" lg="3" v-for="card in cards" class="">
                     <ImproveNFT  :key="card.id" :card="card"/>
                 </v-col>
             </v-row>

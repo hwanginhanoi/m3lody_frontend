@@ -61,9 +61,10 @@ let sum = computed(() => {
                 </v-row>
             </td>
             <td>
-                <v-btn>
+                <v-btn
+                    @click="removeItem(index)"
+                >
                     <v-icon icon="$delete"
-                            @click="removeItem(index)"
                     ></v-icon>
                 </v-btn>
             </td>
