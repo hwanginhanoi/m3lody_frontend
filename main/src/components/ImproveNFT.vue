@@ -17,7 +17,7 @@ console.log(route.path);
 </script>
 <template>
 
-    <v-card class="rounded-card" elevation="4"
+    <v-card class="rounded-card pa-2" elevation="4"
         :to="{ path: `/product/${card.id}`}"
         :style="{ width: width }"
     >
@@ -42,6 +42,7 @@ console.log(route.path);
     overflow: hidden;
     aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
     transition: transform 0.3s ease;
+
 }
 
 .card-image {
