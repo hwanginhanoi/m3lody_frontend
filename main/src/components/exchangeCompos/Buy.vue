@@ -6,11 +6,16 @@ import {ref} from "vue";
 
 let show = ref(false);
 const form = ref({
-    userPay: '',
-    userReceive: '',
-    payCoin: '---',
-    receiveCoin: '---',
+    userPay: null,
+    userReceive: null,
+    payCoin: 'USD',
+    receiveCoin: 'ETH',
 })
+
+function calCoin(){
+    if (form.value.receiveCoin === 'ETH')
+        form.value.userReceive = form.value.userPay * 20;
+}
 </script>
 <template>
     <v-dialog width="25%" min-width="450px">
@@ -44,7 +49,7 @@ const form = ref({
                                     placeholder="You pay"
                                     v-model="form.userPay"
                                     type="number"
-                                    clearable
+                                    @change="calCoin"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -56,7 +61,7 @@ const form = ref({
                                     chips
                                     variant="flat"
                                     v-model="form.payCoin"
-                                    :items="['USD', 'lickma']"
+                                    :items="['USD']"
                                     style="display: flex; justify-content: end;"
                                     class=""
                                     hide-details
@@ -76,8 +81,7 @@ const form = ref({
                                     placeholder="You receive"
                                     type="number"
                                     v-model="form.userReceive"
-
-                                    clearable
+                                    readonly="true"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -91,7 +95,7 @@ const form = ref({
                                     variant="flat"
                                     v-model="form.receiveCoin"
                                     style="display: flex; justify-content: end;"
-                                    :items="['USD']"
+                                    :items="['ETH']"
                                     hide-details
 
 
@@ -103,8 +107,8 @@ const form = ref({
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ form.userReceive }} {{form.receiveCoin}}</span> for <span
-                                        class="font-weight-bold">{{ form.userPay }} {{form.payCoin}}</span></p>
+                                        class="font-weight-bold">{{ form.userReceive? form.userReceive:'...' }} {{form.receiveCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.userPay? form.userPay: '...' }} {{form.payCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -123,11 +127,11 @@ const form = ref({
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 {{form.payCoin}}</span>@2.333,20
+                                                    <p><span class="font-weight-bold">{{form.userReceive}} {{form.receiveCoin}}</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">100,00 US$</p>
+                                                    <p class="font-weight-bold">Total: {{form.userPay}} US$</p>
                                                 </v-col>
 
                                             </v-row>

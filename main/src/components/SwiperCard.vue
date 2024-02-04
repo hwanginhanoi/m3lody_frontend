@@ -2,12 +2,18 @@
 import {Swiper, SwiperSlide} from "swiper/vue";
 import ImproveNFT from "./ImproveNFT.vue";
 import {Navigation, Pagination, Autoplay} from 'swiper/modules';
-import {onBeforeMount, ref} from "vue";
-const product = ref()
 let modules = [Navigation, Pagination, Autoplay];
+import cards from "../data.json";
 
-import item from "../data.json"
+function getRandomCards() {
+    let randomIndices = new Set();
+    while(randomIndices.size < 5) {
+        randomIndices.add(Math.floor(Math.random() * cards.length));
+    }
+    return Array.from(randomIndices).map(index => cards[index]);
+}
 
+let randomCards = getRandomCards();
 </script>
 <template>
     <div class="d-flex justify-center my-10">
@@ -40,7 +46,7 @@ import item from "../data.json"
                         },
                         }"
         >
-            <swiper-slide class="" v-for="card in item">
+            <swiper-slide class="" v-for="card in randomCards">
                 <ImproveNFT :card="card"/>
             </swiper-slide>
 
