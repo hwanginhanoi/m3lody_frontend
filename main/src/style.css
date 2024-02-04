@@ -1,3 +1,8 @@
 body {
   font-family: "Lufga", sans-serif;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

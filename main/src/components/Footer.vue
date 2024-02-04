@@ -83,8 +83,4 @@ let {mdAndUp} = useDisplay();
 .smallertext {
     font-size: 11.4px;
 }
-
-a {
-    text-decoration: none;
-}
 </style>
