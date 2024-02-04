@@ -23,7 +23,7 @@ const chains = ["All chains", "ETH", "BTC"]
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <v-container>
+        <v-container class="mb-16">
             <v-row>
                 <v-col cols="12">
                     <h1>Drops</h1>

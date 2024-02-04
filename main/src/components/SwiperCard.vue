@@ -89,7 +89,7 @@ const cards = [
 }
 
 ::v-deep .swiper-button-prev:hover::after {
-    background: rgba(189, 195, 199, 0.9);
+    background: rgba(189, 195, 199, 0.3);
 
 }
 
@@ -105,7 +105,7 @@ const cards = [
 }
 
 ::v-deep .swiper-button-next:hover::after {
-    background: rgba(189, 195, 199, 0.9);
+    background: rgba(189, 195, 199, 0.3);
 
 }
 </style>

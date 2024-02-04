@@ -38,7 +38,7 @@ let items = [
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
-        <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw" >
+        <v-container class="text-center vmain mb-16" style="padding-right: 2em; max-width: 95vw" >
             <h1>Dashboard</h1>
             <SwiperCard/>
             <div class="d-flex justify-space-between my-10">
