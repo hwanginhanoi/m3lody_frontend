@@ -7,7 +7,7 @@ let {mdAndUp, lgAndUp} = useDisplay();
 </script>
 <template>
 
-    <v-card class="rounded-card" elevation="4" :to="{ path: `/product/${card.id}`}" :style="{ width: !lgAndUp ? '95%' : '85%' }">
+    <v-card class="rounded-card" elevation="4" :to="{ path: `/product/${card.id}`}" :style="{ width: !lgAndUp ? '84%' : '75%' }">
     <div :style="{ backgroundImage: `url('${card.img}')` }" class="card-image"></div>
     <v-card-title >{{ card.title }}</v-card-title>
     <v-row>

@@ -1,14 +1,10 @@
 <script setup lang="ts">
 // import required modules
-import {Swiper, SwiperSlide} from 'swiper/vue';
-import {Navigation, Pagination, Autoplay} from 'swiper/modules';
-
+import {useDisplay} from "vuetify";
 // Import Swiper styles
 import 'swiper/css/bundle';
-import NFT from "../components/NFT.vue";
-import ImproveNFT from "../components/ImproveNFT.vue";
+import SwiperCard from "../components/SwiperCard.vue";
 
-let modules = [Navigation, Pagination, Autoplay];
 
 let header = [
     {text: 'Rank', value: 'rank', align: 'center', width: '10%'},
@@ -37,62 +33,14 @@ let items = [
     {rank: 10, collection: 'Collection 10', floorPrice: 1.0, volume: 1.4},
 ];
 
-const cards = [
-    {id: 1, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 2, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 3, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 4, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 5, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 6, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 7, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 8, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 9, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
-    {id: 10, title: 'Card 1fewfewfewfewfewfewfewfewefw', content: 'MMB', img: "src/assets/test.png"},
-    {id: 11, title: 'Card 1', content: 'MMB', img: "src/assets/test1.jpeg"},
-    {id: 12, title: 'Card 1', content: 'MMB', img: "src/assets/test2.avif"},
 
-];
 </script>
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="" >
         <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw" >
             <h1>Dashboard</h1>
-            <div class="d-flex justify-center my-10">
-                <swiper
-                    :slidesPerView="1"
-                    :spaceBetween="10"
-                    :pagination="{ clickable: true }"
-                    navigation
-                    :modules="modules"
-                    class="mySwiper ma-0"
-                    loop
-                    :breakpoints="{
-                        '500': {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-    
-                        '640': {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        '768': {
-                            slidesPerView: 2,
-                            spaceBetween: 0,
-                        },
-                        '1200': {
-                            slidesPerView: 3,
-                            spaceBetween: 0,
-                        },
-                        }"
-                >
-                    <swiper-slide class="" v-for="card in cards">
-                        <ImproveNFT :card="card"/>
-                    </swiper-slide>
-
-                </swiper>
-            </div>
+            <SwiperCard/>
             <div class="d-flex justify-space-between my-10">
                 <v-btn-toggle>
                     <v-btn>
@@ -141,19 +89,6 @@ const cards = [
 </template>
 
 <style scoped>
-.swiper {
-    width: 100%;
-    max-width: 100vw;
-    height: 60vh;
-}
 
-
-
-.swiper-slide {
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 </style>
