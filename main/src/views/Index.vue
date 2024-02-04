@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Footer from "../components/Footer.vue";
 // import required modules
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {Navigation, Pagination, Autoplay} from 'swiper/modules';
@@ -139,8 +138,6 @@ const cards = [
                 </template>
             </v-data-table>
         </v-container>
-        <Footer />
-
     </v-main>
 </template>
 
