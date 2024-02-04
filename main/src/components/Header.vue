@@ -3,6 +3,7 @@ import {useTheme, useDisplay} from 'vuetify'
 import {ref, computed} from 'vue'
 import Buy from "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue";
+import Cart from "./Cart.vue"
 
 const theme = useTheme()
 
@@ -169,7 +170,7 @@ let userID = ref("69-96-69-96")
             </v-card>
         </v-menu>
 
-        <v-dialog width="30%">
+        <v-dialog width="50%">
             <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
@@ -179,6 +180,7 @@ let userID = ref("69-96-69-96")
             <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                 <v-card title="Dialog" rounded="lg">
                     <v-card-text>
+                        <Cart></Cart>
                     </v-card-text>
 
                     <v-card-actions>
