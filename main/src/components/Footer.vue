@@ -12,7 +12,7 @@ let {mdAndUp} = useDisplay();
 </script>
 
 <template>
-    <v-footer>
+    <v-footer absolute>
         <v-container class="d-flex flex-column flex-wrap" style="max-width: 95vw; padding-right: 2em;">
             <v-row>
                 <v-col cols="12" md="6">

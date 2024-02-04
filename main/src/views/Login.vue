@@ -155,7 +155,7 @@ const particlesLoaded = async (container: any) => {
                             <v-btn
                                 block
                                 type="submit"
-                                to="/index"
+                                to="/dashboard"
                                 rounded="lg"
                                 color="#77ED91"
                             >

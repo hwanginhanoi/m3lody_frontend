@@ -24,13 +24,13 @@ let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 const menu = ref(false)
 const wallet = ref(false)
 
-let balance = {coin: 500, usd: 100}
+let balance = {coin: 500, usd: 100, eth: 300}
 let userID = ref("69-96-69-96")
 
 const router = useRoute()
 
 function checkRoute(): boolean {
-    return router.name != "Landing";
+    return router.name != "Index";
 }
 
 console.log(router.name)
@@ -82,7 +82,7 @@ console.log(router.name)
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout
+                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout" to="/index">Logout
                     </v-btn>
                 </v-list>
             </div>
@@ -92,7 +92,7 @@ console.log(router.name)
     <v-app-bar elevation="0" color="background" height="85" class="mx-auto">
         <v-app-bar-nav-icon v-if="!mdAndUp && checkRoute()" @click.stop="drawer=!drawer"
                             class="ml-1"></v-app-bar-nav-icon>
-        <router-link to="/index" class="mx-4"><img
+        <router-link to="/dashboard" class="mx-4"><img
             src="../assets/trade-dark.png" height="30"></router-link>
         <v-divider v-if="mdAndUp || !checkRoute()" vertical length="50" class="border-opacity-50 mt-4"></v-divider>
         <v-btn v-if="mdAndUp || !checkRoute()" to="/marketplace" class="ml-2">Marketplace</v-btn>
@@ -139,10 +139,7 @@ console.log(router.name)
                                 <p>ID: {{ userID }}</p>
                             </v-col>
                             <v-col>
-                                <div class="theborder text-center rounded-lg">
-                                    <v-icon icon="mdi-currency-usd"></v-icon>
-
-                                </div>
+                                <p>{{balance.eth}} ETH</p>
                             </v-col>
                         </v-row>
                         <v-row class="mb-2">
@@ -181,7 +178,7 @@ console.log(router.name)
             </v-card>
         </v-menu>
 
-        <v-dialog width="50%" v-if="checkRoute()">
+        <v-dialog width="50%" min-width="470px" v-if="checkRoute()">
             <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
@@ -247,7 +244,7 @@ console.log(router.name)
                             <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
                         </template>
                     </v-switch>
-                    <v-list-item to="/login" prepend-icon="mdi-logout" title="Logout"></v-list-item>
+                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>

@@ -36,7 +36,7 @@ const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_
                     <v-col class="d-flex align-center">
                         <v-row>
                             <v-col cols="12" class="pl-4">
-                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photot</v-btn>
+                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photo</v-btn>
                                 <v-btn class="ml-2 mt-4" color="white" max-width="150">Reset</v-btn>
                             </v-col>
                             <v-col class="ml-9">

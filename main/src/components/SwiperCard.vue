@@ -72,7 +72,7 @@ let randomCards = getRandomCards();
     background: green;
 }
 
-::v-deep .swiper-button-prev::after {
+:deep(.swiper-button-prev::after) {
     font-size: 30px;
     width: 50px;
     color: white;
@@ -84,12 +84,12 @@ let randomCards = getRandomCards();
 
 }
 
-::v-deep .swiper-button-prev:hover::after {
+:deep(.swiper-button-prev:hover::after) {
     background: rgba(189, 195, 199, 0.3);
 
 }
 
-::v-deep .swiper-button-next::after {
+:deep(.swiper-button-next::after) {
     font-size: 30px;
     width: 50px;
     color: white;
@@ -100,8 +100,7 @@ let randomCards = getRandomCards();
     transition: all 0.3s;
 }
 
-::v-deep .swiper-button-next:hover::after {
+:deep(.swiper-button-next:hover::after) {
     background: rgba(189, 195, 199, 0.3);
-
 }
 </style>

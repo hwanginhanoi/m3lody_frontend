@@ -4,7 +4,7 @@ const routes = [
     {path: '/', redirect: '/index'},
     {
         path: '/index',
-        name: 'Dashboard',
+        name: 'Index',
         components:
             {
                 default: () => import('../views/Index.vue'),
@@ -13,11 +13,11 @@ const routes = [
             }
     },
         {
-        path: '/landing',
-        name: 'Landing',
+        path: '/dashboard',
+        name: 'Dashboard',
         components:
             {
-                default: () => import('../views/Landing.vue'),
+                default: () => import('../views/Dashboard.vue'),
                 header: () => import('../components/Header.vue'),
                 footer: () => import('../components/Footer.vue')
             }

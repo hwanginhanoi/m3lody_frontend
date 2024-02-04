@@ -46,11 +46,13 @@ console.log(route.path);
     overflow: hidden;
     aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
     transition: transform 0.3s ease;
+    min-height: 500px;
+    max-width: 400px;
 
 }
 
 .card-image {
-    height: 60%;
+    height: 50%;
     background-size: cover;
     background-position: center;
 }

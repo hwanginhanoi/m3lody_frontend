@@ -68,14 +68,14 @@ let sum = computed(() => {
                     ></v-icon>
                 </v-btn>
             </td>
-            <td>{{ item.price }} SWB</td>
+            <td>{{ item.price }} ETH</td>
         </tr>
         </tbody>
     </v-table>
     <v-row class="pa-5">
         <v-col class="v-col-8">
             <v-card-text class="text-center font-weight-black"
-            >Total Price: {{ sum }} SWB
+            >Total Price: {{ sum }} ETH
             </v-card-text
             >
         </v-col>

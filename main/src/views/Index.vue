@@ -1,83 +1,99 @@
 <script setup lang="ts">
-// import required modules
-import {ref} from "vue";
-import {useDisplay} from "vuetify";
-// Import Swiper styles
-import 'swiper/css/bundle';
-import SwiperCard from "../components/SwiperCard.vue";
+import cards from "../components/InteractiveCards.vue";
 
-import item from "../data.json"
-
-let header = [
-    {
-        title: 'Rank',
-        key: 'rank',
-        align: 'center'
-    },
-    {title: 'Image', key: 'image', align: 'center'},
-    {title: 'Name', key: 'name', align: 'center'},
-    {title: 'Floor Price', key: 'price', align: 'center'},
-
-]
-const model = ref(0);
-const model2 = ref(0);
+const particlesLoaded = async (container: any) => {
+    console.log("Particles container loaded", container);
+};
 </script>
 
 <template>
-    <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
-        <v-container class="text-center vmain" style="padding-right: 2em; max-width: 95vw">
-            <h1>Dashboard</h1>
-            <SwiperCard/>
-            <div class="d-flex justify-space-between my-10">
-                <v-btn-toggle v-model="model">
-                    <v-btn value="0">
-                        Trending
-                    </v-btn>
-                    <v-btn value="1">
-                        Top
-                    </v-btn>
-                </v-btn-toggle>
-                <v-btn-toggle v-model="model2">
-                    <v-btn value="0">
-                        24h
-                    </v-btn>
-                    <v-btn value="1">
-                        7d
-                    </v-btn>
-                    <v-btn value="2">
-                        30d
-                    </v-btn>
-                </v-btn-toggle>
-            </div>
-
-            <v-data-table
-                :headers="header"
-                :items="item"
-                :items-per-page="5"
-                class="elevation-1"
-                :fixed-header="true"
-                :hide-default-footer="true"
-            >
-                <template v-slot:item.rank="{ item }">
-                    {{ item.rank }}
-                </template>
-                <template v-slot:item.image="{item}">
-                    <v-img :src="item.src" class="rounded-lg ma-7"></v-img>
-                </template>
-                <template v-slot:item.name="{ item }">
-
-                    {{ item.name }}
-
-                </template>
-                <template v-slot:item.price="{ item }">
-                    {{ item.price }} ETH
-                </template>
-            </v-data-table>
-        </v-container>
+    <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json"/>
+    <vue-particles
+        id="tsparticles"
+        :particlesLoaded="particlesLoaded"
+        :options="{
+                    background: {
+                        color: {
+                            value: '#000000'
+                        }
+                    },
+                    fpsLimit: 120,
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: 'repulse'
+                            },
+                        },
+                        modes: {
+                            bubble: {
+                                distance: 400,
+                                duration: 2,
+                                opacity: 0.8,
+                                size: 40
+                            },
+                            push: {
+                                quantity: 4
+                            },
+                                repulse: {
+                                    distance: 200,
+                                    duration: 0.4
+                                }
+                        }
+                    },
+                    particles: {
+                        color: {
+                            value: '#77ED91'
+                        },
+                        links: {
+                            color: '#77ED91',
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.5,
+                            width: 1
+                        },
+                        move: {
+                            direction: 'none',
+                            enable: true,
+                            outModes: 'bounce',
+                            random: false,
+                            speed: 6,
+                            straight: false
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                            },
+                            value: 80
+                        },
+                        opacity: {
+                            value: 0.5
+                        },
+                        shape: {
+                            type: 'circle'
+                        },
+                        size: {
+                            value: { min: 1, max: 5 }
+                        }
+                    },
+                    detectRetina: true
+                }"
+    />
+    <v-main>
+        <div
+            style="background-color: rgba(0, 0, 0, 0.1); height: 100vh; backdrop-filter: blur(2px); color: black;">
+                <h1>Welcum</h1>
+                <cards/>
+        </div>
     </v-main>
 </template>
 
 <style scoped>
+.main{
 
-
+}
 </style>

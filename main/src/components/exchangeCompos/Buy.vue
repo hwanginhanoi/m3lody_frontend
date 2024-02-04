@@ -12,9 +12,14 @@ const form = ref({
     receiveCoin: 'ETH',
 })
 
-function calCoin(){
+function payToCoin(){
     if (form.value.receiveCoin === 'ETH')
         form.value.userReceive = form.value.userPay * 20;
+}
+
+function coinToPay(){
+        if (form.value.receiveCoin === 'ETH')
+        form.value.userPay = form.value.userReceive / 20;
 }
 </script>
 <template>
@@ -49,7 +54,7 @@ function calCoin(){
                                     placeholder="You pay"
                                     v-model="form.userPay"
                                     type="number"
-                                    @change="calCoin"
+                                    @change="payToCoin"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -81,7 +86,7 @@ function calCoin(){
                                     placeholder="You receive"
                                     type="number"
                                     v-model="form.userReceive"
-                                    readonly="true"
+                                    @change="coinToPay"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
