@@ -50,8 +50,8 @@ let {mdAndUp} = useDisplay();
                 <v-col cols="4" md="2">
                     <v-list>
                         <v-list-subheader :class="!mdAndUp? 'smallertext':''"><h2>Account</h2></v-list-subheader>
-                        <v-list-item to="/marketplace" title="Profile" active-class="no-active"></v-list-item>
-                        <v-list-item to="/create" title="Settings" active-class="no-active"></v-list-item>
+                        <v-list-item to="/profile" title="Profile" active-class="no-active"></v-list-item>
+                        <v-list-item to="/account" title="Settings" active-class="no-active"></v-list-item>
                         <v-list-item to="/transaction" title="History" active-class="no-active"></v-list-item>
                     </v-list>
                 </v-col>
