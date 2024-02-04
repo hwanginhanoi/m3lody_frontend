@@ -62,19 +62,21 @@ let sum = calcSum()
                     <v-icon icon="$delete"></v-icon>
                 </v-btn>
             </td>
-            <td>{{ item.price }}</td>
+            <td>{{ item.price }} SWB</td>
         </tr>
         </tbody>
     </v-table>
     <v-row class="pa-5">
         <v-col class="v-col-8">
             <v-card-text class="text-center font-weight-black"
-            >Total Price: {{ sum }}
+            >Total Price: {{ sum }} SWB
             </v-card-text
             >
         </v-col>
         <v-col class="v-col-2">
-            <v-btn min-width="100px" class="text-center font-weight-black" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">Payment</v-btn>
+            <v-btn min-width="100px" class="text-center font-weight-black"
+                   :style="{ background: $vuetify.theme.global.current.colors.navbtn}">Payment
+            </v-btn>
         </v-col>
     </v-row>
 </template>

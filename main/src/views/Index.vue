@@ -88,10 +88,10 @@ let items = [
 
                 </template>
                 <template v-slot:item.floorPrice="{ item }">
-                    {{ item.floorPrice }} ETH
+                    {{ item.floorPrice }} SWB
                 </template>
                 <template v-slot:item.volume="{ item }">
-                    {{ item.volume }} ETH
+                    {{ item.volume }} SWB
                 </template>
             </v-data-table>
         </v-container>
