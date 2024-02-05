@@ -7,13 +7,14 @@ defineProps(['card']);
 let {mdAndUp, lgAndUp} = useDisplay();
 const route = useRoute();
 
-function cal_width(){
+function cal_width() {
     if (route.path == "/dashboard") {
-        return "300px";
+        return "62%";
     } else if (route.path == "/marketplace") {
-        return "350px";
+        return "";
     }
 }
+
 let width_cal = ref()
 width_cal = cal_width()
 console.log(width_cal)
@@ -21,16 +22,13 @@ console.log(route.path);
 </script>
 <template>
 
-    <v-card class="rounded-lg pa-5" elevation="4"
+    <v-card class="rounded-lg custom" elevation="3"
             :to="{ path: `/product/${card.id}`}"
-            :width = "{width_cal}">
-
-
-
-        <v-img :src="card.src" class="w-100"></v-img>
+            :width=width_cal>
+        <v-img :src="card.src" class="w-100" cover></v-img>
         <v-card-title>{{ card.name }}</v-card-title>
         <v-row>
-            <v-col>
+            <v-col class="v-col-7">
                 <v-card-subtitle>Author</v-card-subtitle>
 
                 <v-card-text class="overflow-hidden">
@@ -47,12 +45,16 @@ console.log(route.path);
 </template>
 
 <style scoped>
-.rounded-lg{
+.rounded-lg {
     transition: all 0.25s ease-in-out;
 }
 
 .rounded-lg:hover {
     transform: translateY(-10px);
+}
+
+.custom {
+    aspect-ratio: 4/6;
 }
 
 </style>

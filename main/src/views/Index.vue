@@ -43,7 +43,7 @@ function increaseNumber() {
     }
 }
 
-function formatNumber(number : any) {
+function formatNumber(number: any) {
     if (number >= 1000000) {
         return (number / 1000000).toFixed(1) + 'M+';
     } else if (number >= 1000) {
@@ -57,7 +57,7 @@ import cards from "../data.json";
 
 function getRandomCards() {
     let randomIndices = new Set();
-    while(randomIndices.size < 3) {
+    while (randomIndices.size < 3) {
         randomIndices.add(Math.floor(Math.random() * cards.length));
     }
     return Array.from(randomIndices).map(index => cards[index]);
@@ -160,7 +160,8 @@ let randomCards = getRandomCards();
                 </v-col>
             </v-row>
             <v-row style="color: #9f8cff">
-                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"  class="d-flex justify-center py-16">
+                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"
+                       class="d-flex justify-center py-16">
                     <div>
                         <h1>{{ sold }}</h1>
                         <p>NFT Sold</p>
@@ -168,14 +169,16 @@ let randomCards = getRandomCards();
 
                 </v-col>
                 <v-divider vertical :thickness="2" class="border-opacity-50"></v-divider>
-                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"  class="d-flex justify-center py-16">
+                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"
+                       class="d-flex justify-center py-16">
                     <div>
                         <h1>{{ artists }}</h1>
                         <p>Artists</p>
                     </div>
                 </v-col>
                 <v-divider vertical :thickness="2" class="border-opacity-50"></v-divider>
-                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"  class="d-flex justify-center py-16">
+                <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"
+                       class="d-flex justify-center py-16">
                     <div>
                         <h1>${{ transaction }}</h1>
                         <p>Total Transaction</p>
@@ -186,37 +189,47 @@ let randomCards = getRandomCards();
             <v-row :style="{background: $vuetify.theme.global.current.colors.navbtn}" class="spaceuper pb-16">
                 <v-row>
                     <v-col class="mt-16" cols="12">
-                    <v-col cols="7" class=" parallelogram bg-purple-accent-4 setheight" offset="1">
-                        <div class="bars">
-                            <h2><v-icon style="transform: translateY(-2px)">mdi-credit-card-check</v-icon> Fast Transactions</h2>
-                            <p>Experience top-of-the-line efficiency with swift NFT transactions, ensuring seamless transfers of digital assets across blockchain networks with unparalleled speed. </p>
-                        </div>
+                        <v-col cols="7" class=" parallelogram bg-purple-accent-4 setheight" offset="1">
+                            <div class="bars">
+                                <h2>
+                                    <v-icon style="transform: translateY(-2px)">mdi-credit-card-check</v-icon>
+                                    Fast Transactions
+                                </h2>
+                                <p>Experience top-of-the-line efficiency with swift NFT transactions, ensuring seamless
+                                    transfers of digital assets across blockchain networks with unparalleled speed. </p>
+                            </div>
+                        </v-col>
                     </v-col>
-                </v-col>
-                <v-col cols="12" class="mt-4">
-                    <v-col cols="7" offset="4" class="setheight parallelogram bg-purple-accent-4">
-                        <div class="bars">
-                            <h2><v-icon style="transform: translateY(-2px)">mdi-link-lock</v-icon> Secure Blockchain System</h2>
-                            <p>Benefit from the top-of-the-line, advanced blockchain system, ensuring state-of-the-art security for all digital assets and transactions.</p>
-                        </div>
+                    <v-col cols="12" class="mt-4">
+                        <v-col cols="7" offset="4" class="setheight parallelogram bg-purple-accent-4">
+                            <div class="bars">
+                                <h2>
+                                    <v-icon style="transform: translateY(-2px)">mdi-link-lock</v-icon>
+                                    Secure Blockchain System
+                                </h2>
+                                <p>Benefit from the top-of-the-line, advanced blockchain system, ensuring
+                                    state-of-the-art security for all digital assets and transactions.</p>
+                            </div>
+                        </v-col>
                     </v-col>
-                </v-col>
                 </v-row>
 
-                <v-row class="w-100" style="margin-top: 100px">
-                    <v-col offset="1" cols="6" class="mb-3" sm="8">
-                        <p>Trending</p>
-                        <h1>Auctions</h1>
+                <v-row class="w-100 d-flex justify-space-between" style="margin-top: 100px">
+                    <v-col class="d-flex justify-center">
+                        <div>
+                            <p>Trending</p>
+                            <h1>Auctions</h1>
+                        </div>
                     </v-col>
-                    <v-col class="d-flex align-center">
+                    <v-col class="d-flex justify-center align-center">
                         <v-btn class="bg-purple-accent-4 rounded-md button" append-icon="mdi-page-next-outline">
                             <router-link to="/login">View all</router-link>
                         </v-btn>
                     </v-col>
                 </v-row>
-                <v-row>
-                    <v-col cols="12" md="4" v-for="card in randomCards" class="d-flex justify-center">
-                        <ImproveNFT :card="card"/>
+                <v-row class=" d-flex justify-center">
+                    <v-col cols="12" sm="8" md="4" lg="3" v-for="card in randomCards" class="d-flex justify-center">
+                        <ImproveNFT :card="card" class="w-75"/>
                     </v-col>
                 </v-row>
             </v-row>
@@ -235,7 +248,7 @@ let randomCards = getRandomCards();
     min-height: 100px;
 }
 
-.bars{
+.bars {
     padding: 0 2em;
 }
 
@@ -252,11 +265,11 @@ let randomCards = getRandomCards();
     transform: skew(-16deg);
 }
 
-.button{
+.button {
     transition: all 0.3s;
 }
 
-.button:hover{
+.button:hover {
     background: green;
 }
 </style>

@@ -45,7 +45,6 @@ const model2 = ref(0);
                     </v-btn>
                 </v-btn-toggle>
             </div>
-
             <v-data-table
                 :headers="header"
                 :items="item"
@@ -61,9 +60,7 @@ const model2 = ref(0);
                     <v-img :src="item.src" class="rounded-lg ma-2" max-width="200px"></v-img>
                 </template>
                 <template v-slot:item.name="{ item }">
-
                     <h3>{{ item.name }}</h3>
-
                 </template>
                 <template v-slot:item.price="{ item }">
                     {{ item.price }} ETH
