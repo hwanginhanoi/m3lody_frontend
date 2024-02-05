@@ -17,11 +17,12 @@ console.log(route.path);
 </script>
 <template>
 
-    <v-card class="rounded-card pa-2" elevation="4"
-            :to="{ path: `/product/${card.id}`}"
-            :style="{ width: width }"
-    >
-        <div :style="{ backgroundImage: `url('${card.src}')` }" class="card-image"></div>
+    <v-card class="rounded-lg pa-5" elevation="4"
+            :to="{ path: `/product/${card.id}`}">
+
+
+
+        <v-img :src="card.src" class="w-100"></v-img>
         <v-card-title>{{ card.name }}</v-card-title>
         <v-row>
             <v-col>
@@ -41,23 +42,8 @@ console.log(route.path);
 </template>
 
 <style scoped>
-.rounded-card {
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
-    transition: transform 0.3s ease;
-    min-height: 500px;
-    max-width: 400px;
 
-}
-
-.card-image {
-    height: 50%;
-    background-size: cover;
-    background-position: center;
-}
-
-.rounded-card:hover {
+.rounded-lg:hover {
     transform: translateY(-10px);
 }
 
