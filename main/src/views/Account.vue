@@ -5,6 +5,7 @@ import AccountSecurity from "../components/accountCompos/AccountSecurity.vue";
 import AccountPayment from "../components/accountCompos/AccountPayment.vue";
 
 const tab = ref(1);
+
 </script>
 
 <template>

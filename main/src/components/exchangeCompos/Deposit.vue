@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-let userPay = ref(100);
-
-let userTransfer = ref(100);
-
 let show = ref(false);
-let userID = ref("111000202030-69");
+const form = ref({
+    usdToETH: null,
+    ethToUSD: null,
+    depositCoin: 'ETH',
+    depositedCoin: 'USD',
+})
+
+function ethToUSDFunc(){
+    if (form.value.depositedCoin === 'ETH')
+        form.value.ethToUSD = form.value.usdToETH * 20;
+}
+
+function usdToETHFunc(){
+        if (form.value.depositedCoin === 'USD')
+        form.value.usdToETH = form.value.ethToUSD / 20;
+}
 </script>
 
 <style scoped>
@@ -70,7 +81,7 @@ let userID = ref("111000202030-69");
 </style>
 
 <template>
-    <v-dialog width="32%" min-width="450px">
+    <v-dialog width="25%" min-width="450px">
         <template v-slot:activator="{ props }">
             <v-btn v-bind="props" prepend-icon="mdi-arrow-down" class="bg-purple" width="200px" height="35px">Deposit
             </v-btn>
@@ -91,14 +102,48 @@ let userID = ref("111000202030-69");
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
+                                      border-radius: 11px;
+                                      overflow: hidden; "
+                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
+                        >
+                            <v-col class="text-left pl-5" cols="">
+                                <v-text-field
+                                    placeholder="You deposit"
+                                    v-model="form.usdToETH"
+                                    type="number"
+                                    @change="payToCoin"
+                                    rounded="lg"
+                                    variant="plain"
+                                    color="#d777ed"
+                                >
+                                </v-text-field>
+                            </v-col>
+                            <v-col cols="" class="pl-10">
+                                <v-select
+                                    chips
+                                    variant="flat"
+                                    v-model="form.receiveCoin"
+                                    :items="['ETH']"
+                                    style="display: flex; justify-content: end;"
+                                    class=""
+                                    hide-details
+                                ></v-select>
+                            </v-col>
+                        </v-row>
+                        <v-row no-gutters
+                               class="mt-3"
+                               style="height: 60px;
+                                                       background: #242627;
                                                        border-radius: 11px;
                                                        overflow: hidden; "
                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                         >
-                            <v-col class="text-left pl-5" cols="" >
+                            <v-col class="text-left pl-5" cols="">
                                 <v-text-field
-                                    placeholder="Amount"
-                                    type="text"
+                                    placeholder="Amount of coin"
+                                    type="number"
+                                    v-model="form.usdToETH"
+                                    @change="payToCoin"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -110,62 +155,22 @@ let userID = ref("111000202030-69");
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
-                                    :items="['USD']"
+                                    v-model="form.payCoin"
                                     style="display: flex; justify-content: end;"
-                                    class=""
+                                    :items="['USD']"
                                     hide-details
+
+
                                 ></v-select>
                             </v-col>
                         </v-row>
-                        <v-row no-gutters
-                               class="mt-3"
-                               style="height: 60px;
-                               background: #242627;
-                               border-radius: 11px;
-                               overflow: hidden; "
-                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                        >
-                            <v-col class="text-left pl-5" cols="11">
-                                <v-text-field
-                                    placeholder="Target Wallet(ID)"
-                                    type="text"
-                                    rounded="lg"
-                                    variant="plain"
-                                    color="#d777ed"
-
-                                >
-                                </v-text-field>
-                            </v-col>
-                        </v-row>
-                        <v-row no-gutters
-                               class="mt-3"
-                               style="height: 60px;
-                               background: #242627;
-                               border-radius: 11px;
-                               overflow: hidden; "
-
-                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                        >
-                            <v-col class="d-flex justify-center align-center" cols="7">
-                                <p>Select Network:</p>
-                            </v-col>
-                            <v-col class="text-left pl-5" cols="4">
-                                <v-select
-                                    chips
-                                    variant="plain"
-                                    model-value="None"
-                                    :items="['---', 'tsc']"
-                                    :style="{}"
-                                    class=""
-                                    hide-details
-                                ></v-select>
-                            </v-col>
-                        </v-row>
-                        <v-card width="100%"  class=" mt-3 pa-3" :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
+                        <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
+                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
-                                <v-col cols="10" class="d-flex align-center" >
-                                    <p class="smallText">You transfer <span class="font-weight-bold">{{userTransfer}} HickCoin</span> to user with <span class="font-weight-bold">ID: {{userID}}</span></p>
+                                <v-col cols="10" class="d-flex align-center">
+                                    <p class="smallText">You get <span
+                                        class="font-weight-bold">{{ form.ethToUSD? form.ethToUSD:'...' }} {{form.receiveCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.usdToETH? form.usdToETH: '...' }} {{form.payCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -173,7 +178,6 @@ let userID = ref("111000202030-69");
                                         @click="show = !show"
                                         width="30px"
                                         height="30px"
-
                                     ></v-btn>
                                 </v-col>
                             </v-row>
@@ -183,12 +187,13 @@ let userID = ref("111000202030-69");
                                         <v-divider :thickness="4"></v-divider>
 
                                         <v-card-text>
-                                            <v-row >
+                                            <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20 US$</p>
+                                                    <p><span class="font-weight-bold">{{form.ethToUSD}} {{form.receiveCoin}}</span>@2.333,20
+                                                        US$</p>
                                                 </v-col>
-                                                <v-col class="text-right pa-2" >
-                                                    <p class="font-weight-bold">100,00 US$</p>
+                                                <v-col class="text-right pa-2">
+                                                    <p class="font-weight-bold">Total: {{form.usdToETH}} US$</p>
                                                 </v-col>
 
                                             </v-row>
@@ -205,7 +210,7 @@ let userID = ref("111000202030-69");
                                                     <p><span class="font-weight-bold">Processing fee</span></p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span> </p>
+                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span></p>
                                                 </v-col>
                                             </v-row>
 
@@ -215,9 +220,16 @@ let userID = ref("111000202030-69");
                             </v-row>
                             <v-row>
                                 <v-col cols="12">
-                                    <v-btn width="100%" class="bg-green">Confirm</v-btn>
+                                    <v-btn width="100%"
+                                           style="border-radius: 11px"
+                                           class="bg-green"
+                                           @click="isActive.value = false"
+                                    >Confirm
+
+                                    </v-btn>
                                 </v-col>
-                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span class="font-weight-bold">cookie policy</span></p></v-col>
+                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span
+                                    class="font-weight-bold">cookie policy</span></p></v-col>
                             </v-row>
 
                         </v-card>

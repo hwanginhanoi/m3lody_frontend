@@ -6,7 +6,7 @@ import PictureInput from 'vue-picture-input'
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <div class="mt-16 jusd-flex " >
+        <div class="my-16 jusd-flex " >
             <v-row>
                 <v-col>
                     <div style="margin: 0px 15%">

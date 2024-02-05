@@ -4,11 +4,22 @@ const routes = [
     {path: '/', redirect: '/index'},
     {
         path: '/index',
-        name: 'Dashboard',
+        name: 'Index',
         components:
             {
                 default: () => import('../views/Index.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
+            }
+    },
+        {
+        path: '/dashboard',
+        name: 'Dashboard',
+        components:
+            {
+                default: () => import('../views/Dashboard.vue'),
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -17,7 +28,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Account.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -26,7 +38,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Marketplace.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -35,7 +48,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Exchange.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -44,7 +58,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Create.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -53,7 +68,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Profile.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
         {
@@ -62,7 +78,8 @@ const routes = [
         components:
             {
                 default: () => import('../views/Transaction.vue'),
-                nav: () => import('../components/Header.vue')
+                header: () => import('../components/Header.vue'),
+                footer: () => import('../components/Footer.vue')
             }
     },
     {
@@ -74,18 +91,12 @@ const routes = [
         component: () => import('../views/Register.vue')
     },
     {
-        path: '/list',
-        components: {
-            default: () => import('../views/Create.vue'),
-            nav: () => import('../components/Header.vue')
-        }
-    },
-    {
         path: '/product/:id',
         name: 'Product',
         components: {
             default: () => import('../views/Product.vue'),
-            nav: () => import('../components/Header.vue')
+            header: () => import('../components/Header.vue'),
+            footer: () => import('../components/Footer.vue')
         },
         beforeRouteEnter(to : any) {
             const id = parseInt(to.params.id);

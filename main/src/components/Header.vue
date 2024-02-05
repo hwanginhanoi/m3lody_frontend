@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {useTheme, useDisplay} from 'vuetify'
+import {useRoute} from "vue-router"
 import {ref, computed} from 'vue'
 import Buy from "./exchangeCompos/Buy.vue"
-import Deposit from "./exchangeCompos/Deposit.vue";
+import Deposit from "./exchangeCompos/Deposit.vue"
+import Cart from "./Cart.vue"
 
 const theme = useTheme()
 
@@ -22,16 +24,22 @@ let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 const menu = ref(false)
 const wallet = ref(false)
 
-let balance = {coin: 500, usd: 100}
+let balance = {coin: 500, usd: 100, eth: 300}
 let userID = ref("69-96-69-96")
 
+const router = useRoute()
 
+function checkRoute(): boolean {
+    return router.name != "Index";
+}
+
+console.log(router.name)
 </script>
 
 <template>
     <v-navigation-drawer
         v-model="drawer"
-        v-if="!mdAndUp"
+        v-if="!mdAndUp && checkRoute()"
         width="230"
         color="nav-drawer"
         opacity='0.4'
@@ -74,7 +82,7 @@ let userID = ref("69-96-69-96")
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout">Logout
+                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout" to="/index">Logout
                     </v-btn>
                 </v-list>
             </div>
@@ -82,14 +90,17 @@ let userID = ref("69-96-69-96")
     </v-navigation-drawer>
 
     <v-app-bar elevation="0" color="background" height="85" class="mx-auto">
-        <v-app-bar-nav-icon v-if="!mdAndUp" @click.stop="drawer=!drawer" class="ml-1"></v-app-bar-nav-icon>
-        <router-link to="/index" class="mx-4"><img
+        <v-app-bar-nav-icon v-if="!mdAndUp && checkRoute()" @click.stop="drawer=!drawer"
+                            class="ml-1"></v-app-bar-nav-icon>
+        <router-link to="/dashboard" class="mx-4"><img
             src="../assets/trade-dark.png" height="30"></router-link>
-        <v-divider v-if="mdAndUp" vertical length="50" class="border-opacity-50 mt-4"></v-divider>
-        <v-btn v-if="mdAndUp" to="/marketplace" class="ml-2">Marketplace</v-btn>
-        <v-btn v-if="mdAndUp" to="/create">Create</v-btn>
+        <v-divider v-if="mdAndUp || !checkRoute()" vertical length="50" class="border-opacity-50 mt-4"></v-divider>
+        <v-btn v-if="mdAndUp || !checkRoute()" to="/marketplace" class="ml-2">Marketplace</v-btn>
+        <v-btn v-if="mdAndUp || !checkRoute()" to="/create">Create</v-btn>
         <v-spacer v-if="mdAndUp"></v-spacer>
+        <v-btn v-if="!checkRoute()" to="/login" class="border">Log in</v-btn>
         <v-text-field
+            v-if="checkRoute()"
             clearable
             class="pt-6 mx-auto"
             rounded="lg"
@@ -100,6 +111,7 @@ let userID = ref("69-96-69-96")
             style="max-width: 300px;"
         ></v-text-field>
         <v-menu
+            v-if="checkRoute()"
             v-model="wallet"
             :close-on-content-click="false"
             location="bottom"
@@ -127,10 +139,7 @@ let userID = ref("69-96-69-96")
                                 <p>ID: {{ userID }}</p>
                             </v-col>
                             <v-col>
-                                <div class="theborder text-center rounded-lg">
-                                    <v-icon icon="mdi-currency-usd"></v-icon>
-
-                                </div>
+                                <p>{{balance.eth}} ETH</p>
                             </v-col>
                         </v-row>
                         <v-row class="mb-2">
@@ -169,7 +178,7 @@ let userID = ref("69-96-69-96")
             </v-card>
         </v-menu>
 
-        <v-dialog width="30%">
+        <v-dialog width="50%" min-width="470px" v-if="checkRoute()">
             <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
@@ -179,6 +188,7 @@ let userID = ref("69-96-69-96")
             <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
                 <v-card title="Dialog" rounded="lg">
                     <v-card-text>
+                        <Cart/>
                     </v-card-text>
 
                     <v-card-actions>
@@ -197,7 +207,7 @@ let userID = ref("69-96-69-96")
             v-model="menu"
             :close-on-content-click="true"
             location="bottom"
-            v-if="mdAndUp"
+            v-if="mdAndUp && checkRoute()"
         >
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
@@ -234,7 +244,7 @@ let userID = ref("69-96-69-96")
                             <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
                         </template>
                     </v-switch>
-                    <v-list-item to="/login" prepend-icon="mdi-logout" title="Logout"></v-list-item>
+                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>

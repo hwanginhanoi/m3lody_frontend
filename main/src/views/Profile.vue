@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import cards from "../data.json";
+import ImproveNFT from "../components/ImproveNFT.vue";
 
 let username: string = "Jane Doe"
 let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
 
 const tab = ref(1);
+
+function getRandomCards() {
+    let randomIndices = new Set();
+    while(randomIndices.size < 3) {
+        randomIndices.add(Math.floor(Math.random() * cards.length));
+    }
+    return Array.from(randomIndices).map(index => cards[index]);
+}
+
+let randomCards = getRandomCards();
 </script>
 
 <template>
-    <v-main>
+    <v-main class="mb-16">
         <v-card>
             <v-img cover height="300" src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg"></v-img>
         </v-card>
@@ -17,8 +29,8 @@ const tab = ref(1);
                 <v-img :src="avatar"></v-img>
             </v-avatar>
 
-            <h1 >{{ username }}</h1>
-            <p >ID: 69-96-69-96 &nbsp; <i style="color: #77ED91">Joined January 31</i></p>
+            <h1>{{ username }}</h1>
+            <p>ID: 69-96-69-96 &nbsp; <i style="color: #77ED91">Joined January 31</i></p>
             <br>
             <v-tabs v-model="tab">
                 <v-tab :value="1">
@@ -28,47 +40,54 @@ const tab = ref(1);
                     Created
                 </v-tab>
                 <v-tab :value="3">
-                    Favourite
-                </v-tab>
-                <v-tab :value="4">
                     About
                 </v-tab>
             </v-tabs>
             <v-window v-model="tab" style=" margin-top: 20px">
                 <v-window-item :value="1">
-                    <v-card>
-                        <v-card-title>
-                            <h1>Collected</h1>
-                        </v-card-title>
-                        <v-card-text>
-                            <v-row>
-                                <v-col cols="12" md="3">
-                                    <v-card class="bg-green">
-                                        <v-img src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg" width="300px"></v-img>
-                                        <v-card-title>
-                                            <h1>Card 1</h1>
-                                        </v-card-title>
-                                        <v-card-text>
-                                            <p>Card 1</p>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-col>
-                                <v-col cols="12" md="3">
-                                    <v-card class="bg-green">
-                                        <v-img src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg" width="300px"></v-img>
-                                        <v-card-title>
-                                            <h1>Card 2</h1>
-                                        </v-card-title>
-                                        <v-card-text>
-                                            <p>Card 2</p>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-col>
-                            </v-row>
-                        </v-card-text>
-                    </v-card>
+                    <v-card-text class="d-flex justify-center">
+                        <v-row>
+                            <v-col cols="12" md="4" v-for="card in randomCards" class="d-flex justify-center">
+                                <ImproveNFT :card="card"/>
+                            </v-col>
+                        </v-row>
+                    </v-card-text>
                 </v-window-item>
-                <v-window-item :value="2">hello</v-window-item>
+                <v-window-item :value="3" style="line-height: 30px">
+                    <p>
+                        <h3>
+                            <v-icon color="blue">mdi-music</v-icon>
+                            About Me
+                        </h3>
+
+                        Hey there! I'm Jane Doe, a musician and programmer exploring the world of NFTs. Music has been
+                        my
+                        passion since 12, and now I'm diving into the digital realm to create unique sonic experiences.
+
+                        <h3>
+                            <v-icon color="red">mdi-star-shooting</v-icon>
+                            My Journey:
+                        </h3>
+
+                        From strumming chords to tinkering with synthesizers, music has always been my sanctuary. Now,
+                        I'm
+                        excited to merge my love for sound with the innovation of NFTs, crafting digital art that
+                        resonates
+                        with emotion.
+
+                        <h3>
+                            <v-icon color="green">mdi-headphones</v-icon>
+                            Beyond the Notes:
+                        </h3>
+
+                        When I'm not creating music or delving into blockchain, you'll find me outdoors, enjoying a good
+                        book, or savoring a cup of coffee. Life is about exploration and curiosity, and I'm here to
+                        embrace
+                        every moment.
+
+                        Join me on this journey as we explore the endless possibilities of music and NFTs together!
+                    </p>
+                </v-window-item>
             </v-window>
 
 
@@ -77,7 +96,8 @@ const tab = ref(1);
 </template>
 
 <style scoped>
-.minwidth{
+.minwidth {
     min-width: 450px;
+
 }
 </style>

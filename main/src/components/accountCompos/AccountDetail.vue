@@ -17,7 +17,7 @@ const form = ref({
     phonenumber: ''
 })
 const {mdAndUp} = useDisplay();
-const userImage = ref("https://randomuser.me/api/portraits/men/1.jpg")
+const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_850/v1687272519/aw9hf8eeymgoy47riwlr.jpg");
 
 </script>
 
@@ -36,7 +36,7 @@ const userImage = ref("https://randomuser.me/api/portraits/men/1.jpg")
                     <v-col class="d-flex align-center">
                         <v-row>
                             <v-col cols="12" class="pl-4">
-                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photot</v-btn>
+                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photo</v-btn>
                                 <v-btn class="ml-2 mt-4" color="white" max-width="150">Reset</v-btn>
                             </v-col>
                             <v-col class="ml-9">

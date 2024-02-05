@@ -3,9 +3,10 @@
 </script>
 
 <template>
-    <v-layout>
-        <router-view name="nav"></router-view>
+    <v-layout class="d-flex flex-column">
+        <router-view name="header"></router-view>
         <router-view></router-view>
+        <router-view name="footer"></router-view>
     </v-layout>
 </template>
 

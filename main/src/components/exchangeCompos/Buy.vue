@@ -1,10 +1,26 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-let userPay = ref(100);
-let userGet = ref(100);
+// let userPay = ref(100);
+// let userGet = ref(100);
 
 let show = ref(false);
+const form = ref({
+    userPay: null,
+    userReceive: null,
+    payCoin: 'USD',
+    receiveCoin: 'ETH',
+})
+
+function payToCoin(){
+    if (form.value.receiveCoin === 'ETH')
+        form.value.userReceive = form.value.userPay * 20;
+}
+
+function coinToPay(){
+        if (form.value.receiveCoin === 'ETH')
+        form.value.userPay = form.value.userReceive / 20;
+}
 </script>
 <template>
     <v-dialog width="25%" min-width="450px">
@@ -36,12 +52,12 @@ let show = ref(false);
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You pay"
-                                    type="text"
-                                    clearable
+                                    v-model="form.userPay"
+                                    type="number"
+                                    @change="payToCoin"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
-
                                 >
                                 </v-text-field>
                             </v-col>
@@ -49,8 +65,8 @@ let show = ref(false);
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
-                                    :items="['USD', 'lickma']"
+                                    v-model="form.payCoin"
+                                    :items="['USD']"
                                     style="display: flex; justify-content: end;"
                                     class=""
                                     hide-details
@@ -68,8 +84,9 @@ let show = ref(false);
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You receive"
-                                    type="text"
-                                    clearable
+                                    type="number"
+                                    v-model="form.userReceive"
+                                    @change="coinToPay"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -81,9 +98,9 @@ let show = ref(false);
                                 <v-select
                                     chips
                                     variant="flat"
-                                    model-value="USD"
+                                    v-model="form.receiveCoin"
                                     style="display: flex; justify-content: end;"
-                                    :items="['USD']"
+                                    :items="['ETH']"
                                     hide-details
 
 
@@ -95,8 +112,8 @@ let show = ref(false);
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ userGet }} HickCoin</span> for <span
-                                        class="font-weight-bold">{{ userPay }} USD</span></p>
+                                        class="font-weight-bold">{{ form.userReceive? form.userReceive:'...' }} {{form.receiveCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.userPay? form.userPay: '...' }} {{form.payCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -115,11 +132,11 @@ let show = ref(false);
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">0,1286 HickCoin</span>@2.333,20
+                                                    <p><span class="font-weight-bold">{{form.userReceive}} {{form.receiveCoin}}</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">100,00 US$</p>
+                                                    <p class="font-weight-bold">Total: {{form.userPay}} US$</p>
                                                 </v-col>
 
                                             </v-row>
@@ -148,7 +165,10 @@ let show = ref(false);
                                 <v-col cols="12">
                                     <v-btn width="100%"
                                            style="border-radius: 11px"
-                                           class="bg-green">Confirm
+                                           class="bg-green"
+                                           @click="isActive.value = false"
+                                    >Confirm
+
                                     </v-btn>
                                 </v-col>
                                 <v-col><p class="text-center supersmalltext">By continuing you agree to our <span
