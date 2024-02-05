@@ -23,7 +23,7 @@ const particlesLoaded = async (container: any) => {
         :options="{
                     background: {
                         color: {
-                            value: '#77ED91'
+                            value: '#7e66f9'
                         }
                     },
                     fpsLimit: 120,
@@ -98,12 +98,12 @@ const particlesLoaded = async (container: any) => {
             max-width="448"
         >
 
-            <v-img src="src/assets/trade-dark.png" max-height="30" class="mt-3 mb-4 "
+            <v-img src="src/assets/melody.png" max-height="30" class="mt-3 mb-4 "
             ></v-img>
 
             <v-card-text class="pt-2">
                 <h5 class="text-h5 mb-1">
-                    Welcome to Trad3
+                    Welcome to M3LODY
                 </h5>
                 <p class="mb-0">
                     Please sign-in to your account and start the adventure
@@ -121,12 +121,12 @@ const particlesLoaded = async (container: any) => {
                                 clearable=""
                                 rounded="lg"
                                 variant="outlined"
-                                color="#77ED91"
+                                color="#7e66f9"
                             />
                         </v-col>
                         <v-col cols="12">
                             <v-text-field
-                                color="#77ED91"
+                                color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
                                 clearable=""
@@ -141,7 +141,7 @@ const particlesLoaded = async (container: any) => {
                             <!-- remember me checkbox -->
                             <div class="d-flex align-center justify-space-between flex-wrap">
                                 <v-checkbox
-                                    color="#77ED91"
+                                    color="#7e66f9"
                                     v-model="form.remember"
                                     label="Remember me"
                                 />
@@ -157,7 +157,7 @@ const particlesLoaded = async (container: any) => {
                                 type="submit"
                                 to="/dashboard"
                                 rounded="lg"
-                                color="#77ED91"
+                                color="#7e66f9"
                             >
                                 Login
                             </v-btn>
@@ -213,7 +213,7 @@ const particlesLoaded = async (container: any) => {
 }
 
 .hyperlink {
-    color: #77ED91
+    color: #7e66f9
 }
 
 </style>

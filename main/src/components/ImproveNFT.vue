@@ -53,6 +53,7 @@ console.log(route.path);
 
 .card-image {
     height: 50%;
+    border-radius: 5px;
     background-size: cover;
     background-position: center;
 }

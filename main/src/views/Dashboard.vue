@@ -21,7 +21,7 @@ const model2 = ref(0);
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
-        <v-container class="vmain" style="padding-right: 2em; max-width: 95vw">
+        <v-container class="vmain mb-16" style="padding-right: 2em; max-width: 95vw">
             <h1 style="text-align: center">Dashboard</h1>
             <SwiperCard/>
             <div class="d-flex justify-space-between my-10">
