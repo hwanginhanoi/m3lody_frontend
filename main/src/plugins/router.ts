@@ -43,16 +43,6 @@ const routes = [
             }
     },
     {
-        path: '/exchange',
-        name: 'Exchange',
-        components:
-            {
-                default: () => import('../views/Exchange.vue'),
-                header: () => import('../components/Header.vue'),
-                footer: () => import('../components/Footer.vue')
-            }
-    },
-    {
         path: '/create',
         name: 'Create',
         components:

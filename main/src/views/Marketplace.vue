@@ -27,7 +27,6 @@ const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]
                     <ImproveNFT :key="card.id" :card="card"/>
                 </v-col>
             </v-row>
-
         </v-container>
     </v-main>
 </template>
