@@ -3,6 +3,7 @@ import { useTheme } from 'vuetify'
 
 const { global } = useTheme()
 
+// social media icons
 const authProviders = [
     {
         icon: 'mdi-facebook',
@@ -28,6 +29,7 @@ const authProviders = [
 </script>
 
 <template>
+<!--    adding icons to html-->
     <VBtn
         v-for="link in authProviders"
         :key="link.icon"

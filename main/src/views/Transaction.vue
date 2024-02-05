@@ -1,5 +1,7 @@
 <script setup lang="ts">
+// Sample data set
 
+// adding transacion history data
 const items = [
     {
         Name: "BOT",
@@ -50,7 +52,7 @@ const items = [
         Date: "28/1/2024, 7:21:10 AM",
     },
 ];
-
+// Table header config
 let header: Array<Object> = [
     {
         title: 'Name',
@@ -91,6 +93,7 @@ let header: Array<Object> = [
                     >
                 </v-col>
             </v-row>
+            <!-- Data table defined from items data set -->
             <v-data-table
                 :headers="header"
                 :items="items"
@@ -99,6 +102,7 @@ let header: Array<Object> = [
                 :fixed-header="true"
                 :hide-default-footer="true"
             >
+                <!-- Define data for each column match with date attr-->
                 <template v-slot:item.name="{item}">
                     {{ item.Name }}
                 </template>

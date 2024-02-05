@@ -1,7 +1,9 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 import product from "../data.json"
+
+//declare routes
 const routes = [
-    {path: '/', redirect: '/index'},
+    {path: '/', redirect: '/index'}, //index page
     {
         path: '/index',
         name: 'Index',
@@ -81,7 +83,7 @@ const routes = [
         component: () => import('../views/Register.vue')
     },
     {
-        path: '/product/:id',
+        path: '/product/:id',     //product page base on id
         name: 'Product',
         components: {
             default: () => import('../views/Product.vue'),
@@ -101,7 +103,7 @@ const routes = [
         }
     },
     {
-        path: '/:pathMatch(.*)*',
+        path: '/:pathMatch(.*)*', //error page
         name: 'not-found',
         component: () => import('../views/[[ Error 404 ]].vue')
     },
@@ -109,8 +111,8 @@ const routes = [
 
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHashHistory(), //create history
     routes,
 });
 
-export default router;
+export default router; //export routes

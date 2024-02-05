@@ -6,48 +6,30 @@ import item from "../data.json"
 const product = ref()
 const route = useRoute()
 const {id} = route.params
-
+// Get item id from previous page
 onBeforeMount(() => {
     if (typeof id === "string") {
         product.value = item.find(p => p.id === parseInt(id))
     }
 })
-
-// let audioList:Array<Object> =  [
-//     {
-//         name: 'audio1',
-//         url: 'https://www.0dutv.com/upload/dance/F25F74A0B8FF82503241801D0E2CA5CD.mp3'
-//     },
-//     {
-//         name: 'audio2',
-//         url: 'https://www.0dutv.com/upload/dance/20200316/C719452E3C7834080007662021EA968E.mp3'
-//     }
-// ]
-//
-// function handleBeforePlay(next: () => void): void {
-//     // There are a few things you can do here...
-//     // Assuming this is part of a class and you have proper typings for these properties
-//     this.currentAudioName = this.audioList[this.$refs.audioPlayer.currentPlayIndex].name;
-//
-//     next(); // Start playing
-// }
-
 </script>
 
 <template>
+<!--    Assign item's data for content in page, from product-->
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }" >
         <v-container class="mb-16">
             <v-row>
                 <v-col class="v-col-5">
                     <v-img :src="product.src" height="100%" width="100%"
                            style="border-radius: 20px"></v-img>
+                    <!--    Assign product image-->
                 </v-col>
                 <v-col class="v-col-7">
                     <v-card style="border-radius: 10px">
 
-                        <v-card-text><h1>{{ product.name }}</h1> by <strong>{{ product.author }}</strong></v-card-text>
+                        <v-card-text><h1>{{ product.name }}</h1> by <strong>{{ product.author }}</strong></v-card-text> <!--    Assign product name-->
                         <v-card-text>
-                            <p>{{ product.description }}</p>
+                            <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>
                         <v-card-text>
                             <audio controls>
@@ -73,7 +55,7 @@ onBeforeMount(() => {
                             <p>Current price </p>
                             <v-row>
                                 <v-col class="v-col-auto align-self-end"><h1>{{ product.price }} ETH</h1>
-                                    <p>${{ product.price * 2300 }}</p>
+                                    <p>${{ product.price * 2300 }}</p> <!--Assign product price-->
                                 </v-col>
                             </v-row>
                             <v-row>

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import {useDisplay} from 'vuetify';
 
+//icons
 const icons = [
     'mdi-facebook',
     'mdi-twitter',
     'mdi-linkedin',
     'mdi-instagram',
 ]
+//check if size of window is middle (1024)
 let {mdAndUp} = useDisplay();
 
 </script>
@@ -31,6 +33,7 @@ let {mdAndUp} = useDisplay();
                     </div>
                 </v-col>
                 <v-col cols="4" md="2">
+<!--                    about us-->
                     <v-list>
                         <v-list-subheader :class="!mdAndUp? 'smallertext':''"><h2>About Us</h2></v-list-subheader>
                         <v-list-item>
@@ -45,6 +48,7 @@ let {mdAndUp} = useDisplay();
                     </v-list>
                 </v-col>
                 <v-col cols="4" md="2">
+<!--                    marketplace-->
                     <v-list>
                         <v-list-subheader :class="[(!mdAndUp ? 'smallertext' : ''), 'w-100']"><h2>Marketplace</h2>
                         </v-list-subheader>
@@ -57,6 +61,7 @@ let {mdAndUp} = useDisplay();
                     </v-list>
                 </v-col>
                 <v-col cols="4" md="2">
+<!--                    account-->
                     <v-list>
                         <v-list-subheader :class="!mdAndUp? 'smallertext':''"><h2>Account</h2></v-list-subheader>
                         <v-list-item>
@@ -71,6 +76,7 @@ let {mdAndUp} = useDisplay();
                     </v-list>
                 </v-col>
             </v-row>
+<!--            brand-->
             <v-row class="justify-center">
                 <v-icon>mdi-copyright</v-icon>
                 {{ new Date().getFullYear() }} — <strong>Trader Network, Inc</strong>
@@ -80,7 +86,4 @@ let {mdAndUp} = useDisplay();
 </template>
 
 <style scoped>
-.smallertext {
-    font-size: 11.4px;
-}
 </style>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {useDisplay} from "vuetify";
-
+// Define reactive form fields
 const form = ref({
     firstname: '',
     lastname: '',
     organization: '',
     address: '',
     zipcode: '',
-    languege: '',
+    language: '',
     currency: '',
     timezone: '',
     country: '',
@@ -16,7 +16,9 @@ const form = ref({
     email: '',
     phonenumber: ''
 })
+// Get display properties from Vuetify
 const {mdAndUp} = useDisplay();
+// Define reactive user image
 const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_850/v1687272519/aw9hf8eeymgoy47riwlr.jpg");
 
 </script>
@@ -51,6 +53,7 @@ const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_
                 <hr>
             </v-card-text>
             <v-card-text>
+<!--                Account Details input fields-->
                 <v-row>
                     <v-col :cols="mdAndUp?'':12">
                         <v-row>
@@ -172,7 +175,7 @@ const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_
                     </v-col>
                 </v-row>
             </v-card-text>
-
+<!--            Buttons for making changes or cancel-->
             <v-card-text>
                 <v-row>
                     <v-col>

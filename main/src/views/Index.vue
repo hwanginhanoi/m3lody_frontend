@@ -3,6 +3,7 @@ import Icards from "../components/InteractiveCards.vue";
 import {ref, onMounted} from 'vue';
 import ImproveNFT from "../components/ImproveNFT.vue";
 
+//load background particles
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
@@ -43,6 +44,7 @@ function increaseNumber() {
     }
 }
 
+//format the number so that when reached the desired target, it displays the shorten version
 function formatNumber(number: any) {
     if (number >= 1000000) {
         return (number / 1000000).toFixed(1) + 'M+';
@@ -53,6 +55,7 @@ function formatNumber(number: any) {
     }
 }
 
+//create random data
 import cards from "../data.json";
 
 function getRandomCards() {
@@ -62,9 +65,9 @@ function getRandomCards() {
     }
     return Array.from(randomIndices).map((index: unknown) => {
         if (typeof index === 'number') {
-        return cards[index];
+            return cards[index];
         } else {
-        throw new Error(`Invalid index type: ${typeof index}`);
+            throw new Error(`Invalid index type: ${typeof index}`);
         }
     });
 }
@@ -73,6 +76,7 @@ let randomCards = getRandomCards();
 </script>
 
 <template>
+    <!--background-->
     <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json"/>
     <vue-particles
         id="tsparticles"
@@ -150,6 +154,7 @@ let randomCards = getRandomCards();
                 }"
     />
     <v-main>
+        <!--Opening content-->
         <v-container class="widthofcon pt-16 mx-0 pb-0"
                      style="background-color: rgba(0, 0, 0, 0.1); backdrop-filter: blur(2px); color: white;">
             <v-row style="margin: 20px 100px" class="d-flex align-center justify-center">
@@ -161,10 +166,12 @@ let randomCards = getRandomCards();
                     <v-btn variant="outlined" to="/login" class="mr-5 mt-5">Discover</v-btn>
                     <v-btn to="/register" class="mt-5">Create account</v-btn>
                 </v-col>
+                <!--Interactive Hover Cards-->
                 <v-col>
                     <Icards/>
                 </v-col>
             </v-row>
+            <!--Statistics-->
             <v-row style="color: #9f8cff">
                 <v-col :style="{background: $vuetify.theme.global.current.colors.navbtn}"
                        class="d-flex justify-center py-16">
@@ -191,7 +198,7 @@ let randomCards = getRandomCards();
                     </div>
                 </v-col>
             </v-row>
-
+            <!--Features-->
             <v-row :style="{background: $vuetify.theme.global.current.colors.navbtn}" class="spaceuper pb-16">
                 <v-row>
                     <v-col class="mt-16" cols="12">
@@ -219,7 +226,7 @@ let randomCards = getRandomCards();
                         </v-col>
                     </v-col>
                 </v-row>
-
+                <!--Show Popular Items-->
                 <v-row class="w-100 d-flex justify-space-between" style="margin-top: 100px">
                     <v-col class="d-flex justify-center">
                         <div>

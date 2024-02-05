@@ -8,6 +8,7 @@ import Cart from "./Cart.vue"
 
 const theme = useTheme()
 
+//processing darkmode features
 const isDarkTheme = computed({
     get: () => theme.global.current.value.dark,
     set: (value) => {
@@ -25,10 +26,11 @@ const menu = ref(false)
 const wallet = ref(false)
 
 let balance = {coin: 500, usd: 100, eth: 300}
-let userID = ref("69-96-69-96")
+let userID = ref("01x...3453")
 
 const router = useRoute()
 
+//checking for routes
 function checkRoute(): boolean {
     return router.name != "Index";
 }
@@ -44,7 +46,9 @@ console.log(router.name)
         color="nav-drawer"
         opacity='0.4'
     >
+
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
+<!--            profile icon-->
             <v-list-item
                 to="/profile"
                 :prepend-avatar="avatar"
@@ -73,6 +77,7 @@ console.log(router.name)
         <template v-slot:append>
             <div>
                 <v-list density="compact" class="d-flex flex-column">
+<!--                    switches for darkmode/lightmode-->
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
@@ -177,7 +182,7 @@ console.log(router.name)
                 </v-divider>
             </v-card>
         </v-menu>
-
+<!--        cart features-->
         <v-dialog width="50%" min-width="470px" v-if="checkRoute()">
             <template v-slot:activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
@@ -209,6 +214,7 @@ console.log(router.name)
             location="bottom"
             v-if="mdAndUp && checkRoute()"
         >
+<!--            account icons-->
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
                        v-bind="props"

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {useRoute} from 'vue-router';
 import {defineProps, ref} from 'vue';
-
+// This component to display card item of NFT
 defineProps(['card']);
 const route = useRoute();
 
-function cal_width() {
+function cal_width() { // Measure differ width for each page
     if (route.path == "/dashboard") {
         return "62%";
     } else if (route.path == "/marketplace") {
@@ -19,7 +19,7 @@ console.log(width_cal)
 console.log(route.path);
 </script>
 <template>
-
+<!--Assign card attr to vue element-->
     <v-card class="rounded-lg custom" elevation="3"
             :to="{ path: `/product/${card.id}`}"
             :width=width_cal>

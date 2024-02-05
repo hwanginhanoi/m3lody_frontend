@@ -1,31 +1,38 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-// let userPay = ref(100);
-// let userGet = ref(100);
-
-let show = ref(false);
+// Define reactive variables
+let show = ref(false); // Boolean flag for controlling visibility
 const form = ref({
-    userPay: 0,
-    userReceive: 0,
-    payCoin: 'USD',
-    receiveCoin: 'ETH',
-})
+    userPay: 0,         // Amount user wants to pay
+    userReceive: 0,     // Amount user receives
+    payCoin: 'USD',     // Currency user is paying with
+    receiveCoin: 'ETH', // Currency user is receiving
+});
 
-
-function payToCoin(){
-    if (form.value.receiveCoin === 'ETH')
+// Function to calculate amount when paying in USD
+function payToCoin() {
+    // If user is receiving ETH
+    if (form.value.receiveCoin === 'ETH') {
+        // Calculate amount of ETH user receives based on amount paid in USD
         form.value.userReceive = +(form.value.userPay) * 20;
+    }
 }
 
-function coinToPay(){
-        if (form.value.receiveCoin === 'ETH')
+// Function to calculate amount when paying in ETH
+function coinToPay() {
+    // If user is receiving ETH
+    if (form.value.receiveCoin === 'ETH') {
+        // Calculate amount of USD user needs to pay based on amount of ETH received
         form.value.userPay = form.value.userReceive / 20;
+    }
 }
 </script>
+
 <template>
     <v-dialog width="25%" min-width="450px">
         <template v-slot:activator="{ props }">
+            <!-- buttons for buy-->
             <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
                    height="35px">Buy
             </v-btn>
@@ -43,6 +50,7 @@ function coinToPay(){
                                 Cash balance
                             </v-col>
                         </v-row>
+                        <!--                        inputs field-->
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
@@ -77,9 +85,9 @@ function coinToPay(){
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
-                                                       background: #242627;
-                                                       border-radius: 11px;
-                                                       overflow: hidden; "
+                               background: #242627;
+                               border-radius: 11px;
+                               overflow: hidden; "
                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                         >
                             <v-col class="text-left pl-5" cols="">
@@ -108,13 +116,18 @@ function coinToPay(){
                                 ></v-select>
                             </v-col>
                         </v-row>
+                        <!--                        confirmation cards-->
                         <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
                                 :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ form.userReceive? form.userReceive:'...' }} {{form.receiveCoin}}</span> for <span
-                                        class="font-weight-bold">{{ form.userPay? form.userPay: '...' }} {{form.payCoin}}</span></p>
+                                        class="font-weight-bold">{{
+                                            form.userReceive ? form.userReceive : '...'
+                                        }} {{ form.receiveCoin }}</span> for <span
+                                        class="font-weight-bold">{{
+                                            form.userPay ? form.userPay : '...'
+                                        }} {{ form.payCoin }}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -133,11 +146,13 @@ function coinToPay(){
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">{{((+form.userPay - 1.48 - 2.10)*20).toFixed(2)}} {{form.receiveCoin}}</span>@2.333,20
+                                                    <p><span
+                                                        class="font-weight-bold">{{ ((+form.userPay - 1.48 - 2.10) * 20).toFixed(2) }} {{ form.receiveCoin }}</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">Total: {{ ((+form.userPay - 1.48 - 2.10).toFixed(2))}} US$</p>
+                                                    <p class="font-weight-bold">Total:
+                                                        {{ ((+form.userPay - 1.48 - 2.10).toFixed(2)) }} US$</p>
                                                 </v-col>
 
                                             </v-row>

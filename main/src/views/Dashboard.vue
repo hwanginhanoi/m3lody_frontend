@@ -6,8 +6,8 @@ import 'swiper/css/bundle';
 import SwiperCard from "../components/SwiperCard.vue";
 
 import item from "../data.json"
-
-let header :Array<Object>= [
+// Header of table config
+let header: Array<Object> = [
     {title: 'Rank', key: 'rank', align: 'center'},
     {title: 'Image', key: 'image', align: 'center'},
     {title: 'Name', key: 'name', align: 'center'},
@@ -44,6 +44,7 @@ const model2 = ref(0);
                     </v-btn>
                 </v-btn-toggle>
             </div>
+            <!--display ranking table by item of item dataset-->
             <v-data-table
                 :headers="header"
                 :items="item"
@@ -52,6 +53,7 @@ const model2 = ref(0);
                 :fixed-header="true"
                 :hide-default-footer="true"
             >
+                <!--define data for each column by item attr-->
                 <template v-slot:item.rank="{item}">
                     {{ item.id + Math.floor(Math.random() * 30) }}
                 </template>
@@ -68,7 +70,3 @@ const model2 = ref(0);
         </v-container>
     </v-main>
 </template>
-
-<style scoped>
-
-</style>

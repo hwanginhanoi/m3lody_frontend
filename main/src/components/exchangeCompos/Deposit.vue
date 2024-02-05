@@ -1,33 +1,45 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
+// Initializing reactive show state for dialog visibility
 let show = ref(false);
+
+// Initializing reactive form object to store currency details
 const form = ref({
     eth: 0,
     usd: 0,
     depositCoin: 'ETH',
     depositedFromCoin: 'USD',
-})
+});
 
-function convertUsdToEth(amount:any) {
+// Function to convert USD to ETH
+function convertUsdToEth(amount: any) {
     return amount / 20;
 }
 
-function convertEthToUsd(amount:any) {
+// Function to convert ETH to USD
+function convertEthToUsd(amount: any) {
     return amount * 20;
 }
 
+// Function to convert USD to ETH and update form
 function convertUsdToETHFunc(){
+    // Checking if the deposit currency is USD
     if (form.value.depositedFromCoin === 'USD'){
+        // Performing conversion and updating the ETH value in the form
         form.value.eth = (form.value.usd / 20);
     }
 }
 
+// Function to convert ETH to USD and update form
 function convertETHToUSDFunc(){
-        if (form.value.depositCoin === 'ETH')
+    // Checking if the deposit currency is ETH
+    if (form.value.depositCoin === 'ETH')
+        // Performing conversion and updating the USD value in the form
         form.value.usd = (form.value.eth * 20);
 }
 </script>
+
 
 <style scoped>
 .rounded-list .v-list-item {
@@ -108,6 +120,7 @@ function convertETHToUSDFunc(){
                                 Cash balance
                             </v-col>
                         </v-row>
+<!--                        input fields-->
                         <v-row no-gutters
                                class="mt-3"
                                style="height: 60px;
@@ -169,6 +182,7 @@ function convertETHToUSDFunc(){
                                 ></v-select>
                             </v-col>
                         </v-row>
+<!--                        confirmation info-->
                         <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
                                 :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
                             <v-row class="font-weight-light">

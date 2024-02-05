@@ -7,6 +7,7 @@ let username: string = "Beff Jezos";
 let avatar: string = "src/assets/avatar.jpg";
 
 const tab = ref(1);
+let userID = ref("0xf345...")
 
 function getRandomCards() {
     let randomIndices = new Set();
@@ -36,7 +37,7 @@ let randomCards = getRandomCards();
             </v-avatar>
 
             <h1>{{ username }}</h1>
-            <p>ID: 69-96-69-96 &nbsp; <i style="color: #77ED91">Joined January 31</i></p>
+            <p>ID: {{userID}} &nbsp; <i style="color: #77ED91">Joined January 31</i></p>
             <br>
             <v-tabs v-model="tab">
                 <v-tab :value="1">
