@@ -9,6 +9,14 @@ const form = ref({
     depositedFromCoin: 'USD',
 })
 
+function convertUsdToEth(amount) {
+    return amount / 20;
+}
+
+function convertEthToUsd(amount) {
+    return amount * 20;
+}
+
 function convertUsdToETHFunc(){
     if (form.value.depositedFromCoin === 'USD'){
         form.value.eth = (parseInt(form.value.usd) / 20).toString();
@@ -170,8 +178,8 @@ function convertETHToUSDFunc(){
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ form.usd? form.usd:'...' }} {{form.depositedFromCoin}}</span> for <span
-                                        class="font-weight-bold">{{ form.eth? form.eth: '...' }} {{form.depositCoin}}</span></p>
+                                        class="font-weight-bold">{{ form.usd? convertEthToUsd(convertUsdToEth((parseInt(form.usd) - 1.48 - 2.10).toFixed(2))):'...' }} {{form.depositedFromCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.eth? convertUsdToEth((parseInt(form.usd) - 1.48 - 2.10).toFixed(2)): '...' }} {{form.depositCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -194,7 +202,7 @@ function convertETHToUSDFunc(){
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">Total: {{ (parseInt(form.usd) - 1.48 - 2.10).toFixed(2) }} US$</p>
+                                                    <p class="font-weight-bold">Total: {{ convertUsdToEth((parseInt(form.usd) - 1.48 - 2.10).toFixed(2)) }} {{form.depositCoin}}</p>
                                                 </v-col>
 
                                             </v-row>
@@ -203,7 +211,7 @@ function convertETHToUSDFunc(){
                                                     <p><span class="font-weight-bold">Network fee</span></p>
                                                 </v-col>
                                                 <v-col class=" text-right pa-2">
-                                                    <p class="font-weight-bold">1,48 US$</p>
+                                                    <p class="font-weight-bold">{{ convertUsdToEth(1.48) }} {{form.depositCoin}}</p>
                                                 </v-col>
                                             </v-row>
                                             <v-row>
@@ -211,7 +219,7 @@ function convertETHToUSDFunc(){
                                                     <p><span class="font-weight-bold">Processing fee</span></p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span></p>
+                                                    <p>as low as <span class="font-weight-bold">{{ convertUsdToEth(2.1).toFixed(2) }} {{form.depositCoin}}</span></p>
                                                 </v-col>
                                             </v-row>
 

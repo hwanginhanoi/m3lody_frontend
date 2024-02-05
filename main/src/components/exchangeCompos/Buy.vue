@@ -12,6 +12,7 @@ const form = ref({
     receiveCoin: 'ETH',
 })
 
+
 function payToCoin(){
     if (form.value.receiveCoin === 'ETH')
         form.value.userReceive = form.value.userPay * 20;
@@ -136,7 +137,7 @@ function coinToPay(){
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">Total: {{ (+form.userPay - 1.48 - 2.10).toFixed(2)}} US$</p>
+                                                    <p class="font-weight-bold">Total: {{ ((+form.userPay - 1.48 - 2.10).toFixed(2))}} US$</p>
                                                 </v-col>
 
                                             </v-row>
