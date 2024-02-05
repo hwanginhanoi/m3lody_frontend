@@ -1,4 +1,5 @@
 <script setup lang="ts">
+//import PictureInput component
 import PictureInput from 'vue-picture-input'
 
 </script>
@@ -6,15 +7,17 @@ import PictureInput from 'vue-picture-input'
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <div class="my-16 jusd-flex mb-16"  >
+        <div class="my-16 jusd-flex mb-16">
             <v-row>
                 <v-col>
                     <div style="margin: 0px 15%">
+                        <!--title-->
                         <h1>Create an NFT</h1>
                         <p>
                             Once your item is minted you will not be able to change any of its information.
                         </p>
                     </div>
+                    <!--picture input-->
                     <picture-input
                         class="pt-5"
                         ref="pictureInput"
@@ -28,11 +31,10 @@ import PictureInput from 'vue-picture-input'
                                 upload: '<h1>Bummer!</h1>',
                                 drag: 'Drag a 😺 GIF or GTFO'
                             }"
-                        radius="5"
-                        @change="onChange">
+                        radius="5">
                     </picture-input>
-
                 </v-col>
+                <!--form input-->
                 <v-col class="d-flex flex-column align-center">
                     <v-text-field label="Name" variant="outlined" rounded="lg" placeholder="Name your NFT" class="">
                     </v-text-field>
@@ -71,6 +73,7 @@ import PictureInput from 'vue-picture-input'
 </template>
 
 <style scoped>
+ /* Scoped styles for the component */
 .v-text-field {
     width: 35rem;
 }

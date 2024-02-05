@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref, computed} from "vue";
 
+// data for NFT on cart
 let data = ref([
     {
         image: "https://cdn.pentas.io/next-s3-uploads/2b1340b4-2ac3-4dfc-a572-7797025aa12e/1200-%2822%29.png",
@@ -18,15 +19,15 @@ let data = ref([
         price: 0.7,
     },
 ])
-
-function removeItem(itemToRemove) {
-    // data.value = data.value.filter(item => item !== itemToRemove);
+// removing items funcion
+function removeItem(itemToRemove : any) {
     data.value.splice(itemToRemove, 1)
 }
 
+//calculating prices
 let sum = computed(() => {
     let total = 0;
-    data.value.forEach((item, i) => {
+    data.value.forEach((item) => {
         total += item.price;
     });
     return total;
@@ -46,6 +47,7 @@ let sum = computed(() => {
             <td>
                 <v-row>
                     <v-col>
+<!--                        NFT image-->
                         <v-img
                             :src="item.image"
                             style="border-radius: 6px"
@@ -61,6 +63,7 @@ let sum = computed(() => {
                 </v-row>
             </td>
             <td>
+<!--                delete button-->
                 <v-btn
                     @click="removeItem(index)"
                 >
@@ -73,6 +76,7 @@ let sum = computed(() => {
         </tbody>
     </v-table>
     <v-row class="pa-5">
+<!--        total prices-->
         <v-col class="v-col-8">
             <v-card-text class="text-center font-weight-black"
             >Total Price: {{ sum }} ETH

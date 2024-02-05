@@ -3,6 +3,7 @@ let activeIndex: number = 0;
 
 const groups: HTMLCollectionOf<Element> = document.getElementsByClassName("card-group");
 
+// handle clicking
 const handleLoveClick = (): void => {
     const nextIndex: number = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
 
@@ -21,6 +22,7 @@ const handleLoveClick = (): void => {
     }
 };
 
+// handle clicking
 const handleHateClick = (): void => {
     const nextIndex: number = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
 
@@ -43,6 +45,7 @@ const handleHateClick = (): void => {
 <template>
     <div class="i-card">
         <div class="card-swiper">
+<!--            showing cards-->
             <div class="card-groups">
                 <div class="card-group" data-index="0" data-status="active">
                     <div class="little-card card">
@@ -123,6 +126,7 @@ const handleHateClick = (): void => {
                     </div>
                 </div>
             </div>
+<!--            buttons for changing cards group-->
             <div class="card-swiper-buttons">
                 <button id="hate-button" @click="handleHateClick()">
                     <v-icon>mdi-close</v-icon>

@@ -1,6 +1,7 @@
 import 'vuetify/styles'
 import {createVuetify, type ThemeDefinition} from 'vuetify'
 
+//declare theme definitions
 const darkMode: ThemeDefinition = {
     dark: true,
     colors: {
@@ -31,6 +32,7 @@ const lightMode: ThemeDefinition = {
     },
 }
 
+//create vuetify instance
 const vuetify = createVuetify({
     theme: {
         defaultTheme: 'darkMode',
@@ -41,4 +43,5 @@ const vuetify = createVuetify({
     },
 })
 
+//export vuetify instance
 export default vuetify;

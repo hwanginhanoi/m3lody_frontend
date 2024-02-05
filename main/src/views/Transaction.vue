@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import SwiperCard from "../components/SwiperCard.vue";
+// Sample data set
 
+// adding transacion history data
 const items = [
     {
         Name: "BOT",
@@ -51,8 +52,8 @@ const items = [
         Date: "28/1/2024, 7:21:10 AM",
     },
 ];
-
-let header = [
+// Table header config
+let header: Array<Object> = [
     {
         title: 'Name',
         key: 'name',
@@ -68,7 +69,7 @@ let header = [
 </script>
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
-        <v-container class="vmain mb-16" style="padding-right: 2em; max-width: 95vw">
+        <v-container class="mb-16" style="padding-right: 2em; max-width: 95vw">
             <h1 style="text-align: center">Transaction</h1>
             <v-row align="end">
                 <v-spacer></v-spacer>
@@ -76,7 +77,7 @@ let header = [
                     <v-btn
                         prepend-icon=" mdi-pencil"
                         color="blue-grey"
-                        block
+
                         rounded-lg="xl"
                     >Report
                     </v-btn>
@@ -85,13 +86,14 @@ let header = [
                     <v-btn
                         prepend-icon="mdi-plus"
                         color="success"
-                        block
+
                         rounded-lg="xl"
                     >NFT LIST
                     </v-btn
                     >
                 </v-col>
             </v-row>
+            <!-- Data table defined from items data set -->
             <v-data-table
                 :headers="header"
                 :items="items"
@@ -100,6 +102,7 @@ let header = [
                 :fixed-header="true"
                 :hide-default-footer="true"
             >
+                <!-- Define data for each column match with date attr-->
                 <template v-slot:item.name="{item}">
                     {{ item.Name }}
                 </template>

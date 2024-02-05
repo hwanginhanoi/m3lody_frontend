@@ -2,6 +2,7 @@
 import AuthProvider from '../components/AuthProvider.vue'
 import {ref} from "vue";
 
+//import placeholders
 const form = ref({
     email: '',
     password: '',
@@ -10,12 +11,14 @@ const form = ref({
 
 const isPasswordVisible = ref(false)
 
+//load background particles
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
 </script>
 
 <template>
+    <!--background-->
     <vue-particles id="tsparticles" :particlesLoaded="particlesLoaded" url="http://foo.bar/particles.json"/>
     <vue-particles
         id="tsparticles"
@@ -92,6 +95,7 @@ const particlesLoaded = async (container: any) => {
                     detectRetina: true
                 }"
     />
+    <!--login form-->
     <div class="auth-wrapper d-flex align-center justify-center pa-4">
         <v-card
             class="auth-card pa-4 pt-7 rounded-lg"
@@ -118,7 +122,7 @@ const particlesLoaded = async (container: any) => {
                                 v-model="form.email"
                                 label="Email"
                                 type="email"
-                                clearable=""
+
                                 rounded="lg"
                                 variant="outlined"
                                 color="#7e66f9"
@@ -129,7 +133,7 @@ const particlesLoaded = async (container: any) => {
                                 color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
-                                clearable=""
+
                                 v-model="form.password"
                                 label="Password"
                                 placeholder="············"
@@ -205,7 +209,6 @@ const particlesLoaded = async (container: any) => {
 .auth-wrapper {
     min-height: 100vh;
     min-width: 100vw;
-    /* background-color: #77ED91; */
 }
 
 .auth-card {
