@@ -144,7 +144,7 @@ let randomCards = getRandomCards();
                 }"
     />
     <v-main>
-        <v-container class="widthofcon pt-16 mx-0 "
+        <v-container class="widthofcon pt-16 mx-0 pb-0"
                      style="background-color: rgba(0, 0, 0, 0.1); backdrop-filter: blur(2px); color: white;">
             <v-row style="margin: 20px 100px" class="d-flex align-center justify-center">
                 <v-col cols="12" lg="7">
@@ -183,7 +183,7 @@ let randomCards = getRandomCards();
                 </v-col>
             </v-row>
 
-            <v-row :style="{background: $vuetify.theme.global.current.colors.navbtn}" class="spaceuper">
+            <v-row :style="{background: $vuetify.theme.global.current.colors.navbtn}" class="spaceuper pb-16">
                 <v-row>
                     <v-col class="mt-16" cols="12">
                     <v-col cols="7" class=" parallelogram bg-purple-accent-4 setheight" offset="1">
