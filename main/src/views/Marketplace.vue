@@ -7,7 +7,7 @@ const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <v-container class="mb-16">
+        <v-container class="mb-16 container">
             <v-row>
                 <v-col cols="12">
                     <h1>Drops</h1>
@@ -23,16 +23,19 @@ const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]
             </v-row>
             <v-divider class="mb-5"></v-divider>
             <v-row class="d-flex justify-center flex-row">
-                <v-col cols="12" sm="3"  v-for="card in data" class="">
+                <v-col cols="12" sm="6" md="4" lg="3" v-for="card in data">
                     <ImproveNFT :key="card.id" :card="card"/>
                 </v-col>
             </v-row>
-
         </v-container>
     </v-main>
 </template>
 
 <style scoped>
+.container{
+    width: 100vw;
+    max-width: 100vw;
+}
 </style>
 
 

@@ -19,7 +19,6 @@ let randomCards = getRandomCards();
     <div class="d-flex justify-center my-10">
         <swiper
             :slidesPerView="1"
-            :spaceBetween="10"
             :pagination="{ clickable: true }"
             navigation
             :modules="modules"
@@ -27,21 +26,21 @@ let randomCards = getRandomCards();
             loop
             autoplay
             :breakpoints="{
-                        '500': {
+                        '300': {
                             slidesPerView: 1,
                             spaceBetween: 0,
                         },
 
-                        '640': {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        '768': {
+                        '700': {
                             slidesPerView: 2,
                             spaceBetween: 0,
                         },
                         '1200': {
                             slidesPerView: 3,
+                            spaceBetween: 0,
+                        },
+                        '1800': {
+                            slidesPerView: 4,
                             spaceBetween: 0,
                         },
                         }"

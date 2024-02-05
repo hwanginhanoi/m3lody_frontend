@@ -93,12 +93,12 @@ console.log(router.name)
         <v-app-bar-nav-icon v-if="!mdAndUp && checkRoute()" @click.stop="drawer=!drawer"
                             class="ml-1"></v-app-bar-nav-icon>
         <router-link to="/dashboard" class="mx-4"><img
-            src="../assets/trade-dark.png" height="30"></router-link>
+            src="../assets/melody.png" height="30"></router-link>
         <v-divider v-if="mdAndUp || !checkRoute()" vertical length="50" class="border-opacity-50 mt-4"></v-divider>
         <v-btn v-if="mdAndUp || !checkRoute()" to="/marketplace" class="ml-2">Marketplace</v-btn>
         <v-btn v-if="mdAndUp || !checkRoute()" to="/create">Create</v-btn>
         <v-spacer v-if="mdAndUp"></v-spacer>
-        <v-btn v-if="!checkRoute()" to="/login" class="border">Log in</v-btn>
+        <v-btn v-if="!checkRoute()" to="/login" variant="outlined">Log in</v-btn>
         <v-text-field
             v-if="checkRoute()"
             clearable

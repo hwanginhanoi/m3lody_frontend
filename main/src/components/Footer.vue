@@ -16,8 +16,8 @@ let {mdAndUp} = useDisplay();
         <v-container class="d-flex flex-column flex-wrap" style="max-width: 95vw; padding-right: 2em;">
             <v-row>
                 <v-col cols="12" md="6">
-                    <v-img src="src/assets/t-dark.png" max-width="15px"></v-img>
-                    <h1>trad3</h1>
+                    <v-img src="src/assets/m-dark.png" max-width="30px"></v-img>
+                    <h1>M3LODY</h1>
                     <p>Welcome to the premier digital hub for music NFTs, where melodies meet the blockchain. Explore,
                         trade, and unearth exclusive musical treasures in our revolutionary marketplace.</p>
                     <div>

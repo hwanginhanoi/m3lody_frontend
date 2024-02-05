@@ -6,25 +6,29 @@ import {defineProps, ref, computed} from 'vue';
 defineProps(['card']);
 let {mdAndUp, lgAndUp} = useDisplay();
 const route = useRoute();
-let width = computed(() => {
-    if (route.path == "/marketplace") {
-        return '';
-    } else {
-        return !lgAndUp.value ? '350px' : '75%';
+
+function cal_width() {
+    if (route.path == "/dashboard") {
+        return "62%";
+    } else if (route.path == "/marketplace") {
+        return "";
     }
-});
+}
+
+let width_cal = ref()
+width_cal = cal_width()
+console.log(width_cal)
 console.log(route.path);
 </script>
 <template>
 
-    <v-card class="rounded-card pa-2" elevation="4"
+    <v-card class="rounded-lg custom" elevation="3"
             :to="{ path: `/product/${card.id}`}"
-            :style="{ width: width }"
-    >
-        <div :style="{ backgroundImage: `url('${card.src}')` }" class="card-image"></div>
+            :width=width_cal>
+        <v-img :src="card.src" class="w-100" cover></v-img>
         <v-card-title>{{ card.name }}</v-card-title>
         <v-row>
-            <v-col>
+            <v-col class="v-col-7">
                 <v-card-subtitle>Author</v-card-subtitle>
 
                 <v-card-text class="overflow-hidden">
@@ -41,24 +45,16 @@ console.log(route.path);
 </template>
 
 <style scoped>
-.rounded-card {
-    border-radius: 8px;
-    overflow: hidden;
-    aspect-ratio: 1; /* Set the aspect ratio to make the card a square */
-    transition: transform 0.3s ease;
-    min-height: 500px;
-    max-width: 400px;
-
+.rounded-lg {
+    transition: all 0.25s ease-in-out;
 }
 
-.card-image {
-    height: 50%;
-    background-size: cover;
-    background-position: center;
-}
-
-.rounded-card:hover {
+.rounded-lg:hover {
     transform: translateY(-10px);
+}
+
+.custom {
+    aspect-ratio: 4/6;
 }
 
 </style>
