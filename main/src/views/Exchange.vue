@@ -38,7 +38,7 @@ const items = [
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <v-img>
+                <v-img>
             <slot name="image"></slot>
         </v-img>
         <v-tabs
