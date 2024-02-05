@@ -47,6 +47,9 @@ console.log(route.path);
 </template>
 
 <style scoped>
+.rounded-lg{
+    transition: all 0.25s ease-in-out;
+}
 
 .rounded-lg:hover {
     transform: translateY(-10px);

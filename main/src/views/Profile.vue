@@ -105,6 +105,5 @@ let randomCards = getRandomCards();
 <style scoped>
 .minwidth {
     min-width: 450px;
-
 }
 </style>
