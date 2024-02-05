@@ -3,20 +3,21 @@ import {ref} from "vue";
 
 let show = ref(false);
 const form = ref({
-    usdToETH: null,
-    ethToUSD: null,
+    eth: null,
+    usd: null,
     depositCoin: 'ETH',
-    depositedCoin: 'USD',
+    depositedFromCoin: 'USD',
 })
 
-function ethToUSDFunc(){
-    if (form.value.depositedCoin === 'ETH')
-        form.value.ethToUSD = form.value.usdToETH * 20;
+function convertUsdToETHFunc(){
+    if (form.value.depositedFromCoin === 'USD'){
+        form.value.eth = (parseInt(form.value.usd) / 20).toString();
+    }
 }
 
-function usdToETHFunc(){
-        if (form.value.depositedCoin === 'USD')
-        form.value.usdToETH = form.value.ethToUSD / 20;
+function convertETHToUSDFunc(){
+        if (form.value.depositCoin === 'ETH')
+        form.value.usd = (+form.value.eth * 20).toString();
 }
 </script>
 
@@ -109,9 +110,9 @@ function usdToETHFunc(){
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
                                     placeholder="You deposit"
-                                    v-model="form.usdToETH"
+                                    v-model="form.eth"
                                     type="number"
-                                    @change="payToCoin"
+                                    @change="convertETHToUSDFunc"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -122,7 +123,7 @@ function usdToETHFunc(){
                                 <v-select
                                     chips
                                     variant="flat"
-                                    v-model="form.receiveCoin"
+                                    v-model="form.depositCoin"
                                     :items="['ETH']"
                                     style="display: flex; justify-content: end;"
                                     class=""
@@ -140,10 +141,10 @@ function usdToETHFunc(){
                         >
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
-                                    placeholder="Amount of coin"
+                                    placeholder="You get"
                                     type="number"
-                                    v-model="form.usdToETH"
-                                    @change="payToCoin"
+                                    v-model="form.usd"
+                                    @change="convertUsdToETHFunc"
                                     rounded="lg"
                                     variant="plain"
                                     color="#d777ed"
@@ -155,7 +156,7 @@ function usdToETHFunc(){
                                 <v-select
                                     chips
                                     variant="flat"
-                                    v-model="form.payCoin"
+                                    v-model="form.depositedFromCoin"
                                     style="display: flex; justify-content: end;"
                                     :items="['USD']"
                                     hide-details
@@ -169,8 +170,8 @@ function usdToETHFunc(){
                             <v-row class="font-weight-light">
                                 <v-col cols="10" class="d-flex align-center">
                                     <p class="smallText">You get <span
-                                        class="font-weight-bold">{{ form.ethToUSD? form.ethToUSD:'...' }} {{form.receiveCoin}}</span> for <span
-                                        class="font-weight-bold">{{ form.usdToETH? form.usdToETH: '...' }} {{form.payCoin}}</span></p>
+                                        class="font-weight-bold">{{ form.usd? form.usd:'...' }} {{form.depositedFromCoin}}</span> for <span
+                                        class="font-weight-bold">{{ form.eth? form.eth: '...' }} {{form.depositCoin}}</span></p>
                                 </v-col>
                                 <v-col class="d-flex justify-end">
                                     <v-btn
@@ -189,11 +190,11 @@ function usdToETHFunc(){
                                         <v-card-text>
                                             <v-row>
                                                 <v-col cols="8" class="pa-2">
-                                                    <p><span class="font-weight-bold">{{form.ethToUSD}} {{form.receiveCoin}}</span>@2.333,20
+                                                    <p><span class="font-weight-bold">{{form.usd}} {{form.depositedFromCoin}}</span>@2.333,20
                                                         US$</p>
                                                 </v-col>
                                                 <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">Total: {{form.usdToETH}} US$</p>
+                                                    <p class="font-weight-bold">Total: {{ (parseInt(form.usd) - 1.48 - 2.10).toFixed(2) }} US$</p>
                                                 </v-col>
 
                                             </v-row>
