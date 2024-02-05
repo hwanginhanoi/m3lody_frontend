@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Whispers of Solitude",
-    "author": "Bestoven Mozardonov",
+    "author": "Bestoven Moz",
     "src": "src/assets/nft/piano_1.jpg",
     "description": "Delicate piano keys dance softly, evoking a serene atmosphere of introspection. Each note resonates with a profound sense of solitude, weaving a tapestry of emotions that echo the depths of the human soul. A music NFT captures the essence of solitude, inviting listeners to embrace the beauty",
     "price": 1.2,
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "name": "Eternal Elegance",
-    "author": "Bestoven Mozardonov",
+    "author": "Bestoven Moz",
     "src": "src/assets/nft/piano_2.jpg",
     "description": "Graceful melodies cascade like satin ribbons, enveloping listeners in an aura of timeless elegance. The piano's expressive range paints vivid portraits of beauty and refinement, inviting listeners to immerse themselves in the enchanting allure of classical artistry. A music NFT captures the essence of eternal elegance, preserving the legacy of timeless masterpieces for future generations." ,
     "price": 1.3,
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "name": "Journey Through Memories",
-    "author": "Bestoven Mozardonov",
+    "author": "Bestoven Moz",
     "src": "src/assets/nft/piano_3.jpg",
     "description": "Haunting piano chords carry listeners on a poignant journey through the corridors of memory. Echoes of nostalgia and longing linger in each melancholic refrain, evoking bittersweet reflections on moments past and the passage of time. A music NFT captures the essence of human experience, preserving the echoes of our shared history for generations to come.",
     "price": 1.4,
@@ -56,7 +56,7 @@
   {
     "id": 7,
     "name": "Celestial Harmonies",
-    "author": "Gabriella Michaelangelo",
+    "author": "Gab Micheal",
     "src": "src/assets/nft/angel_1.jpg",
     "description": "Ethereal voices intertwine with celestial melodies, creating a transcendent aura of divine beauty. Each note resonates with heavenly grace, weaving a tapestry of serenity that transports listeners to realms beyond mortal comprehension. A music NFT captures the essence of celestial harmonies, inviting listeners to embrace the splendor of the divine.",
     "price": 2.0,
@@ -65,7 +65,7 @@
   {
     "id": 8,
     "name": "Wings of Seraphim",
-    "author": "Gabriella Michaelangelo",
+    "author": "Gab Micheal",
     "src": "src/assets/nft/angel_2.jpg",
     "description": "Glorious choir harmonies soar on wings of purity and light, illuminating the spirit with radiant warmth. The music, like the gentle touch of angels' wings, bestows a sense of peace and solace upon all who listen, lifting them to heights of transcendent bliss. A music NFT captures the essence of seraphic grace, inviting listeners to bask in the radiance of divine love.",
     "price": 2.1,
@@ -74,7 +74,7 @@
   {
     "id": 9,
     "name": "Heaven's Lullaby",
-    "author": "Gabriella Michaelangelo",
+    "author": "Gab Micheal",
     "src": "src/assets/nft/angel_3.jpg",
     "description": "Tender piano melodies blend with angelic voices in a soothing symphony of comfort and solace. This celestial lullaby wraps listeners in a cocoon of serenity, gently guiding them into the embrace of dreams, where the whispers of angels echo in the silence of the night. A music NFT captures the essence of heavenly lullabies, inviting listeners to find peace in the embrace of divine love.",
     "price": 1.9,
@@ -83,7 +83,7 @@
   {
     "id": 10,
     "name": "Rebel's Anthem",
-    "author": "Disconnect Picnic",
+    "author": "Dizz Picnic",
     "src": "src/assets/nft/rock_1.jpg",
     "description": "Thundering guitar riffs and pulsating drumbeats ignite the rebellious spirit within. With raw energy and defiance, the music embodies the untamed passion of youth, echoing the anthems of those who defy the status quo. A music NFT captures the essence of rebellion, inviting listeners to embrace the unbridled spirit of rock 'n' roll.",
     "price": 0.8,
@@ -92,7 +92,7 @@
   {
     "id": 11,
     "name": "Heart of Thunder",
-    "author": "Disconnect Picnic",
+    "author": "Dizz Picnic",
     "src": "src/assets/nft/rock_4.jpg",
     "description": "Powerful vocals soar above driving rhythms, electrifying listeners with the pulse of rock's beating heart. Guitar solos blaze like lightning, igniting a firestorm of emotion and intensity that reverberates with the primal energy of the human spirit. A music NFT captures the essence of rock 'n' roll, inviting listeners to unleash their inner rebel.",
     "price": 0.9,
@@ -101,7 +101,7 @@
   {
     "id": 12,
     "name": "Road to Redemption",
-    "author": "Disconnect Picnic",
+    "author": "Dizz Picnic",
     "src": "src/assets/nft/rock_3.jpg",
     "description": "Gritty guitar chords and soulful lyrics paint a vivid portrait of struggle and redemption. The music's raw authenticity speaks to the trials of life's journey, resonating with those who seek solace and salvation in the power of rock's unyielding resolve. A music NFT captures the essence of redemption, inviting listeners to find strength in the unbreakable spirit of rock 'n' roll.",
     "price": 0.7,
