@@ -6,19 +6,24 @@ import {defineProps, ref, computed} from 'vue';
 defineProps(['card']);
 let {mdAndUp, lgAndUp} = useDisplay();
 const route = useRoute();
-let width = computed(() => {
-    if (route.path == "/marketplace") {
-        return '';
-    } else {
-        return !lgAndUp.value ? '350px' : '75%';
+
+function cal_width(){
+    if (route.path == "/dashboard") {
+        return "300px";
+    } else if (route.path == "/marketplace") {
+        return "350px";
     }
-});
+}
+let width_cal = ref()
+width_cal = cal_width()
+console.log(width_cal)
 console.log(route.path);
 </script>
 <template>
 
     <v-card class="rounded-lg pa-5" elevation="4"
-            :to="{ path: `/product/${card.id}`}">
+            :to="{ path: `/product/${card.id}`}"
+            :width = "{width_cal}">
 
 
 

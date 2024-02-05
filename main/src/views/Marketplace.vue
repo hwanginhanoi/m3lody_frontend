@@ -23,8 +23,8 @@ const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]
             </v-row>
             <v-divider class="mb-5"></v-divider>
             <v-row class="d-flex justify-center flex-row">
-                <v-col cols="12" sm="4" v-for="card in data" ml="2" >
-                    <ImproveNFT :key="card.id" :card="card" />
+                <v-col cols="12" sm="4" v-for="card in data" ml="2">
+                    <ImproveNFT :key="card.id" :card="card"/>
                 </v-col>
             </v-row>
 

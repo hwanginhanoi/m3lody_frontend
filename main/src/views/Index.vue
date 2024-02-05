@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import cards from "../components/InteractiveCards.vue";
+import Icards from "../components/InteractiveCards.vue";
 import {ref, onMounted} from 'vue';
+import ImproveNFT from "../components/ImproveNFT.vue";
 
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
@@ -42,7 +43,7 @@ function increaseNumber() {
     }
 }
 
-function formatNumber(number) {
+function formatNumber(number : any) {
     if (number >= 1000000) {
         return (number / 1000000).toFixed(1) + 'M+';
     } else if (number >= 1000) {
@@ -52,6 +53,17 @@ function formatNumber(number) {
     }
 }
 
+import cards from "../data.json";
+
+function getRandomCards() {
+    let randomIndices = new Set();
+    while(randomIndices.size < 3) {
+        randomIndices.add(Math.floor(Math.random() * cards.length));
+    }
+    return Array.from(randomIndices).map(index => cards[index]);
+}
+
+let randomCards = getRandomCards();
 </script>
 
 <template>
@@ -144,7 +156,7 @@ function formatNumber(number) {
                     <v-btn to="/register" class="mt-5">Create account</v-btn>
                 </v-col>
                 <v-col>
-                    <cards/>
+                    <Icards/>
                 </v-col>
             </v-row>
             <v-row style="color: #7e66f9">
@@ -172,8 +184,8 @@ function formatNumber(number) {
             </v-row>
 
             <v-row :style="{background: $vuetify.theme.global.current.colors.navbtn}" class="spaceuper">
-
-                <v-col class="mt-16" cols="12">
+                <v-row>
+                    <v-col class="mt-16" cols="12">
                     <v-col cols="7" class=" parallelogram bg-purple-accent-4 setheight" offset="1">
                         <div class="bars">
                             <h2><v-icon>mdi-credit-card-check</v-icon>Fast Transactions</h2>
@@ -189,9 +201,25 @@ function formatNumber(number) {
                         </div>
                     </v-col>
                 </v-col>
+                </v-row>
+
+                <v-row class="w-100" style="margin-top: 100px">
+                    <v-col offset="1" cols="6" class="mb-3" sm="8">
+                        <p>Trending</p>
+                        <h1>Auctions</h1>
+                    </v-col>
+                    <v-col class="d-flex align-center">
+                        <v-btn class="bg-purple-accent-4 rounded-md button" append-icon="mdi-page-next-outline">
+                            <router-link to="/login">View all</router-link>
+                        </v-btn>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" md="4" v-for="card in randomCards" class="d-flex justify-center">
+                        <ImproveNFT :card="card"/>
+                    </v-col>
+                </v-row>
             </v-row>
-
-
         </v-container>
     </v-main>
 
@@ -222,5 +250,13 @@ function formatNumber(number) {
 
 .parallelogram > div {
     transform: skew(-16deg);
+}
+
+.button{
+    transition: all 0.3s;
+}
+
+.button:hover{
+    background: green;
 }
 </style>
