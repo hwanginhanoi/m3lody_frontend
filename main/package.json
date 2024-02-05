@@ -11,7 +11,6 @@
   "dependencies": {
     "@tsparticles/vue3": "^3.0.0",
     "apexcharts": "^3.45.1",
-    "gsap": "^3.12.5",
     "pinia": "^2.1.7",
     "swiper": "^11.0.5",
     "tsparticles": "^3.1.0",
