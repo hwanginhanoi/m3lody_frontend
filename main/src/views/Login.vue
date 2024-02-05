@@ -118,7 +118,7 @@ const particlesLoaded = async (container: any) => {
                                 v-model="form.email"
                                 label="Email"
                                 type="email"
-                                clearable=""
+
                                 rounded="lg"
                                 variant="outlined"
                                 color="#7e66f9"
@@ -129,7 +129,7 @@ const particlesLoaded = async (container: any) => {
                                 color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
-                                clearable=""
+
                                 v-model="form.password"
                                 label="Password"
                                 placeholder="············"

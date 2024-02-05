@@ -60,7 +60,13 @@ function getRandomCards() {
     while (randomIndices.size < 3) {
         randomIndices.add(Math.floor(Math.random() * cards.length));
     }
-    return Array.from(randomIndices).map(index => cards[index]);
+    return Array.from(randomIndices).map((index: unknown) => {
+        if (typeof index === 'number') {
+        return cards[index];
+        } else {
+        throw new Error(`Invalid index type: ${typeof index}`);
+        }
+    });
 }
 
 let randomCards = getRandomCards();

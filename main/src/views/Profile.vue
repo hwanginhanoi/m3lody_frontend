@@ -3,8 +3,8 @@ import {ref} from "vue";
 import cards from "../data.json";
 import ImproveNFT from "../components/ImproveNFT.vue";
 
-let username: string = "Jane Doe"
-let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
+let username: string = "Beff Jezos";
+let avatar: string = "src/assets/avatar.jpg";
 
 const tab = ref(1);
 
@@ -13,7 +13,13 @@ function getRandomCards() {
     while(randomIndices.size < 3) {
         randomIndices.add(Math.floor(Math.random() * cards.length));
     }
-    return Array.from(randomIndices).map(index => cards[index]);
+    return Array.from(randomIndices).map((index: unknown) => {
+        if (typeof index === 'number') {
+        return cards[index];
+        } else {
+        throw new Error(`Invalid index type: ${typeof index}`);
+        }
+    });
 }
 
 let randomCards = getRandomCards();

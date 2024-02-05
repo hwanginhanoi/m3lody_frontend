@@ -8,27 +8,29 @@ const route = useRoute()
 const {id} = route.params
 
 onBeforeMount(() => {
-    product.value = item.find(p => p.id === parseInt(id))
+    if (typeof id === "string") {
+        product.value = item.find(p => p.id === parseInt(id))
+    }
 })
 
-let audioList: [
-    {
-        name: 'audio1',
-        url: 'https://www.0dutv.com/upload/dance/F25F74A0B8FF82503241801D0E2CA5CD.mp3'
-    },
-    {
-        name: 'audio2',
-        url: 'https://www.0dutv.com/upload/dance/20200316/C719452E3C7834080007662021EA968E.mp3'
-    }
-]
-
-function handleBeforePlay(next: () => void): void {
-    // There are a few things you can do here...
-    // Assuming this is part of a class and you have proper typings for these properties
-    this.currentAudioName = this.audioList[this.$refs.audioPlayer.currentPlayIndex].name;
-
-    next(); // Start playing
-}
+// let audioList:Array<Object> =  [
+//     {
+//         name: 'audio1',
+//         url: 'https://www.0dutv.com/upload/dance/F25F74A0B8FF82503241801D0E2CA5CD.mp3'
+//     },
+//     {
+//         name: 'audio2',
+//         url: 'https://www.0dutv.com/upload/dance/20200316/C719452E3C7834080007662021EA968E.mp3'
+//     }
+// ]
+//
+// function handleBeforePlay(next: () => void): void {
+//     // There are a few things you can do here...
+//     // Assuming this is part of a class and you have proper typings for these properties
+//     this.currentAudioName = this.audioList[this.$refs.audioPlayer.currentPlayIndex].name;
+//
+//     next(); // Start playing
+// }
 
 </script>
 

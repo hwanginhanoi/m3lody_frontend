@@ -28,8 +28,8 @@ import PictureInput from 'vue-picture-input'
                                 upload: '<h1>Bummer!</h1>',
                                 drag: 'Drag a 😺 GIF or GTFO'
                             }"
-                        radius="5"
-                        @change="onChange">
+                        radius="5">
+<!--                        @change="onChange">-->
                     </picture-input>
 
                 </v-col>

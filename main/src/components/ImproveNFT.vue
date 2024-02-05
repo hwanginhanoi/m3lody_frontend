@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import {useDisplay} from "vuetify";
 import {useRoute} from 'vue-router';
-import {defineProps, ref, computed} from 'vue';
+import {defineProps, ref} from 'vue';
 
 defineProps(['card']);
-let {mdAndUp, lgAndUp} = useDisplay();
 const route = useRoute();
 
 function cal_width() {
@@ -15,8 +13,8 @@ function cal_width() {
     }
 }
 
-let width_cal = ref()
-width_cal = cal_width()
+let width_cal = ref('');
+width_cal.value = cal_width() as string
 console.log(width_cal)
 console.log(route.path);
 </script>

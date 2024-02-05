@@ -18,8 +18,8 @@ const isDarkTheme = computed({
 const drawer = ref(false)
 const {mdAndUp} = useDisplay()
 
-let username: string = "Jane Doe"
-let avatar: string = "https://randomuser.me/api/portraits/women/85.jpg"
+let username: string = "Beff Jezos";
+let avatar: string = "src/assets/avatar.jpg";
 
 const menu = ref(false)
 const wallet = ref(false)

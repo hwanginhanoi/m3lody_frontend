@@ -6,8 +6,8 @@ import {ref} from "vue";
 
 let show = ref(false);
 const form = ref({
-    userPay: null,
-    userReceive: null,
+    userPay: 0,
+    userReceive: 0,
     payCoin: 'USD',
     receiveCoin: 'ETH',
 })
@@ -15,7 +15,7 @@ const form = ref({
 
 function payToCoin(){
     if (form.value.receiveCoin === 'ETH')
-        form.value.userReceive = form.value.userPay * 20;
+        form.value.userReceive = +(form.value.userPay) * 20;
 }
 
 function coinToPay(){
@@ -34,7 +34,7 @@ function coinToPay(){
         <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
             <v-card title="Buy" rounded="lg">
                 <v-card-text class="">
-                    <v-card class="" style="max-width: 600px; margin: auto;" flat>
+                    <v-card class="" style="max-width: 600px; margin: auto;">
                         <v-row>
                             <v-col class="text-left">
                                 Spend
@@ -65,7 +65,7 @@ function coinToPay(){
                             <v-col cols="" class="pl-10">
                                 <v-select
                                     chips
-                                    variant="flat"
+                                    variant="plain"
                                     v-model="form.payCoin"
                                     :items="['USD']"
                                     style="display: flex; justify-content: end;"
@@ -98,7 +98,7 @@ function coinToPay(){
                             <v-col cols="" class="pl-10">
                                 <v-select
                                     chips
-                                    variant="flat"
+                                    variant="plain"
                                     v-model="form.receiveCoin"
                                     style="display: flex; justify-content: end;"
                                     :items="['ETH']"
@@ -225,9 +225,6 @@ function coinToPay(){
     line-height: normal;
 }
 
-.theborder {
-    border: solid 1px white;
-}
 
 .textSize {
     font-size: 16px;
@@ -241,16 +238,7 @@ function coinToPay(){
     font-size: 12px;
 }
 
-.usdtext {
-    font-size: 30px;
-    color: lightgreen;
-}
-
 .customLogo :deep(.v-btn--active) {
     background-color: transparent;
-}
-
-.vlistborder {
-    border-bottom: 1px solid white;
 }
 </style>

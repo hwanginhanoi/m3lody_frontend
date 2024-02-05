@@ -13,7 +13,7 @@ const {mdAndUp} = useDisplay();
 
 <template>
     <v-container class="pa-3">
-        <v-card class=" pa-10 backgroundgra rounded-lg" elevation="2"
+        <v-card class="pa-10 rounded-lg" elevation="2"
                 width="99%"
         >
             <v-card-text class="pt-2"><h3>Account Details</h3></v-card-text>
@@ -26,7 +26,7 @@ const {mdAndUp} = useDisplay();
                                     v-model="security.currentpassword"
                                     label="Current Password"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -35,7 +35,7 @@ const {mdAndUp} = useDisplay();
                                     v-model="security.newpassword"
                                     label="New Password"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -51,7 +51,7 @@ const {mdAndUp} = useDisplay();
                                     v-model="security.confirmpassword"
                                     label="Confirm Password"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -80,12 +80,3 @@ const {mdAndUp} = useDisplay();
         </v-card>
     </v-container>
 </template>
-
-<style scoped>
-.backgroundgrade{
-    max-width: 300px;
-    min-width: 100px;
-    justify-content: center;
-}
-
-</style>

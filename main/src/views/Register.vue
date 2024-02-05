@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AuthProvider from '../components/AuthProvider.vue'
+
 import {ref} from "vue";
 
 const form = ref({
@@ -118,7 +118,6 @@ const particlesLoaded = async (container: any) => {
                                 v-model="form.email"
                                 label="Email"
                                 type="email"
-                                clearable=""
                                 rounded="lg"
                                 variant="outlined"
                                 color="#7e66f9"
@@ -129,7 +128,6 @@ const particlesLoaded = async (container: any) => {
                                 color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
-                                clearable=""
                                 v-model="form.password"
                                 label="Password"
                                 placeholder="············"
@@ -143,7 +141,6 @@ const particlesLoaded = async (container: any) => {
                                 color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
-                                clearable=""
                                 label="Re-enter password"
                                 placeholder="············"
                                 :type="'password'"

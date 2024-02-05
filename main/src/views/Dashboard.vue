@@ -1,14 +1,13 @@
 <script setup lang="ts">
 // import required modules
 import {ref} from "vue";
-import {useDisplay} from "vuetify";
 // Import Swiper styles
 import 'swiper/css/bundle';
 import SwiperCard from "../components/SwiperCard.vue";
 
 import item from "../data.json"
 
-let header = [
+let header :Array<Object>= [
     {title: 'Rank', key: 'rank', align: 'center'},
     {title: 'Image', key: 'image', align: 'center'},
     {title: 'Name', key: 'name', align: 'center'},

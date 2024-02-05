@@ -19,14 +19,13 @@ let data = ref([
     },
 ])
 
-function removeItem(itemToRemove) {
-    // data.value = data.value.filter(item => item !== itemToRemove);
+function removeItem(itemToRemove : any) {
     data.value.splice(itemToRemove, 1)
 }
 
 let sum = computed(() => {
     let total = 0;
-    data.value.forEach((item, i) => {
+    data.value.forEach((item) => {
         total += item.price;
     });
     return total;

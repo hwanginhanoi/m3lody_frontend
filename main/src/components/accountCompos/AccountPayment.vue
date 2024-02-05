@@ -8,7 +8,7 @@ const paymentDetails = ref({
     cardholdername: '',
     expirationdate: '',
     cvv: '',
-    billingaddress:'',
+    billingaddress: '',
 
 
 })
@@ -29,7 +29,7 @@ const paymentDetails = ref({
                                     v-model="paymentDetails.cardholdername"
                                     label="Card Holder Name"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -38,7 +38,7 @@ const paymentDetails = ref({
                                     v-model="paymentDetails.cardnumber"
                                     label="Card Number"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -47,7 +47,7 @@ const paymentDetails = ref({
                                     v-model="paymentDetails.cvv"
                                     label="CVV"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -63,7 +63,7 @@ const paymentDetails = ref({
                                     v-model="paymentDetails.expirationdate"
                                     label="Expiration Date"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -72,7 +72,7 @@ const paymentDetails = ref({
                                     v-model="paymentDetails.billingaddress"
                                     label="Billing Address"
                                     type="text"
-                                    clearable=""
+                                    clearable
                                     rounded="lg"
                                     variant="outlined"
                                     color="#d777ed"
@@ -99,13 +99,13 @@ const paymentDetails = ref({
 </template>
 
 <style scoped>
-.backgroundgrade{
+.backgroundgrade {
     max-width: 300px;
     min-width: 100px;
     justify-content: center;
 }
 
-.fixborder{
+.fixborder {
     min-width: 100vh;
 }
 </style>

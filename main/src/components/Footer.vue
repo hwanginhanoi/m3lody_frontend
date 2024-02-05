@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useTheme, useDisplay} from 'vuetify';
+import {useDisplay} from 'vuetify';
 
 const icons = [
     'mdi-facebook',
