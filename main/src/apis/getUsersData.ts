@@ -5,7 +5,6 @@ async function getUsersData(){
     try{
         const response = await fetch(url,{
             method: 'GET',
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -19,7 +18,7 @@ async function getUsersData(){
         if (!responseFromServer.success){
             throw new Error("Can't retrieve data");
         }
-        return responseFromServer;
+        return responseFromServer.data;
         
     }catch(error){
     }
