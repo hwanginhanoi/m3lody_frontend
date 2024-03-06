@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Sample data set
-
+import getUsersData from "../apis/getUsersData.ts";
 // adding transacion history data
 const items = [
     {
@@ -65,6 +65,8 @@ let header: Array<Object> = [
     {title: 'To', key: 'to', align: 'center'},
     {title: 'Date', key: 'date', align: 'center'},
 ]
+
+getUsersData();
 
 </script>
 <template>
