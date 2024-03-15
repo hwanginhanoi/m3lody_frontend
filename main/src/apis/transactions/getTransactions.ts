@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import responseData from '../interfaces/responseData';
+import responseData from '../../interfaces/responseData.ts';
 async function getTransactions(){
     let url = "http://localhost:3001/transactions";
     try{
