@@ -5,6 +5,7 @@ import {ref, computed} from 'vue'
 import Buy from "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue"
 import Cart from "./Cart.vue"
+import logout from "../apis/logout.ts";
 
 const theme = useTheme()
 
@@ -36,6 +37,12 @@ function checkRoute(): boolean {
 }
 
 console.log(router.name)
+
+async function handleLogout() {
+    alert("Logging out")
+    await logout()
+}
+
 </script>
 
 <template>
@@ -87,7 +94,7 @@ console.log(router.name)
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout" to="/index">Logout
+                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout" to="/index" @click="handleLogout">Logout
                     </v-btn>
                 </v-list>
             </div>
@@ -250,7 +257,7 @@ console.log(router.name)
                             <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
                         </template>
                     </v-switch>
-                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout"></v-list-item>
+                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout" @click="handleLogout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>
