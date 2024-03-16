@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AuthProvider from '../components/AuthProvider.vue'
 import {ref} from "vue";
+import login from "../apis/login/login.ts";
+import router from "../plugins/router.ts";
 
 //import placeholders
 const form = ref({
@@ -15,6 +17,23 @@ const isPasswordVisible = ref(false)
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
+
+async function handleClick(){
+    if (form.value.email === '' || form.value.password === '') {
+        alert('Please fill in all fields');
+    } else {
+        // Fetch users data
+        const response = await login(form.value.email, form.value.password);
+        if (response) {
+            await router.push('/dashboard');
+        } else {
+            alert('Login failed');
+        }
+
+    }
+}
+
+
 </script>
 
 <template>
@@ -159,9 +178,9 @@ const particlesLoaded = async (container: any) => {
                             <v-btn
                                 block
                                 type="submit"
-                                to="/dashboard"
                                 rounded="lg"
                                 color="#7e66f9"
+                                @click="handleClick"
                             >
                                 Login
                             </v-btn>

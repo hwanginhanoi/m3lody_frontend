@@ -58,6 +58,7 @@ function formatNumber(number: any) {
 //create random data
 import cards from "../data.json";
 
+
 function getRandomCards() {
     let randomIndices = new Set();
     while (randomIndices.size < 3) {
