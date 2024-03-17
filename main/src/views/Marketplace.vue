@@ -2,6 +2,15 @@
 <script setup lang="ts">
 import ImproveNFT from "../components/ImproveNFT.vue"; // Importing the ImproveNFT component
 import data from "../data.json"; // Importing data from a JSON file
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+});
 
 const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]; // Array of categories
 </script>

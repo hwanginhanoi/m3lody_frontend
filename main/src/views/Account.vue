@@ -5,6 +5,15 @@ import {ref} from "vue";
 import AccountDetail from "../components/accountCompos/AccountDetail.vue";
 import AccountSecurity from "../components/accountCompos/AccountSecurity.vue";
 import AccountPayment from "../components/accountCompos/AccountPayment.vue";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+});
 
 // Creating a reactive reference for the tab
 const tab = ref(1);

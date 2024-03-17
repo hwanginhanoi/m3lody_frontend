@@ -6,6 +6,8 @@ import Buy from "./exchangeCompos/Buy.vue"
 import Deposit from "./exchangeCompos/Deposit.vue"
 import Cart from "./Cart.vue"
 import logout from "../apis/logout.ts";
+import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
+import {onMounted} from "vue";
 
 const theme = useTheme()
 
@@ -20,13 +22,20 @@ const isDarkTheme = computed({
 const drawer = ref(false)
 const {mdAndUp} = useDisplay()
 
+//wallet information
+let walletInfo = ref()
+onMounted(async () => {
+    walletInfo.value = await getWalletInfor()
+    console.log(walletInfo)
+});
+
 let username: string = "Beff Jezos";
 let avatar: string = "src/assets/avatar.jpg";
 
 const menu = ref(false)
 const wallet = ref(false)
 
-let balance = {coin: 500, usd: 100, eth: 300}
+let balance = {coin: 500, usd: walletInfo.value.usd_balance, eth: walletInfo.value.eth_balance}
 let userID = ref("01x...3453")
 
 const router = useRoute()
@@ -39,9 +48,9 @@ function checkRoute(): boolean {
 console.log(router.name)
 
 async function handleLogout() {
-    alert("Logging out")
     await logout()
 }
+
 
 </script>
 

@@ -1,6 +1,25 @@
 <script setup lang="ts">
 //import PictureInput component
 import PictureInput from 'vue-picture-input'
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted, ref} from "vue";
+
+const form = ref({
+    image: '',
+    name: '',
+    supply: '',
+    price: '',
+    description: '',
+    type: '---',
+    musicFile: '',
+})
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+});
 
 </script>
 
@@ -22,6 +41,7 @@ import PictureInput from 'vue-picture-input'
                         class="pt-5"
                         ref="pictureInput"
                         style="min-height: 400px; min-width: 400px"
+                        v-model="form.image"
                         width="500"
                         height="500"
                         accept="image/jpeg,image/png"
@@ -36,21 +56,21 @@ import PictureInput from 'vue-picture-input'
                 </v-col>
                 <!--form input-->
                 <v-col class="d-flex flex-column align-center">
-                    <v-text-field label="Name" variant="outlined" rounded="lg" placeholder="Name your NFT" class="">
+                    <v-text-field label="Name" variant="outlined" rounded="lg" placeholder="Name your NFT" class="" v-model="form.name">
                     </v-text-field>
 
-                    <v-text-field label="Supply" variant="outlined" rounded="lg" placeholder="1">
+                    <v-text-field label="Supply" variant="outlined" rounded="lg" placeholder="1" v-model="form.supply">
 
                     </v-text-field>
-                    <v-text-field label="Price" variant="outlined" rounded="lg" placeholder="Name your NFT" class="">
+                    <v-text-field label="Price" variant="outlined" rounded="lg" placeholder="Name your NFT" class="" v-model="form.price">
                     </v-text-field>
 
 
                     <v-textarea label="Description" variant="outlined" rounded="lg"
-                                placeholder="Enter a description">
+                                placeholder="Enter a description" v-model="form.description">
                     </v-textarea>
 
-                    <v-select label="Type" variant="outlined" rounded="lg">
+                    <v-select label="Type" variant="outlined" rounded="lg" v-model="form.type">
 
                     </v-select>
                     <v-file-input prepend-icon="mdi-music"
@@ -60,6 +80,7 @@ import PictureInput from 'vue-picture-input'
                                   show-size
                                   accept="audio/*"
                                   variant="outlined"
+                                  v-model="form.musicFile"
                                   style="min-width: 50%">
 
                     </v-file-input>

@@ -3,6 +3,14 @@ import AuthProvider from '../components/AuthProvider.vue'
 import {ref} from "vue";
 import login from "../apis/login/login.ts";
 import router from "../plugins/router.ts";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import {onMounted} from "vue";
+
+onMounted(async () => {
+    if (checkCookieExists()) {
+        await router.push('/dashboard');
+    }
+});
 
 //import placeholders
 const form = ref({
@@ -25,7 +33,7 @@ async function handleClick(){
         // Fetch users data
         const response = await login(form.value.email, form.value.password);
         if (response) {
-            await router.push('/dashboard');
+            await router.push({ path: '/dashboard' });
         } else {
             alert('Login failed');
         }

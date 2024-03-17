@@ -1,5 +1,15 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
+import register from "../apis/register/register.ts";
+
+onMounted(async () => {
+    if (checkCookieExists()) {
+        await router.push('/dashboard');
+    }
+});
 //import placeholders
 const form = ref({
     email: '',
@@ -13,6 +23,11 @@ const isPasswordVisible = ref(false)
 const particlesLoaded = async (container: any) => {
     console.log("Particles container loaded", container);
 };
+
+async function handleRegister() {
+    await register(form.value.email, form.value.password);
+    await router.push({path: '/index'});
+}
 </script>
 
 <template>
@@ -156,6 +171,7 @@ const particlesLoaded = async (container: any) => {
                                 to="/index"
                                 rounded="lg"
                                 color="#7e66f9"
+                                @click="handleRegister"
                             >
                                 Register
                             </v-btn>

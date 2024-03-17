@@ -4,6 +4,15 @@ import {ref} from "vue";
 // Import Swiper styles
 import 'swiper/css/bundle';
 import SwiperCard from "../components/SwiperCard.vue";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+});
 
 import item from "../data.json"
 // Header of table config

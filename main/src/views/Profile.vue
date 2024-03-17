@@ -2,6 +2,15 @@
 import {ref} from "vue";
 import cards from "../data.json";
 import ImproveNFT from "../components/ImproveNFT.vue";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+});
 
 let username: string = "Beff Jezos";
 let avatar: string = "src/assets/avatar.jpg";

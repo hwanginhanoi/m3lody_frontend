@@ -2,7 +2,9 @@
 import {useRoute} from "vue-router";
 import {onBeforeMount, ref} from "vue";
 import item from "../data.json"
-
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+import {onMounted} from "vue";
 const product = ref()
 const route = useRoute()
 const {id} = route.params
@@ -12,6 +14,13 @@ onBeforeMount(() => {
         product.value = item.find(p => p.id === parseInt(id))
     }
 })
+
+onMounted(async () => {
+    if (!checkCookieExists()) {
+        await router.push('/login');
+    }
+})
+
 </script>
 
 <template>

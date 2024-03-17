@@ -3,21 +3,20 @@
 import getTransactions from "../apis/transactions/getTransactions.ts";
 import { ref } from "vue";
 import { onMounted } from "vue";
+import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import router from "../plugins/router.ts";
+// Fetch data from API
 let items = ref([]);
 onMounted(async () => {
     // Fetch users data
-    items.value = await getTransactions();
+    if (checkCookieExists()){
+        items.value = await getTransactions();
+    }
+    else {
+        await router.push('/login');
+    }
     // Update the users array with fetched data
-    console.log(items.value);
 });
-//data format:
-// {
-//     "transaction_id": 1,
-//     "buyer_id": 2,
-//     "seller_id": 1,
-//     "music_id": 1,
-//     "transaction_amount": "2.92",
-
 
 // adding transacion history data
 // const items = [
