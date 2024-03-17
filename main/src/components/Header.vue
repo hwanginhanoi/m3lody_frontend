@@ -23,11 +23,11 @@ const drawer = ref(false)
 const {mdAndUp} = useDisplay()
 
 //wallet information
-let walletInfo = ref()
-onMounted(async () => {
-    walletInfo.value = await getWalletInfor()
-    console.log(walletInfo)
-});
+// let walletInfo = ref()
+// onMounted(async () => {
+//     walletInfo.value = await getWalletInfor()
+//     console.log(walletInfo)
+// });
 
 let username: string = "Beff Jezos";
 let avatar: string = "src/assets/avatar.jpg";
@@ -35,7 +35,7 @@ let avatar: string = "src/assets/avatar.jpg";
 const menu = ref(false)
 const wallet = ref(false)
 
-let balance = {coin: 500, usd: walletInfo.value.usd_balance, eth: walletInfo.value.eth_balance}
+let balance = {coin: 500, usd: 100, eth: 100}
 let userID = ref("01x...3453")
 
 const router = useRoute()
