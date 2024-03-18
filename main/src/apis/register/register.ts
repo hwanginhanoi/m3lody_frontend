@@ -4,7 +4,7 @@ async function getTransactions(email:string,password:string){
     let url = "http://localhost:3001/register";
     try{
         const response = await fetch(url,{
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
