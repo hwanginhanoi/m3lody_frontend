@@ -29,14 +29,14 @@ onMounted(async () => {
         <v-container class="mb-16">
             <v-row>
                 <v-col class="v-col-5">
-                    <v-img :src="product.src" height="100%" width="100%"
+                    <v-img :src="product.preview_url" height="100%" width="100%"
                            style="border-radius: 20px"></v-img>
                     <!--    Assign product image-->
                 </v-col>
                 <v-col class="v-col-7">
                     <v-card style="border-radius: 10px">
 
-                        <v-card-text><h1>{{ product.name }}</h1> by <strong>{{ product.author }}</strong></v-card-text> <!--    Assign product name-->
+                        <v-card-text><h1>{{ product.name }}</h1> by <strong>{{ product.username }}</strong></v-card-text> <!--    Assign product name-->
                         <v-card-text>
                             <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>
