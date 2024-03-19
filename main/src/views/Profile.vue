@@ -5,18 +5,28 @@ import ImproveNFT from "../components/ImproveNFT.vue";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
+import userprofile from "../apis/profile/userprofile.ts";
 
+let username:string;
+let avatar: string;
+let userID = ref("");
+let listOfCards = ref([]);
 onMounted(async () => {
     if (!checkCookieExists()) {
         await router.push('/login');
     }
+    else {
+        let user = await userprofile();
+
+        username = user[0].username;
+
+        avatar = "src/assets/avatar.jpg";
+        userID.value = user[0].user_id;
+        listOfCards.value = user;
+    }
+
 });
-
-let username: string = "Beff Jezos";
-let avatar: string = "src/assets/avatar.jpg";
-
 const tab = ref(1);
-let userID = ref("0xf345...")
 
 function getRandomCards() {
     let randomIndices = new Set();
@@ -63,7 +73,7 @@ let randomCards = getRandomCards();
                 <v-window-item :value="1">
                     <v-card-text class="d-flex justify-center">
                         <v-row>
-                            <v-col cols="12" md="4" v-for="card in randomCards" class="d-flex justify-center">
+                            <v-col cols="12" md="4" v-for="card in listOfCards" class="d-flex justify-center">
                                 <ImproveNFT :card="card"/>
                             </v-col>
                         </v-row>
