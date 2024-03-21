@@ -6,9 +6,8 @@ import router from "../plugins/router.ts";
 import {onMounted, ref} from "vue";
 
 const form = ref({
-    image: '',
-    name: '',
-    supply: '',
+    preview_url: '',
+    title: '',
     price: '',
     description: '',
     type: '---',
@@ -41,7 +40,7 @@ onMounted(async () => {
                         class="pt-5"
                         ref="pictureInput"
                         style="min-height: 400px; min-width: 400px"
-                        v-model="form.image"
+                        v-model="form.preview_url"
                         width="500"
                         height="500"
                         accept="image/jpeg,image/png"
@@ -56,12 +55,9 @@ onMounted(async () => {
                 </v-col>
                 <!--form input-->
                 <v-col class="d-flex flex-column align-center">
-                    <v-text-field label="Name" variant="outlined" rounded="lg" placeholder="Name your NFT" class="" v-model="form.name">
+                    <v-text-field label="Name" variant="outlined" rounded="lg" placeholder="Name your NFT" class="" v-model="form.title">
                     </v-text-field>
 
-                    <v-text-field label="Supply" variant="outlined" rounded="lg" placeholder="1" v-model="form.supply">
-
-                    </v-text-field>
                     <v-text-field label="Price" variant="outlined" rounded="lg" placeholder="Name your NFT" class="" v-model="form.price">
                     </v-text-field>
 
