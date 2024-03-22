@@ -199,30 +199,7 @@ async function handleLogout() {
             </v-card>
         </v-menu>
 <!--        cart features-->
-        <v-dialog width="50%" min-width="470px" v-if="checkRoute()">
-            <template v-slot:activator="{ props }">
-                <v-btn v-bind="props" icon="mdi-cart" height="56px" width="56" class="ml-2 " rounded="lg" elevation="2"
-                       :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-                </v-btn>
-            </template>
-
-            <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
-                <v-card title="Dialog" rounded="lg">
-                    <v-card-text>
-                        <Cart/>
-                    </v-card-text>
-
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-
-                        <v-btn
-                            text="Close Dialog"
-                            @click="isActive.value = false"
-                        ></v-btn>
-                    </v-card-actions>
-                </v-card>
-            </template>
-        </v-dialog>
+        
 
         <v-menu
             v-model="menu"

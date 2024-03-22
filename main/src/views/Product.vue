@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
 import {onBeforeMount, ref} from "vue";
-import item from "../data.json"
+import nft from "../apis/marketplace/nft.ts";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
-const product = ref()
+const product = ref([]);
 const route = useRoute()
 const {id} = route.params
+console.log(id);
 // Get item id from previous page
-onBeforeMount(() => {
-    if (typeof id === "string") {
-        product.value = item.find(p => p.id === parseInt(id))
-    }
-})
+let theNFT = ref([]);
 
 onMounted(async () => {
     if (!checkCookieExists()) {
         await router.push('/login');
+    }
+    else {
+        theNFT.value = await nft(id);
+        product.value = theNFT.value[0];
     }
 })
 
@@ -43,7 +44,7 @@ onMounted(async () => {
                         <v-card-text>
                             <audio controls>
                                 <source
-                                    src="https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3"
+                                    src="https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmX6ALoq9MKGNLvRStKgjymuz2tAYwW8pMav6cnaoit55z"
                                     type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>

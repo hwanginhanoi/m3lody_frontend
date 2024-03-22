@@ -1,15 +1,20 @@
 <!-- Importing the ImproveNFT component and data from JSON file -->
 <script setup lang="ts">
 import ImproveNFT from "../components/ImproveNFT.vue"; // Importing the ImproveNFT component
-import data from "../data.json"; // Importing data from a JSON file
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import nftdata from "../apis/marketplace/nftdata.ts";
 import router from "../plugins/router.ts";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 
+let data = ref([]); // Data to store the fetched NFT data
 onMounted(async () => {
     if (!checkCookieExists()) {
         await router.push('/login');
+    }else {
+        data.value = await nftdata();
     }
+
+
 });
 
 const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]; // Array of categories
@@ -45,7 +50,7 @@ const categories = ["All categories", "Anime", "Classic", "Rock", "Angelic"]; //
                 <!-- Column to display each card -->
                 <!-- Iterating over the data to display cards using the ImproveNFT component -->
                 <v-col cols="12" sm="6" md="4" lg="3" v-for="card in data">
-                    <ImproveNFT :key="card.id" :card="card"/> <!-- ImproveNFT component -->
+                    <ImproveNFT :key="card.music_id" :card="card"/> <!-- ImproveNFT component -->
                 </v-col>
             </v-row>
         </v-container>
