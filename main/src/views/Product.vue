@@ -11,6 +11,7 @@ const {id} = route.params
 console.log(id);
 // Get item id from previous page
 let theNFT = ref([]);
+let music_url = ref('');
 
 onMounted(async () => {
     if (!checkCookieExists()) {
@@ -19,6 +20,8 @@ onMounted(async () => {
     else {
         theNFT.value = await nft(id);
         product.value = theNFT.value[0];
+        music_url.value = product.value.music_url;
+        console.log(music_url.value);
     }
 })
 
@@ -30,21 +33,21 @@ onMounted(async () => {
         <v-container class="mb-16">
             <v-row>
                 <v-col class="v-col-5">
-                    <v-img :src="product.preview_url" height="100%" width="100%"
+                    <v-img :src="product.picture_url" height="100%" width="100%"
                            style="border-radius: 20px"></v-img>
                     <!--    Assign product image-->
                 </v-col>
                 <v-col class="v-col-7">
                     <v-card style="border-radius: 10px">
 
-                        <v-card-text><h1>{{ product.name }}</h1> by <strong>{{ product.username }}</strong></v-card-text> <!--    Assign product name-->
+                        <v-card-text><h1>{{ product.title }}</h1> by <strong>{{ product.username }}</strong></v-card-text> <!--    Assign product name-->
                         <v-card-text>
                             <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>
                         <v-card-text>
-                            <audio controls>
+                            <audio controls :src="music_url">
                                 <source
-                                    src="https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmX6ALoq9MKGNLvRStKgjymuz2tAYwW8pMav6cnaoit55z"
+                                    :src="music_url"
                                     type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>

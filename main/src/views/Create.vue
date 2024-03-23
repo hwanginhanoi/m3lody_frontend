@@ -21,13 +21,8 @@ onMounted(async () => {
     }
 });
 
-function handleImageChange(newImage) {
-
-    console.log(pictureInput)
-}
 async function handleCreateNFT() {
     let formData = new FormData();
-    console.log(form.value.music_url)
     formData.append('image', form.value.music_url);
     formData.append('title', form.value.title);
     formData.append('price', form.value.price);
@@ -35,7 +30,7 @@ async function handleCreateNFT() {
     formData.append('type', form.value.type);
     formData.append('musicFile', form.value.musicFile);
 
-    console.log(formData.get('image'));
+    console.log(formData.get('musicFile'))
     await createNFT(formData);
 
 
@@ -43,24 +38,18 @@ async function handleCreateNFT() {
 
 const image = ref<File | null>(null)
 
-const onChange = (imageData: File | null) => {
-    console.log('New picture selected!')
-    if (imageData) {
-        console.log('Picture loaded.')
-        image.value = imageData
-        console.log(imageData.target.files[0])
-    } else {
-        console.log('FileReader API not supported: use the <form>, Luke!')
-    }
+const onChangeImage = (imageData: ChangeEvent<HTMLInputElement> | null) => {
     form.value.music_url =  imageData.target.files[0];
+}
+
+const onChangeMusic = (musicData: ChangeEvent<HTMLInputElement> | null) => {
+    form.value.musicFile =  musicData.target.files[0];
 }
 </script>
 
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
-        <label>hello</label>
-        <input type="file" @change="onChange"/>
         <div class="my-16 jusd-flex mb-16">
             <v-row>
                 <v-col>
@@ -82,7 +71,7 @@ const onChange = (imageData: File | null) => {
                         accept="image/jpeg,image/png"
                         size="10"
                         button-class="btn"
-                        @change="onChange"
+                        @change="onChangeImage"
                         :custom-strings="{
                                 upload: '<h1>Bummer!</h1>',
                                 drag: 'Drag a 😺 GIF or GTFO'
@@ -113,7 +102,7 @@ const onChange = (imageData: File | null) => {
                                   show-size
                                   accept="audio/*"
                                   variant="outlined"
-                                  v-model="form.musicFile"
+                                  @change="onChangeMusic"
                                   style="min-width: 50%">
 
                     </v-file-input>

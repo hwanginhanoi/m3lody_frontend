@@ -23,7 +23,7 @@ console.log(route.path);
     <v-card class="rounded-lg custom" elevation="3"
             :to="{ path: `/product/${card.music_id}`}"
             :width=width_cal>
-        <v-img :src="card.music_url" class="w-100" cover></v-img>
+        <v-img :src="card.picture_url" class="w-100" cover></v-img>
         <v-card-title>{{ card.title }}</v-card-title>
         <v-row>
             <v-col class="v-col-7">
