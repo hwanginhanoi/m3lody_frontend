@@ -34,22 +34,14 @@ function coinToPay() {
         <template v-slot:activator="{ props }">
             <!-- buttons for buy-->
             <v-btn v-bind="props" prepend-icon="mdi-plus" class="bg-green" width="200px"
-                   height="35px">Buy
+                   height="35px">Add wallet
             </v-btn>
         </template>
 
         <template v-slot:default="{ isActive }" style="position: absolute; bottom: 0;">
-            <v-card title="Buy" rounded="lg">
+            <v-card title="Add wallet" rounded="lg">
                 <v-card-text class="">
                     <v-card class="" style="max-width: 600px; margin: auto;">
-                        <v-row>
-                            <v-col class="text-left">
-                                Spend
-                            </v-col>
-                            <v-col class="text-right">
-                                Cash balance
-                            </v-col>
-                        </v-row>
                         <!--                        inputs field-->
                         <v-row no-gutters
                                class="mt-3"
@@ -60,9 +52,9 @@ function coinToPay() {
                         >
                             <v-col class="text-left pl-5" cols="">
                                 <v-text-field
-                                    placeholder="You pay"
+                                    placeholder="Your address"
                                     v-model="form.userPay"
-                                    type="number"
+                                    type="text"
                                     @change="payToCoin"
                                     rounded="lg"
                                     variant="plain"
@@ -70,113 +62,10 @@ function coinToPay() {
                                 >
                                 </v-text-field>
                             </v-col>
-                            <v-col cols="" class="pl-10">
-                                <v-select
-                                    chips
-                                    variant="plain"
-                                    v-model="form.payCoin"
-                                    :items="['USD']"
-                                    style="display: flex; justify-content: end;"
-                                    class=""
-                                    hide-details
-                                ></v-select>
-                            </v-col>
-                        </v-row>
-                        <v-row no-gutters
-                               class="mt-3"
-                               style="height: 60px;
-                               background: #242627;
-                               border-radius: 11px;
-                               overflow: hidden; "
-                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                        >
-                            <v-col class="text-left pl-5" cols="">
-                                <v-text-field
-                                    placeholder="You receive"
-                                    type="number"
-                                    v-model="form.userReceive"
-                                    @change="coinToPay"
-                                    rounded="lg"
-                                    variant="plain"
-                                    color="#d777ed"
-
-                                >
-                                </v-text-field>
-                            </v-col>
-                            <v-col cols="" class="pl-10">
-                                <v-select
-                                    chips
-                                    variant="plain"
-                                    v-model="form.receiveCoin"
-                                    style="display: flex; justify-content: end;"
-                                    :items="['ETH']"
-                                    hide-details
-
-
-                                ></v-select>
-                            </v-col>
                         </v-row>
                         <!--                        confirmation cards-->
                         <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
                                 :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-                            <v-row class="font-weight-light">
-                                <v-col cols="10" class="d-flex align-center">
-                                    <p class="smallText">You get <span
-                                        class="font-weight-bold">{{
-                                            form.userReceive ? form.userReceive : '...'
-                                        }} {{ form.receiveCoin }}</span> for <span
-                                        class="font-weight-bold">{{
-                                            form.userPay ? form.userPay : '...'
-                                        }} {{ form.payCoin }}</span></p>
-                                </v-col>
-                                <v-col class="d-flex justify-end">
-                                    <v-btn
-                                        :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-                                        @click="show = !show"
-                                        width="30px"
-                                        height="30px"
-                                    ></v-btn>
-                                </v-col>
-                            </v-row>
-                            <v-row>
-                                <v-expand-transition class="w-100">
-                                    <div v-show="show">
-                                        <v-divider :thickness="4"></v-divider>
-
-                                        <v-card-text>
-                                            <v-row>
-                                                <v-col cols="8" class="pa-2">
-                                                    <p><span
-                                                        class="font-weight-bold">{{ ((+form.userPay - 1.48 - 2.10) * 20).toFixed(2) }} {{ form.receiveCoin }}</span>@2.333,20
-                                                        US$</p>
-                                                </v-col>
-                                                <v-col class="text-right pa-2">
-                                                    <p class="font-weight-bold">Total:
-                                                        {{ ((+form.userPay - 1.48 - 2.10).toFixed(2)) }} US$</p>
-                                                </v-col>
-
-                                            </v-row>
-                                            <v-row>
-                                                <v-col cols="7" class="pa-2">
-                                                    <p><span class="font-weight-bold">Network fee</span></p>
-                                                </v-col>
-                                                <v-col class=" text-right pa-2">
-                                                    <p class="font-weight-bold">1,48 US$</p>
-                                                </v-col>
-                                            </v-row>
-                                            <v-row>
-                                                <v-col cols="6" class="pa-2">
-                                                    <p><span class="font-weight-bold">Processing fee</span></p>
-                                                </v-col>
-                                                <v-col class="text-right pa-2">
-                                                    <p>as low as <span class="font-weight-bold">2,10 US$</span></p>
-                                                </v-col>
-                                            </v-row>
-
-                                        </v-card-text>
-                                    </div>
-                                </v-expand-transition>
-                            </v-row>
                             <v-row>
                                 <v-col cols="12">
                                     <v-btn width="100%"

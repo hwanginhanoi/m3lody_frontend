@@ -164,11 +164,8 @@ async function handleLogout() {
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                 >
                     <div v-if="mdAndUp">{{ balance.coin }} ETH</div>
-                    <v-divider v-if="mdAndUp" vertical length="100" class="border-opacity-50 mx-2"></v-divider>
-                    <div v-if="mdAndUp">{{ balance.usd }} USD</div>
                 </v-btn>
             </template>
-
             <v-card min-width="300px" rounded="lg" class="mt-2" width="400px" min-height="100px">
                 <v-list height="" class="" style="border: none">
                     <v-list-item class="">
@@ -176,13 +173,10 @@ async function handleLogout() {
                             <v-col cols="9">
                                 <p>ID: {{ userID }}</p>
                             </v-col>
-                            <v-col>
-                                <p>{{balance.eth}} ETH</p>
-                            </v-col>
                         </v-row>
                         <v-row class="mb-2">
                             <v-col>
-                                <p><span class="usdtext font-weight-bold">${{ balance.usd }} </span></p>
+                                <p><span class="usdtext font-weight-bold">{{ balance.eth }} ETH </span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
                             </v-col>
                             <v-col>
@@ -200,7 +194,7 @@ async function handleLogout() {
                             <v-icon icon="mdi-wallet" size="50px"></v-icon>
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
-                            <v-card-text class="font-weight-bold textSize">Fund your wallet to purchase NFTs
+                            <v-card-text class="font-weight-bold textSize">Add your wallet to purchase NFTS
                             </v-card-text>
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
