@@ -21,10 +21,14 @@ onMounted(async () => {
     }
 });
 
+function handleImageChange(newImage) {
+
+    console.log(pictureInput)
+}
 async function handleCreateNFT() {
     let formData = new FormData();
     console.log(form.value.music_url)
-    formData.append('image', pictureInput.image);
+    formData.append('image', form.value.music_url);
     formData.append('title', form.value.title);
     formData.append('price', form.value.price);
     formData.append('description', form.value.description);
@@ -36,11 +40,27 @@ async function handleCreateNFT() {
 
 
 }
+
+const image = ref<File | null>(null)
+
+const onChange = (imageData: File | null) => {
+    console.log('New picture selected!')
+    if (imageData) {
+        console.log('Picture loaded.')
+        image.value = imageData
+        console.log(imageData.target.files[0])
+    } else {
+        console.log('FileReader API not supported: use the <form>, Luke!')
+    }
+    form.value.music_url =  imageData.target.files[0];
+}
 </script>
 
 
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
+        <label>hello</label>
+        <input type="file" @change="onChange"/>
         <div class="my-16 jusd-flex mb-16">
             <v-row>
                 <v-col>
@@ -62,6 +82,7 @@ async function handleCreateNFT() {
                         accept="image/jpeg,image/png"
                         size="10"
                         button-class="btn"
+                        @change="onChange"
                         :custom-strings="{
                                 upload: '<h1>Bummer!</h1>',
                                 drag: 'Drag a 😺 GIF or GTFO'
