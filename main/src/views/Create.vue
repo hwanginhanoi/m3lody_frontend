@@ -92,7 +92,7 @@ const onChangeMusic = (musicData: ChangeEvent<HTMLInputElement> | null) => {
                                 placeholder="Enter a description" v-model="form.description">
                     </v-textarea>
 
-                    <v-select label="Type" variant="outlined" rounded="lg" v-model="form.type">
+                    <v-select label="Type" variant="outlined" rounded="lg" v-model="form.type" :items="['Anime', 'Classic', 'Angelic', 'rock']">
 
                     </v-select>
                     <v-file-input prepend-icon="mdi-music"
