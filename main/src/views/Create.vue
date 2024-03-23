@@ -2,11 +2,12 @@
 //import PictureInput component
 import PictureInput from 'vue-picture-input'
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
+import createNFT from "../apis/createnft/createNFT.ts";
 import router from "../plugins/router.ts";
 import {onMounted, ref} from "vue";
 
 const form = ref({
-    preview_url: '',
+    music_url: '',
     title: '',
     price: '',
     description: '',
@@ -20,6 +21,21 @@ onMounted(async () => {
     }
 });
 
+async function handleCreateNFT() {
+    let formData = new FormData();
+    console.log(form.value.music_url)
+    formData.append('image', pictureInput.image);
+    formData.append('title', form.value.title);
+    formData.append('price', form.value.price);
+    formData.append('description', form.value.description);
+    formData.append('type', form.value.type);
+    formData.append('musicFile', form.value.musicFile);
+
+    console.log(formData.get('image'));
+    await createNFT(formData);
+
+
+}
 </script>
 
 
@@ -40,7 +56,7 @@ onMounted(async () => {
                         class="pt-5"
                         ref="pictureInput"
                         style="min-height: 400px; min-width: 400px"
-                        v-model="form.preview_url"
+                        v-model="form.music_url"
                         width="500"
                         height="500"
                         accept="image/jpeg,image/png"
@@ -80,7 +96,7 @@ onMounted(async () => {
                                   style="min-width: 50%">
 
                     </v-file-input>
-                    <v-btn type="submit" rounded="lg">
+                    <v-btn type="submit" rounded="lg" @click="handleCreateNFT">
                         Create
                     </v-btn>
                 </v-col>

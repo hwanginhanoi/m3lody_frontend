@@ -17,7 +17,7 @@ onMounted(async () => {
     }
     else {
         let user = await userprofile();
-
+        console.log(user)
         username = user[0].username;
 
         avatar = "src/assets/avatar.jpg";
