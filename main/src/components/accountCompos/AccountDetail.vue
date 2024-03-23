@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {useDisplay} from "vuetify";
+import updateAccount from "../../apis/updateAccount/updateAccount.ts";
 // Define reactive form fields
 const form = ref({
     firstname: '',
@@ -20,6 +21,12 @@ const form = ref({
 const {mdAndUp} = useDisplay();
 // Define reactive user image
 const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_850/v1687272519/aw9hf8eeymgoy47riwlr.jpg");
+async function handleUpdateAccount() {
+    let formData = new FormData();
+    formData.append('firstname', form.value.firstname);
+
+
+}
 
 </script>
 

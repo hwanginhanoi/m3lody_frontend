@@ -27,7 +27,7 @@ console.log(route.path);
         <v-card-title>{{ card.title }}</v-card-title>
         <v-row>
             <v-col class="v-col-7">
-                <v-card-subtitle>Author</v-card-subtitle>
+                <v-card-subtitle>Author: <br> {{card.author}}</v-card-subtitle>
 
                 <v-card-text class="overflow-hidden">
                     <h3>{{ card.username }}</h3>

@@ -5,24 +5,27 @@ import ImproveNFT from "../components/ImproveNFT.vue";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
-import userprofile from "../apis/profile/userprofile.ts";
+import accountDetail from "../apis/account/accountDetail.ts";
+import userownnft from "../apis/account/userownnft.ts";
 
-let username:string;
-let avatar: string;
+let username = ref("");
+let avatar = ref("");
 let userID = ref("");
 let listOfCards = ref([]);
+let accountInfo = ref([]);
+
 onMounted(async () => {
     if (!checkCookieExists()) {
         await router.push('/login');
     }
     else {
-        let user = await userprofile();
-        console.log(user)
-        username = user[0].username;
+        accountInfo.value = await accountDetail();
+        listOfCards.value = await userownnft();
+        console.log(accountInfo.value);
+        username = accountInfo.value[0].username;
 
-        avatar = "src/assets/avatar.jpg";
-        userID.value = user[0].user_id;
-        listOfCards.value = user;
+        avatar.value = accountInfo.value[0].avatar_url;
+        userID.value = accountInfo.value[0].user_id;
     }
 
 });

@@ -7,7 +7,9 @@ import Deposit from "./exchangeCompos/Deposit.vue"
 import Cart from "./Cart.vue"
 import logout from "../apis/logout.ts";
 import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
+import accountDetails from "../apis/account/accountDetail.ts";
 import {onMounted} from "vue";
+
 
 const theme = useTheme()
 
@@ -21,22 +23,37 @@ const isDarkTheme = computed({
 
 const drawer = ref(false)
 const {mdAndUp} = useDisplay()
+let username = ref('')
+let avatar = ref('')
+let userID = ref('')
+let balance = ref({coin: 0, usd: 0, eth: 0})
+
 
 //wallet information
-// let walletInfo = ref()
-// onMounted(async () => {
-//     walletInfo.value = await getWalletInfor()
-//     console.log(walletInfo)
-// });
+let walletInfo = ref()
+let accountInfo = ref()
+onMounted(async () => {
+    walletInfo.value = await getWalletInfor()
+    accountInfo.value = await accountDetails()
 
-let username: string = "Beff Jezos";
-let avatar: string = "src/assets/avatar.jpg";
+    username.value = accountInfo.value[0].username
+    avatar.value = accountInfo.value[0].avatar_url
+    userID.value = accountInfo.value[0].user_id
+    // balance.value.usd = walletInfo.value[0].usd_balance
+    // balance.value.eth = walletInfo.value[0].eth_balance
+
+    console.log(username.value)
+    console.log(avatar.value)
+    console.log(userID.value)
+
+
+});
+
+
 
 const menu = ref(false)
 const wallet = ref(false)
 
-let balance = {coin: 500, usd: 100, eth: 100}
-let userID = ref("01x...3453")
 
 const router = useRoute()
 
