@@ -24,6 +24,17 @@ const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_
 async function handleUpdateAccount() {
     let formData = new FormData();
     formData.append('firstname', form.value.firstname);
+    formData.append('lastname', form.value.lastname);
+    formData.append('organization', form.value.organization);
+    formData.append('address', form.value.address);
+    formData.append('zipcode', form.value.zipcode);
+    formData.append('language', form.value.language);
+    formData.append('currency', form.value.currency);
+    formData.append('timezone', form.value.timezone);
+    formData.append('country', form.value.country);
+    formData.append('state', form.value.state);
+    formData.append('email', form.value.email);
+    formData.append('phonenumber', form.value.phonenumber);
 
 
 }
