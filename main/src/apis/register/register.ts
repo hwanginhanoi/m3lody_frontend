@@ -1,17 +1,11 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData.ts';
-async function getTransactions(email:string,password:string){
+async function getTransactions(formData: FormData){
     let url = "http://localhost:3001/register";
     try{
         const response = await fetch(url,{
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email,
-                password
-            })
+            body: formData
 
         });
 

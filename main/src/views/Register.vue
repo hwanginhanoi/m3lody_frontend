@@ -14,6 +14,7 @@ onMounted(async () => {
 const form = ref({
     email: '',
     password: '',
+    username: '',
     remember: false,
 })
 
@@ -25,7 +26,13 @@ const particlesLoaded = async (container: any) => {
 };
 
 async function handleRegister() {
-    await register(form.value.email, form.value.password);
+    let formData = new FormData();
+    formData.append('email', form.value.email);
+    formData.append('username', form.value.username);
+    formData.append('password', form.value.password);
+
+    await register(formData);
+
     await router.push({path: '/index'});
 }
 </script>
@@ -135,6 +142,16 @@ async function handleRegister() {
                                 v-model="form.email"
                                 label="Email"
                                 type="email"
+                                rounded="lg"
+                                variant="outlined"
+                                color="#7e66f9"
+                            />
+                        </v-col>
+                        <v-col cols="12">
+                            <v-text-field
+                                v-model="form.username"
+                                label="Username"
+                                type="text"
                                 rounded="lg"
                                 variant="outlined"
                                 color="#7e66f9"
