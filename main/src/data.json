@@ -1,110 +1,178 @@
 [
   {
-    "music_id": 1,
-    "title": "やめて！",
-    "username": "Matsune Hiku",
-    "preview_url": "src/assets/nft/anime_1.jpg",
-    "description": "A bashful tsundere girl nervously confesses her feelings, her cheeks flushed with emotion. Captured in a music NFT, her vulnerability and longing resonate through captivating visuals and emotive melodies. A digital masterpiece immortalizes the delicate dance of love, shared with the world through blockchain technology.",
-    "price": 0.5,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 2,
-    "title": "アイドル",
-    "username": "Matsune Hiku",
-    "preview_url": "src/assets/nft/anime_2.jpg",
-    "description": "The chronicles of a Japanese idol's poignant journey, navigating the complexities of fame and identity. Melodies blend traditional and modern sounds, mirroring the clash of tradition and innovation. Lyrics weave tales of sacrifice, resilience, and the quest for authenticity in the spotlight's glare. A music NFT captures the essence of an idol's life, preserving her legacy for generations to come.",
-    "price": 0.6,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 3,
-    "title": "新世界",
-    "username": "Matsune Hiku",
-    "preview_url": "src/assets/nft/anime_3.jpg",
-    "description": "'A new world' transports listeners to a mesmerizing isekai world. With ethereal melodies and epic orchestrations, it conjures visions of unexplored landscapes and fantastical beings. Lyrics narrate the hero's journey, brimming with wonder, danger, and the promise of newfound purpose in a realm beyond imagination. A music NFT immortalizes the magic of isekai, inviting fans to embark on an unforgettable sonic adventure.",
-    "price": 0.4,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 4,
-    "title": "Whispers of Solitude",
-    "username": "Bestoven Moz",
-    "preview_url": "src/assets/nft/piano_1.jpg",
-    "description": "Delicate piano keys dance softly, evoking a serene atmosphere of introspection. Each note resonates with a profound sense of solitude, weaving a tapestry of emotions that echo the depths of the human soul. A music NFT captures the essence of solitude, inviting listeners to embrace the beauty",
-    "price": 1.2,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 5,
-    "title": "Eternal Elegance",
-    "username": "Bestoven Moz",
-    "preview_url": "src/assets/nft/piano_2.jpg",
-    "description": "Graceful melodies cascade like satin ribbons, enveloping listeners in an aura of timeless elegance. The piano's expressive range paints vivid portraits of beauty and refinement, inviting listeners to immerse themselves in the enchanting allure of classical artistry. A music NFT captures the essence of eternal elegance, preserving the legacy of timeless masterpieces for future generations." ,
-    "price": 1.3,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 6,
-    "title": "Journey Through Memories",
-    "username": "Bestoven Moz",
-    "preview_url": "src/assets/nft/piano_3.jpg",
-    "description": "Haunting piano chords carry listeners on a poignant journey through the corridors of memory. Echoes of nostalgia and longing linger in each melancholic refrain, evoking bittersweet reflections on moments past and the passage of time. A music NFT captures the essence of human experience, preserving the echoes of our shared history for generations to come.",
-    "price": 1.4,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 7,
-    "title": "Celestial Harmonies",
-    "username": "Gab Micheal",
-    "preview_url": "src/assets/nft/angel_1.jpg",
-    "description": "Ethereal voices intertwine with celestial melodies, creating a transcendent aura of divine beauty. Each note resonates with heavenly grace, weaving a tapestry of serenity that transports listeners to realms beyond mortal comprehension. A music NFT captures the essence of celestial harmonies, inviting listeners to embrace the splendor of the divine.",
-    "price": 2.0,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 8,
-    "title": "Wings of Seraphim",
-    "username": "Gab Micheal",
-    "preview_url": "src/assets/nft/angel_2.jpg",
-    "description": "Glorious choir harmonies soar on wings of purity and light, illuminating the spirit with radiant warmth. The music, like the gentle touch of angels' wings, bestows a sense of peace and solace upon all who listen, lifting them to heights of transcendent bliss. A music NFT captures the essence of seraphic grace, inviting listeners to bask in the radiance of divine love.",
-    "price": 2.1,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 9,
-    "title": "Heaven's Lullaby",
-    "username": "Gab Micheal",
-    "preview_url": "src/assets/nft/angel_3.jpg",
-    "description": "Tender piano melodies blend with angelic voices in a soothing symphony of comfort and solace. This celestial lullaby wraps listeners in a cocoon of serenity, gently guiding them into the embrace of dreams, where the whispers of angels echo in the silence of the night. A music NFT captures the essence of heavenly lullabies, inviting listeners to find peace in the embrace of divine love.",
-    "price": 1.9,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
-  },
-  {
-    "music_id": 10,
-    "title": "Rebel's Anthem",
-    "username": "Dizz Picnic",
-    "preview_url": "src/assets/nft/rock_1.jpg",
-    "description": "Thundering guitar riffs and pulsating drumbeats ignite the rebellious spirit within. With raw energy and defiance, the music embodies the untamed passion of youth, echoing the anthems of those who defy the status quo. A music NFT captures the essence of rebellion, inviting listeners to embrace the unbridled spirit of rock 'n' roll.",
-    "price": 0.8,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
+    "music_id": 14,
+    "title": "butter",
+    "description": "sadf",
+    "tag": "Angelic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmQZjGhjnuiTDVUisjTDkmJV36amNsihVfzX4tmz1Q97nW",
+    "owner_id": 1,
+    "price": "45",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmc799T7Saa5Nv1zks7tdB2baqSU8DBZsxGEXaLp9Cipi8",
+    "author": "fakerviet"
   },
   {
     "music_id": 11,
-    "title": "Heart of Thunder",
-    "username": "Dizz Picnic",
-    "preview_url": "src/assets/nft/rock_4.jpg",
-    "description": "Powerful vocals soar above driving rhythms, electrifying listeners with the pulse of rock's beating heart. Guitar solos blaze like lightning, igniting a firestorm of emotion and intensity that reverberates with the primal energy of the human spirit. A music NFT captures the essence of rock 'n' roll, inviting listeners to unleash their inner rebel.",
-    "price": 0.9,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
+    "title": "Revolutionary Rhapsody",
+    "description": "Sweeping orchestral arrangements and electrifying guitar solos blend in a symphony of rebellion and defiance. The music, like a battle cry for change, inspires listeners to rise up and challenge the status quo, igniting the flames of revolution in their hearts. A music NFT captures the essence of revolutionary fervor, preserving the anthems of change for future generations.",
+    "tag": "Rock",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_11.mp3",
+    "owner_id": 7,
+    "price": "20",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/rock_4.jpg",
+    "author": "Alex Rebel"
+  },
+  {
+    "music_id": 1,
+    "title": "Yamete!",
+    "description": "A bashful tsundere girl nervously confesses her feelings, her cheeks flushed with emotion. Captured in a music NFT, her vulnerability and longing resonate through captivating visuals and emotive melodies. A digital masterpiece immortalizes the delicate dance of love, shared with the world through blockchain technology.",
+    "tag": "Anime",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_1.mp3",
+    "owner_id": 1,
+    "price": "10",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/anime_1.jpg",
+    "author": "Matsune Hiku"
   },
   {
     "music_id": 12,
     "title": "Road to Redemption",
-    "username": "Dizz Picnic",
-    "preview_url": "src/assets/nft/rock_3.jpg",
     "description": "Gritty guitar chords and soulful lyrics paint a vivid portrait of struggle and redemption. The music's raw authenticity speaks to the trials of life's journey, resonating with those who seek solace and salvation in the power of rock's unyielding resolve. A music NFT captures the essence of redemption, inviting listeners to find strength in the unbreakable spirit of rock 'n' roll.",
-    "price": 0.7,
-    "wallet": "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"
+    "tag": "Rock",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_12.mp3",
+    "owner_id": 7,
+    "price": "19",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/rock_3.jpg",
+    "author": "Alex Rebel"
+  },
+  {
+    "music_id": 7,
+    "title": "Celestial Harmonies",
+    "description": "Ethereal voices intertwine with celestial melodies, creating a transcendent aura of divine beauty. Each note resonates with heavenly grace, weaving a tapestry of serenity that transports listeners to realms beyond mortal comprehension. A music NFT captures the essence of celestial harmonies, inviting listeners to embrace the splendor of the divine.",
+    "tag": "Angelic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_7.mp3",
+    "owner_id": 8,
+    "price": "17",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/angel_1.jpg",
+    "author": "Gab Michael"
+  },
+  {
+    "music_id": 9,
+    "title": "Heaven's Lullaby",
+    "description": "Soft piano melodies drift like gentle whispers from the heavens, cradling listeners in a tender embrace of celestial comfort. The music, like a lullaby sung by angels, soothes the soul and eases the burdens of mortal existence, offering solace and peace in times of trial. A music NFT captures the essence of divine solace, inviting listeners to find rest in the arms of heavenly grace.",
+    "tag": "Angelic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_9.mp3",
+    "owner_id": 8,
+    "price": "16",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/angel_3.jpg",
+    "author": "Gab Michael"
+  },
+  {
+    "music_id": 18,
+    "title": "ajin",
+    "description": "sadf",
+    "tag": "Anime",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmVWfkS2QAn8T5Hhou8qYRvPZ5XkKaRAeQtJboanm27Qiv",
+    "owner_id": 1,
+    "price": "56",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmNn55TgN7sxn27mXwhEaHX5UXNPfDw6eUUsciagDT4YJ1",
+    "author": "fakerviet"
+  },
+  {
+    "music_id": 5,
+    "title": "Eternal Elegance",
+    "description": "Graceful melodies cascade like satin ribbons, enveloping listeners in an aura of timeless elegance. The piano's expressive range paints vivid portraits of beauty and refinement, inviting listeners to immerse themselves in the enchanting allure of classical artistry. A music NFT captures the essence of eternal elegance, preserving the legacy of timeless masterpieces for future generations.",
+    "tag": "Classic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_%205.mp3",
+    "owner_id": 4,
+    "price": "15",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/piano_2.jpg",
+    "author": "Betoven Moza"
+  },
+  {
+    "music_id": 2,
+    "title": "Idol",
+    "description": "The chronicles of a Japanese idol's poignant journey, navigating the complexities of fame and identity. Melodies blend traditional and modern sounds, mirroring the clash of tradition and innovation. Lyrics weave tales of sacrifice, resilience, and the quest for authenticity in the spotlight's glare. A music NFT captures the essence of an idol's life, preserving her legacy for generations to come.",
+    "tag": "Anime",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_2.mp3",
+    "owner_id": 1,
+    "price": "8",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/anime_2.jpg",
+    "author": "Matsune Hiku"
+  },
+  {
+    "music_id": 13,
+    "title": "tree",
+    "description": "sdf",
+    "tag": "Angelic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmSmGWuYzMyDFC4NC9Q3CtHfVmkaCQMRjf6UUkBk3qaURK",
+    "owner_id": 1,
+    "price": "4",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmUJcgDg22EKg3oC1HouPdFHt7yAeD6cqiJt8T5w1ujPs7",
+    "author": "undefined"
+  },
+  {
+    "music_id": 15,
+    "title": "nice",
+    "description": "nice",
+    "tag": "Classic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmbDZ4XrRgcE5KcdfkzT6vndZeLMkkbahKejKnfaCBT6Fp",
+    "owner_id": 1,
+    "price": "12",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmSUcGmv5YDEWYpj8rbbrzXgR2TFHB9sqG6dydFAKX1yHc",
+    "author": "fakerviet"
+  },
+  {
+    "music_id": 3,
+    "title": "Isekai",
+    "description": "'A new world' transports listeners to a mesmerizing isekai world. With ethereal melodies and epic orchestrations, it conjures visions of unexplored landscapes and fantastical beings. Lyrics narrate the hero's journey, brimming with wonder, danger, and the promise of newfound purpose in a realm beyond imagination. A music NFT immortalizes the magic of isekai, inviting fans to embark on an unforgettable sonic adventure.",
+    "tag": "Anime",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_3.mp3",
+    "owner_id": 1,
+    "price": "12",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/anime_3.jpg",
+    "author": "Matsune Hiku"
+  },
+  {
+    "music_id": 10,
+    "title": "Rebel's Anthem",
+    "description": "Thundering guitar riffs and pulsating drumbeats ignite the rebellious spirit within. With raw energy and defiance, the music embodies the untamed passion of youth, echoing the anthems of those who defy the status quo. A music NFT captures the essence of rebellion, inviting listeners to embrace the unbridled spirit of rock 'n' roll.",
+    "tag": "Rock",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_10.mp3",
+    "owner_id": 7,
+    "price": "18",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/rock_1.jpg",
+    "author": "Alex Rebel"
+  },
+  {
+    "music_id": 4,
+    "title": "Whispers of Solitude",
+    "description": "Delicate piano keys dance softly, evoking a serene atmosphere of introspection. Each note resonates with a profound sense of solitude, weaving a tapestry of emotions that echo the depths of the human soul. A music NFT captures the essence of solitude, inviting listeners to embrace the beauty",
+    "tag": "Classic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_%204.mp3",
+    "owner_id": 5,
+    "price": "20",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/piano_1.jpg",
+    "author": "Betoven Moza"
+  },
+  {
+    "music_id": 8,
+    "title": "Wings of Seraphim",
+    "description": "Glorious choir harmonies soar on wings of purity and light, illuminating the spirit with radiant warmth. The music, like the gentle touch of angel wings, bestows a sense of peace and solace upon all who listen, lifting them to heights of transcendent bliss. A music NFT captures the essence of seraphic grace, inviting listeners to bask in the radiance of divine love.",
+    "tag": "Angelic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_8.mp3",
+    "owner_id": 8,
+    "price": "14",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/angel_2.jpg",
+    "author": "Gab Michael"
+  },
+  {
+    "music_id": 6,
+    "title": "Journey Through Memories",
+    "description": "Haunting piano chords carry listeners on a poignant journey through the corridors of memory. Echoes of nostalgia and longing linger in each melancholic refrain, evoking bittersweet reflections on moments past and the passage of time. A music NFT captures the essence of human experience, preserving the echoes of our shared history for generations to come.",
+    "tag": "Classic",
+    "music_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/QmR5pcTssFzvPsRU85AohNhec4RFKv6gPF3MLm6u3x72zZ/music_%206.mp3",
+    "owner_id": 4,
+    "price": "12",
+    "picture_url": "https://silver-adequate-reindeer-277.mypinata.cloud/ipfs/Qmd6THXprbDhusSYpKfjF8FMRHr8rqE1gRhTGQNm164eKc/piano_3.jpg",
+    "author": "Betoven Moza"
   }
 ]

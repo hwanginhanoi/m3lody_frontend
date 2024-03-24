@@ -20,7 +20,7 @@ onMounted(async () => {
     }
 });
 
-import item from "../data.json"
+import item from "../data.json";
 import {el} from "vuetify/locale";
 // Header of table config
 let header: Array<Object> = [
@@ -71,13 +71,13 @@ const model2 = ref(0);
             >
                 <!--define data for each column by item attr-->
                 <template v-slot:item.rank="{item}">
-                    {{ item.id + Math.floor(Math.random() * 30) }}
+                    {{ item.music_id + Math.floor(Math.random() * 30) }}
                 </template>
                 <template v-slot:item.image="{item}">
-                    <v-img :src="item.src" class="rounded-lg ma-2" max-width="200px"></v-img>
+                    <v-img :src="item.picture_url" class="rounded-lg ma-2" max-width="200px"></v-img>
                 </template>
                 <template v-slot:item.name="{ item }">
-                    <h3>{{ item.name }}</h3>
+                    <h3>{{ item.title }}</h3>
                 </template>
                 <template v-slot:item.price="{ item }">
                     {{ item.price }} ETH

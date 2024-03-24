@@ -96,7 +96,7 @@ async function handleLogout() {
                 class="py-2 mb-4 mr-2 rounded-button customPrepend"
             >
             </v-list-item>
-            <v-list-item to="/index" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
+            <v-list-item to="/dashboard" prepend-icon="mdi-dots-grid" title="Dashboard" value="dashboard"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>
             <v-list-item to="/transaction" prepend-icon="mdi-history" title="Transaction" value="transaction"
                          class="py-2 mb-4 mr-2 rounded-button customPrepend"></v-list-item>

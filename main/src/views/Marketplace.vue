@@ -12,6 +12,7 @@ onMounted(async () => {
         await router.push('/login');
     }else {
         data.value = await nftdata();
+        console.log(data.value);
     }
 
 
