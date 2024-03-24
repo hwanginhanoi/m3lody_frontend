@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
+import {ethers} from "ethers";
 
 // Define reactive variables
 let show = ref(false); // Boolean flag for controlling visibility
@@ -27,6 +28,44 @@ function coinToPay() {
         form.value.userPay = form.value.userReceive / 20;
     }
 }
+
+let isMetaMaskInstalled = ref(false);
+let provider = ref();
+let defAccount = ref('');
+let userBalance = ref(0);
+
+onMounted(() => {
+    // Check if MetaMask is installed
+    if (typeof window.ethereum !== 'undefined') {
+        isMetaMaskInstalled.value = true;
+        provider.value = new ethers.providers.Web3Provider(window.ethereum);
+    }
+});
+
+// async function accountHandler (newAccount) {
+//     const address = await newAccount.getAddress();
+//     defAccount.value = address;
+//     const balance = await newAccount.getBalance()
+//     userBalance.value = ethers.utils.formatEther(balance);
+//     await getuserBalance(address)
+// }
+//
+// async function getuserBalance(address) {
+//     const balance = await provider.value.getBalance(address, "latest");
+// }
+
+// Function to connect to MetaMask
+async function connectMetaMask() {
+    try {
+        // await provider.value.ready;
+        let account = await provider.value.send('eth_requestAccounts', []);
+        alert('Connected to MetaMask ' + account[0]);
+    } catch (error) {
+        console.error(error);
+        alert('Failed to connect to MetaMask');
+    }
+}
+
 </script>
 
 <template>
@@ -43,44 +82,13 @@ function coinToPay() {
                 <v-card-text class="">
                     <v-card class="" style="max-width: 600px; margin: auto;">
                         <!--                        inputs field-->
-                        <v-row no-gutters
-                               class="mt-3"
-                               style="height: 60px;
-                                      border-radius: 11px;
-                                      overflow: hidden; "
-                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                        >
-                            <v-col class="text-left pl-5" cols="">
-                                <v-text-field
-                                    placeholder="Your address"
-                                    v-model="form.userPay"
-                                    type="text"
-                                    @change="payToCoin"
-                                    rounded="lg"
-                                    variant="plain"
-                                    color="#d777ed"
-                                >
-                                </v-text-field>
-                            </v-col>
-                        </v-row>
-                        <!--                        confirmation cards-->
-                        <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
-                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-                            <v-row>
-                                <v-col cols="12">
-                                    <v-btn width="100%"
-                                           style="border-radius: 11px"
-                                           class="bg-green"
-                                           @click="isActive.value = false"
-                                    >Confirm
-
-                                    </v-btn>
-                                </v-col>
-                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span
-                                    class="font-weight-bold">cookie policy</span></p></v-col>
-                            </v-row>
-
-                        </v-card>
+                        <div v-if="!isMetaMaskInstalled">
+                            <p>Please install Metamask to continue</p>
+                        </div>
+                        <div v-else>
+                            <p>MetaMask đã được cài đặt.</p>
+                            <v-btn width="100%" class="bg-green" @click="connectMetaMask">Kết nối MetaMask</v-btn>
+                        </div>
                     </v-card>
                 </v-card-text>
                 <v-card-text>
