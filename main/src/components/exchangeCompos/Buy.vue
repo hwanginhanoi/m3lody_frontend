@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref, onMounted} from "vue";
 import {ethers} from "ethers";
+import postWallet from "../../apis/wallet/postWallet.ts";
 
 // Define reactive variables
 let show = ref(false); // Boolean flag for controlling visibility
@@ -31,8 +32,7 @@ function coinToPay() {
 
 let isMetaMaskInstalled = ref(false);
 let provider = ref();
-let defAccount = ref('');
-let userBalance = ref(0);
+let userAccount = ref();
 
 onMounted(() => {
     // Check if MetaMask is installed
@@ -59,12 +59,22 @@ async function connectMetaMask() {
     try {
         // await provider.value.ready;
         let account = await provider.value.send('eth_requestAccounts', []);
+        userAccount.value = account[0];
         alert('Connected to MetaMask ' + account[0]);
+        console.log(userAccount.value);
     } catch (error) {
         console.error(error);
         alert('Failed to connect to MetaMask');
     }
 }
+
+async function updateWallet() {
+    let formdata = new FormData();
+    formdata.append('wallet_address', userAccount.value);
+    console.log(userAccount.value);
+    await postWallet(formdata);
+}
+
 
 </script>
 
@@ -87,7 +97,7 @@ async function connectMetaMask() {
                         </div>
                         <div v-else>
                             <p>MetaMask đã được cài đặt.</p>
-                            <v-btn width="100%" class="bg-green" @click="connectMetaMask">Kết nối MetaMask</v-btn>
+                            <v-btn width="100%" class="bg-green" @click="() => {connectMetaMask();updateWallet();}">Kết nối MetaMask</v-btn>
                         </div>
                     </v-card>
                 </v-card-text>
