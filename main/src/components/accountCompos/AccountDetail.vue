@@ -3,6 +3,7 @@ import {onMounted, ref} from "vue";
 import {useDisplay} from "vuetify";
 import updateAccount from "../../apis/updateAccount/updateAccount.ts";
 import accountDetail from "../../apis/account/accountDetail.ts";
+import router from "../../plugins/router.ts";
 // Define reactive form fields
 const form = ref({
     address: '',
@@ -39,7 +40,14 @@ async function handleUpdateAccount() {
     formData.append('phone_num', form.value.phonenumber);
     formData.append('avatar_url', form.value.avatar_url);
     formData.append('image', form.value.image);
-    await updateAccount(formData);
+    let result = await updateAccount(formData);
+    if (result) {
+        alert('Account updated successfully');
+    } else {
+        alert('Failed to update account');
+    }
+
+    await router.push({path: '/dashboard'})
 }
 
 const onChange = (imageData: ChangeEvent<HTMLInputElement> | null) => {

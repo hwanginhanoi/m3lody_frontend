@@ -15,6 +15,7 @@ onMounted(async () => {
 //import placeholders
 const form = ref({
     email: '',
+    username:'',
     password: '',
     remember: false,
 })
@@ -27,11 +28,11 @@ const particlesLoaded = async (container: any) => {
 };
 
 async function handleClick(){
-    if (form.value.email === '' || form.value.password === '') {
+    if (form.value.username === '' || form.value.password === '') {
         alert('Please fill in all fields');
     } else {
         // Fetch users data
-        const response = await login(form.value.email, form.value.password);
+        const response = await login(form.value.username, form.value.password);
         if (response) {
             await router.push({ path: '/dashboard' });
         } else {
@@ -146,9 +147,9 @@ async function handleClick(){
                     <v-row>
                         <v-col cols="12">
                             <v-text-field
-                                v-model="form.email"
-                                label="Email"
-                                type="email"
+                                v-model="form.username"
+                                label="Username"
+                                type="text"
 
                                 rounded="lg"
                                 variant="outlined"

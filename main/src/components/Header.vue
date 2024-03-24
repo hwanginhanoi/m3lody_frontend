@@ -29,6 +29,7 @@ let username = ref('')
 let avatar = ref('')
 let userID = ref('')
 let balance = ref({coin: 0, usd: 0, eth: 0})
+let walletAddress = ref('')
 
 
 //wallet information
@@ -44,6 +45,7 @@ onMounted(async () => {
         userID.value = accountInfo.value[0].user_id
         // balance.value.usd = walletInfo.value[0].usd_balance
         // balance.value.eth = walletInfo.value[0].eth_balance
+        walletAddress.value = walletInfo.value[0].wallet_address
 
         console.log(username.value)
         console.log(avatar.value)
@@ -175,7 +177,7 @@ async function handleLogout() {
                     <v-list-item class="">
                         <v-row>
                             <v-col cols="9">
-                                <p>ID: {{ userID }}</p>
+                                <p>{{ walletAddress }}</p>
                             </v-col>
                         </v-row>
                         <v-row class="mb-2">
@@ -203,9 +205,6 @@ async function handleLogout() {
                         </v-list-item>
                         <v-list-item class="d-flex justify-center">
                             <Buy/>
-                        </v-list-item>
-                        <v-list-item class="d-flex justify-center">
-                            <Deposit/>
                         </v-list-item>
                     </v-list-item>
                 </v-list>

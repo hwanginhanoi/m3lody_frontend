@@ -15,6 +15,7 @@ const form = ref({
     email: '',
     password: '',
     username: '',
+    confirmPassword: '',
     remember: false,
 })
 
@@ -30,6 +31,7 @@ async function handleRegister() {
     formData.append('email', form.value.email);
     formData.append('username', form.value.username);
     formData.append('password', form.value.password);
+    formData.append('confirmPassword', form.value.confirmPassword);
 
     await register(formData);
 
@@ -175,6 +177,7 @@ async function handleRegister() {
                                 color="#7e66f9"
                                 variant="outlined"
                                 rounded="lg"
+                                v-model="form.confirmPassword"
                                 label="Re-enter password"
                                 placeholder="············"
                                 :type="'password'"

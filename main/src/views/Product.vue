@@ -40,7 +40,7 @@ onMounted(async () => {
                 <v-col class="v-col-7">
                     <v-card style="border-radius: 10px">
 
-                        <v-card-text><h1>{{ product.title }}</h1> by <strong>{{ product.username }}</strong></v-card-text> <!--    Assign product name-->
+                        <v-card-text><h1>{{ product.title }}</h1><br> by <strong>{{ product.author }}</strong></v-card-text> <!--    Assign product name-->
                         <v-card-text>
                             <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>

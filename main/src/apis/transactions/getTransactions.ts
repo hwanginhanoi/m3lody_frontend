@@ -5,6 +5,7 @@ async function getTransactions(){
     try{
         const response = await fetch(url,{
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             }

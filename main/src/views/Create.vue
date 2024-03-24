@@ -31,7 +31,14 @@ async function handleCreateNFT() {
     formData.append('musicFile', form.value.musicFile);
 
     console.log(formData.get('musicFile'))
-    await createNFT(formData);
+    let result = await createNFT(formData);
+    if (result) {
+        alert('NFT created successfully');
+        await router.push({path: '/dashboard'});
+    } else {
+        alert('Failed to create NFT');
+        await router.push({path: '/dashboard'})
+    }
 
 
 }

@@ -2,7 +2,7 @@
 import {onMounted, ref} from "vue";
 import {useDisplay} from "vuetify";
 import updateSecurity from "../../apis/updateAccount/updateSecurity.ts";
-// import router from "../plugins/router.ts";
+import router from "../../plugins/router.ts";
 
 // Initializing reactive security object to store account security details
 const security = ref({
@@ -23,11 +23,11 @@ async function handleUpdateSecurity() {
     formData.append('confirmPassword', security.value.confirmPassword);
     let result = await updateSecurity(formData);
     if (result) {
-        router.push({path: '/dashboard'})
+        alert('Update successful')
     }else{
         alert('Update failed');
-        router.push({path: '/dashboard'})
     }
+    await router.push({path: '/dashboard'})
 
 
 }

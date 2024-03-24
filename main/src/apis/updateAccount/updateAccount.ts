@@ -12,14 +12,16 @@ async function updateAccount(formData: FormData){
         });
 
         if (!response.ok) {
+
             throw new Error(`HTTP error! Status: ${response.status}`);
+
         }
         const responseFromServer: responseData = await response.json();
         if (!responseFromServer.success){
             throw new Error("Can't retrieve data");
         }
         console.log(responseFromServer.data);
-        return responseFromServer.data;
+        return responseFromServer.success;
 
     }catch(error){
 

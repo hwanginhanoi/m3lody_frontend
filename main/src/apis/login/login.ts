@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData';
-async function login(email:string,password:string){
+async function login(username:string,password:string){
     let url = "http://localhost:3001/login";
     try{
         const response = await fetch(url,{
@@ -10,7 +10,7 @@ async function login(email:string,password:string){
             },
             credentials: "include",
             body: JSON.stringify({
-                email,
+                username,
                 password
             })
 

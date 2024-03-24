@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
+import {ethers} from "ethers";
+import postWallet from "../../apis/wallet/postWallet.ts";
+import getWalletInfor from "../../apis/wallet/getWalletInfor.ts";
+import updateTheWallet from "../../apis/wallet/updateWallet.ts";
 
 // Define reactive variables
 let show = ref(false); // Boolean flag for controlling visibility
@@ -10,23 +14,55 @@ const form = ref({
     receiveCoin: 'ETH', // Currency user is receiving
 });
 
-// Function to calculate amount when paying in USD
-function payToCoin() {
-    // If user is receiving ETH
-    if (form.value.receiveCoin === 'ETH') {
-        // Calculate amount of ETH user receives based on amount paid in USD
-        form.value.userReceive = +(form.value.userPay) * 20;
+let isMetaMaskInstalled = ref(false);
+let provider = ref();
+let userAccount = ref();
+let walletInfo = ref();
+
+onMounted(async () => {
+    // Check if MetaMask is installed
+    if (typeof window.ethereum !== 'undefined') {
+        isMetaMaskInstalled.value = true;
+        provider.value = new ethers.providers.Web3Provider(window.ethereum);
+    }
+    walletInfo.value = await getWalletInfor()
+});
+// Function to connect to MetaMask
+async function connectMetaMask() {
+    try {
+        // await provider.value.ready;
+        let account = await provider.value.send('eth_requestAccounts', []);
+        userAccount.value = account[0];
+        alert('Connected to MetaMask ' + account[0]);
+        console.log(userAccount.value);
+    } catch (error) {
+        console.error(error);
+        alert('Failed to connect to MetaMask');
     }
 }
 
-// Function to calculate amount when paying in ETH
-function coinToPay() {
-    // If user is receiving ETH
-    if (form.value.receiveCoin === 'ETH') {
-        // Calculate amount of USD user needs to pay based on amount of ETH received
-        form.value.userPay = form.value.userReceive / 20;
+async function updateWallet() {
+    let formdata = new FormData();
+    formdata.append('wallet_address', userAccount.value);
+    console.log(userAccount.value);
+    if (walletInfo.value < 1){
+        let result = await postWallet(formdata);
+        if (result) {
+            alert('Wallet added successfully');
+        }else{
+            alert('Failed to add wallet');
+        }
+    }else{
+        let result = await updateTheWallet(formdata);
+        if (result) {
+            alert('Wallet updated successfully');
+        }else{
+            alert('Failed to update wallet');
+        }
     }
 }
+
+
 </script>
 
 <template>
@@ -43,44 +79,13 @@ function coinToPay() {
                 <v-card-text class="">
                     <v-card class="" style="max-width: 600px; margin: auto;">
                         <!--                        inputs field-->
-                        <v-row no-gutters
-                               class="mt-3"
-                               style="height: 60px;
-                                      border-radius: 11px;
-                                      overflow: hidden; "
-                               :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
-                        >
-                            <v-col class="text-left pl-5" cols="">
-                                <v-text-field
-                                    placeholder="Your address"
-                                    v-model="form.userPay"
-                                    type="text"
-                                    @change="payToCoin"
-                                    rounded="lg"
-                                    variant="plain"
-                                    color="#d777ed"
-                                >
-                                </v-text-field>
-                            </v-col>
-                        </v-row>
-                        <!--                        confirmation cards-->
-                        <v-card width="100%" style="border-radius: 11px" class=" mt-3 pa-3"
-                                :style="{ background: $vuetify.theme.global.current.colors.navbtn}">
-                            <v-row>
-                                <v-col cols="12">
-                                    <v-btn width="100%"
-                                           style="border-radius: 11px"
-                                           class="bg-green"
-                                           @click="isActive.value = false"
-                                    >Confirm
-
-                                    </v-btn>
-                                </v-col>
-                                <v-col><p class="text-center supersmalltext">By continuing you agree to our <span
-                                    class="font-weight-bold">cookie policy</span></p></v-col>
-                            </v-row>
-
-                        </v-card>
+                        <div v-if="!isMetaMaskInstalled">
+                            <p>Please install Metamask to continue</p>
+                        </div>
+                        <div v-else>
+                            <p>MetaMask đã được cài đặt.</p>
+                            <v-btn width="100%" class="bg-green" @click="() => {connectMetaMask();updateWallet();}">Kết nối MetaMask</v-btn>
+                        </div>
                     </v-card>
                 </v-card-text>
                 <v-card-text>
