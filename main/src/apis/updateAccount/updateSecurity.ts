@@ -1,5 +1,6 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData.ts';
+// function to get account detail from the server
 async function updateSecurity(formData: FormData){
     let url = "http://localhost:3001/updateAccount/updatesecurity";
     try{

@@ -3,8 +3,6 @@ import {useTheme, useDisplay} from 'vuetify'
 import {useRoute} from "vue-router"
 import {ref, computed} from 'vue'
 import Buy from "./exchangeCompos/Buy.vue"
-import Deposit from "./exchangeCompos/Deposit.vue"
-import Cart from "./Cart.vue"
 import logout from "../apis/logout.ts";
 import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
 import accountDetails from "../apis/account/accountDetail.ts";

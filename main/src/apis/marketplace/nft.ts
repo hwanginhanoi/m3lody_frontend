@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import responseData from '../interfaces/responseData';
 
+// function to get nft data from the server
 async function nft(id:string) {
     let url = `http://localhost:3001/marketplace/${id}`;
     try {

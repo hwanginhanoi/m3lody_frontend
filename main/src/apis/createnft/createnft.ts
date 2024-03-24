@@ -1,6 +1,8 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData';
 
+// function to get account detail from the server
+
 async function login(formData: FormData) {
     let url = "http://localhost:3001/createnft";
     try {

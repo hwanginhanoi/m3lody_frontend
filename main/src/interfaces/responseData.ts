@@ -1,3 +1,4 @@
+// interface for the response data from the server
 interface responseData{
     success: boolean;
     data: {

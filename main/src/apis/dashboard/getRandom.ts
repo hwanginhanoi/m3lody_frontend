@@ -1,5 +1,7 @@
 import responseData from '../interfaces/responseData';
 
+// function to get account detail from the server
+
 async function getRandom(){
     let url = "http://localhost:3001/dashboard";
     try{

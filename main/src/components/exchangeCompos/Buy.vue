@@ -40,7 +40,7 @@ async function connectMetaMask() {
         alert('Failed to connect to MetaMask');
     }
 }
-
+// Function to update wallet
 async function updateWallet() {
     let formdata = new FormData();
     formdata.append('wallet_address', userAccount.value);
@@ -78,7 +78,7 @@ async function updateWallet() {
             <v-card title="Add wallet" rounded="lg">
                 <v-card-text class="">
                     <v-card class="" style="max-width: 600px; margin: auto;">
-                        <!--                        inputs field-->
+                        <!-- MetaMask connection -->
                         <div v-if="!isMetaMaskInstalled">
                             <p>Please install Metamask to continue</p>
                         </div>

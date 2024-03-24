@@ -1,5 +1,7 @@
 // import axios from 'axios';
 import responseData from '../interfaces/responseData';
+
+// function to get nft data from the server
 async function logout(){
     let url = "http://localhost:3001/logout";
     try{

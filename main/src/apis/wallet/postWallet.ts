@@ -1,5 +1,7 @@
 import responseData from '../../interfaces/responseData.ts';
 
+//  function to get account detail from the server
+
 async function postWallet(formdata: FormData){
     let url = "http://localhost:3001/wallet/addwallet";
     try{

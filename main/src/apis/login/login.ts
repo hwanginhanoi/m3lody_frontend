@@ -1,5 +1,7 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData';
+
+// function to get account detail from the server
 async function login(username:string,password:string){
     let url = "http://localhost:3001/login";
     try{
