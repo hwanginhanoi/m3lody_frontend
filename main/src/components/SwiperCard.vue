@@ -2,31 +2,21 @@
 import {Swiper, SwiperSlide} from "swiper/vue";
 import ImproveNFT from "./ImproveNFT.vue";
 import {Navigation, Pagination, Autoplay} from 'swiper/modules';
+import {onMounted, ref} from "vue";
+import nftdata from "../apis/marketplace/nftdata.ts";
 
 // Array of Swiper modules
 let modules = [Navigation, Pagination, Autoplay];
 
-import cards from "../data.json";
+
+let cards = ref([]);
+onMounted(async () => {
+    // Getting 5 random cards
+    cards.value = await nftdata();
+});
 
 // Function to get 5 random cards from the 'cards' array
-function getRandomCards() {
-   let randomIndices = new Set();
-   // Generating 5 unique random indices
-   while(randomIndices.size < 5) {
-       randomIndices.add(Math.floor(Math.random() * cards.length));
-   }
-   // Mapping the random indices to corresponding cards
-   return Array.from(randomIndices).map((index: unknown) => {
-       if (typeof index === 'number') {
-           return cards[index];
-       } else {
-           throw new Error(`Invalid index type: ${typeof index}`);
-       }
-   });
-}
 
-// Getting 5 random cards
-let randomCards = getRandomCards();
 </script>
 
 <template>
@@ -61,7 +51,7 @@ let randomCards = getRandomCards();
                         }"
         >
 <!--            adding slides-->
-            <swiper-slide class="" v-for="card in randomCards">
+            <swiper-slide class="" v-for="card in cards">
                 <ImproveNFT :card="card"/>
             </swiper-slide>
 

@@ -7,14 +7,21 @@ import SwiperCard from "../components/SwiperCard.vue";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
+import nftdata from "../apis/marketplace/nftdata.ts";
 
+let dataNFT = ref([]);
 onMounted(async () => {
     if (!checkCookieExists()) {
+        alert('cut');
         await router.push('/login');
+    }else{
+        dataNFT.value = await nftdata();
+        console.log(dataNFT.value);
     }
 });
 
 import item from "../data.json"
+import {el} from "vuetify/locale";
 // Header of table config
 let header: Array<Object> = [
     {title: 'Rank', key: 'rank', align: 'center'},
