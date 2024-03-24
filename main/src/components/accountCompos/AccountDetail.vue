@@ -1,42 +1,50 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useDisplay} from "vuetify";
 import updateAccount from "../../apis/updateAccount/updateAccount.ts";
+import accountDetail from "../../apis/account/accountDetail.ts";
 // Define reactive form fields
 const form = ref({
-    firstname: '',
-    lastname: '',
-    organization: '',
     address: '',
-    zipcode: '',
     language: '',
-    currency: '',
-    timezone: '',
-    country: '',
-    state: '',
     email: '',
-    phonenumber: ''
+    phone_num: '',
+    avatar_url: '',
+    image: ''
+})
+const userImage = ref("");
+let isblock = ref(true);
+let accountInfor = ref([]);
+onMounted(async () => {
+    // Get user account details
+    accountInfor.value = await accountDetail();
+    userImage.value = accountInfor.value[0].avatar_url;
+    form.value.avatar_url = accountInfor.value[0].avatar_url;
+    form.value.email = accountInfor.value[0].email;
+    form.value.phonenumber = accountInfor.value[0].phone_num;
+    form.value.address = accountInfor.value[0].address;
+    form.value.language = accountInfor.value[0].language;
+
+    console.log(accountInfor.value);
+
 })
 // Get display properties from Vuetify
 const {mdAndUp} = useDisplay();
 // Define reactive user image
-const userImage = ref("https://media.contra.com/image/upload/c_limit,fl_lossy,w_850/v1687272519/aw9hf8eeymgoy47riwlr.jpg");
 async function handleUpdateAccount() {
     let formData = new FormData();
-    formData.append('firstname', form.value.firstname);
-    formData.append('lastname', form.value.lastname);
-    formData.append('organization', form.value.organization);
     formData.append('address', form.value.address);
-    formData.append('zipcode', form.value.zipcode);
     formData.append('language', form.value.language);
-    formData.append('currency', form.value.currency);
-    formData.append('timezone', form.value.timezone);
-    formData.append('country', form.value.country);
-    formData.append('state', form.value.state);
     formData.append('email', form.value.email);
-    formData.append('phonenumber', form.value.phonenumber);
+    formData.append('phone_num', form.value.phonenumber);
+    formData.append('avatar_url', form.value.avatar_url);
+    formData.append('image', form.value.image);
+    await updateAccount(formData);
+}
 
-
+const onChange = (imageData: ChangeEvent<HTMLInputElement> | null) => {
+    form.value.image = imageData.target.files[0];
+    userImage.value = URL.createObjectURL(imageData.target.files[0]);
 }
 
 </script>
@@ -57,8 +65,19 @@ async function handleUpdateAccount() {
                     <v-col class="d-flex align-center">
                         <v-row>
                             <v-col cols="12" class="pl-4">
-                                <v-btn class="ml-2 mt-4" color="green" max-width="300">Upload New Photo</v-btn>
-                                <v-btn class="ml-2 mt-4" color="white" max-width="150">Reset</v-btn>
+                                <v-file-input
+                                              label="Upload your image"
+                                              rounded="lg"
+                                              clearable
+                                              show-size
+                                              class="w-75"
+
+                                              accept="image/jpeg,image/png"
+                                              variant="outlined"
+                                              @change="onChange"
+                                              style="min-width: 50%">
+
+                                </v-file-input>
                             </v-col>
                             <v-col class="ml-9">
                                 <p>Allowed PNG, JPG. Max size is 800k</p>
@@ -75,21 +94,11 @@ async function handleUpdateAccount() {
                 <v-row>
                     <v-col :cols="mdAndUp?'':12">
                         <v-row>
-                            <v-col>
-                                <v-text-field
-                                    v-model="form.firstname"
-                                    label="First Name"
-                                    type="text"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
                             <v-col cols="12">
                                 <v-text-field
                                     v-model="form.email"
                                     label="Email"
+                                    :disabled="isblock"
                                     type="email"
                                     clearable
                                     rounded="lg"
@@ -102,28 +111,7 @@ async function handleUpdateAccount() {
                                     v-model="form.phonenumber"
                                     label="Phone Number"
                                     type="number"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field
-                                    v-model="form.state"
-                                    label="State"
-                                    type="text"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field
-                                    v-model="form.country"
-                                    label="Country"
-                                    type="text"
+                                    :disabled="isblock"
                                     clearable
                                     rounded="lg"
                                     variant="outlined"
@@ -137,42 +125,10 @@ async function handleUpdateAccount() {
                         <v-row>
                             <v-col cols="12">
                                 <v-text-field
-                                    v-model="form.lastname"
-                                    label="Last Name"
-                                    type="text"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field
-                                    v-model="form.organization"
-                                    label="Organization"
-                                    type="text"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field
                                     v-model="form.address"
                                     label="Address"
                                     type="text"
-                                    clearable
-                                    rounded="lg"
-                                    variant="outlined"
-                                    color="#d777ed"
-                                ></v-text-field>
-                            </v-col>
-                            <v-col cols="12">
-                                <v-text-field
-                                    v-model="form.zipcode"
-                                    label="Zip Code"
-                                    type="text"
+                                    :disabled="isblock"
                                     clearable
                                     rounded="lg"
                                     variant="outlined"
@@ -182,7 +138,9 @@ async function handleUpdateAccount() {
                             <v-col cols="12">
                                 <v-select
                                     label="Select"
+                                    v-model="form.language"
                                     :items="['English', 'Chinese', 'Vietnamese']"
+                                    :disabled="isblock"
                                     clearable
                                     rounded="lg"
                                     variant="outlined"
@@ -197,8 +155,8 @@ async function handleUpdateAccount() {
             <v-card-text>
                 <v-row>
                     <v-col>
-                        <v-btn class="ml-2" color="purple" max-width="150">Save Changes</v-btn>
-                        <v-btn class="ml-2" color="white" max-width="150">Reset</v-btn>
+                        <v-btn class="ml-2" color="purple" max-width="150" @click="handleUpdateAccount">Save Changes</v-btn>
+                        <v-btn class="ml-2" color="white" max-width="150" @click="()=>{isblock = !isblock}">{{isblock ? 'Edit': 'Cancel'}}</v-btn>
                     </v-col>
                 </v-row>
             </v-card-text>
