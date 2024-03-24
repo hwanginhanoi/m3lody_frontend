@@ -32,8 +32,6 @@ async function handleCreateNFT() {
 
     console.log(formData.get('musicFile'))
     await createNFT(formData);
-
-
 }
 
 const image = ref<File | null>(null)
