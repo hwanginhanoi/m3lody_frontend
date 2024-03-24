@@ -1,13 +1,37 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useDisplay} from "vuetify";
+import updateSecurity from "../../apis/updateAccount/updateSecurity.ts";
+// import router from "../plugins/router.ts";
 
 // Initializing reactive security object to store account security details
 const security = ref({
-    currentpassword: '',
-    newpassword: '',
-    confirmpassword: ''
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: ''
 });
+onMounted(async () => {
+    // Get user account security details
+    
+})
+
+async function handleUpdateSecurity() {
+    // Update user account security details
+    let formData = new FormData();
+    formData.append('currentPassword', security.value.currentPassword);
+    formData.append('newPassword', security.value.newPassword);
+    formData.append('confirmPassword', security.value.confirmPassword);
+    let result = await updateSecurity(formData);
+    if (result) {
+        router.push({path: '/dashboard'})
+    }else{
+        alert('Update failed');
+        router.push({path: '/dashboard'})
+    }
+
+
+}
+
 
 // Using the useDisplay function from Vuetify
 const {mdAndUp} = useDisplay();
@@ -25,7 +49,7 @@ const {mdAndUp} = useDisplay();
                             <v-col>
                                 <!-- Current Password Input -->
                                 <v-text-field
-                                    v-model="security.currentpassword"
+                                    v-model="security.currentPassword"
                                     label="Current Password"
                                     type="text"
                                     clearable
@@ -35,7 +59,7 @@ const {mdAndUp} = useDisplay();
                                 ></v-text-field>
                                 <!-- New Password Input -->
                                 <v-text-field
-                                    v-model="security.newpassword"
+                                    v-model="security.newPassword"
                                     label="New Password"
                                     type="text"
                                     clearable
@@ -51,7 +75,7 @@ const {mdAndUp} = useDisplay();
                             <v-col>
                                 <!-- Confirm Password Input -->
                                 <v-text-field
-                                    v-model="security.confirmpassword"
+                                    v-model="security.confirmPassword"
                                     label="Confirm Password"
                                     type="text"
                                     clearable
@@ -77,7 +101,7 @@ const {mdAndUp} = useDisplay();
                 <v-row>
                     <v-card-text>
                         <!-- Save Changes and Reset Buttons -->
-                        <v-btn class="ml-2" color="purple" max-width="150">Save Changes</v-btn>
+                        <v-btn class="ml-2" color="purple" max-width="150" @click="handleUpdateSecurity">Save Changes</v-btn>
                         <v-btn class="ml-2" color="white" max-width="150">Reset</v-btn>
                     </v-card-text>
                 </v-row>

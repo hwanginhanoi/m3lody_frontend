@@ -34,8 +34,6 @@ const tab = ref(1);
                 <v-tab :value="1">Account</v-tab>
                 <!-- Tab for Security -->
                 <v-tab :value="2">Security</v-tab>
-                <!-- Tab for Payment -->
-                <v-tab :value="3">Payment</v-tab>
             </v-tabs>
             <!-- Window for displaying tab content -->
             <v-window v-model="tab">
@@ -59,10 +57,6 @@ const tab = ref(1);
                     <AccountSecurity/>
                 </v-window-item>
 
-                <!-- Window item for Account Payment -->
-                <v-window-item :value="3">
-                    <AccountPayment/>
-                </v-window-item>
             </v-window>
         </v-card>
     </v-main>
