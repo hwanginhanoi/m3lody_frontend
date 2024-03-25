@@ -121,7 +121,6 @@ async function handleCheck(token_id:any, music_id:any){
                     {{ checkResult }}
                 </div>
             </v-card>
-
         </v-container>
     </v-main>
 </template>

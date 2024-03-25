@@ -101,9 +101,9 @@ async function handlePurchase() {
                             <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>
                         <v-card-text>
-                            <audio controls :src="music_url">
+                            <audio controls :src="product.music_url">
                                 <source
-                                    :src="music_url"
+                                    :src="product.music_url"
                                     type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
