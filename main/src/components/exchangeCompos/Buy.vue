@@ -96,7 +96,7 @@ async function updateWallet() {
                         </div>
                         <div v-else>
                             <p>MetaMask has been install.</p>
-                            <v-btn width="100%" class="bg-green" @click="async () => {await connectMetaMask(); await updateWallet();}">Kết nối MetaMask</v-btn>
+                            <v-btn width="100%" class="bg-green" @click="async () => {await connectMetaMask(); await updateWallet();}">Connect to MetaMask</v-btn>
                         </div>
                     </v-card>
                 </v-card-text>
