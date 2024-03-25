@@ -51,7 +51,7 @@ async function updateWallet() {
     let formdata = new FormData();
     let formdata2 = new FormData();
     formdata.append('wallet_address', userAccount.value);
-    formdata2.append('balance', balance.value);
+    formdata2.append('balance', balance2.value);
     console.log(userAccount.value);
     if (walletInfo.value < 1){
         let result = await postWallet(formdata);
@@ -95,7 +95,7 @@ async function updateWallet() {
                             <p>Please install Metamask to continue</p>
                         </div>
                         <div v-else>
-                            <p>MetaMask đã được cài đặt.</p>
+                            <p>MetaMask has been install.</p>
                             <v-btn width="100%" class="bg-green" @click="async () => {await connectMetaMask(); await updateWallet();}">Kết nối MetaMask</v-btn>
                         </div>
                     </v-card>
