@@ -15,8 +15,6 @@ function cal_width() { // Measure differ width for each page
 
 let width_cal = ref('');
 width_cal.value = cal_width() as string
-console.log(width_cal)
-console.log(route.path);
 </script>
 <template>
 <!--Assign card attr to vue element-->

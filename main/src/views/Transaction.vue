@@ -119,7 +119,7 @@ let header: Array<Object> = [
                     {{ item.music_id }}
                 </template>
                 <template v-slot:item.price="{ item }">
-                    {{ item.transaction_amount }}$
+                    {{ item.transaction_amount }}
                 </template>
                 <template v-slot:item.from="{ item }">
                     {{ item.buyer_id }}
