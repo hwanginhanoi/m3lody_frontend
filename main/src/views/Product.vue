@@ -5,13 +5,17 @@ import nft from "../apis/marketplace/nft.ts";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
+import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
 const product = ref([]);
 const route = useRoute()
 const {id} = route.params
 console.log(id);
+
 // Get item id from previous page
 let theNFT = ref([]);
 let music_url = ref('');
+import purchase from "../apis/purchase/purchase.ts";
+
 
 onMounted(async () => {
     if (!checkCookieExists()) {
@@ -24,6 +28,16 @@ onMounted(async () => {
         console.log(music_url.value);
     }
 })
+
+async function handlePurchase() {
+    let userinfor = {
+        productId : id,
+        price : product.value.price
+        name: product.value.title,
+
+    };
+    await purchase()
+}
 
 </script>
 
