@@ -116,9 +116,11 @@ async function handleCheck(token_id:any, music_id:any){
                     {{ item.transaction_date }}
                 </template>
             </v-data-table>
-            <p>
-                {{ checkResult}}
-            </p>
+            <v-card>
+                <div class="mb-2" style="text-align: center;">
+                    {{ checkResult }}
+                </div>
+            </v-card>
 
         </v-container>
     </v-main>
