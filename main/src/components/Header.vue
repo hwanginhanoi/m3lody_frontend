@@ -9,7 +9,7 @@ import accountDetails from "../apis/account/accountDetail.ts";
 import {onMounted} from "vue";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import therouter from "../plugins/router.ts";
-
+import {ethers} from "ethers";
 
 const theme = useTheme()
 
@@ -26,15 +26,43 @@ const {mdAndUp} = useDisplay()
 let username = ref('')
 let avatar = ref('')
 let userID = ref('')
-let balance = ref({coin: 0, usd: 0, eth: 0})
+let balance = ref('')
+let balance2 = ref('')
+let balance3 = ref('')
+let isMetaMaskInstalled = ref(false);
 let walletAddress = ref('')
+let provider = ref();
 
+async function connectMetaMask() {
+    try {
+        // await provider.value.ready;
+        let account = await provider.value.send('eth_requestAccounts', []);
+        balance.value = await provider.value.send('eth_getBalance', [account[0]]);
+        balance2.value = ethers.utils.formatEther(balance.value);
+        userAccount.value = account[0];
+        alert('Connected to MetaMask ' + account[0]);
+        console.log(userAccount.value);
+        console.log(balance2);
+    } catch (error) {
+        console.error(error);
+        alert('Failed to connect to MetaMask');
+    }
+}
 
 //wallet information
 let walletInfo = ref()
 let accountInfo = ref()
 onMounted(async () => {
     if (useRoute().name !== "Index") {
+        if (typeof window.ethereum !== 'undefined') {
+            isMetaMaskInstalled.value = true;
+            provider.value = new ethers.providers.Web3Provider(window.ethereum);
+            let account = await provider.value.send('eth_requestAccounts', []);
+            balance.value = await provider.value.send('eth_getBalance', [account[0]]);
+            balance2.value = ethers.utils.formatEther(balance.value);
+            console.log(typeof balance2.value)
+        }
+
         walletInfo.value = await getWalletInfor()
         accountInfo.value = await accountDetails()
 
@@ -44,6 +72,7 @@ onMounted(async () => {
         // balance.value.usd = walletInfo.value[0].usd_balance
         // balance.value.eth = walletInfo.value[0].eth_balance
         walletAddress.value = walletInfo.value[0].wallet_address
+        balance3.value = parseFloat(balance2.value).toFixed(3)
 
         console.log(username.value)
         console.log(avatar.value)
@@ -52,7 +81,6 @@ onMounted(async () => {
 
 
 });
-
 
 
 const menu = ref(false)
@@ -85,7 +113,7 @@ async function handleLogout() {
     >
 
         <v-list density="compact" class="d-flex flex-column h100 rounded-list mt-5">
-<!--            profile icon-->
+            <!--            profile icon-->
             <v-list-item
                 to="/profile"
                 :prepend-avatar="avatar"
@@ -114,7 +142,7 @@ async function handleLogout() {
         <template v-slot:append>
             <div>
                 <v-list density="compact" class="d-flex flex-column">
-<!--                    switches for darkmode/lightmode-->
+                    <!--                    switches for darkmode/lightmode-->
                     <v-switch
                         v-model="isDarkTheme"
                         hide-details
@@ -124,7 +152,8 @@ async function handleLogout() {
                         id="dark-mode-switch"
                         class="mx-auto">
                     </v-switch>
-                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout" to="/index" @click="handleLogout">Logout
+                    <v-btn variant="plain" rounded="xl" prepend-icon="mdi-logout" title="Logout" value="logout"
+                           to="/index" @click="handleLogout">Logout
                     </v-btn>
                 </v-list>
             </div>
@@ -167,7 +196,7 @@ async function handleLogout() {
                        elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                 >
-                    <div v-if="mdAndUp">{{ balance.coin }} ETH</div>
+                    <div v-if="mdAndUp">{{ balance3 }} ETH</div>
                 </v-btn>
             </template>
             <v-card min-width="300px" rounded="lg" class="mt-2" width="400px" min-height="100px">
@@ -180,7 +209,7 @@ async function handleLogout() {
                         </v-row>
                         <v-row class="mb-2">
                             <v-col>
-                                <p><span class="usdtext font-weight-bold">{{ balance.eth }} ETH </span></p>
+                                <p><span class="usdtext font-weight-bold">{{ balance3 }} ETH </span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
                             </v-col>
                             <v-col>
@@ -210,8 +239,8 @@ async function handleLogout() {
                 </v-divider>
             </v-card>
         </v-menu>
-<!--        cart features-->
-        
+        <!--        cart features-->
+
 
         <v-menu
             v-model="menu"
@@ -219,7 +248,7 @@ async function handleLogout() {
             location="bottom"
             v-if="mdAndUp && checkRoute()"
         >
-<!--            account icons-->
+            <!--            account icons-->
             <template v-slot:activator="{ props }">
                 <v-btn icon="mdi-account"
                        v-bind="props"
@@ -255,7 +284,8 @@ async function handleLogout() {
                             <span class="switchLabel">{{ isDarkTheme ? 'Dark Mode' : 'Light Mode' }}</span>
                         </template>
                     </v-switch>
-                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout" @click="handleLogout"></v-list-item>
+                    <v-list-item to="/index" prepend-icon="mdi-logout" title="Logout"
+                                 @click="handleLogout"></v-list-item>
                 </v-list>
             </v-card>
         </v-menu>

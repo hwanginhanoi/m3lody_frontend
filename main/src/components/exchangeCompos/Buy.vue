@@ -4,6 +4,7 @@ import {ethers} from "ethers";
 import postWallet from "../../apis/wallet/postWallet.ts";
 import getWalletInfor from "../../apis/wallet/getWalletInfor.ts";
 import updateTheWallet from "../../apis/wallet/updateWallet.ts";
+import updateBalance from "../../apis/wallet/updateBalance.ts";
 
 // Define reactive variables
 let show = ref(false); // Boolean flag for controlling visibility
@@ -18,6 +19,8 @@ let isMetaMaskInstalled = ref(false);
 let provider = ref();
 let userAccount = ref();
 let walletInfo = ref();
+let balance = ref();
+let balance2 = ref();
 
 onMounted(async () => {
     // Check if MetaMask is installed
@@ -32,9 +35,12 @@ async function connectMetaMask() {
     try {
         // await provider.value.ready;
         let account = await provider.value.send('eth_requestAccounts', []);
+        balance.value = await provider.value.send('eth_getBalance', [account[0]]);
+        balance2.value = ethers.utils.formatEther(balance.value);
         userAccount.value = account[0];
         alert('Connected to MetaMask ' + account[0]);
         console.log(userAccount.value);
+        console.log(balance2);
     } catch (error) {
         console.error(error);
         alert('Failed to connect to MetaMask');
@@ -43,10 +49,13 @@ async function connectMetaMask() {
 // Function to update wallet
 async function updateWallet() {
     let formdata = new FormData();
+    let formdata2 = new FormData();
     formdata.append('wallet_address', userAccount.value);
+    formdata2.append('balance', balance2.value);
     console.log(userAccount.value);
     if (walletInfo.value < 1){
         let result = await postWallet(formdata);
+        await updateBalance(formdata2);
         if (result) {
             alert('Wallet added successfully');
             window.location.reload();
@@ -55,6 +64,7 @@ async function updateWallet() {
         }
     }else{
         let result = await updateTheWallet(formdata);
+        await updateBalance(formdata2);
         if (result) {
             alert('Wallet updated successfully');
             window.location.reload();
@@ -85,7 +95,7 @@ async function updateWallet() {
                             <p>Please install Metamask to continue</p>
                         </div>
                         <div v-else>
-                            <p>MetaMask đã được cài đặt.</p>
+                            <p>MetaMask has been install.</p>
                             <v-btn width="100%" class="bg-green" @click="async () => {await connectMetaMask(); await updateWallet();}">Kết nối MetaMask</v-btn>
                         </div>
                     </v-card>

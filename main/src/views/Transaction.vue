@@ -71,8 +71,8 @@ onMounted(async () => {
 // ];
 // Table header config
 let header: Array<Object> = [
-    {title: 'ID', key: 'id', align: 'center'},
-    {title: 'Price', key: 'price', align: 'center'},
+    {title: 'NFT_ID', key: 'id', align: 'center'},
+    {title: 'Transaction Hash', key: 'price', align: 'center'},
     {title: 'From', key: 'from', align: 'center'},
     {title: 'To', key: 'to', align: 'center'},
     {title: 'Date', key: 'date', align: 'center'},
@@ -83,28 +83,6 @@ let header: Array<Object> = [
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
         <v-container class="mb-16" style="padding-right: 2em; max-width: 95vw">
             <h1 style="text-align: center">Transaction</h1>
-            <v-row align="end">
-                <v-spacer></v-spacer>
-                <v-col cols="auto">
-                    <v-btn
-                        prepend-icon=" mdi-pencil"
-                        color="blue-grey"
-
-                        rounded-lg="xl"
-                    >Report
-                    </v-btn>
-                </v-col>
-                <v-col cols="auto">
-                    <v-btn
-                        prepend-icon="mdi-plus"
-                        color="success"
-
-                        rounded-lg="xl"
-                    >NFT LIST
-                    </v-btn
-                    >
-                </v-col>
-            </v-row>
             <!-- Data table defined from items data set -->
             <v-data-table
                 :headers="header"
@@ -119,7 +97,7 @@ let header: Array<Object> = [
                     {{ item.music_id }}
                 </template>
                 <template v-slot:item.price="{ item }">
-                    {{ item.transaction_amount }}
+                    {{ item.token_id }}$
                 </template>
                 <template v-slot:item.from="{ item }">
                     {{ item.buyer_id }}
