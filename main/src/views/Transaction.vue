@@ -5,8 +5,10 @@ import { ref } from "vue";
 import { onMounted } from "vue";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
+import check from "../apis/check/check.ts";
 // Fetch data from API
 let items = ref([]);
+let checkResult = ref();
 onMounted(async () => {
     // Fetch users data
     if (checkCookieExists()){
@@ -78,6 +80,10 @@ let header: Array<Object> = [
     {title: 'Date', key: 'date', align: 'center'},
 ]
 
+async function handleCheck(token_id:any, music_id:any){
+    checkResult.value = await check(token_id, music_id);
+    console.log('hello')
+}
 </script>
 <template>
     <v-main :style="{ background: $vuetify.theme.global.current.colors.background}" class="">
@@ -98,6 +104,7 @@ let header: Array<Object> = [
                 </template>
                 <template v-slot:item.price="{ item }">
                     {{ item.token_id }}
+                    <v-btn @click="()=>{handleCheck(item.token_id, item.music_id)}">view</v-btn>
                 </template>
                 <template v-slot:item.from="{ item }">
                     {{ item.buyer_id }}
@@ -109,6 +116,10 @@ let header: Array<Object> = [
                     {{ item.transaction_date }}
                 </template>
             </v-data-table>
+            <p>
+                {{ checkResult}}
+            </p>
+
         </v-container>
     </v-main>
 </template>
