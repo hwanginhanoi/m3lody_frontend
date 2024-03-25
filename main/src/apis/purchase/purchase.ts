@@ -1,11 +1,19 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData.ts';
-async function purchase({}){
+async function purchase(id:string, price:number, title:string, author:string, buyer:string, seller:string){
     let url = "http://localhost:3001/purchase";
     try{
         const response = await fetch(url,{
             method: 'POST',
-            body: formData
+            body: JSON.stringify({
+                id,
+                price,
+                title,
+                author,
+                buyer,
+                seller
+
+            })
 
         });
 

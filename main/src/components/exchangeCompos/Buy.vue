@@ -49,6 +49,7 @@ async function updateWallet() {
         let result = await postWallet(formdata);
         if (result) {
             alert('Wallet added successfully');
+            window.location.reload();
         }else{
             alert('Failed to add wallet');
         }
@@ -56,6 +57,7 @@ async function updateWallet() {
         let result = await updateTheWallet(formdata);
         if (result) {
             alert('Wallet updated successfully');
+            window.location.reload();
         }else{
             alert('Failed to update wallet');
         }

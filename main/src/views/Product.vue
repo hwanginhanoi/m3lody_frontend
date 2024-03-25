@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
-import {onBeforeMount, ref} from "vue";
+import {h, onBeforeMount, ref} from "vue";
 import nft from "../apis/marketplace/nft.ts";
 import checkCookieExists from "../ultilities/checkCookieExists.ts";
 import router from "../plugins/router.ts";
 import {onMounted} from "vue";
 import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
+import getOwnerNFTWID from "../apis/wallet/getOwnerNFTWID.ts";
+import postTransactions from "../apis/transactions/postTransactions.ts";
 const product = ref([]);
 const route = useRoute()
 const {id} = route.params
@@ -15,6 +17,8 @@ console.log(id);
 let theNFT = ref([]);
 let music_url = ref('');
 import purchase from "../apis/purchase/purchase.ts";
+let sellerWallet = ref([]);
+let buyerWallet = ref([]);
 
 
 onMounted(async () => {
@@ -23,6 +27,8 @@ onMounted(async () => {
     }
     else {
         theNFT.value = await nft(id);
+        buyerWallet.value = await getWalletInfor();
+        sellerWallet.value = await getOwnerNFTWID(id);
         product.value = theNFT.value[0];
         music_url.value = product.value.music_url;
         console.log(music_url.value);
@@ -30,13 +36,26 @@ onMounted(async () => {
 })
 
 async function handlePurchase() {
-    let userinfor = {
-        productId : id,
-        price : product.value.price
-        name: product.value.title,
+        // productId  =  id,
+        // price  =  product.value.price,
+        // name =  product.value.title,
+        // author  =  product.value.author,
+        // buyer =  buyerWallet.value[0].wallet_address,
+        // seller =  sellerWallet.value[0].wallet_address
 
-    };
-    await purchase()
+    let hashCode = await purchase(id as string, product.value.price, product.value.title, product.value.author, buyerWallet.value[0].wallet_address, sellerWallet.value[0].wallet_address);
+    let formData = new FormData();
+    formData.append('seller_id', product.value.owner_id)
+    formData.append('music_id', id);
+    formData.append('hashCode', hashCode);
+
+    let result = await postTransactions(formData);
+    if (result) {
+        alert('Purchase success');
+    } else {
+        alert('Purchase failed');
+    }
+    await router.push({path: '/dashboard'});
 }
 
 </script>
@@ -87,7 +106,7 @@ async function handlePurchase() {
                             </v-row>
                             <v-row>
                                 <v-col>
-                                    <v-btn class="" style="width: 100%; background-color:#2081E2">Buy now</v-btn>
+                                    <v-btn class="" style="width: 100%; background-color:#2081E2" @click="handlePurchase">Buy now</v-btn>
                                 </v-col>
                             </v-row>
                         </v-card-item>
