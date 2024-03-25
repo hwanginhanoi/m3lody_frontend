@@ -1,32 +1,29 @@
 // import axios from 'axios';
 import responseData from '../../interfaces/responseData.ts';
-async function purchase(id:string, price:number, title:string, author:string, buyer:string, seller:string){
+
+async function purchase(input: string) {
     let url = "http://localhost:3001/purchase";
-    try{
-        const response = await fetch(url,{
+
+    try {
+
+        const response = await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
             method: 'POST',
-            body: JSON.stringify({
-                id,
-                price,
-                title,
-                author,
-                buyer,
-                seller
-
-            })
-
+            body: input
         });
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const responseFromServer: responseData = await response.json();
-        if (!responseFromServer.success){
+        if (!responseFromServer.success) {
             throw new Error("Can't retrieve data");
         }
         return responseFromServer.data;
 
-    }catch(error){
+    } catch (error) {
     }
 }
 

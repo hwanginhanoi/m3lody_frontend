@@ -8,15 +8,18 @@ import {onMounted} from "vue";
 import getWalletInfor from "../apis/wallet/getWalletInfor.ts";
 import getOwnerNFTWID from "../apis/wallet/getOwnerNFTWID.ts";
 import postTransactions from "../apis/transactions/postTransactions.ts";
+
 const product = ref([]);
 const route = useRoute()
-const {id} = route.params
-console.log(id);
+const {id} = route.params;
 
 // Get item id from previous page
 let theNFT = ref([]);
 let music_url = ref('');
+
 import purchase from "../apis/purchase/purchase.ts";
+import {toString} from "apexcharts";
+
 let sellerWallet = ref([]);
 let buyerWallet = ref([]);
 
@@ -24,26 +27,45 @@ let buyerWallet = ref([]);
 onMounted(async () => {
     if (!checkCookieExists()) {
         await router.push('/login');
-    }
-    else {
+    } else {
         theNFT.value = await nft(id);
         buyerWallet.value = await getWalletInfor();
-        sellerWallet.value = await getOwnerNFTWID(id);
+
+
         product.value = theNFT.value[0];
-        music_url.value = product.value.music_url;
-        console.log(music_url.value);
+        let owner_id = product.value.owner_id;
+        console.log(product.value.price);
+        sellerWallet = await getOwnerNFTWID(parseInt(owner_id));
+        console.log(sellerWallet.data[0].wallet_address);
+
     }
 })
 
 async function handlePurchase() {
-        // productId  =  id,
-        // price  =  product.value.price,
-        // name =  product.value.title,
-        // author  =  product.value.author,
-        // buyer =  buyerWallet.value[0].wallet_address,
-        // seller =  sellerWallet.value[0].wallet_address
+    // productId  =  id,
+    // price  =  product.value.price,
+    // name =  product.value.title,
+    // author  =  product.value.author,
+    let buyer = buyerWallet.value[0].wallet_address;
+    console.log(typeof buyer);
+    // seller =  sellerWallet.value[0].wallet_address
+    console.log("productId:", id);
+    console.log("price:", product.value.price);
+    console.log("title:", product.value.title);
+    console.log("author:", product.value.author);
+    console.log("buyer address:", buyerWallet.value[0].wallet_address);
+    console.log("seller address:", sellerWallet.data[0].wallet_address);
+    const jsonInput: JSON = {
+        "productId": id.toString(), // Assuming id is a variable containing the product ID
+        "name": product.value.title.toString(), // Assuming product.value.title is the product title
+        "author": product.value.author.toString(), // Assuming product.value.author is the author
+        "price": product.value.price.toString(), // Assuming product.value.price is the price
+        "buyer": buyer,
+        "seller": sellerWallet.data[0].wallet_address // Assuming sellerWallet.data[0].wallet_address is the seller's wallet address
+    };
 
-    let hashCode = await purchase(id as string, product.value.price, product.value.title, product.value.author, buyerWallet.value[0].wallet_address, sellerWallet.value[0].wallet_address);
+    console.log(JSON.stringify(jsonInput))
+    let hashCode = await purchase(JSON.stringify(jsonInput));
     let formData = new FormData();
     formData.append('seller_id', product.value.owner_id)
     formData.append('music_id', id);
@@ -61,8 +83,8 @@ async function handlePurchase() {
 </script>
 
 <template>
-<!--    Assign item's data for content in page, from product-->
-    <v-main :style="{ background: $vuetify.theme.global.current.colors.background }" >
+    <!--    Assign item's data for content in page, from product-->
+    <v-main :style="{ background: $vuetify.theme.global.current.colors.background }">
         <v-container class="mb-16">
             <v-row>
                 <v-col class="v-col-5">
@@ -73,7 +95,8 @@ async function handlePurchase() {
                 <v-col class="v-col-7">
                     <v-card style="border-radius: 10px">
 
-                        <v-card-text><h1>{{ product.title }}</h1><br> by <strong>{{ product.author }}</strong></v-card-text> <!--    Assign product name-->
+                        <v-card-text><h1>{{ product.title }}</h1><br> by <strong>{{ product.author }}</strong>
+                        </v-card-text> <!--    Assign product name-->
                         <v-card-text>
                             <p>{{ product.description }}</p> <!-- Assign product description -->
                         </v-card-text>
@@ -106,7 +129,9 @@ async function handlePurchase() {
                             </v-row>
                             <v-row>
                                 <v-col>
-                                    <v-btn class="" style="width: 100%; background-color:#2081E2" @click="handlePurchase">Buy now</v-btn>
+                                    <v-btn class="" style="width: 100%; background-color:#2081E2"
+                                           @click="handlePurchase">Buy now
+                                    </v-btn>
                                 </v-col>
                             </v-row>
                         </v-card-item>
