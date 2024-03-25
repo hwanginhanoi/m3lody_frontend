@@ -26,7 +26,7 @@ const {mdAndUp} = useDisplay()
 let username = ref('')
 let avatar = ref('')
 let userID = ref('')
-let balance = ref({coin: 0, usd: 0, eth: 0})
+let balance = ref('')
 let walletAddress = ref('')
 
 
@@ -44,6 +44,7 @@ onMounted(async () => {
         // balance.value.usd = walletInfo.value[0].usd_balance
         // balance.value.eth = walletInfo.value[0].eth_balance
         walletAddress.value = walletInfo.value[0].wallet_address
+        balance.value = walletInfo.value[0].eth_balance
 
         console.log(username.value)
         console.log(avatar.value)
@@ -167,7 +168,7 @@ async function handleLogout() {
                        elevation="2"
                        :style="{ background: $vuetify.theme.global.current.colors.navbtn}"
                 >
-                    <div v-if="mdAndUp">{{ balance.coin }} ETH</div>
+                    <div v-if="mdAndUp">{{ balance }} ETH</div>
                 </v-btn>
             </template>
             <v-card min-width="300px" rounded="lg" class="mt-2" width="400px" min-height="100px">
@@ -180,7 +181,7 @@ async function handleLogout() {
                         </v-row>
                         <v-row class="mb-2">
                             <v-col>
-                                <p><span class="usdtext font-weight-bold">{{ balance.eth }} ETH </span></p>
+                                <p><span class="usdtext font-weight-bold">{{ balance }} ETH </span></p>
                                 <p class="mt-2 font-weight-light">Wallet balance</p>
                             </v-col>
                             <v-col>
