@@ -22,7 +22,7 @@ onMounted(async () => {
     userImage.value = accountInfor.value[0].avatar_url;
     form.value.avatar_url = accountInfor.value[0].avatar_url;
     form.value.email = accountInfor.value[0].email;
-    form.value.phonenumber = accountInfor.value[0].phone_num;
+    form.value.phone_num = accountInfor.value[0].phone_num;
     form.value.address = accountInfor.value[0].address;
     form.value.language = accountInfor.value[0].language;
 
@@ -37,7 +37,7 @@ async function handleUpdateAccount() {
     formData.append('address', form.value.address);
     formData.append('language', form.value.language);
     formData.append('email', form.value.email);
-    formData.append('phone_num', form.value.phonenumber);
+    formData.append('phone_num', form.value.phone_num);
     formData.append('avatar_url', form.value.avatar_url);
     formData.append('image', form.value.image);
     let result = await updateAccount(formData);
@@ -116,7 +116,7 @@ const onChange = (imageData: ChangeEvent<HTMLInputElement> | null) => {
                             </v-col>
                             <v-col cols="12">
                                 <v-text-field
-                                    v-model="form.phonenumber"
+                                    v-model="form.phone_num"
                                     label="Phone Number"
                                     type="number"
                                     :disabled="isblock"

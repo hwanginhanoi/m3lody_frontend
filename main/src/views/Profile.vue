@@ -65,9 +65,6 @@ let randomCards = getRandomCards();
                 <v-tab :value="1">
                     Collected
                 </v-tab>
-                <v-tab :value="2">
-                    Created
-                </v-tab>
                 <v-tab :value="3">
                     About
                 </v-tab>
@@ -82,13 +79,6 @@ let randomCards = getRandomCards();
                         </v-row>
                     </v-card-text>
                 </v-window-item>
-
-                <v-window-item :value="2">
-                    <v-card-text class="d-flex justify-center">
-                        <p>You haven't created any NFT</p>
-                    </v-card-text>
-                </v-window-item>
-
                 <v-window-item :value="3" style="line-height: 30px">
                     <p>
                         <h3>

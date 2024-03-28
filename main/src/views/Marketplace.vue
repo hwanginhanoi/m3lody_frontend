@@ -51,7 +51,7 @@ async function handleSearch(){
         {
             if (form.value.title)
             {
-                if (data.value[i].title == form.value.title)
+                if (data.value[i].title.toLowerCase() == form.value.title.toLowerCase())
                 {
                     filtered.value.push(data.value[i]);
                 }
@@ -63,7 +63,7 @@ async function handleSearch(){
         {
             if (form.value.title)
             {
-                if (data.value[i].title == form.value.title)
+                if (data.value[i].title.toLowerCase() == form.value.title.toLowerCase())
                 {
                     filtered.value.push(data.value[i]);
                 }
